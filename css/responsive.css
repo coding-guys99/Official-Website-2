@@ -1,3 +1,16 @@
+@media (max-width: 768px){
+  html::before{
+    content: "≤768 active";
+    position: fixed; right: 8px; bottom: 8px;
+    background:#222; color:#fff; padding:4px 8px; border-radius:6px; font:12px/1 monospace;
+    z-index:9999; opacity:.6;
+  }
+}
+
+
+
+
+
 /* --- 全站基礎保險，先讓元素可縮 --- */
 img, video { max-width: 100%; height: auto; }
 .container { padding-left: 16px; padding-right: 16px; }
