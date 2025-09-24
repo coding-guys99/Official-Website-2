@@ -202,3 +202,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const toggle = document.getElementById('navToggle');
+  const links  = document.querySelector('.nav .nav-links');
+  if (!toggle || !links) return;
+  toggle.addEventListener('click', ()=>{
+    const open = !links.classList.contains('open');
+    links.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+});
