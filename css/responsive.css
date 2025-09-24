@@ -151,3 +151,21 @@
   .bm-footer-top { grid-template-columns: 1fr; text-align:center; gap: 20px; }
   .bm-foot-brand .tagline { margin: 0 auto; max-width: 28ch; }
 }
+
+@media (max-width: 768px){
+  .nav { grid-template-columns: auto auto 1fr; height: 60px; }
+  .nav-actions .bm-cta{ display:none; } /* 小螢幕隱藏 */
+  .nav-links.open .bm-cta{ display:inline-flex; margin-top:12px; }
+}
+
+@media (max-width: 768px){
+  .hero { grid-template-columns: 1fr; gap: 20px; padding: 60px 20px 40px; }
+  .hero-img img { max-width: 90%; margin: 0 auto; display:block; }
+  .hero h1, .hero p { text-align:center; }
+}
+
+@media (max-width: 768px){
+  .feature { grid-template-columns: 1fr; text-align:center; padding:40px 20px; }
+  .feature-img { margin-bottom: 20px; }
+  .cta-section { padding: 60px 20px; text-align:center; }
+}
