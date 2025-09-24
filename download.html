@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Download — KeySearch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!-- 全局 -->
+  <link rel="stylesheet" href="css/styles.css"/>
+  <!-- 共用頁面樣式 -->
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+<header class="site-header bm-header" role="banner">
+  <div class="container nav">
+    <!-- Brand -->
+    <a class="brand" href="index.html" aria-label="KeySearch home">
+      <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
+      <span class="brand-text">KeySearch</span>
+    </a>
+
+    <!-- Primary nav -->
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a role="menuitem" href="features.html">Features</a></li>
+      <li role="none"><a role="menuitem" href="download.html">Download</a></li>
+      <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+      <li role="none"><a role="menuitem" href="about.html">About</a></li>
+      <li role="none"><a role="menuitem" href="support.html">Support</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="nav-actions">
+      <div class="lang-dropdown">
+  <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 0c2.5 2.2 4 5.2 4 9s-1.5 6.8-4 9m0-18c-2.5 2.2-4 5.2-4 9s1.5 6.8 4 9M3 12h18" 
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span id="langCurrent">English</span>
+    <span class="caret">▾</span>
+  </button>
+
+  <ul class="lang-menu" id="langMenu" role="menu" aria-hidden="true">
+    <li role="menuitem" data-lang="en">English</li>
+    <li role="menuitem" data-lang="zh-tw">繁體中文</li>
+    <li role="menuitem" data-lang="zh-cn">简体中文</li>
+    <li role="menuitem" data-lang="ms">Bahasa Melayu</li>
+    <li role="menuitem" data-lang="ja">日本語</li>
+    <li role="menuitem" data-lang="ko">한국어</li>
+  </ul>
+</div>
+
+      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
+        <span class="emoji" aria-hidden="true">🚀</span> Try Web App
+      </a>
+    </div>
+  </div>
+</header>
+
+  <!-- ===== Main ===== -->
+  <main>
+    <!-- Hero -->
+    <section class="page-hero container reveal-on-scroll">
+      <h1>Download</h1>
+      <p class="lead">Get KeySearch for your favorite platform.</p>
+    </section>
+
+    <!-- Download grid -->
+    <section class="dl-grid container reveal-on-scroll">
+      <article class="dl-card" data-os="windows">
+        <h2>Windows</h2>
+        <p class="dl-ver">Version 1.0.1.0</p>
+        <a class="btn primary" href="assets/download/KeySearch_Setup.exe">Download EXE</a>
+        <p class="hash">SHA256: <code>abcd1234...</code></p>
+      </article>
+
+      <article class="dl-card" data-os="mac">
+        <h2>macOS</h2>
+        <p class="dl-ver">Version 1.0.1.0</p>
+        <a class="btn primary" href="assets/download/KeySearch.dmg">Download DMG</a>
+        <p class="hash">SHA256: <code>efgh5678...</code></p>
+      </article>
+
+      <article class="dl-card" data-os="linux">
+        <h2>Linux</h2>
+        <p class="dl-ver">Version 1.0.1.0</p>
+        <a class="btn primary" href="assets/download/KeySearch.AppImage">Download AppImage</a>
+        <p class="hash">SHA256: <code>ijkl9012...</code></p>
+      </article>
+    </section>
+
+    <!-- Web app note -->
+    <section class="dl-web container reveal-on-scroll">
+      <h2>Prefer the Web App?</h2>
+      <p>Run KeySearch in your browser — no installation needed.</p>
+      <a class="btn secondary" href="https://web.keysearch-app.com" target="_blank" rel="noopener">Open Web</a>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer bm-footer">
+  <div class="container bm-footer-top">
+    <!-- Brand -->
+    <div class="bm-foot-brand">
+      <a class="brand mini" href="index.html">
+        <span>KeySearch</span>
+      </a>
+      <p class="tagline">Find it. Fast.<br>No mess. Just answers.</p>
+    </div>
+
+    <!-- Links grid -->
+    <div class="bm-foot-links-grid">
+      <div>
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="download.html">Download</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="support.html">Help Center</a>
+        <a href="#">Docs</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="mailto:hello@keysearch-app.com">Contact</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Twitter</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="container bm-footer-bottom">
+    <div class="legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+    <small>© 2025 KeySearch. All rights reserved.</small>
+  </div>
+</footer>
+
+  <!-- JS -->
+  <script src="js/lang.js" defer></script>
+  <script src="js/reveal.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

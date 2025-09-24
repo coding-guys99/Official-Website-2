@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — KeySearch</title>
+  <meta name="description" content="KeySearch is a local-first, lightning-fast search tool for notes, files, and ideas. Find it. Fast. No mess. Just answers." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- 全局 -->
+  <link rel="stylesheet" href="css/styles.css"/>
+  <!-- 共用頁面樣式 -->
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+
+  <header class="site-header bm-header" role="banner">
+  <div class="container nav">
+    <!-- Brand -->
+    <a class="brand" href="index.html" aria-label="KeySearch home">
+      <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
+      <span class="brand-text">KeySearch</span>
+    </a>
+
+    <!-- Primary nav -->
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a role="menuitem" href="features.html">Features</a></li>
+      <li role="none"><a role="menuitem" href="download.html">Download</a></li>
+      <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+      <li role="none"><a role="menuitem" href="about.html">About</a></li>
+      <li role="none"><a role="menuitem" href="support.html">Support</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="nav-actions">
+      <div class="lang-dropdown">
+  <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 0c2.5 2.2 4 5.2 4 9s-1.5 6.8-4 9m0-18c-2.5 2.2-4 5.2-4 9s1.5 6.8 4 9M3 12h18" 
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span id="langCurrent">English</span>
+    <span class="caret">▾</span>
+  </button>
+
+  <ul class="lang-menu" id="langMenu" role="menu" aria-hidden="true">
+    <li role="menuitem" data-lang="en">English</li>
+    <li role="menuitem" data-lang="zh-tw">繁體中文</li>
+    <li role="menuitem" data-lang="zh-cn">简体中文</li>
+    <li role="menuitem" data-lang="ms">Bahasa Melayu</li>
+    <li role="menuitem" data-lang="ja">日本語</li>
+    <li role="menuitem" data-lang="ko">한국어</li>
+  </ul>
+</div>
+
+      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
+        <span class="emoji" aria-hidden="true">🚀</span> Try Web App
+      </a>
+    </div>
+  </div>
+</header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="page-hero container">
+      <h1>About KeySearch</h1>
+      <p class="lead">Find it. Fast. No mess. Just answers.</p>
+    </section>
+
+    <!-- Mission -->
+    <section class="container about-block reveal-on-scroll">
+      <h2>Mission</h2>
+      <p>
+        Help people find exactly what they need—across notes, files, and ideas—instantly,
+        without clutter, lock-in, or heavy cloud dependencies.
+      </p>
+    </section>
+
+    <!-- Differentiators -->
+    <section class="container about-grid reveal-on-scroll">
+      <article class="about-card">
+        <h3>Local-first</h3>
+        <p>Your data lives on your device (IndexedDB). Works offline. No account required.</p>
+      </article>
+      <article class="about-card">
+        <h3>Fast by design</h3>
+        <p>Indexed search with tags, filters, and global shortcuts—measured in milliseconds.</p>
+      </article>
+      <article class="about-card">
+        <h3>No lock-in</h3>
+        <p>Export to CSV/JSON. Share read-only collections when you need to collaborate.</p>
+      </article>
+      <article class="about-card">
+        <h3>Multi-language</h3>
+        <p>Switch UI instantly with i18n JSON. Ready for 17+ locales and counting.</p>
+      </article>
+    </section>
+
+    <!-- Privacy / Trust callout -->
+    <section class="container about-callout reveal-on-scroll">
+      <h3>Privacy & Transparency</h3>
+      <p>
+        KeySearch is privacy-first. We don’t sell data. Optional telemetry is off by default
+        and can be disabled anytime. Clear exports are built-in.
+      </p>
+      <div class="actions" style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a class="btn secondary" href="support.html#privacy">Read Privacy</a>
+        <a class="btn" href="news.html">Product Updates</a>
+      </div>
+    </section>
+
+    <!-- Contact / Press -->
+    <section class="container about-block reveal-on-scroll">
+      <h2>Contact</h2>
+      <p>
+        Press or partnership? Email
+        <a href="mailto:hello@keysearch-app.com">hello@keysearch-app.com</a>
+      </p>
+      <!-- 若未來提供素材可開放 -->
+      <!-- <p><a class="btn link" href="assets/press/press-kit.zip">Download Press Kit</a></p> -->
+    </section>
+
+  </main>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer bm-footer">
+  <div class="container bm-footer-top">
+    <!-- Brand -->
+    <div class="bm-foot-brand">
+      <a class="brand mini" href="index.html">
+        <span>KeySearch</span>
+      </a>
+      <p class="tagline">Find it. Fast.<br>No mess. Just answers.</p>
+    </div>
+
+    <!-- Links grid -->
+    <div class="bm-foot-links-grid">
+      <div>
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="download.html">Download</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="support.html">Help Center</a>
+        <a href="#">Docs</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="mailto:hello@keysearch-app.com">Contact</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Twitter</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="container bm-footer-bottom">
+    <div class="legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+    <small>© 2025 KeySearch. All rights reserved.</small>
+  </div>
+</footer>
+
+  <!-- 站內腳本（載入 partial header/footer、淡入動畫等） -->
+  <script src="js/lang.js" defer></script>
+  <script src="js/reveal.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+</body>
+</html>

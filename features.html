@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Features — KeySearch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!-- 全局 -->
+  <link rel="stylesheet" href="css/styles.css"/>
+  <!-- 共用頁面樣式 -->
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+<header class="site-header bm-header" role="banner">
+  <div class="container nav">
+    <!-- Brand -->
+    <a class="brand" href="index.html" aria-label="KeySearch home">
+      <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
+      <span class="brand-text">KeySearch</span>
+    </a>
+
+    <!-- Primary nav -->
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a role="menuitem" href="features.html">Features</a></li>
+      <li role="none"><a role="menuitem" href="download.html">Download</a></li>
+      <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+      <li role="none"><a role="menuitem" href="about.html">About</a></li>
+      <li role="none"><a role="menuitem" href="support.html">Support</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="nav-actions">
+      <div class="lang-dropdown">
+  <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 0c2.5 2.2 4 5.2 4 9s-1.5 6.8-4 9m0-18c-2.5 2.2-4 5.2-4 9s1.5 6.8 4 9M3 12h18" 
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span id="langCurrent">English</span>
+    <span class="caret">▾</span>
+  </button>
+
+  <ul class="lang-menu" id="langMenu" role="menu" aria-hidden="true">
+    <li role="menuitem" data-lang="en">English</li>
+    <li role="menuitem" data-lang="zh-tw">繁體中文</li>
+    <li role="menuitem" data-lang="zh-cn">简体中文</li>
+    <li role="menuitem" data-lang="ms">Bahasa Melayu</li>
+    <li role="menuitem" data-lang="ja">日本語</li>
+    <li role="menuitem" data-lang="ko">한국어</li>
+  </ul>
+</div>
+
+      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
+        <span class="emoji" aria-hidden="true">🚀</span> Try Web App
+      </a>
+    </div>
+  </div>
+</header>
+
+  <!-- ===== Main ===== -->
+  <main>
+    <section class="feat-hero container">
+  <h1>Features</h1>
+  <p class="lead">What makes KeySearch powerful and simple to use.</p>
+</section>
+
+<section class="feat-grid container">
+  <!-- 1 -->
+  <article class="feat-card">
+    <div class="icon-wrap">
+      <!-- 建議放 assets/icons/bolt.svg，先用占位 -->
+      <span class="icon">⚡</span>
+    </div>
+    <h3>Instant Results</h3>
+    <p>Search across notes, files, and tags in milliseconds.</p>
+  </article>
+
+  <!-- 2 -->
+  <article class="feat-card">
+    <div class="icon-wrap"><span class="icon">🏷️</span></div>
+    <h3>Smart Tags</h3>
+    <p>Multi-level tags, filters, and auto-complete for fast organization.</p>
+  </article>
+
+  <!-- 3 -->
+  <article class="feat-card">
+    <div class="icon-wrap"><span class="icon">📦</span></div>
+    <h3>Collections</h3>
+    <p>Group items by projects or contexts; share read-only views.</p>
+  </article>
+
+  <!-- 4 -->
+  <article class="feat-card">
+    <div class="icon-wrap"><span class="icon">⌨️</span></div>
+    <h3>Global Shortcuts</h3>
+    <p>Jump anywhere with one key combo. Command-palette built-in.</p>
+  </article>
+
+  <!-- 5 -->
+  <article class="feat-card">
+    <div class="icon-wrap"><span class="icon">🌐</span></div>
+    <h3>Multi-Language UI</h3>
+    <p>Switch languages instantly. Ready for 17+ locales.</p>
+  </article>
+
+  <!-- 6 -->
+  <article class="feat-card">
+    <div class="icon-wrap"><span class="icon">🔒</span></div>
+    <h3>Privacy-First</h3>
+    <p>Local-first with IndexedDB. Your data stays on your device.</p>
+  </article>
+
+  <!-- 7 -->
+  <article class="feat-card">
+    <div class="icon-wrap"><span class="icon">🔁</span></div>
+    <h3>Flexible Export</h3>
+    <p>Export to CSV/JSON, or share collections with your team.</p>
+  </article>
+
+  <!-- 8 -->
+  <article class="feat-card">
+    <div class="icon-wrap"><span class="icon">💻</span></div>
+    <h3>Web & Desktop</h3>
+    <p>Same experience on web and desktop. No learning curve.</p>
+  </article>
+</section>
+
+
+    <!-- Final CTA -->
+    <section class="cta container reveal-on-scroll">
+      <h2>Ready to try?</h2>
+      <p>Download KeySearch or use it instantly in your browser.</p>
+      <div class="cta-row">
+        <a href="download.html" class="btn primary">Download</a>
+        <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary">Open Web</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer bm-footer">
+  <div class="container bm-footer-top">
+    <!-- Brand -->
+    <div class="bm-foot-brand">
+      <a class="brand mini" href="index.html">
+        <span>KeySearch</span>
+      </a>
+      <p class="tagline">Find it. Fast.<br>No mess. Just answers.</p>
+    </div>
+
+    <!-- Links grid -->
+    <div class="bm-foot-links-grid">
+      <div>
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="download.html">Download</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="support.html">Help Center</a>
+        <a href="#">Docs</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="mailto:hello@keysearch-app.com">Contact</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Twitter</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="container bm-footer-bottom">
+    <div class="legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+    <small>© 2025 KeySearch. All rights reserved.</small>
+  </div>
+</footer>
+
+  <!-- JS -->
+  <script src="js/lang.js" defer></script>
+  <script src="js/reveal.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

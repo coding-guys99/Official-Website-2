@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Support — KeySearch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!-- 全局 -->
+  <link rel="stylesheet" href="css/styles.css"/>
+  <!-- 共用頁面樣式 -->
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+<header class="site-header bm-header" role="banner">
+  <div class="container nav">
+    <!-- Brand -->
+    <a class="brand" href="index.html" aria-label="KeySearch home">
+      <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
+      <span class="brand-text">KeySearch</span>
+    </a>
+
+    <!-- Primary nav -->
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a role="menuitem" href="features.html">Features</a></li>
+      <li role="none"><a role="menuitem" href="download.html">Download</a></li>
+      <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
+      <li role="none"><a role="menuitem" href="about.html">About</a></li>
+      <li role="none"><a role="menuitem" href="support.html">Support</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="nav-actions">
+      <div class="lang-dropdown">
+  <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 0c2.5 2.2 4 5.2 4 9s-1.5 6.8-4 9m0-18c-2.5 2.2-4 5.2-4 9s1.5 6.8 4 9M3 12h18" 
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span id="langCurrent">English</span>
+    <span class="caret">▾</span>
+  </button>
+
+  <ul class="lang-menu" id="langMenu" role="menu" aria-hidden="true">
+    <li role="menuitem" data-lang="en">English</li>
+    <li role="menuitem" data-lang="zh-tw">繁體中文</li>
+    <li role="menuitem" data-lang="zh-cn">简体中文</li>
+    <li role="menuitem" data-lang="ms">Bahasa Melayu</li>
+    <li role="menuitem" data-lang="ja">日本語</li>
+    <li role="menuitem" data-lang="ko">한국어</li>
+  </ul>
+</div>
+
+      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
+        <span class="emoji" aria-hidden="true">🚀</span> Try Web App
+      </a>
+    </div>
+  </div>
+</header>
+
+  <!-- ===== Main ===== -->
+  <main>
+    <!-- Hero -->
+    <section class="page-hero container reveal-on-scroll">
+      <h1>Support</h1>
+      <p class="lead">Find quick answers, or send us your feedback.</p>
+    </section>
+
+    <!-- Quick links -->
+    <section class="support-quick container reveal-on-scroll" aria-label="Quick help">
+      <a class="qk" href="download.html">Download</a>
+      <a class="qk" href="pricing.html">Billing & Plans</a>
+      <a class="qk" href="#faq">FAQ</a>
+      <a class="qk" href="#feedback">Contact</a>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq container reveal-on-scroll" aria-label="Frequently Asked Questions">
+      <h2>FAQ</h2>
+
+      <details class="faq-item" name="faq">
+        <summary>How do I install KeySearch?</summary>
+        <div class="answer">
+          Download from the <a href="download.html">Download page</a> and follow the installer.  
+          On macOS, you may need to allow apps from identified developers in System Settings.
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq">
+        <summary>Is the web app different from the desktop app?</summary>
+        <div class="answer">
+          Core features are the same. Desktop adds offline mode and local export.
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq">
+        <summary>How do I switch languages?</summary>
+        <div class="answer">
+          Use the language switcher in the top-right corner. More languages coming soon.
+        </div>
+      </details>
+    </section>
+
+    <!-- Feedback -->
+    <section id="feedback" class="feedback container reveal-on-scroll" aria-label="Send feedback">
+      <h2>Send us your feedback</h2>
+      <!-- 使用 JS 來組 mailto，可避免有些瀏覽器阻擋表單 mailto -->
+      <form id="feedbackForm" class="feedback-form" novalidate>
+        <div class="row2">
+          <label>
+            Your Name
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            Your Email
+            <input type="email" name="email" required>
+          </label>
+        </div>
+        <label>
+          Topic
+          <select name="topic">
+            <option value="general">General</option>
+            <option value="bug">Bug Report</option>
+            <option value="feature">Feature Request</option>
+            <option value="billing">Billing</option>
+          </select>
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+        <!-- 蜜罐（防機器） -->
+        <input type="text" name="website" class="honeypot" autocomplete="off" tabindex="-1" aria-hidden="true">
+        <div class="actions">
+          <button type="submit" class="btn primary">Send</button>
+          <a class="btn ghost" href="mailto:hello@keysearch-app.com">Open mail app</a>
+        </div>
+        <p class="tiny muted">We’ll reply to <strong>hello@keysearch-app.com</strong>. Your system won’t upload files.</p>
+      </form>
+
+      <!-- 成功提示 -->
+      <div id="toast" role="status" aria-live="polite" class="toast" hidden>Opening your email app…</div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer bm-footer">
+  <div class="container bm-footer-top">
+    <!-- Brand -->
+    <div class="bm-foot-brand">
+      <a class="brand mini" href="index.html">
+        <span>KeySearch</span>
+      </a>
+      <p class="tagline">Find it. Fast.<br>No mess. Just answers.</p>
+    </div>
+
+    <!-- Links grid -->
+    <div class="bm-foot-links-grid">
+      <div>
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="download.html">Download</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="support.html">Help Center</a>
+        <a href="#">Docs</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="mailto:hello@keysearch-app.com">Contact</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Twitter</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="container bm-footer-bottom">
+    <div class="legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+    <small>© 2025 KeySearch. All rights reserved.</small>
+  </div>
+</footer>
+
+  <!-- JS -->
+  <script src="js/lang.js" defer></script>
+  <script src="js/reveal.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
