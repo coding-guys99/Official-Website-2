@@ -123,3 +123,97 @@ img, video { max-width: 100%; height: auto; }
     flex-wrap: wrap;
   }
 }
+
+/* =========================
+   Footer – Responsive Fix
+   ========================= */
+
+/* 先保險，避免水平捲動被 footer 撐出 */
+.bm-footer { overflow-x: hidden; }
+
+/* 1280↓：從 5 欄縮到 3 欄，避免太擠 */
+@media (max-width: 1280px){
+  .bm-footer .bm-footer-top{
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 24px 32px;
+  }
+}
+
+/* 900↓：手機樣式，單欄置中堆疊 */
+@media (max-width: 900px){
+  .bm-footer .bm-footer-top{
+    grid-template-columns: 1fr !important; /* 強制單欄 */
+    justify-items: center;                  /* 內容置中 */
+    text-align: center;
+    gap: 18px;
+    padding: 28px 16px;
+  }
+
+  /* 品牌區塊（左欄）置中顯示，文案縮寬避免太長 */
+  .bm-foot-brand .brand.mini{
+    justify-content: center;
+  }
+  .bm-foot-brand .tagline{
+    max-width: 26ch; 
+    margin-inline: auto;
+  }
+
+  /* 中間四欄的連結：手機改為 2 欄網格，容易點 */
+  .bm-foot-links-grid{
+    display: grid; 
+    grid-template-columns: repeat(2, minmax(140px,1fr)); 
+    gap: 12px 20px; 
+    width: 100%;
+  }
+  .bm-foot-links-grid > *{ 
+    justify-self: center; 
+    text-align: left;      /* 區塊標題與連結仍左對齊比較好讀 */
+    width: 100%;
+    max-width: 260px;
+  }
+  .bm-foot-links-grid h4{ 
+    text-align: left; 
+    margin-bottom: 8px;
+  }
+  .bm-foot-links-grid a{ 
+    display: inline-block; 
+    padding: 4px 0; 
+    line-height: 1.35;
+  }
+
+  /* 375↓：超小螢幕就改為 1 欄，避免擠 */
+  @media (max-width: 375px){
+    .bm-foot-links-grid{ grid-template-columns: 1fr; }
+    .bm-foot-links-grid > *{ max-width: none; }
+  }
+
+  /* 底部法律列：改成上下堆疊置中 */
+  .bm-footer .bm-footer-bottom{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+  .bm-footer .bm-footer-bottom .legal{
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 6px 14px;
+    justify-content: center;
+  }
+  .bm-footer .bm-footer-bottom .legal a{ 
+    margin-right: 0; 
+    padding: 4px 0;
+  }
+}
+
+/* 觸控友好：連結點擊區大一點（不只 footer 可以共用） */
+@media (hover: none){
+  .bm-footer a{ padding: 4px 0; }
+}
+
+/* 避免超長網址/文字把版面撐爆 */
+.bm-footer a{ 
+  word-break: break-word; 
+  overflow-wrap: anywhere;
+}
