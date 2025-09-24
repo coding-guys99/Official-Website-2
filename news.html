@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>News – KeySearch</title>
+  <!-- 全局 -->
+  <link rel="stylesheet" href="css/styles.css"/>
+  <!-- 共用頁面樣式 -->
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+
+  <!-- Header（你現有那套） -->
+  <header class="site-header bm-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="" width="28" height="28" />
+        <span class="brand-text">KeySearch</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="features.html" data-i18n="nav.features">Features</a>
+        <a href="pricing.html" data-i18n="nav.pricing">Pricing</a>
+        <a href="download.html" data-i18n="nav.download">Download</a>
+        <a href="support.html" data-i18n="nav.support">Support</a>
+        <a class="active" href="news.html" data-i18n="nav.news">News</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- 語言下拉 -->
+        <div class="lang-dropdown">
+          <button class="lang-btn" id="langBtn" aria-haspopup="menu" aria-expanded="false" aria-controls="langMenu">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 0c2.5 2.2 4 5.2 4 9s-1.5 6.8-4 9m0-18c-2.5 2.2-4 5.2-4 9s1.5 6.8 4 9M3 12h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span id="langCurrent">English</span><span class="caret" aria-hidden="true">▾</span>
+          </button>
+          <ul class="lang-menu" id="langMenu" role="menu" aria-hidden="true"></ul>
+        </div>
+        <a class="bm-cta" href="download.html" data-i18n="download.cta.text" aria-label="Download">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page hero -->
+    <section class="page-hero container">
+      <h1 data-i18n="news.title">Product Updates</h1>
+      <p class="lead" data-i18n="news.lead">Quarterly highlights and release notes.</p>
+    </section>
+
+    <!-- 年份篩選（可選） -->
+    <section class="news-filter container">
+      <div class="chip-group" id="newsYearChips">
+        <button class="chip active" data-year="all" aria-pressed="true">All</button>
+        <button class="chip" data-year="2025">2025</button>
+        <button class="chip" data-year="2024">2024</button>
+      </div>
+    </section>
+
+    <!-- Updates Grid -->
+    <section class="news-grid container">
+      <!-- 一張卡 = 一次更新；用 data-year 方便篩選 -->
+      <article class="news-card" data-year="2025">
+        <div class="news-meta">
+          <span class="badge">v1.3.0</span>
+          <time datetime="2025-09-01">Sep 1, 2025</time>
+        </div>
+        <h2>New: Multi-language (17 languages)</h2>
+        <p>Interface and website now support 17 languages with instant switching. Keyboard hints localized.</p>
+        <ul class="news-list">
+          <li>Added language dropdown across pages</li>
+          <li>JSON-based i18n, easy to contribute</li>
+          <li>Improved SEO meta for localized content</li>
+        </ul>
+      </article>
+
+      <article class="news-card" data-year="2025">
+        <div class="news-meta">
+          <span class="badge">v1.2.0</span>
+          <time datetime="2025-06-10">Jun 10, 2025</time>
+        </div>
+        <h2>Performance: Faster indexing</h2>
+        <p>Index build times reduced by ~30% on large projects. Memory footprint improved.</p>
+        <ul class="news-list">
+          <li>Streaming tokenizer for large files</li>
+          <li>Incremental index rebuilds</li>
+          <li>Crash recovery on Windows</li>
+        </ul>
+      </article>
+
+      <article class="news-card" data-year="2024">
+        <div class="news-meta">
+          <span class="badge">v1.1.0</span>
+          <time datetime="2024-12-15">Dec 15, 2024</time>
+        </div>
+        <h2>New: CSV export & better filters</h2>
+        <p>Export results to CSV; refine searches by type, date, and path. New UI polish for dark mode.</p>
+        <ul class="news-list">
+          <li>CSV export in one click</li>
+          <li>Filter presets (code / docs / media)</li>
+          <li>Keyboard: <kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd> quick search</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta container">
+      <h2 data-i18n="news.ctaTitle">Want to try the latest?</h2>
+      <p class="sub" data-i18n="news.ctaSub">Download the newest build or open the web version.</p>
+      <div class="actions">
+        <a class="btn primary" href="download.html" data-i18n="download.cta.text">Download</a>
+        <a class="btn secondary" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="download.web">Open Web</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer（你現有那套） -->
+  <footer class="site-footer bm-footer">
+    <div class="container">
+      <!-- 你現在那個豐富 footer 結構即可 -->
+      <div class="bm-footer-top">
+        <div class="bm-foot-brand">
+          <a class="brand mini" href="index.html"><img src="assets/logo.svg" alt="" width="22" height="22"/><span>KeySearch</span></a>
+          <p class="tagline">Find it. Fast. No mess. Just answers.</p>
+        </div>
+        <div class="bm-foot-links-grid">
+          <div>
+            <h4>Product</h4>
+            <a href="features.html">Features</a>
+            <a href="download.html">Download</a>
+            <a href="pricing.html">Pricing</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="news.html" class="active">News</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="support.html">Help & FAQ</a>
+            <a href="support.html#feedback">Feedback</a>
+          </div>
+          <div>
+            <h4>Follow</h4>
+            <a href="#" aria-disabled="true">Twitter / X</a>
+            <a href="#" aria-disabled="true">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="bm-footer-bottom">
+        <div class="legal">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+        <div>© <span id="yearNow"></span> KeySearch</div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- JS -->
+  <script src="js/lang.js" defer></script>
+  <script src="js/reveal.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+  <script>
+    // footer 年份
+    document.getElementById('yearNow').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
