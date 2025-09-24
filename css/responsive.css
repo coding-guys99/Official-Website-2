@@ -179,7 +179,7 @@ img { max-width: 100%; height: auto; }
 /* ========== 語言下拉（多欄） ========== */
 .lang-menu{
   /* 兩欄網格：避免長長一條，也不需要滾動條 */
-  display: grid;
+  display: none;
   grid-template-columns: repeat(2, minmax(100px, 1fr));
   gap: 6px 16px;
   min-width: 240px;
