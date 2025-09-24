@@ -216,3 +216,36 @@ document.addEventListener('DOMContentLoaded', ()=>{
     toggle.setAttribute('aria-expanded', String(open));
   });
 });
+
+// === Mobile nav toggle ===
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const links  = document.querySelector('.nav-links');
+
+  if (!toggle || !links) return;
+
+  // 點擊漢堡鈕 → 打開/關閉選單
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+
+  // 視窗放大回桌機時，確保還原狀態
+  const resetOnWide = () => {
+    if (window.innerWidth > 980) {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  };
+  window.addEventListener('resize', resetOnWide, { passive: true });
+
+  // 點擊外面關閉（行動版）
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 980 &&
+        !toggle.contains(e.target) &&
+        !links.contains(e.target)) {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
