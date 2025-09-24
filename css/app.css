@@ -520,3 +520,25 @@ p{ line-height: 1.7; }
 .donate-card .muted { color: var(--fg-muted); margin: 6px 0 16px; }
 .donate-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
 .donate-card .fine-print { margin-top: 14px; color: var(--fg-muted); font-size: .9rem; }
+
+/* Hero 標題（打字動畫） */
+.hero-title-wrap {
+  position: relative;
+  min-height: 0;  /* JS會調整高度 */
+}
+.hero-title-wrap h1 {
+  margin: 0;
+  font-size: clamp(2.5rem,5vw,3.5rem);
+  white-space: nowrap;       /* 單行打字 */
+  overflow: hidden;          /* 關鍵：裁切還沒打出的字 */
+}
+.hero-text .caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  background: var(--brand-gold);
+  vertical-align: -0.15em;
+  animation: caret-blink 1s step-end infinite;
+}
+@keyframes caret-blink { 50% { opacity: 0; } }
