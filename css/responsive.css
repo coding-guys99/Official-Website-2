@@ -209,3 +209,47 @@ img { max-width: 100%; height: auto; }
 
 /* ========== 細節：避免小裝置 headings 太擠 ========== */
 h1,h2,h3{ line-height: 1.25; word-break: break-word; }
+
+/* ---- Force footer to stack on small screens ---- */
+/* 先在 1024px 以下切 3 欄，再更小改 2 欄、1 欄 */
+@media (max-width: 1024px){
+  .bm-footer .bm-footer-top{ 
+    grid-template-columns: repeat(3, minmax(160px,1fr)) !important;
+    gap: 24px 36px !important;
+  }
+}
+
+/* 手機橫向／中小尺寸：2 欄 */
+@media (max-width: 720px){
+  .bm-footer .bm-footer-top{ 
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* 手機直向：單欄置中 */
+@media (max-width: 520px){
+  .bm-footer .bm-footer-top{ 
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+  /* 內文置中更好看 */
+  .bm-foot-brand .tagline{ 
+    max-width: 28ch; 
+    margin-left:auto; 
+    margin-right:auto; 
+  }
+  /* 若你的 links 容器是 display: contents; 也沒關係
+     這裡補一手讓小尺寸時能自己排版 */
+  .bm-foot-links-grid{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px 0 !important;
+  }
+}
+
+/* 保險：有些頁可能用了更高權重選擇器，這裡再限縮一次 */
+@media (max-width: 520px){
+  footer.bm-footer .container .bm-footer-top{
+    grid-template-columns: 1fr !important;
+  }
+}
