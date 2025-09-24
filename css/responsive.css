@@ -82,3 +82,44 @@ img, video { max-width: 100%; height: auto; }
   .hero .sub{ font-size: .98rem; }
   .feature-text h2{ font-size: 1.45rem; }
 }
+
+/* 手機專屬修正：feature 圖片 & footer */
+@media (max-width: 768px){
+
+  /* Feature 圖片不要佔滿整個寬度 */
+  .feature-img img {
+    max-width: 86%;     /* 不要太寬，留點呼吸 */
+    margin-inline: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 22px rgba(0,0,0,.32);
+  }
+
+  /* Feature 區塊 spacing */
+  .feature {
+    padding: 36px 16px;
+  }
+  .feature-text h2 {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+  }
+  .feature-text p {
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+
+  /* CTA 區塊再緊湊一點 */
+  .cta, .cta-section {
+    padding: 48px 16px;
+  }
+
+  /* Footer 改單欄 */
+  .bm-footer-top {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 20px;
+  }
+  .bm-footer .bm-foot-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
