@@ -326,10 +326,10 @@ footer.site-footer.bm-footer .bm-footer-bottom .legal a:hover {
 }
 
 footer.site-footer.bm-footer .bm-footer-top{
-  display:grid !important;
-  grid-template-columns: 280px repeat(4, 1fr) !important; /* 品牌固定 280px */
-  gap: 28px 48px !important;
-  align-items:start !important;
+  display:grid ;
+  grid-template-columns: 280px repeat(4, 1fr) ; /* 品牌固定 280px */
+  gap: 28px 48px ;
+  align-items:start ;
 }
 
 /* Typing headline — keep caret separate so it follows text */
