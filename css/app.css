@@ -281,11 +281,11 @@ footer.site-footer.bm-footer .bm-footer-bottom .legal a:hover{
 
 /* --- Footer 精簡版：品牌 + 4 欄（Product / Support / Company / Follow） --- */
 footer.site-footer.bm-footer .bm-footer-top{
-  display: grid !important;
+  display: grid ;
   grid-template-columns: minmax(220px,1fr) repeat(4, minmax(160px,1fr)) ;
-  gap: 28px 48px !important;
-  align-items: start !important;
-  padding: 48px 0 !important;
+  gap: 28px 48px;
+  align-items: start ;
+  padding: 48px 0 ;
 }
 
 footer.site-footer.bm-footer .bm-foot-links-grid{ display: contents !important; }
