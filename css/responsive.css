@@ -1,171 +1,71 @@
-/* =========================================
-   responsive.css  — 只放 RWD 覆寫規則
-   ＊此檔請放在 styles.css、app.css 之後載入
-   ========================================= */
+/* --- 全站基礎保險，先讓元素可縮 --- */
+img, video { max-width: 100%; height: auto; }
+.container { padding-left: 16px; padding-right: 16px; }
 
-/* 手機與小平板：≤ 900px */
-@media (max-width: 900px){
+/* 1024 以下（平板含）先放鬆一些 spacing */
+@media (max-width: 1024px){
+  .hero { gap: 28px; }
+  .feature { padding-top: 56px; padding-bottom: 56px; }
+  .cta, .cta-section { padding-top: 72px; padding-bottom: 72px; }
+}
 
-  /* 容器左右留白再加大一點、避免太緊 */
-  .container{ padding-left:16px; padding-right:16px; }
+/* 768 以下：手機主要排版 */
+@media (max-width: 768px){
+  /* Header：把三欄改成 logo / lang / 漢堡；把 CTA 收起 */
+  .nav{ grid-template-columns: auto auto 1fr; height: 60px; }
+  .nav-actions .bm-cta{ display:none; }                 /* 小螢幕不要把 CTA 浮在 header */
+  .nav-toggle{ display:block; }                         /* 顯示漢堡 */
 
-  /* ---------- Header / Nav ---------- */
-  .bm-header .nav{
-    grid-template-columns: auto auto 1fr;
-    height: 64px;
-  }
-  .bm-header .nav-toggle{ display:block; }
-  .bm-header .nav-links{
+  /* 開合選單：改成覆蓋式的 dropdown */
+  .nav-links{
     display:none;
-  }
-  .bm-header .nav-links.open{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
     position: absolute;
-    top:64px; left:0; right:0;
-    padding:16px 20px 22px;
-    background:#0d0d0d;
-    border-top:1px solid rgba(255,255,255,.06);
-    z-index: 90;
-  }
-  .bm-header .nav-actions{ gap:8px; }
-
-  /* 語言選單在小螢幕寬度放寬一點、避免太窄 */
-  .lang-dropdown{ position: relative; }
-  .lang-dropdown .lang-menu{
-    min-width: 220px;
-    max-width: 86vw;
-    right: 0;
-  }
-
-  /* ---------- Hero 區 ---------- */
-  .hero{
-    grid-template-columns: 1fr;       /* 兩欄改一欄 */
-    text-align: left;                  /* 文字不強制置中 */
-    padding: 56px 0 36px;
-    row-gap: 24px;
-  }
-  .hero .hero-text h1{
-    font-size: clamp(2rem, 7vw, 2.6rem);
-  }
-  .hero .hero-text .sub{
-    font-size: 1rem;
-  }
-  /* 右側裝置圖縮放與陰影保留 */
-  .device-mock{
-    max-width: min(560px, 92vw);
-    margin-inline: 0;
-    margin-top: 8px;
-  }
-
-  /* ---------- Features 區 ---------- */
-  .feature{
-    grid-template-columns: 1fr;        /* 單欄 */
-    text-align: left;
-    gap: 18px;
-    padding: 32px 0;
-  }
-  /* 原本 .feature.reverse 會交換左右，手機一律自然順序 */
-  .feature.reverse{
-    direction: ltr;
-    text-align: left;
-  }
-  .feature-img{
-    order: -1;                         /* 圖片在文字上方（比較符合掃視） */
-  }
-  .feature-img img{
-    width: 100%; height: auto;
-    display:block;
-  }
-
-  /* ---------- CTA 區 ---------- */
-  .cta{
-    padding: 56px 0 64px;
-  }
-  .cta h2{ font-size: clamp(1.6rem, 6vw, 2rem); }
-  .cta p{ margin-top: 6px; }
-
-  /* ---------- Features List / Cards（features.html） ---------- */
-  .features-grid{
-    grid-template-columns: 1fr;        /* 單欄卡片 */
-    gap: 14px;
-  }
-  .feature-card{
-    text-align: left;
-  }
-
-  /* ---------- Pricing ---------- */
-  .pricing-grid{
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .toggle-wrap{
-    transform: scale(.98);
-  }
-
-  /* ---------- Download ---------- */
-  .dl-grid{
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  /* ---------- Support：表單欄位 ---------- */
-  .feedback-form .row2{
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  /* ---------- Footer（關鍵：你說會一直橫的） ---------- */
-  /* 無論前面 styles.css 如何定義，這裡強制直排並置中 */
-  .bm-footer .bm-footer-top{
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-    text-align: center !important;
-  }
-  /* 內層 links grid 直接置中；若使用 display:contents 的版本，保底處理 */
-  .bm-foot-links{ justify-content:center; flex-wrap:wrap; }
-  .bm-foot-actions{ justify-content:center; }
-
-  /* 如果你是使用新版五欄 links-grid（display: contents），
-     這裡把每個子欄位都直排置中（保底樣式） */
-  .bm-foot-links-grid > *{
-    margin-inline:auto;
-  }
-
-  .bm-footer-bottom{
+    top: 60px; right: 12px; left: 12px;
+    background: var(--bg-elev, #1a1a1a);
+    border: 1px solid var(--border, rgba(255,255,255,.08));
+    border-radius: 12px;
+    padding: 14px;
     flex-direction: column;
-    gap: 8px;
-    text-align: center;
+    gap: 12px;
+    z-index: 80;
   }
+  .nav-links.open{ display:flex; }
+  .nav-links a{ padding: 10px 6px; text-align: left; }
+
+  /* 如果你想把 CTA 放進展開選單裡，這樣顯示 */
+  .nav-links .bm-cta{ display:inline-flex; margin-top:8px; }
+
+  /* 語言按鈕不要被 CTA 壓到 */
+  .lang-dropdown{ z-index: 90; }
+
+  /* Hero 單欄、置中、圖片縮小 */
+  .hero{ grid-template-columns: 1fr; gap: 20px; padding: 56px 16px 40px; }
+  .hero h1, .hero .sub, .hero .btn-row{ text-align:center; }
+  .hero-img img{ max-width: 92%; margin: 0 auto; display:block; }
+
+  /* 產品 mockup 容器（如果有 .device-mock）避免太大 */
+  .device-mock{ margin: 0 auto; max-width: 520px; }
+
+  /* Feature 單欄 */
+  .feature{ grid-template-columns: 1fr; text-align:center; padding: 40px 16px; }
+  .feature-img{ order: -1; margin-bottom: 14px; }
+  .feature-text h2{ font-size: 1.6rem; }
+
+  /* CTA 區塊置中、按鈕換行 */
+  .cta, .cta-section{
+    text-align:center; padding: 60px 16px;
+  }
+  .cta .btn-row{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+
+  /* Footer 一欄置中 */
+  .bm-footer-top{ grid-template-columns: 1fr !important; text-align:center; gap: 18px; }
+  .bm-foot-brand .tagline{ margin: 0 auto; max-width: 28ch; }
 }
 
-/* 超小手機（≤ 360px）再收一點間距 */
-@media (max-width: 360px){
-  .bm-header .nav-actions .bm-cta{ padding:8px 12px; }
-  .btn{ padding:10px 14px; }
-}
-
-@media (max-width: 768px){
-  .bm-footer-top { grid-template-columns: 1fr; text-align:center; gap: 20px; }
-  .bm-foot-brand .tagline { margin: 0 auto; max-width: 28ch; }
-}
-
-@media (max-width: 768px){
-  .nav { grid-template-columns: auto auto 1fr; height: 60px; }
-  .nav-actions .bm-cta{ display:none; } /* 小螢幕隱藏 */
-  .nav-links.open .bm-cta{ display:inline-flex; margin-top:12px; }
-}
-
-@media (max-width: 768px){
-  .hero { grid-template-columns: 1fr; gap: 20px; padding: 60px 20px 40px; }
-  .hero-img img { max-width: 90%; margin: 0 auto; display:block; }
-  .hero h1, .hero p { text-align:center; }
-}
-
-@media (max-width: 768px){
-  .feature { grid-template-columns: 1fr; text-align:center; padding:40px 20px; }
-  .feature-img { margin-bottom: 20px; }
-  .cta-section { padding: 60px 20px; text-align:center; }
+/* 480 以下更緊湊一點 */
+@media (max-width: 480px){
+  .hero{ padding-top: 44px; }
+  .hero h1{ font-size: clamp(1.8rem, 7vw, 2.2rem); }
+  .hero .sub{ font-size: .98rem; }
+  .feature-text h2{ font-size: 1.45rem; }
 }
