@@ -146,3 +146,8 @@
   .bm-header .nav-actions .bm-cta{ padding:8px 12px; }
   .btn{ padding:10px 14px; }
 }
+
+@media (max-width: 768px){
+  .bm-footer-top { grid-template-columns: 1fr; text-align:center; gap: 20px; }
+  .bm-foot-brand .tagline { margin: 0 auto; max-width: 28ch; }
+}
