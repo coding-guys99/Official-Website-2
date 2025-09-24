@@ -106,33 +106,36 @@ document.addEventListener('DOMContentLoaded', () => {
     timelineItems.forEach(i => io.observe(i));
   }
 
-  /* ========== Pricing: monthly/yearly toggle ========== */
-  const toggle = document.getElementById('billingToggle');
-  if (toggle) {
-    const saved = localStorage.getItem('ks_billing_yearly') === '1';
-    toggle.setAttribute('aria-pressed', saved ? 'true' : 'false');
-    applyPrices(saved);
+  // ========== Pricing: monthly/yearly toggle ==========
+const toggle = document.getElementById('billingToggle');
+if (toggle) {
+  const saved = localStorage.getItem('ks_billing_yearly') === '1';
+  toggle.setAttribute('aria-pressed', saved ? 'true' : 'false');
+  applyPrices(saved);
 
-    toggle.addEventListener('click', () => {
-      const next = toggle.getAttribute('aria-pressed') !== 'true';
-      toggle.setAttribute('aria-pressed', next ? 'true' : 'false');
-      localStorage.setItem('ks_billing_yearly', next ? '1' : '0');
-      applyPrices(next);
-    });
+  toggle.addEventListener('click', () => {
+    const next = toggle.getAttribute('aria-pressed') !== 'true';
+    toggle.setAttribute('aria-pressed', next ? 'true' : 'false');
+    localStorage.setItem('ks_billing_yearly', next ? '1' : '0');
+    applyPrices(next);
+  });
+}
 
-    function applyPrices(yearly){
-      document.querySelectorAll('.price-card .price').forEach(p=>{
-        const monthly = p.getAttribute('data-monthly') || '';
-        const yearlyP = p.getAttribute('data-yearly') || '';
-        if (yearly && yearlyP){
-          p.firstChild.nodeValue = yearlyP + ' ';
-          p.querySelector('span')?.textContent = '/ month (billed yearly)';
-        }else{
-          p.firstChild.nodeValue = monthly + ' ';
-          p.querySelector('span')?.textContent = '/ month';
-        }
-      });
+function applyPrices(yearly){
+  document.querySelectorAll('.price-card .price').forEach(p=>{
+    const monthly = p.getAttribute('data-monthly') || '';
+    const yearlyP = p.getAttribute('data-yearly') || '';
+    const span = p.querySelector('span');
+
+    if (yearly && yearlyP){
+      p.firstChild.nodeValue = yearlyP + ' ';
+      if (span) span.textContent = '/ month (billed yearly)';
+    } else {
+      p.firstChild.nodeValue = monthly + ' ';
+      if (span) span.textContent = '/ month';
     }
+  });
+}
   }
 
   /* ========== Support: FAQ & Feedback ========== */
