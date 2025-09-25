@@ -3,7 +3,7 @@
 // ================================
 const I18N = (() => {
   const FALLBACK = 'en';
-  const BASE = '/Official-Website/i18n/'; // 建議放在網站根目錄 /i18n/*.json
+  const BASE = '/Official-Website-2/i18n/'; // 建議放在網站根目錄 /i18n/*.json
 
   return {
     lang: FALLBACK,
