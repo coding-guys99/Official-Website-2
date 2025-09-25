@@ -1,7 +1,6 @@
-// js/lang.js — i18n 核心 + 語言選單 UI（不改你的 HTML/CSS）
+// js/lang.js — i18n 核心 + 快速渲染 + 語言選單 UI
 (function () {
-  /* ========== i18n 核心 ========== */
-  const BASE = './i18n/';         // 語言檔相對路徑
+  const BASE = './i18n/'; // 語言檔路徑
   const FALLBACK = 'en';
 
   const I18N = {
@@ -34,28 +33,9 @@
       }
       return primary;
     },
-    render(root = document) {
-      // 文本
-      root.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const val = this.t(key);
-        if (typeof val === 'string') el.textContent = val;
-      });
-      // 屬性（可選）：data-i18n-attr="title,aria-label,placeholder"
-      root.querySelectorAll('[data-i18n-attr]').forEach(el => {
-        const baseKey = el.getAttribute('data-i18n');
-        const attrs = (el.getAttribute('data-i18n-attr') || '')
-          .split(',').map(s => s.trim()).filter(Boolean);
-        attrs.forEach(attr => {
-          const key = `${baseKey}.${attr}`;
-          const val = this.t(key) ?? this.t(baseKey);
-          if (typeof val === 'string') el.setAttribute(attr, val);
-        });
-      });
-    },
     async setLang(input) {
-      const lang = (input || FALLBACK).toLowerCase().replace('-', '_'); // zh-tw → zh_tw
-      const [cur, fb] = await Promise.all([ this.load(lang), this.load(FALLBACK) ]);
+      const lang = (input || FALLBACK).toLowerCase().replace('-', '_');
+      const [cur, fb] = await Promise.all([this.load(lang), this.load(FALLBACK)]);
       this.dict = this.mergeFallback(JSON.parse(JSON.stringify(cur)), fb);
       this.lang = lang;
 
@@ -63,7 +43,7 @@
       localStorage.setItem('i18n.lang', lang);
 
       this.render();
-      // 同步 <title>
+
       const title = this.t('meta.title.home');
       if (typeof title === 'string' && title) document.title = title;
 
@@ -81,112 +61,171 @@
   };
   window.I18N = I18N;
 
-  // 初始語言
-  document.addEventListener('DOMContentLoaded', () => I18N.setLang(I18N.detect()));
+  /* ======== 快速索引 ======== */
+  const I18NIndex = { text: [], attrs: [] };
 
-  /* ========== 語言選單 UI（建立 + 開關） ========== */
-  const portal    = document.getElementById('langPortal');          // 你的共用節點
-  const btnMobile = document.getElementById('langBtnMobile');       // 行動版按鈕
-  const footLink  = document.getElementById('footLangLink');        // Footer 入口（若有）
-  const curMobile = document.getElementById('langCurrentMobile');   // 行動版顯示名稱
-
-  if (!portal) return;
-
-  // 用 aria-hidden 搭配 class="open"（相容你現有 CSS）
-  portal.setAttribute('aria-hidden', 'true'); // 預設關閉
-
-  // 支援語言（清單顯示文字）
-  const SUPPORTED = [
-    ['en',    'English'],
-    ['zh_tw', '繁體中文'],
-    ['zh_cn', '简体中文'],
-    ['ja',    '日本語'],
-    ['ko',    '한국어']
-  ];
-
-  // 只建立一次清單
-  if (!portal.dataset.built) {
-    portal.innerHTML = SUPPORTED
-      .map(([code, label]) =>
-        `<button type="button" role="menuitem" class="lang-item" data-lang="${code}">${label}</button>`
-      ).join('');
-    portal.dataset.built = '1';
+  function indexI18nNodes(root = document) {
+    root.querySelectorAll('[data-i18n]').forEach(el => {
+      if (el.hasAttribute('data-i18n-attr')) return;
+      const key = el.getAttribute('data-i18n');
+      I18NIndex.text.push({ el, key, last: undefined });
+    });
+    root.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      const baseKey = el.getAttribute('data-i18n');
+      const attrs = (el.getAttribute('data-i18n-attr') || '')
+        .split(',').map(s => s.trim()).filter(Boolean);
+      I18NIndex.attrs.push({ el, baseKey, attrs, last: Object.create(null) });
+    });
   }
 
-  // 顯示目前語言標籤 & aria-current
-  function syncCurrentLabel(code) {
-    const label = SUPPORTED.find(([c]) => c === code)?.[1] || 'English';
-    if (curMobile) curMobile.textContent = label;
-    portal.querySelectorAll('[aria-current="true"]').forEach(b => b.removeAttribute('aria-current'));
-    portal.querySelector(`[data-lang="${code}"]`)?.setAttribute('aria-current', 'true');
-  }
-  document.addEventListener('i18n:changed', (ev) => syncCurrentLabel(ev.detail?.lang || 'en'));
-  // 初次同步
-  document.addEventListener('DOMContentLoaded', () => syncCurrentLabel(localStorage.getItem('i18n.lang') || 'en'));
-
-  function openPortal(anchor) {
-    portal.classList.add('open');
-    portal.removeAttribute('aria-hidden');
-
-    // 位置：貼著觸發按鈕左上角
-    const r = anchor.getBoundingClientRect();
-    const W = portal.offsetWidth, H = portal.offsetHeight, M = 12;
-    let top  = r.bottom + 8;
-    let left = r.left;
-    if (left + W + M > innerWidth)  left = Math.max(M, innerWidth - W - M);
-    if (top  + H + M > innerHeight) top  = Math.max(M, r.top - H - 8);
-
-    portal.style.position = 'fixed';
-    portal.style.top  = Math.min(Math.max(M, top),  innerHeight - H - M) + 'px';
-    portal.style.left = Math.min(Math.max(M, left), innerWidth  - W - M) + 'px';
-
-    // 關閉策略
-    const onDoc = (e) => { if (!portal.contains(e.target) && !anchor.contains(e.target)) closePortal(); };
-    const onEsc = (e) => { if (e.key === 'Escape') closePortal(); };
-    setTimeout(() => {
-      document.addEventListener('click', onDoc, { once: true });
-      document.addEventListener('keydown', onEsc, { once: true });
-    }, 0);
-  }
-  function closePortal() {
-    portal.classList.remove('open');
-    portal.setAttribute('aria-hidden', 'true');
-  }
-
-  // 綁定兩個觸發點（有就綁，沒有就略過）
-  [btnMobile, footLink].forEach(btn => {
-    if (!btn) return;
-    btn.setAttribute('aria-haspopup', 'menu');
-    btn.setAttribute('aria-expanded', 'false');
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (portal.classList.contains('open')) {
-        closePortal(); btn.setAttribute('aria-expanded','false');
-      } else {
-        openPortal(btn); btn.setAttribute('aria-expanded','true');
+  I18N.render = function renderFast() {
+    for (let n of I18NIndex.text) {
+      if (!n.el.isConnected) continue;
+      const val = this.t(n.key);
+      if (typeof val === 'string' && val !== n.last) {
+        n.el.textContent = val;
+        n.last = val;
       }
+    }
+    for (let n of I18NIndex.attrs) {
+      if (!n.el.isConnected) continue;
+      for (let attr of n.attrs) {
+        const key = `${n.baseKey}.${attr}`;
+        const val = this.t(key) ?? this.t(n.baseKey);
+        if (typeof val === 'string' && val !== n.last[attr]) {
+          n.el.setAttribute(attr, val);
+          n.last[attr] = val;
+        }
+      }
+    }
+    const title = this.t('meta.title.home');
+    if (typeof title === 'string' && title) document.title = title;
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    indexI18nNodes(document);
+    I18N.setLang(I18N.detect());
+  });
+
+  // 自動監聽 DOM 變化 → 增量索引
+  const mo = new MutationObserver(muts => {
+    let needRender = false;
+    for (const m of muts) {
+      if (m.type === 'childList') {
+        m.addedNodes.forEach(n => {
+          if (n.nodeType !== 1) return;
+          if (
+            n.matches?.('[data-i18n],[data-i18n-attr]') ||
+            n.querySelector?.('[data-i18n],[data-i18n-attr]')
+          ) {
+            indexI18nNodes(n);
+            needRender = true;
+          }
+        });
+      }
+      if (m.type === 'attributes' &&
+        (m.attributeName === 'data-i18n' || m.attributeName === 'data-i18n-attr')) {
+        indexI18nNodes(m.target);
+        needRender = true;
+      }
+    }
+    if (needRender) requestAnimationFrame(() => I18N.render());
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    mo.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['data-i18n', 'data-i18n-attr']
     });
   });
 
-  // 點選語言 → 真的切換 + 更新顯示 + 關閉選單
-  portal.addEventListener('click', async (e) => {
-    const item = e.target.closest('.lang-item[data-lang], [data-lang]');
-    if (!item) return;
-    const raw  = item.dataset.lang || '';
-    const code = raw.toLowerCase().replace('-', '_');
-    await I18N.setLang(code);
-    syncCurrentLabel(code);
-    closePortal();
-  });
+  /* ======== 語言選單 UI ======== */
+  const portal    = document.getElementById('langPortal');
+  const btnMobile = document.getElementById('langBtnMobile');
+  const footLink  = document.getElementById('footLangLink');
+  const curMobile = document.getElementById('langCurrentMobile');
 
-  // 防止「aria-hidden 祖先遮蔽焦點」的警告：用 MutationObserver 維護
-  const mo = new MutationObserver(() => {
-    const isOpen = portal.classList.contains('open');
-    if (isOpen) portal.removeAttribute('aria-hidden'); else portal.setAttribute('aria-hidden','true');
-  });
-  mo.observe(portal, { attributes: true, attributeFilter: ['class', 'aria-hidden'] });
+  if (portal) {
+    const SUPPORTED = [
+      ['en','English'],
+      ['zh_tw','繁體中文'],
+      ['zh_cn','简体中文'],
+      ['ja','日本語'],
+      ['ko','한국어']
+    ];
 
-  // 保險：視窗尺寸變動就關閉，避免定位跑掉
-  window.addEventListener('resize', () => { if (portal.classList.contains('open')) closePortal(); }, { passive: true });
+    if (!portal.dataset.built) {
+      portal.innerHTML = SUPPORTED
+        .map(([code,label]) => `<button type="button" role="menuitem" class="lang-item" data-lang="${code}">${label}</button>`)
+        .join('');
+      portal.dataset.built = '1';
+    }
+
+    function syncCurrentLabel(code) {
+      const label = SUPPORTED.find(([c]) => c === code)?.[1] || 'English';
+      if (curMobile) curMobile.textContent = label;
+      portal.querySelectorAll('[aria-current="true"]').forEach(b => b.removeAttribute('aria-current'));
+      portal.querySelector(`[data-lang="${code}"]`)?.setAttribute('aria-current','true');
+    }
+    document.addEventListener('i18n:changed', (ev) => syncCurrentLabel(ev.detail?.lang || 'en'));
+    document.addEventListener('DOMContentLoaded', () => syncCurrentLabel(localStorage.getItem('i18n.lang') || 'en'));
+
+    function openPortal(anchor) {
+      portal.classList.add('open');
+      portal.removeAttribute('aria-hidden');
+      const r = anchor.getBoundingClientRect();
+      const W = portal.offsetWidth, H = portal.offsetHeight, M = 12;
+      let top  = r.bottom + 8;
+      let left = r.left;
+      if (left + W + M > innerWidth)  left = Math.max(M, innerWidth - W - M);
+      if (top  + H + M > innerHeight) top  = Math.max(M, r.top - H - 8);
+      portal.style.position = 'fixed';
+      portal.style.top  = Math.min(Math.max(M, top),  innerHeight - H - M) + 'px';
+      portal.style.left = Math.min(Math.max(M, left), innerWidth  - W - M) + 'px';
+      const onDoc = (e)=>{ if (!portal.contains(e.target) && !anchor.contains(e.target)) closePortal(); };
+      const onEsc = (e)=>{ if (e.key==='Escape') closePortal(); };
+      setTimeout(()=>{
+        document.addEventListener('click', onDoc, { once:true });
+        document.addEventListener('keydown', onEsc, { once:true });
+      },0);
+    }
+    function closePortal() {
+      portal.classList.remove('open');
+      portal.setAttribute('aria-hidden','true');
+    }
+
+    [btnMobile, footLink].forEach(btn=>{
+      if (!btn) return;
+      btn.setAttribute('aria-haspopup','menu');
+      btn.setAttribute('aria-expanded','false');
+      btn.addEventListener('click',(e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        if (portal.classList.contains('open')) {
+          closePortal(); btn.setAttribute('aria-expanded','false');
+        } else {
+          openPortal(btn); btn.setAttribute('aria-expanded','true');
+        }
+      });
+    });
+
+    portal.addEventListener('click', async (e)=>{
+      const item = e.target.closest('[data-lang]');
+      if (!item) return;
+      const code = item.dataset.lang.toLowerCase().replace('-','_');
+      await I18N.setLang(code);
+      syncCurrentLabel(code);
+      closePortal();
+    });
+
+    const mo2 = new MutationObserver(()=>{
+      const isOpen = portal.classList.contains('open');
+      if (isOpen) portal.removeAttribute('aria-hidden');
+      else portal.setAttribute('aria-hidden','true');
+    });
+    mo2.observe(portal, { attributes:true, attributeFilter:['class','aria-hidden'] });
+
+    window.addEventListener('resize',()=>{ if (portal.classList.contains('open')) closePortal(); },{passive:true});
+  }
 })();
