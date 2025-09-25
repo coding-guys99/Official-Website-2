@@ -1,42 +1,283 @@
 {
-  "meta": { "title": { "home": "KeySearch — すぐに見つける" } },
+  "meta": {
+    "title": {
+      "home": "KeySearch — 高速検索、すぐに見つかる",
+      "features": "機能紹介 — KeySearch",
+      "download": "ダウンロード — KeySearch",
+      "pricing": "料金プラン — KeySearch",
+      "about": "KeySearch について",
+      "news": "最新情報 — KeySearch",
+      "support": "サポート — KeySearch"
+    }
+  },
   "header": {
     "brand": "KeySearch",
     "features": "機能",
     "download": "ダウンロード",
-    "pricing": "価格",
+    "pricing": "料金",
     "about": "概要",
     "support": "サポート",
-    "lang": { "current": "日本語" },
-    "tryapp": { "cta": "🚀 Webアプリを試す" }
+    "lang": {
+      "current": "日本語"
+    },
+    "tryapp": {
+      "cta": "🚀 Web アプリを試す"
+    }
   },
   "home": {
     "hero": {
-      "title": "すぐに見つける",
-      "sub": "すべてが手の届くところに。散らからず、ただ答えだけ。"
+      "title": "高速検索、すぐに見つかる",
+      "sub": "すべてが手の届くところに。混乱なし、答えだけ。"
     },
-    "cta": { "downloadNow": "今すぐダウンロード" },
+    "cta": {
+      "downloadNow": "今すぐダウンロード"
+    },
     "final": {
-      "title": "始める準備はできましたか？",
-      "lead": "デスクトップ用のKeySearchをダウンロード、またはWebアプリをすぐに使えます。"
+      "title": "始めませんか？",
+      "lead": "KeySearch デスクトップ版をダウンロード、または Web 版を今すぐ体験。"
     }
   },
   "feature1": {
-    "title": "あらゆるものを即座に検索",
-    "desc": "プロジェクト、ノート、リソース全体から必要なものをすぐに見つけられます。"
+    "title": "即時検索",
+    "desc": "プロジェクト、メモ、リソースを瞬時に検索。"
   },
   "feature2": {
-    "title": "手間なく整理整頓",
-    "desc": "フォルダや混乱は不要。KeySearchはすべてを整理して簡単にアクセスできます。"
+    "title": "簡単に整理",
+    "desc": "フォルダー不要、散らかりなし。KeySearch が自動的に整理します。"
   },
-  "download": { "cta": { "text": "ダウンロード" }, "web": "Webで開く" },
+  "features": {
+    "title": "機能",
+    "lead": "KeySearch を強力かつシンプルにする理由。",
+    "cards": {
+      "instant": {
+        "title": "即時結果",
+        "desc": "ミリ秒単位でメモ、ファイル、タグを検索。"
+      },
+      "tags": {
+        "title": "スマートタグ",
+        "desc": "多層タグ、フィルター、自動補完で迅速に整理。"
+      },
+      "collections": {
+        "title": "コレクション",
+        "desc": "プロジェクトやコンテキストごとにグループ化。閲覧専用ビューを共有可能。"
+      },
+      "shortcuts": {
+        "title": "グローバルショートカット",
+        "desc": "1 つのキーコンボでどこへでも移動。コマンドパレット内蔵。"
+      },
+      "i18n": {
+        "title": "多言語 UI",
+        "desc": "即時に言語を切り替え。17+ 言語に対応。"
+      },
+      "privacy": {
+        "title": "プライバシー重視",
+        "desc": "ローカルファースト (IndexedDB)。データはデバイスに保存されます。"
+      },
+      "export": {
+        "title": "柔軟なエクスポート",
+        "desc": "CSV/JSON にエクスポート、またはチームとコレクションを共有。"
+      },
+      "platforms": {
+        "title": "クロスプラットフォーム",
+        "desc": "Web とデスクトップで同じ体験。学習コストゼロ。"
+      }
+    },
+    "final": {
+      "title": "試してみませんか？",
+      "lead": "KeySearch をダウンロード、またはブラウザで今すぐ利用。"
+    }
+  },
+  "download": {
+    "title": "ダウンロード",
+    "lead": "あなたのプラットフォームに合わせて KeySearch を入手。",
+    "windows": {
+      "title": "Windows",
+      "version": "バージョン 1.0.1.0",
+      "cta": "EXE をダウンロード"
+    },
+    "mac": {
+      "title": "macOS",
+      "version": "バージョン 1.0.1.0",
+      "cta": "DMG をダウンロード"
+    },
+    "linux": {
+      "title": "Linux",
+      "version": "バージョン 1.0.1.0",
+      "cta": "AppImage をダウンロード"
+    },
+    "hash": {
+      "label": "SHA256："
+    },
+    "webpref": {
+      "title": "Web アプリを使いますか？",
+      "lead": "ブラウザで直接 KeySearch を実行。インストール不要。"
+    },
+    "web": "Web 版を開く",
+    "cta": {
+      "text": "ダウンロード"
+    }
+  },
+  "pricing": {
+    "title": "料金プラン",
+    "lead": "シンプルで透明なプラン。ニーズに合わせて拡張。",
+    "billing": {
+      "monthly": "月払い",
+      "yearly": "年払い",
+      "save": "20% 割引"
+    },
+    "free": {
+      "title": "無料プラン",
+      "perma": "/ 永久",
+      "f1": "無制限検索",
+      "f2": "基本的なタグとコレクション",
+      "f3": "CSV/JSON エクスポート",
+      "cta": "今すぐ開始"
+    },
+    "pro": {
+      "badge": "人気 No.1",
+      "title": "プロ版",
+      "permonth": "/ 月",
+      "f1": "無料版のすべてを含む",
+      "f2": "多言語 UI",
+      "f3": "リマインダーとスマートフィルター",
+      "f4": "優先サポート",
+      "cta": "今すぐアップグレード"
+    },
+    "faq": {
+      "refunds": {
+        "q": "返金は可能ですか？",
+        "a": "満足いただけない場合、14 日以内にご連絡ください。対応いたします。"
+      },
+      "switch": {
+        "q": "後でプラン変更できますか？",
+        "a": "はい。いつでもアップグレードまたはキャンセル可能です。"
+      }
+    },
+    "final": {
+      "title": "もっとスマートに検索を始めよう",
+      "lead": "KeySearch は無料で試せます。準備ができたらアップグレード。",
+      "cta": {
+        "download": "無料ダウンロード",
+        "openweb": "Web 版を開く"
+      }
+    }
+  },
+  "about": {
+    "title": "KeySearch について",
+    "desc": "高速検索、すぐに見つかる。混乱なし、答えだけ。",
+    "mission": {
+      "t": "ミッション",
+      "desc": "人々が必要な情報を即座に見つけられるように支援します。メモ、ファイル、アイデアをクラウドに依存せず整理。"
+    },
+    "diff-1": "ローカルファースト",
+    "desc-1": "データはデバイスに保存 (IndexedDB)。オフラインでも利用可能。アカウント不要。",
+    "diff-2": "超高速",
+    "desc-2": "インデックス検索、タグ、フィルター、ショートカットでミリ秒応答。",
+    "diff-3": "ロックインなし",
+    "desc-3": "CSV/JSON にエクスポート。共同作業では閲覧専用コレクションを共有可能。",
+    "diff-4": "多言語対応",
+    "desc-4": "i18n JSON で即時切替。17+ 言語に対応。",
+    "privacy": "プライバシーと透明性",
+    "privacy.desc": "KeySearch はプライバシー優先。データを販売しません。任意のテレメトリはデフォルトでオフ。いつでも無効化可能。明確なエクスポート機能を内蔵。",
+    "privacy.read": "プライバシーを読む",
+    "privacy.update": "製品アップデート"
+  },
+  "contact": "お問い合わせ",
+  "email": "hello@keysearch-app.com",
+  "news": {
+    "title": "最新情報",
+    "lead": "四半期ごとのハイライトとリリースノート。",
+    "filter": {
+      "all": "すべて",
+      "2025": "2025",
+      "2024": "2024"
+    },
+    "v130": {
+      "date": "2025 年 9 月 1 日",
+      "title": "新機能：多言語 UI (17 言語)",
+      "desc": "UI と Web サイトが 17 言語に対応。ショートカットヒントもローカライズ。",
+      "l1": "全ページに言語切替メニュー追加",
+      "l2": "JSON 形式の i18n、貢献しやすい",
+      "l3": "ローカライズ SEO Meta 改善"
+    },
+    "v120": {
+      "date": "2025 年 6 月 10 日",
+      "title": "パフォーマンス向上：高速インデックス",
+      "desc": "大規模プロジェクトのインデックス速度が約 30% 向上。メモリ効率も改善。",
+      "l1": "大規模ファイルにストリーミング分割器を導入",
+      "l2": "インクリメンタルインデックス再構築対応",
+      "l3": "Windows クラッシュの自動修復"
+    },
+    "v110": {
+      "date": "2024 年 12 月 15 日",
+      "title": "新機能：CSV エクスポートと高度なフィルタ",
+      "desc": "CSV エクスポートに対応。種類・日付・パスでフィルタリング可能。ダークモード UI を改良。",
+      "l1": "ワンクリックで CSV エクスポート",
+      "l2": "デフォルトフィルタ (コード/文書/メディア)",
+      "l3": "ショートカット：Ctrl/Cmd + K クイック検索"
+    },
+    "ctaTitle": "最新バージョンを試しますか？",
+    "ctaSub": "最新版をダウンロード、または Web 版を利用。"
+  },
+  "support": {
+    "title": "サポート",
+    "lead": "すぐに答えを見つける、またはフィードバックを送信してください。",
+    "quick": {
+      "download": "ダウンロード",
+      "billing": "請求とプラン",
+      "faq": "よくある質問",
+      "contact": "お問い合わせ"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "q1": "KeySearch をどうやってインストールしますか？",
+      "a1": "<a href=\"download.html\">ダウンロードページ</a> から入手し、インストーラに従ってください。  \nmacOS では「認定開発者」からのアプリを許可する必要がある場合があります。",
+      "q2": "Web 版とデスクトップ版に違いはありますか？",
+      "a2": "コア機能は同じです。デスクトップ版はオフラインモードとローカルエクスポートが追加されます。",
+      "q3": "言語を切り替えるには？",
+      "a3": "右上の言語切替から変更できます。今後さらに言語追加予定。"
+    },
+    "feedback": {
+      "title": "フィードバック",
+      "name": "お名前",
+      "email": "メールアドレス",
+      "topic": "トピック",
+      "topic.general": "一般",
+      "topic.bug": "バグ報告",
+      "topic.feature": "機能リクエスト",
+      "topic.billing": "請求",
+      "message": "メッセージ",
+      "send": "送信",
+      "mailapp": "メールアプリを開く",
+      "note": "返信は <strong>hello@keysearch-app.com</strong> に送られます。ファイルはアップロードされません。",
+      "toast": "メールアプリを開いています…"
+    }
+  },
+  "donate": {
+    "title": "開発を支援する",
+    "desc": "KeySearch は無料で利用できます。もし役立ったなら、開発を支援してください。",
+    "coffee": "コーヒーをおごる",
+    "kofi": "Ko-fi",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "thanks": "ご支援ありがとうございます。KeySearch を高速かつ集中できるよう保ちます。"
+  },
   "foot": {
     "brand": "KeySearch",
-    "slogan": "すぐに見つける。\n散らからず、ただ答えだけ。",
-    "product": { "": "製品", "feat": "機能", "price": "価格", "download": "ダウンロード" },
-    "support": { "": "サポート", "help": "ヘルプセンター", "docs": "ドキュメント" },
-    "company": { "": "会社", "about": "概要", "contact": "お問い合わせ" },
-    "follow": { "": "フォロー", "twitter": "Twitter", "youtube": "YouTube" },
+    "slogan": "高速検索、すぐに見つかる。<br>混乱なし、答えだけ。",
+    "product": "製品",
+    "product.feat": "機能",
+    "product.price": "料金",
+    "product.download": "ダウンロード",
+    "support": "サポート",
+    "support.help": "ヘルプセンター",
+    "support.docs": "ドキュメント",
+    "company": "会社情報",
+    "company.about": "概要",
+    "company.contact": "お問い合わせ",
+    "follow": "フォローする",
+    "follow.twitter": "Twitter",
+    "follow.youtube": "YouTube",
     "b": {
       "lang": "言語",
       "privacy": "プライバシー",
