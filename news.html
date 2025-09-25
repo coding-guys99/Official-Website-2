@@ -116,48 +116,77 @@
     </section>
   </main>
 
-  <!-- Footer（你現有那套） -->
-  <footer class="site-footer bm-footer">
-    <div class="container">
-      <!-- 你現在那個豐富 footer 結構即可 -->
-      <div class="bm-footer-top">
-        <div class="bm-foot-brand">
-          <a class="brand mini" href="index.html"><img src="assets/logo.svg" alt="" width="22" height="22"/><span>KeySearch</span></a>
-          <p class="tagline">Find it. Fast. No mess. Just answers.</p>
-        </div>
-        <div class="bm-foot-links-grid">
-          <div>
-            <h4>Product</h4>
-            <a href="features.html">Features</a>
-            <a href="download.html">Download</a>
-            <a href="pricing.html">Pricing</a>
-          </div>
-          <div>
-            <h4>Company</h4>
-            <a href="about.html">About</a>
-            <a href="news.html" class="active">News</a>
-          </div>
-          <div>
-            <h4>Support</h4>
-            <a href="support.html">Help & FAQ</a>
-            <a href="support.html#feedback">Feedback</a>
-          </div>
-          <div>
-            <h4>Follow</h4>
-            <a href="#" aria-disabled="true">Twitter / X</a>
-            <a href="#" aria-disabled="true">GitHub</a>
-          </div>
-        </div>
-      </div>
-      <div class="bm-footer-bottom">
-        <div class="legal">
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-        </div>
-        <div>© <span id="yearNow"></span> KeySearch</div>
-      </div>
+     <!-- ===== Footer ===== -->
+<footer class="site-footer bm-footer">
+  <div class="container bm-footer-top">
+    <!-- Brand -->
+    <div class="bm-foot-brand">
+      <a class="brand mini" href="index.html">
+        <span>KeySearch</span>
+      </a>
+      <p class="tagline">Find it. Fast.<br>No mess. Just answers.</p>
     </div>
-  </footer>
+
+    <!-- Links grid（桌機四欄 / 手機手風琴） -->
+    <div class="bm-foot-links-grid">
+
+      <!-- Product -->
+      <section class="foot-col">
+        <h4>
+          <button class="foot-head" type="button" aria-expanded="false">Product</button>
+        </h4>
+        <ul class="foot-links">
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="download.html">Download</a></li>
+        </ul>
+      </section>
+
+      <!-- Support -->
+      <section class="foot-col">
+        <h4>
+          <button class="foot-head" type="button" aria-expanded="false">Support</button>
+        </h4>
+        <ul class="foot-links">
+          <li><a href="support.html">Help Center</a></li>
+          <li><a href="#">Docs</a></li>
+        </ul>
+      </section>
+
+      <!-- Company -->
+      <section class="foot-col">
+        <h4>
+          <button class="foot-head" type="button" aria-expanded="false">Company</button>
+        </h4>
+        <ul class="foot-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="mailto:hello@keysearch-app.com">Contact</a></li>
+        </ul>
+      </section>
+
+      <!-- Follow -->
+      <section class="foot-col">
+        <h4>
+          <button class="foot-head" type="button" aria-expanded="false">Follow</button>
+        </h4>
+        <ul class="foot-links">
+          <li><a href="#" rel="me">Twitter</a></li>
+          <li><a href="#" rel="me">YouTube</a></li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="container bm-footer-bottom">
+    <div class="legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+    <small>© 2025 KeySearch. All rights reserved.</small>
+  </div>
+</footer>
   
   <!-- JS -->
   <script src="js/lang.js" defer></script>
@@ -170,3 +199,4 @@
   </script>
 </body>
 </html>
+
