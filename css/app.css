@@ -229,6 +229,7 @@ footer.site-footer.bm-footer .bm-footer-bottom .legal a:hover{
   transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
   position: relative;
   overflow: hidden;
+   justify-content:center;
 }
 .feat-card:hover {
   transform: translateY(-6px);
