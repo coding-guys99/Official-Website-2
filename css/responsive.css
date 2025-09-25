@@ -152,8 +152,9 @@ html, body { overflow-x: hidden; }
     content: "▸";
     transition: transform .25s ease;
     opacity: .9;
+     grid-template-columns: 1fr !important;
   }
-  .bm-footer .foot-col.open .foot-head::after{ transform: rotate(90deg); }
+  .bm-footer .foot-col.open .foot-head::after{ transform: rotate(90deg); grid-template-columns: 1fr !important;}
 
   .bm-footer .foot-links{
     max-height: 0; overflow: hidden;
