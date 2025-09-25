@@ -1,11 +1,15 @@
 /* ===========================
-   Header (Blackmagic-style)
+   Header (Blackmagic-style) — merged desktop
    =========================== */
 .bm-header{
+  position: sticky;        /* 保持吸頂 */
+  top: 0;
+  z-index: 5000;           /* 高於內容，低於語言 Portal（若有） */
+  overflow: visible;       /* 關鍵：讓下拉不被裁切 */
   background: rgba(10,10,10,.92);
   border-bottom: 1px solid rgba(255,255,255,.06);
   backdrop-filter: saturate(120%) blur(8px);
-  font-size: 1rem; /* 統一字級 */
+  font-size: 1rem;         /* 統一字級 */
 }
 .bm-header .nav{
   display:grid; grid-template-columns: auto 1fr auto;
@@ -47,8 +51,11 @@
 .bm-cta:hover{ transform:translateY(-1px); box-shadow:0 10px 26px rgba(212,175,55,.28); }
 .bm-cta .emoji{ filter:drop-shadow(0 1px 1px rgba(0,0,0,.25)); }
 
+/* 保證容器不裁切 dropdown */
+.container { position: relative; overflow: visible; }
+
 /* ===========================
-   Language Dropdown
+   Language Dropdown — merged desktop
    =========================== */
 .lang-dropdown{ position:relative; display:inline-block; }
 
@@ -65,8 +72,10 @@
 }
 .lang-btn .caret{ font-size:.7rem; margin-left:4px; }
 
+/* 讓清單從按鈕右下角展開，不被裁切 */
 .lang-menu{
-  position:absolute; top:110%; right:0; z-index:200;
+  position:absolute; top:110%; right:0;
+  z-index: 9000;                          /* 高於 header/nav links */
   background:#0d0d0d; border:1px solid rgba(255,255,255,.12);
   border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.35);
   padding:10px; margin:0; list-style:none;
@@ -84,7 +93,7 @@
 .lang-menu li[aria-current="true"]{ font-weight:600; color:var(--brand-gold); }
 
 /* ===========================
-   Footer (五欄式)
+   Footer (五欄式) — merged desktop
    =========================== */
 .bm-footer{
   background:#0d0d0d;
@@ -92,6 +101,8 @@
   color:#a9b2c3;
   font-size:.95rem;
 }
+.bm-footer .container { position: relative; overflow: visible; }
+
 .bm-footer-top{
   display:grid;
   grid-template-columns: minmax(220px,1fr) repeat(4, minmax(160px,1fr));
