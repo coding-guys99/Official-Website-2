@@ -184,13 +184,15 @@ html, body {
   .donate-actions { justify-content: center !important; }
 }
 
-/* ------- Footer 手風琴（僅手機） ------- */
+/* ---- Footer accordion only on small screens ---- */
 @media (max-width: 768px){
   .bm-footer-top{
     grid-template-columns: 1fr !important;
     gap: 12px !important;
     text-align: left !important;
   }
+
+  .bm-foot-links-grid { display: block !important; } /* 手機下改回普通容器 */
 
   .foot-col{
     border-top: 1px solid rgba(255,255,255,.08);
@@ -220,7 +222,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0 0 10px;
-    max-height: 0;           /* 關鍵：預設收合 */
+    max-height: 0;             /* 初始收起 */
     overflow: hidden;
     transition: max-height .25s ease;
   }
@@ -228,5 +230,5 @@ html, body {
 
   /* 展開狀態（由 JS 加上 .open） */
   .foot-col.open .foot-head::after{ transform: rotate(180deg); }
-  .foot-col.open .foot-links{ max-height: 420px; }  /* 夠大就行 */
+  .foot-col.open .foot-links{ max-height: 420px; } /* 給一個足夠大的值即可 */
 }
