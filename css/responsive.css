@@ -251,7 +251,7 @@ html, body {
   /* 子連結區 */
   .bm-footer .foot-links {
     margin: 0;
-    padding: 0 0 8px 0;         /* 展開時留一點下邊距 */
+    padding: 0 0 0px 0;         /* 展開時留一點下邊距 */
   }
 
   .bm-footer .foot-links a {
