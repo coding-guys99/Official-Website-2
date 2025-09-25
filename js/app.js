@@ -87,48 +87,46 @@
       portal.classList.remove('open');
       portal.setAttribute('aria-hidden','true');
     };
-    const open = (anchor)=>{
-      portal.classList.add('open');
-      portal.removeAttribute('aria-hidden');
+    function openPortal(anchor){
+  // 先顯示，才能量尺寸
+  portal.classList.add('open');
+  portal.removeAttribute('aria-hidden');
 
-      // 先顯示再定位（需要尺寸）
-      const r = anchor.getBoundingClientRect();
-      const top  = Math.min(r.bottom + 8, window.innerHeight - portal.offsetHeight - 16);
-      const left = Math.min(
-        Math.max(16, r.left),
-        window.innerWidth - portal.offsetWidth - 16
-      );
-      portal.style.top  = `${Math.max(8, top)}px`;
-      portal.style.left = `${Math.max(8, left)}px`;
+  const r = anchor.getBoundingClientRect();
+  const portalW = portal.offsetWidth;
+  const portalH = portal.offsetHeight;
 
-      // 點外面 / ESC 關閉
-      const onDoc = (e)=>{ if (!portal.contains(e.target)) close(); };
-      const onEsc = (e)=>{ if (e.key==='Escape') close(); };
-      setTimeout(()=>{
-        document.addEventListener('click', onDoc, { once:true });
-        document.addEventListener('keydown', onEsc, { once:true });
-      }, 0);
-    };
+  const margin = 12; // 與邊界留白
+  // 理想位置：按鈕下方靠左
+  let top  = r.bottom + 8;
+  let left = r.left;
 
-    const bindOpen = (el)=>{
-      if (!el) return;
-      el.addEventListener('click', (e)=>{
-        e.preventDefault();
-        e.stopPropagation();     // 避免馬上被「點外面關閉」吃掉
-        portal.classList.contains('open') ? close() : open(el);
-      });
-    };
+  // 若右側會超出 → 往左收
+  if (left + portalW + margin > window.innerWidth){
+    left = Math.max(margin, window.innerWidth - portalW - margin);
+  }
+  // 若底部會超出 → 顯示在按鈕上方
+  if (top + portalH + margin > window.innerHeight){
+    top = Math.max(margin, r.top - portalH - 8);
+  }
+  // 最終夾在可視範圍內
+  top  = Math.min(Math.max(margin, top),  window.innerHeight - portalH - margin);
+  left = Math.min(Math.max(margin, left), window.innerWidth  - portalW - margin);
 
-    bindOpen(btnDesk);
-    bindOpen(btnMobile);
-    bindOpen(footLink);
+  portal.style.top  = `${top}px`;
+  portal.style.left = `${left}px`;
 
-    portal.addEventListener('click', (e)=>{
-      const b = e.target.closest('button[data-lang]');
-      if (!b) return;
-      setLang(b.dataset.lang);
-      close();
-    });
+  // 關閉監聽
+  const onDoc = (e) => { if (!portal.contains(e.target)) closePortal(); };
+  const onEsc = (e) => { if (e.key === 'Escape') closePortal(); };
+  const onScroll = () => closePortal(); // 捲動就關，避免位置跑掉
+  setTimeout(() => {
+    document.addEventListener('click', onDoc, { once:true });
+    document.addEventListener('keydown', onEsc, { once:true });
+    window.addEventListener('scroll', onScroll, { once:true, passive:true });
+  }, 0);
+}
+
   }
 
   /* ========== 3) Index: CTA 平滑捲動 ========== */
@@ -364,6 +362,7 @@
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 })();
+
 
 
 
