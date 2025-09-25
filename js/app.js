@@ -3,175 +3,117 @@
   const $  = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-/* ---------- Backdrop manager (mobile only) ---------- */
-const Backdrop = (() => {
-  let el = null;
-  let refCount = 0;
-  let closeHandler = null;
+  /* ---------- Backdrop manager (mobile only) ---------- */
+  const Backdrop = (() => {
+    let el = null;
+    let ref = 0;
+    let onClose = null;
 
-  const ensure = () => {
-    if (el) return el;
-    el = document.createElement('div');
-    el.id = 'appBackdrop';
-    el.className = 'backdrop';
-    document.body.appendChild(el);
-    return el;
-  };
+    const ensure = () => {
+      if (el) return el;
+      el = document.createElement('div');
+      el.id = 'appBackdrop';
+      el.className = 'backdrop';
+      document.body.appendChild(el);
+      return el;
+    };
 
-  return {
-    open(onClick) {
-      // 桌機直接跳過
-      if (window.innerWidth > 980) return;
+    const isMobile = () => window.innerWidth <= 980;
 
-      ensure();
-      refCount++;
-      closeHandler = onClick || null;
-      el.classList.add('show');
-      document.body.classList.add('no-scroll');
-
-      el.onclick = () => { closeHandler?.(); };
-    },
-    close() {
-      if (!el) return;
-      if (window.innerWidth > 980) return; // 桌機不處理
-
-      refCount = Math.max(0, refCount - 1);
-      if (refCount === 0) {
+    return {
+      open(handler){
+        if (!isMobile()) return;
+        ensure();
+        ref++;
+        onClose = handler || null;
+        el.classList.add('show');
+        document.body.classList.add('no-scroll');
+        el.onclick = () => onClose?.();
+      },
+      close(){
+        if (!el || !isMobile()) return;
+        ref = Math.max(0, ref - 1);
+        if (ref === 0){
+          el.classList.remove('show');
+          document.body.classList.remove('no-scroll');
+          el.onclick = null;
+          onClose = null;
+        }
+      },
+      force(){
+        if (!el) return;
+        ref = 0;
         el.classList.remove('show');
         document.body.classList.remove('no-scroll');
         el.onclick = null;
-        closeHandler = null;
+        onClose = null;
       }
-    },
-    forceClose() {
-      if (!el) return;
-      refCount = 0;
-      el.classList.remove('show');
-      document.body.classList.remove('no-scroll');
-      el.onclick = null;
-      closeHandler = null;
-    }
+    };
+  })();
+
+  /* ----------  Boot  ---------- */
+  const init = () => {
+    mobileNav();
+    langPortal();
+    heroCtaSmooth();
+    heroTyping();
+    featureImgHover();
+    timelineHighlight();
+    pricingToggle();
+    faqSingleOpen();
+    feedbackMailto();
+    featureCardPolish();
+    newsFilter();
+    footerAccordion();
+    revealOnScroll();
   };
-})();
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init, { once:true });
+  } else {
+    init();
+  }
 
+  /* ========== 1) Mobile nav (single) ========== */
+  function mobileNav(){
+    const toggle = $('.nav-toggle');
+    const nav    = $('#primaryNav') || $('.nav-links');
+    if (!toggle || !nav) return;
 
-  /* ========== Boot ========== */
-  document.addEventListener('DOMContentLoaded', () => {
-    mobileNav();         // 行動選單
-    langPortal();        // 語言選單（桌機/手機/Footer 共用） ← 已修
-    heroCtaSmooth();     // Index CTA 平滑捲動
-    heroTyping();        // Index 打字動畫
-    featureImgHover();   // Index/Features 圖片 hover
-    timelineHighlight(); // About 年代表
-    pricingToggle();     // Pricing 月/年
-    faqSingleOpen();     // Support FAQ
-    feedbackMailto();    // Support 表單
-    featureCardPolish(); // Features 卡片 hover 陰影
-    newsFilter();        // News 篩選
-    footerAccordion();   // Footer 手機手風琴
-  });
-
-  /* ========== 1) Mobile nav（唯一版本） ========== */
- function mobileNav(){
-  const toggle = document.querySelector('.nav-toggle');
-  const nav    = document.querySelector('#primaryNav') || document.querySelector('.nav-links');
-  if (!toggle || !nav) return;
-
-  const close = ()=>{
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded','false');
-    Backdrop.close();
-  };
-
-  toggle.addEventListener('click', (e)=>{
-    // 桌機不作用
-    if (window.innerWidth > 980) return;
-
-    e.stopPropagation();
-    const open = !nav.classList.contains('open');
-    nav.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', String(open));
-
-    if (open){
-      Backdrop.open(close);
-    }else{
+    const close = ()=>{
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
       Backdrop.close();
-    }
-  });
+    };
+    const open = ()=>{
+      nav.classList.add('open');
+      toggle.setAttribute('aria-expanded','true');
+      Backdrop.open(close);
+    };
 
-  nav.addEventListener('click', (e)=>{ 
-    if (e.target.closest('a')) close(); 
-  });
-
-  document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') close(); });
-
-  window.addEventListener('resize', ()=>{
-    if (window.innerWidth > 980) close(); 
-  }, {passive:true});
-}
-
- // === Header 互動：行動選單 + Backdrop（桌機不顯示） ===
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.nav-toggle');
-  const nav    = document.getElementById('primaryNav') || document.querySelector('.nav-links');
-
-  // 動態建立 backdrop（手機用）
-  let backdrop = document.querySelector('.nav-backdrop');
-  if (!backdrop){
-    backdrop = document.createElement('div');
-    backdrop.className = 'nav-backdrop';
-    document.body.appendChild(backdrop);
-  }
-
-  const isMobile = () => window.innerWidth <= 980;
-
-  const openNav  = () => {
-    if (!nav) return;
-    nav.classList.add('open');
-    if (isMobile()){
-      backdrop.classList.add('show');
-    }
-    if (toggle) toggle.setAttribute('aria-expanded', 'true');
-  };
-  const closeNav = () => {
-    if (!nav) return;
-    nav.classList.remove('open');
-    backdrop.classList.remove('show');
-    if (toggle) toggle.setAttribute('aria-expanded', 'false');
-  };
-
-  if (toggle && nav){
     toggle.addEventListener('click', (e)=>{
+      if (window.innerWidth > 980) return; // 桌機不啟用
       e.stopPropagation();
-      nav.classList.contains('open') ? closeNav() : openNav();
+      nav.classList.contains('open') ? close() : open();
     });
-    // 點選單中的連結就關閉
-    nav.addEventListener('click', (e)=>{ if (e.target.closest('a')) closeNav(); });
-    // 點 backdrop 關閉
-    backdrop.addEventListener('click', closeNav);
-    // 視窗放大回桌機：保證清乾淨
-    window.addEventListener('resize', ()=>{ if (!isMobile()) closeNav(); }, {passive:true});
-    // ESC 關閉
-    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeNav(); });
+
+    nav.addEventListener('click', (e)=>{ if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', ()=>{ if (window.innerWidth > 980) Backdrop.force(), close(); }, { passive:true });
   }
-});
 
-
-
-  /* ========== 2) Language Portal（唯一版本 - 已修綁定/命名/定位） ========== */
+  /* ========== 2) Language Portal（mobile header + footer） ========== */
   function langPortal(){
     const SUPPORTED = [
       ['en','English'], ['zh-tw','繁體中文'], ['zh-cn','简体中文'],
       ['ja','日本語'], ['ko','한국어'], ['fr','Français'], ['de','Deutsch']
     ];
-    const portal     = $('#langPortal');
-    const btnDesk    = null; // 桌機 header 不要
-    const btnMobile  = document.querySelector('#langBtnMobile');
-    const footLink   = document.querySelector('#footLangLink');
-    const curDesk    = $('#langCurrent');
-    const curMobile  = $('#langCurrentMobile');
-    if (!portal) return;
 
+    const portal    = $('#langPortal');
+    const btnMobile = $('#langBtnMobile');   // 漢堡選單內
+    const footLink  = $('#footLangLink');    // Footer 入口
+    const curMobile = $('#langCurrentMobile');
+
+    if (!portal) return;
     let current = localStorage.getItem('ks_lang') || 'en';
 
     // 建一次清單
@@ -182,81 +124,60 @@ document.addEventListener('DOMContentLoaded', () => {
       portal.dataset.built = '1';
     }
 
-    // 同步目前語言標籤
     const syncCurrent = ()=>{
       const label = SUPPORTED.find(([c])=>c===current)?.[1] || 'English';
-      if (curDesk)   curDesk.textContent   = label;
       if (curMobile) curMobile.textContent = label;
-      portal.querySelectorAll('[aria-current="true"]').forEach(b=>b.removeAttribute('aria-current'));
+      portal.querySelectorAll('[aria-current="true"]').forEach(b => b.removeAttribute('aria-current'));
       portal.querySelector(`[data-lang="${current}"]`)?.setAttribute('aria-current','true');
     };
-    syncCurrent();
-
     const setLang = (code)=>{
       current = code;
       localStorage.setItem('ks_lang', code);
       syncCurrent();
-      // 若有 i18n：window.KS_I18N?.setLang(code);
+      // window.KS_I18N?.setLang(code);
       console.log('[i18n] switch to:', code);
     };
+    syncCurrent();
 
-    // 關閉
     const closePortal = ()=>{
       portal.classList.remove('open');
       portal.setAttribute('aria-hidden','true');
-      Backdrop.close(); // <— 收掉遮罩或遞減引用
-      // 讓觸發鈕的 aria-expanded 回復
-      [btnDesk, btnMobile, footLink].forEach(b => b?.setAttribute('aria-expanded','false'));
+      Backdrop.close();
+      [btnMobile, footLink].forEach(b => b?.setAttribute('aria-expanded','false'));
     };
 
-    // 打開並計算位置（避免被裁切）
-    function openPortal(anchor){
+    const openPortal = (anchor)=>{
+      // 先顯示再量
       portal.classList.add('open');
       portal.removeAttribute('aria-hidden');
 
       const r = anchor.getBoundingClientRect();
-      const portalW = portal.offsetWidth;
-      const portalH = portal.offsetHeight;
-      const MARGIN = 12;
-
-      // 預設在按鈕下方靠左
+      const W = portal.offsetWidth, H = portal.offsetHeight;
+      const M = 12;
       let top  = r.bottom + 8;
       let left = r.left;
 
-      // 右邊溢出 → 往左收
-      if (left + portalW + MARGIN > window.innerWidth){
-        left = Math.max(MARGIN, window.innerWidth - portalW - MARGIN);
-      }
-      // 下方溢出 → 放到上方
-      if (top + portalH + MARGIN > window.innerHeight){
-        top = Math.max(MARGIN, r.top - portalH - 8);
-      }
-      // 夾回視窗範圍
-      top  = Math.min(Math.max(MARGIN, top),  window.innerHeight - portalH - MARGIN);
-      left = Math.min(Math.max(MARGIN, left), window.innerWidth  - portalW - MARGIN);
+      if (left + W + M > innerWidth)  left = Math.max(M, innerWidth - W - M);
+      if (top  + H + M > innerHeight) top  = Math.max(M, r.top - H - 8);
 
-      portal.style.top  = `${top}px`;
-      portal.style.left = `${left}px`;
+      portal.style.top  = Math.min(Math.max(M, top),  innerHeight - H - M) + 'px';
+      portal.style.left = Math.min(Math.max(M, left), innerWidth  - W - M) + 'px';
 
-      if (open) Backdrop.open(close);   // <— 打開遮罩並把關閉邏輯交給他
-    else      Backdrop.close();
+      Backdrop.open(closePortal);
 
-      // 其他關閉手段
-  const onDoc   = (e) => { if (!portal.contains(e.target)) closePortal(); };
-  const onEsc   = (e) => { if (e.key === 'Escape') closePortal(); };
-  const onScroll= ()   => closePortal();
-  setTimeout(() => {
-    document.addEventListener('click', onDoc, { once:true });
-    document.addEventListener('keydown', onEsc, { once:true });
-    window.addEventListener('scroll', onScroll, { once:true, passive:true });
-  }, 0);
-}
+      // 關閉策略
+      const onDoc = (e)=>{ if (!portal.contains(e.target)) closePortal(); };
+      const onEsc = (e)=>{ if (e.key === 'Escape') closePortal(); };
+      const onScroll = ()=> closePortal();
+      setTimeout(()=>{
+        document.addEventListener('click', onDoc, { once:true });
+        document.addEventListener('keydown', onEsc, { once:true });
+        window.addEventListener('scroll', onScroll, { once:true, passive:true });
+      },0);
+    };
 
-
-    
-
-    // 綁定觸發（桌機／手機／footer）
-    [btnDesk, btnMobile, footLink].forEach(btn=>{
+    // 綁定觸發（mobile + footer）
+    [btnMobile, footLink].forEach(btn=>{
       if (!btn || btn.dataset.bound === '1') return;
       btn.dataset.bound = '1';
       btn.setAttribute('aria-haspopup','menu');
@@ -264,16 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.addEventListener('click', (e)=>{
         e.preventDefault();
         e.stopPropagation();
-        if (portal.classList.contains('open')) {
-          closePortal();
-        } else {
-          openPortal(btn);
-          btn.setAttribute('aria-expanded','true');
-        }
+        if (portal.classList.contains('open')) closePortal();
+        else { openPortal(btn); btn.setAttribute('aria-expanded','true'); }
       });
     });
 
-    // 選擇語言
     portal.addEventListener('click', (e)=>{
       const b = e.target.closest('button[data-lang]');
       if (!b) return;
@@ -281,21 +197,20 @@ document.addEventListener('DOMContentLoaded', () => {
       closePortal();
     });
 
-    // 視窗尺寸變更時，如果開著就關掉（避免漂移位置）
-    window.addEventListener('resize', ()=>{ if (portal.classList.contains('open')) closePortal(); }, {passive:true});
+    window.addEventListener('resize', ()=>{ if (portal.classList.contains('open')) closePortal(); }, { passive:true });
   }
 
-  /* ========== 3) Index: CTA 平滑捲動 ========== */
+  /* ========== 3) Index: CTA smooth scroll ========== */
   function heroCtaSmooth(){
     const btn = $('.hero .btn.primary');
     if (!btn) return;
     btn.addEventListener('click', (e)=>{
       e.preventDefault();
-      $('.feature')?.scrollIntoView({behavior:'smooth'});
+      $('.feature')?.scrollIntoView({ behavior:'smooth' });
     });
   }
 
-  /* ========== 4) Index: 打字動畫（高度穩定） ========== */
+  /* ========== 4) Index: Typing headline ========== */
   function heroTyping(){
     const titleEl = $('#heroTitle');
     const wrap    = $('#heroTitleWrap');
@@ -305,8 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const lines  = ['Find it. Fast.', 'No mess. Just answers.'];
 
-    // 固定外層高度，避免欄寬抖動
-    (function fixHeroHeight(){
+    (function lockHeight(){
       const probe = document.createElement('div');
       const cs = getComputedStyle(titleEl);
       probe.style.cssText = `
@@ -322,11 +236,10 @@ document.addEventListener('DOMContentLoaded', () => {
         wrap.style.minHeight = (maxH + 4) + 'px';
       };
       recompute();
-      let t; window.addEventListener('resize', ()=>{ clearTimeout(t); t=setTimeout(recompute,120); }, {passive:true});
+      let t; window.addEventListener('resize', ()=>{ clearTimeout(t); t=setTimeout(recompute,120); }, { passive:true });
       setTimeout(()=> probe.remove(), 0);
     })();
 
-    // 建立文字與 caret
     const span  = document.createElement('span');
     const caret = document.createElement('span');
     caret.className = 'caret';
@@ -351,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ========== 5) Index/Features: 圖片 hover ========== */
+  /* ========== 5) Feature images hover ========== */
   function featureImgHover(){
     $$('.feature-img img').forEach(img=>{
       img.addEventListener('mouseenter', ()=>{
@@ -362,23 +275,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== 6) About: 年代表高亮 ========== */
+  /* ========== 6) About: timeline highlight ========== */
   function timelineHighlight(){
     const items = $$('.timeline-list li');
     if (!items.length) return;
-    const io = new IntersectionObserver(es => {
+    const io = new IntersectionObserver(es=>{
       es.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
-    }, {threshold:.3});
+    }, { threshold:.3 });
     items.forEach(i => io.observe(i));
   }
 
-  /* ========== 7) Pricing: 月/年切換 ========== */
+  /* ========== 7) Pricing: billing toggle ========== */
   function pricingToggle(){
     const toggle = $('#billingToggle');
     if (!toggle) return;
     const KEY = 'ks_billing_yearly';
 
-    const apply = (yearly) => {
+    const apply = (yearly)=>{
       $$('.price-card .price').forEach(p=>{
         const monthly = p.getAttribute('data-monthly') || '';
         const yearlyP = p.getAttribute('data-yearly')  || '';
@@ -386,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (yearly && yearlyP){
           p.firstChild.nodeValue = yearlyP + ' ';
           if (span) span.textContent = '/ month (billed yearly)';
-        }else{
+        } else {
           p.firstChild.nodeValue = monthly + ' ';
           if (span) span.textContent = '/ month';
         }
@@ -400,23 +313,23 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('click', ()=>{
       const next = toggle.getAttribute('aria-pressed') !== 'true';
       toggle.setAttribute('aria-pressed', String(next));
-      localStorage.setItem(KEY, next ? '1':'0');
+      localStorage.setItem(KEY, next ? '1' : '0');
       apply(next);
     });
   }
 
-  /* ========== 8) Support: FAQ only-one-open ========== */
+  /* ========== 8) Support: FAQ one-open ========== */
   function faqSingleOpen(){
     const items = $$('.faq-item');
     if (!items.length) return;
     items.forEach(d=>{
       d.addEventListener('toggle', ()=>{
-        if (d.open) items.forEach(o=>{ if(o!==d) o.removeAttribute('open'); });
+        if (d.open) items.forEach(o=>{ if (o!==d) o.removeAttribute('open'); });
       });
     });
   }
 
-  /* ========== 9) Support: 送出 → mailto + toast ========== */
+  /* ========== 9) Support: feedback -> mailto ========== */
   function feedbackMailto(){
     const form  = $('#feedbackForm');
     const toast = $('#toast');
@@ -433,7 +346,6 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e)=>{
       e.preventDefault();
       if (form.website?.value.trim()) return; // 蜜罐
-
       const name  = form.name?.value.trim();
       const email = form.email?.value.trim();
       const topic = form.topic?.value || 'general';
@@ -447,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== 10) Features: 卡片 hover 陰影 ========== */
+  /* ========== 10) Features: card shadow polish ========== */
   function featureCardPolish(){
     $$('.feature-card').forEach(card=>{
       card.addEventListener('mouseenter', ()=> card.style.boxShadow='0 8px 20px rgba(0,0,0,.4)');
@@ -455,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== 11) News: 年份 chips 篩選 ========== */
+  /* ========== 11) News: year chips filter ========== */
   function newsFilter(){
     const group = $('#newsYearChips');
     if (!group) return;
@@ -469,9 +381,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== 12) Footer: 手機手風琴 ========== */
+  /* ========== 12) Footer: accordion (mobile only) ========== */
   function footerAccordion(){
-    const mq = matchMedia('(max-width: 768px)');
+    const mq   = matchMedia('(max-width: 768px)');
     const cols = $$('.foot-col');
     if (!cols.length) return;
 
@@ -491,12 +403,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       btn.addEventListener('click', ()=>{
         const next = !col.classList.contains('open');
-        // 只開一個
         cols.forEach(c=>{
           if (c!==col && c.classList.contains('open')){
             c.classList.remove('open');
             const b = $('.foot-head', c), l = $('.foot-links', c);
-            b?.setAttribute('aria-expanded','false'); if (l) l.style.maxHeight='0px';
+            b?.setAttribute('aria-expanded','false');
+            if (l) l.style.maxHeight='0px';
           }
         });
         setOpen(next);
@@ -506,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const setup = ()=>{
       if (mq.matches){
         cols.forEach(bind);
-      }else{
+      } else {
         cols.forEach(col=>{
           col.classList.remove('open');
           $('.foot-head', col)?.removeAttribute('aria-expanded');
@@ -517,12 +429,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setup();
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
+
+  /* ========== 13) Reveal-on-scroll ========== */
+  function revealOnScroll(){
+    const els = $$('.reveal-on-scroll');
+    if (!els.length) return;
+
+    if (!('IntersectionObserver' in window) ||
+        matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(e => e.classList.add('is-visible'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if (en.isIntersecting){
+          en.target.classList.add('is-visible');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -10% 0px' });
+
+    els.forEach(e => io.observe(e));
+  }
 })();
-
-
-
-
-
-
-
-
