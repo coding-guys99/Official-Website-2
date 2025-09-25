@@ -342,3 +342,14 @@ html, body {
   }
 }
 
+/* 手機：只顯示 nav-links 裡的額外選項 */
+@media (max-width: 980px) {
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+
+  .mobile-only .btn.bm-cta {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
