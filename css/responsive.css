@@ -60,15 +60,6 @@ html, body {
     grid-template-columns: repeat(2, minmax(110px,1fr)) !important;
   }
 
-   /* Hide header CTA on mobile */
-@media (max-width: 900px){
-  /* 你的 header CTA class 可能是 .bm-cta（我照你現有命名） */
-  .nav-actions .bm-cta,
-  .bm-header .bm-cta,
-  .site-header .bm-cta{
-    display: none !important;
-  }
-
   /* 首屏 Hero（保險再次設定） */
   .hero {
     grid-template-columns: 1fr !important;
@@ -342,3 +333,12 @@ html, body {
     order: 2;                 /* 可視需要調整順序 */
   }
 }
+
+/* Hide Try Web App button on mobile */
+@media (max-width: 900px){
+  .bm-header .nav-actions .bm-cta,
+  .site-header .nav-actions .bm-cta{
+    display: none !important;
+  }
+}
+
