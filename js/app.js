@@ -118,9 +118,9 @@ const Backdrop = (() => {
       ['ja','日本語'], ['ko','한국어'], ['fr','Français'], ['de','Deutsch']
     ];
     const portal     = $('#langPortal');
-    const btnDesk    = $('#langBtn');
-    const btnMobile  = $('#langBtnMobile');
-    const footLink   = $('#footLangLink');
+    const btnDesk    = null; // 桌機 header 不要
+    const btnMobile  = document.querySelector('#langBtnMobile');
+    const footLink   = document.querySelector('#footLangLink');
     const curDesk    = $('#langCurrent');
     const curMobile  = $('#langCurrentMobile');
     if (!portal) return;
@@ -471,6 +471,7 @@ const Backdrop = (() => {
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 })();
+
 
 
 
