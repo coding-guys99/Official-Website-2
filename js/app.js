@@ -195,11 +195,7 @@ const Backdrop = (() => {
   }, 0);
 }
 
-function closePortal(){
-  portal.classList.remove('open');
-  portal.setAttribute('aria-hidden','true');
-  Backdrop.close(); // <— 收掉遮罩或遞減引用
-}
+
     
 
     // 綁定觸發（桌機／手機／footer）
@@ -465,4 +461,5 @@ function closePortal(){
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 })();
+
 
