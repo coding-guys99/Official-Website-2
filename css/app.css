@@ -562,3 +562,56 @@ footer.site-footer.bm-footer .bm-footer-bottom .legal a:hover{
   color:#aab3c5;
   margin-top:8px;
 }
+
+/* === Support: 水平置中與一致寬度 === */
+/* 讓這幾個區塊與 page-hero 用同一個視覺寬度並置中 */
+.page-hero.container,
+.support-quick.container,
+.faq.container,
+.feedback.container,
+.donate.container{
+  max-width: 1080px;      /* 與全站 container 對齊 */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Quick links 置中排列、每顆一致寬度 */
+.support-quick{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 18px 0 26px;
+}
+.support-quick .qk{
+  min-width: 220px;
+  flex: 0 1 240px;       /* 自動換行但維持一致寬 */
+  text-align: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+/* FAQ：整欄寬度對齊、卡片不縮邊 */
+.faq .faq-item{
+  width: 100%;
+  border-radius: 12px;
+}
+.faq .faq-item > summary{ padding: 14px 16px; }
+.faq .faq-item .answer{  padding: 14px 16px; }
+
+/* Feedback 表單卡片置中（若你外層不是卡片，也可只留 max-width） */
+.feedback .feedback-form{
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Donate 卡片也對齊容器寬 */
+.donate .donate-card{
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
