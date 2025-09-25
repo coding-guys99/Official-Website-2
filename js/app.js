@@ -3,6 +3,53 @@
   const $  = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
+  /* ---------- Backdrop manager ---------- */
+const Backdrop = (() => {
+  let el = null;
+  let refCount = 0;
+  const ensure = () => {
+    if (el) return el;
+    el = document.createElement('div');
+    el.id = 'appBackdrop';
+    el.className = 'backdrop';
+    document.body.appendChild(el);
+    return el;
+  };
+  let closeHandler = null;
+
+  return {
+    open(onClick) {
+      ensure();
+      refCount++;
+      closeHandler = onClick || null;
+      el.classList.add('show');
+      document.body.classList.add('no-scroll');
+
+      // 點遮罩關閉「目前這層」
+      el.onclick = () => { closeHandler?.(); };
+    },
+    close() {
+      if (!el) return;
+      refCount = Math.max(0, refCount - 1);
+      if (refCount === 0) {
+        el.classList.remove('show');
+        document.body.classList.remove('no-scroll');
+        el.onclick = null;
+        closeHandler = null;
+      }
+    },
+    forceClose() {          // 偶爾需要強制收掉
+      refCount = 0;
+      if (!el) return;
+      el.classList.remove('show');
+      document.body.classList.remove('no-scroll');
+      el.onclick = null;
+      closeHandler = null;
+    }
+  };
+})();
+
+
   /* ========== Boot ========== */
   document.addEventListener('DOMContentLoaded', () => {
     mobileNav();         // 行動選單
@@ -28,6 +75,7 @@
     const close = ()=>{
       nav.classList.remove('open');
       toggle.setAttribute('aria-expanded','false');
+      Backdrop.close();                 // <— 收掉遮罩
     };
 
     toggle.addEventListener('click', (e)=>{
@@ -35,6 +83,8 @@
       const open = !nav.classList.contains('open');
       nav.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', String(open));
+      if (open) Backdrop.open(close);   // <— 打開遮罩並把關閉邏輯交給他
+    else      Backdrop.close();
     });
 
     // 點 link 關閉
@@ -131,17 +181,26 @@
       portal.style.top  = `${top}px`;
       portal.style.left = `${left}px`;
 
-      // 外點 / ESC / 捲動 關閉（一次性）
-      const onDoc   = (e) => { if (!portal.contains(e.target)) closePortal(); };
-      const onEsc   = (e) => { if (e.key === 'Escape') closePortal(); };
-      const onScroll= ()   => closePortal();
+      if (open) Backdrop.open(close);   // <— 打開遮罩並把關閉邏輯交給他
+    else      Backdrop.close();
 
-      setTimeout(() => {
-        document.addEventListener('click', onDoc,   { once:true });
-        document.addEventListener('keydown', onEsc, { once:true });
-        window.addEventListener('scroll', onScroll, { once:true, passive:true });
-      }, 0);
-    }
+      // 其他關閉手段
+  const onDoc   = (e) => { if (!portal.contains(e.target)) closePortal(); };
+  const onEsc   = (e) => { if (e.key === 'Escape') closePortal(); };
+  const onScroll= ()   => closePortal();
+  setTimeout(() => {
+    document.addEventListener('click', onDoc, { once:true });
+    document.addEventListener('keydown', onEsc, { once:true });
+    window.addEventListener('scroll', onScroll, { once:true, passive:true });
+  }, 0);
+}
+
+function closePortal(){
+  portal.classList.remove('open');
+  portal.setAttribute('aria-hidden','true');
+  Backdrop.close(); // <— 收掉遮罩或遞減引用
+}
+    
 
     // 綁定觸發（桌機／手機／footer）
     [btnDesk, btnMobile, footLink].forEach(btn=>{
@@ -406,3 +465,4 @@
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 })();
+
