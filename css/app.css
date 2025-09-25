@@ -443,3 +443,122 @@ footer.site-footer.bm-footer .bm-footer-bottom .legal a:hover{
 .about-callout{ padding: 32px 26px !important; }
 .about-callout .actions{ margin-top: 10px; gap: 14px; }
 
+/* ===== Support Page Styling ===== */
+
+/* Quick links (Download / Billing / FAQ / Contact) */
+.support-quick{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin:24px 0 36px;
+}
+.support-quick .qk{
+  flex:1 1 120px;
+  text-align:center;
+  padding:10px 14px;
+  border-radius:10px;
+  background:#151515;
+  border:1px solid rgba(255,255,255,.08);
+  color:#e7ecf3;
+  text-decoration:none;
+  transition:all .2s ease;
+}
+.support-quick .qk:hover{
+  background:rgba(255,255,255,.06);
+  color:var(--brand-gold);
+}
+
+/* FAQ 卡片化 */
+.faq{ margin:40px 0; }
+.faq-item{
+  margin:0 0 14px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  overflow:hidden;
+  background:#141414;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
+.faq-item summary{
+  padding:14px 18px;
+  cursor:pointer;
+  list-style:none;
+  font-weight:600;
+  color:#fff;
+}
+.faq-item[open] summary{ background:rgba(255,255,255,.04); }
+.faq-item .answer{
+  padding:14px 18px;
+  line-height:1.6;
+  color:#cfd6e3;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* Feedback 表單 */
+.feedback-form{
+  margin:40px 0;
+  padding:28px 24px;
+  background:#141414;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  box-shadow:0 6px 20px rgba(0,0,0,.35);
+}
+.feedback-form label{
+  display:block;
+  font-size:.95rem;
+  color:#e7ecf3;
+  margin-bottom:10px;
+}
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea{
+  width:100%;
+  padding:10px 12px;
+  margin-top:4px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.15);
+  background:#0f0f0f;
+  color:#fff;
+  font-size:.95rem;
+}
+.feedback-form input:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus{
+  border-color:var(--brand-gold);
+  outline:none;
+  box-shadow:0 0 0 2px rgba(212,175,55,.3);
+}
+.feedback-form .row2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.feedback-form .actions{
+  margin-top:16px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+/* Donate 卡片 */
+.donate-card{
+  margin:40px 0;
+  padding:28px 24px;
+  background:linear-gradient(145deg,#111,#161616 60%,#101010);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  text-align:center;
+}
+.donate-card h2{ margin-top:0; }
+.donate-card .donate-actions{
+  margin:18px 0;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.donate-card .fine-print{
+  font-size:.85rem;
+  color:#aab3c5;
+  margin-top:8px;
+}
