@@ -546,3 +546,47 @@ p{ line-height: 1.7; }
 /* 桌機：只顯示 nav-actions */
 .desktop-only { display: flex; }
 .mobile-only { display: none; }
+
+/* 讓 header 不裁切： */
+.site-header, .bm-header { overflow: visible; }
+
+/* 主選單打開時浮層層級；但仍低於語言portal */
+.nav-links.open { z-index: 3000; }
+
+/* 語言 Portal（新的浮層） */
+.lang-portal{
+  position: fixed;                 /* 相對視窗，避免被祖先裁切 */
+  top: 0; left: 0;                 /* 會由 JS 動態覆寫 */
+  z-index: 9999;                   /* 高於 header / nav */
+  min-width: 220px;
+  max-width: 92vw;
+  max-height: min(70vh, 420px);    /* 防止超出視窗 */
+  overflow: auto;
+  background: #0d0d0d;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.45);
+  padding: 8px;
+  display: none;
+}
+.lang-portal.open{ display:block; }
+.lang-portal button[role="menuitem"]{
+  width: 100%; text-align: left;
+  padding: 8px 10px; border: 0; background: transparent; color: #e7ecf3;
+  border-radius: 8px; cursor: pointer; font-size: .95rem;
+}
+.lang-portal button[role="menuitem"]:hover{ background: rgba(255,255,255,.08); color: var(--brand-gold); }
+.lang-portal [aria-current="true"]{ font-weight: 700; color: var(--brand-gold); }
+
+/* 手機：做成下方卡片，避免貼頂被遮 */
+@media (max-width: 480px){
+  .lang-portal{
+    left: 12px !important;
+    right: 12px !important;
+    top: auto !important;
+    bottom: 12px !important;
+    max-height: 60vh;
+    min-width: unset;
+    width: auto;
+  }
+}
