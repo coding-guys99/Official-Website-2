@@ -184,10 +184,20 @@ body.no-scroll { overflow: hidden; }
   margin: 0;                /* 防止被外部樣式置中 */
 }
 
-/* 漢堡/動作區靠右 */
-.bm-header .nav-toggle,
-.bm-header .nav-actions{
-  justify-self: end;
+/* 漢堡固定在右側 */
+.bm-header .nav-toggle{
+  justify-self: end;         /* 在 grid 的右邊 */
+  display: none;             /* 預設隱藏（桌機不出現） */
+  width: 36px; height: 36px; /* 給觸控範圍 */
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  cursor: pointer;
 }
+
+
+
 
 
