@@ -365,41 +365,5 @@
   }
 })();
 
-// 建議放在 langPortal() 那段內部最後
-function closePortal(){
-  portal.classList.remove('open');
-  portal.setAttribute('aria-hidden','true');
-}
-function openPortal(anchor){
-  portal.classList.add('open');
-  portal.removeAttribute('aria-hidden');
-  // ...（定位演算法維持）
-}
 
-// ① 頁面載入先確保關閉
-closePortal();
 
-// ② 窗口尺寸變動時關閉（避免位置失效）
-window.addEventListener('resize', () => {
-  if (portal.classList.contains('open')) closePortal();
-}, { passive: true });
-
-// ③ 點外面關閉（注意 setTimeout 0 防止與開啟那次 click 衝突）
-function bindOpen(el){
-  if (!el) return;
-  el.addEventListener('click', (e)=>{
-    e.preventDefault();
-    e.stopPropagation();
-    if (portal.classList.contains('open')) {
-      closePortal();
-    } else {
-      openPortal(el);
-      setTimeout(() => {
-        const onDoc = (ev) => { if (!portal.contains(ev.target)) closePortal(); };
-        const onEsc = (ev) => { if (ev.key === 'Escape') closePortal(); };
-        document.addEventListener('click', onDoc, { once:true });
-        document.addEventListener('keydown', onEsc, { once:true });
-      }, 0);
-    }
-  });
-}
