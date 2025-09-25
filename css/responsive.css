@@ -161,7 +161,7 @@ html, body { overflow-x: hidden; }
     padding: 0 12px;
   }
   .bm-footer .foot-col.open .foot-links{
-    max-height: 200px; padding: 6px 12px 10px;
+    max-height: 200px; padding: 6px 6px 10px;
   }
   .bm-footer .foot-links a{
     display: block; padding: 8px 0; color: #b8c0cf; text-decoration: none;
