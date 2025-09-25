@@ -1,10 +1,18 @@
-// js/lang.js — 穩定 i18n + 語言選單（支援 mobile 觸發 #langBtnMobile）
-// 若未來加桌機按鈕（#langBtn），此檔也會自動支援。
-
 (function () {
-  /* ========== 基本設定 ========== */
-  const BASE = './i18n/'; // 你的 JSON 路徑：在子資料夾請用相對路徑 ./i18n/
-  const FALLBACK = 'en';
+  const portal    = document.getElementById('langPortal');          // 你現有的節點
+  const btnMobile = document.getElementById('langBtnMobile');       // 你現有的按鈕
+  const footLink  = document.getElementById('footLangLink');        // footer 的入口（有就綁，沒有略過）
+  const curMobile = document.getElementById('langCurrentMobile');   // 目前語言顯示
+
+  if (!portal) return;
+
+  // 你的 HTML 保留原樣：這裡在執行時自動移除 aria-hidden，改用 hidden 控制顯示
+  portal.hidden = true;
+  portal.removeAttribute('aria-hidden');
+  portal.setAttribute('role','menu');
+  portal.setAttribute('tabindex','-1');
+
+  // 支援語言（名稱會顯示在選單與行動版按鈕上）
   const SUPPORTED = [
     ['en','English'],
     ['zh_tw','繁體中文'],
@@ -13,230 +21,104 @@
     ['ko','한국어']
   ];
 
-  /* ========== i18n 核心 ========== */
-  const I18N = {
-    lang: FALLBACK,
-    dict: {},
-    cache: new Map(),
-    async load(lang) {
-      const url = `${BASE}${lang}.json`;
-      if (!this.cache.has(lang)) {
-        this.cache.set(lang, fetch(url).then(r => {
-          if (!r.ok) throw new Error(`HTTP ${r.status} ${url}`);
-          return r.json();
-        }));
-      }
-      return this.cache.get(lang);
-    },
-    t(key, dict = this.dict) {
-      return key.split('.').reduce((o,k)=> (o && k in o) ? o[k] : undefined, dict);
-    },
-    mergeFallback(primary, fallback) {
-      // 只把缺的鍵補上
-      for (const k in fallback) {
-        if (fallback[k] && typeof fallback[k] === 'object' && !Array.isArray(fallback[k])) {
-          if (!(k in primary)) primary[k] = {};
-          this.mergeFallback(primary[k], fallback[k]);
-        } else if (!(k in primary)) {
-          primary[k] = fallback[k];
-        }
-      }
-      return primary;
-    },
-    render(root=document) {
-      // 文字內容
-      root.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const val = this.t(key);
-        if (typeof val === 'string') el.textContent = val;
-      });
-      // 屬性（可選）：data-i18n-attr="title,aria-label"
-      root.querySelectorAll('[data-i18n-attr]').forEach(el => {
-        const baseKey = el.getAttribute('data-i18n');
-        const attrs = (el.getAttribute('data-i18n-attr') || '')
-          .split(',').map(s=>s.trim()).filter(Boolean);
-        attrs.forEach(attr => {
-          const key = `${baseKey}.${attr}`;
-          const val = this.t(key) ?? this.t(baseKey);
-          if (typeof val === 'string') el.setAttribute(attr, val);
-        });
-      });
-    },
-    async setLang(input) {
-      let lang = (input || FALLBACK).toLowerCase().replace('-', '_'); // zh-tw -> zh_tw
-      // 載入當前語言與備援
-      const [cur, fb] = await Promise.all([
-        this.load(lang),
-        this.load(FALLBACK)
-      ]);
-      // 補齊缺字
-      this.dict = this.mergeFallback(JSON.parse(JSON.stringify(cur)), fb);
-      this.lang = lang;
-      // 設定 <html lang="">
-      document.documentElement.lang = lang.replace('_','-');
-      // 記憶選擇
-      localStorage.setItem('i18n.lang', lang);
-      // 渲染
-      this.render();
-      // 事件（給其他模組用）
-      document.dispatchEvent(new CustomEvent('i18n:changed', { detail:{ lang } }));
-      console.info('[i18n] switch to:', lang);
-    },
-    detect() {
-      const saved = localStorage.getItem('i18n.lang');
-      if (saved) return saved;
-      const nav = (navigator.language || 'en').toLowerCase();
-      if (nav.startsWith('zh-tw') || nav.startsWith('zh-hant')) return 'zh_tw';
-      if (nav.startsWith('zh-cn') || nav.startsWith('zh-hans')) return 'zh_cn';
-      if (nav.startsWith('ja')) return 'ja';
-      if (nav.startsWith('ko')) return 'ko';
-      return 'en';
-    },
-    async init() {
-      await this.setLang(this.detect());
-    }
-  };
-  window.I18N = I18N;
-
-  /* ========== 語言選單（使用共用 Portal：#langPortal） ========== */
-  const TRIGGERS = ['#langBtnMobile', '#langBtn']; // 目前你的 HTML 只有 #langBtnMobile
-  const portal = document.getElementById('langPortal');
-
-  function ensurePortal() {
-    if (!portal) return null;
-    // 不用 aria-hidden，改用 hidden 以免出現「focused descendant」錯誤
-    portal.hidden = true;
-    portal.removeAttribute('aria-hidden');
-    portal.setAttribute('tabindex', '-1');
-    portal.setAttribute('role', 'menu');
-    if (!portal.dataset.built) {
-      portal.innerHTML = `
-        <ul class="lang-list" role="none">
-          ${SUPPORTED.map(([code,label]) =>
-            `<li role="none">
-               <button type="button" role="menuitem" class="lang-item" data-lang="${code}">${label}</button>
-             </li>`).join('')}
-        </ul>`;
-      portal.dataset.built = '1';
-    }
-    return portal;
+  // 動態建立清單（按鈕）
+  if (!portal.dataset.built){
+    portal.innerHTML = SUPPORTED.map(([code,label]) =>
+      `<button type="button" class="lang-item" role="menuitem" data-lang="${code}">${label}</button>`
+    ).join('');
+    portal.dataset.built = '1';
   }
+
+  // Backdrop：若你的 app.js 有更完整的 Backdrop，就用它；沒有就用內建簡易版
+  const Backdrop = (window.KS_Backdrop) || (() => {
+    let el=null, onClose=null;
+    const ensure=()=>{ if(el) return el; el=document.createElement('div'); el.className='backdrop'; document.body.appendChild(el); return el; };
+    return {
+      open(handler){ ensure(); onClose=handler||null; el.classList.add('show'); document.body.classList.add('no-scroll'); el.onclick=()=>onClose?.(); },
+      close(){ if(!el) return; el.classList.remove('show'); document.body.classList.remove('no-scroll'); el.onclick=null; onClose=null; }
+    };
+  })();
+
+  const getCur = ()=> (window.I18N?.lang) || localStorage.getItem('i18n.lang') || 'en';
+  const setCurLabel = (lang)=>{
+    const label = SUPPORTED.find(([c])=>c===lang)?.[1] || 'English';
+    if (curMobile) curMobile.textContent = label;
+    portal.querySelectorAll('[aria-current="true"]').forEach(b => b.removeAttribute('aria-current'));
+    portal.querySelector(`[data-lang="${lang}"]`)?.setAttribute('aria-current','true');
+  };
+  setCurLabel(getCur());
 
   let lastTrigger = null;
 
-  function openMenu(trigger) {
-    const p = ensurePortal();
-    if (!p) return;
-    lastTrigger = trigger;
+  function openMenu(anchor){
+    lastTrigger = anchor;
+    portal.hidden = false;
 
-    // 位置貼近觸發鈕（可改成 Drawer 效果）
-    const r = trigger.getBoundingClientRect();
-    p.style.position = 'fixed';
-    p.style.top = `${r.bottom + 8}px`;
-    p.style.left = `${Math.max(12, r.left)}px`;
+    // 貼近觸發鈕定位
+    const r = anchor.getBoundingClientRect();
+    const W = portal.offsetWidth, H = portal.offsetHeight, M = 12;
+    let top  = r.bottom + 8, left = r.left;
+    if (left + W + M > innerWidth)  left = Math.max(M, innerWidth - W - M);
+    if (top  + H + M > innerHeight) top  = Math.max(M, r.top - H - 8);
+    portal.style.position = 'fixed';
+    portal.style.top  = Math.min(Math.max(M, top),  innerHeight - H - M) + 'px';
+    portal.style.left = Math.min(Math.max(M, left), innerWidth  - W - M) + 'px';
 
-    p.hidden = false;
+    Backdrop.open(closeMenu);
+    lastTrigger.setAttribute('aria-expanded','true');
 
-    // 鎖其他區塊焦點（支援 inert 的瀏覽器）
-    setInertExcept(p);
-
-    // 焦點到第一個項目
-    const first = p.querySelector('.lang-item');
-    (first || p).focus();
-
+    (portal.querySelector('.lang-item') || portal).focus();
+    document.addEventListener('keydown', onKey, true);
     document.addEventListener('pointerdown', onDocPointer, true);
-    document.addEventListener('keydown', onKeyNav, true);
   }
 
-  function closeMenu() {
-    if (!portal || portal.hidden) return;
+  function closeMenu(){
+    if (portal.hidden) return;
     portal.hidden = true;
-    clearInert();
-    if (lastTrigger) lastTrigger.focus();
+    Backdrop.close();
+    lastTrigger?.setAttribute('aria-expanded','false');
+    lastTrigger?.focus();
+    document.removeEventListener('keydown', onKey, true);
     document.removeEventListener('pointerdown', onDocPointer, true);
-    document.removeEventListener('keydown', onKeyNav, true);
   }
 
-  function onDocPointer(e) {
-    if (!portal.contains(e.target) && !TRIGGERS.some(sel => {
-      const t = document.querySelector(sel); return t && t.contains(e.target);
-    })) closeMenu();
-  }
-
-  function onKeyNav(e) {
-    if (e.key === 'Escape') { e.preventDefault(); closeMenu(); return; }
+  function onKey(e){
+    if (e.key === 'Escape'){ e.preventDefault(); closeMenu(); return; }
     const items = [...portal.querySelectorAll('.lang-item')];
     if (!items.length) return;
     const i = items.indexOf(document.activeElement);
-    if (e.key === 'ArrowDown') { e.preventDefault(); items[(i+1+items.length)%items.length].focus(); }
-    if (e.key === 'ArrowUp')   { e.preventDefault(); items[(i-1+items.length)%items.length].focus(); }
+    if (e.key === 'ArrowDown'){ e.preventDefault(); items[(i+1+items.length)%items.length].focus(); }
+    if (e.key === 'ArrowUp'){   e.preventDefault(); items[(i-1+items.length)%items.length].focus(); }
+  }
+  function onDocPointer(e){
+    if (!portal.contains(e.target) && !lastTrigger?.contains(e.target)) closeMenu();
   }
 
-  function setInertExcept(node) {
-    ['header','main','footer'].forEach(sel=>{
-      const el = document.querySelector(sel);
-      if (el && !node.contains(el)) el.inert = true;
+  // 綁定觸發（你現有的 #langBtnMobile 與 footer 鏈結）
+  [btnMobile, footLink].forEach(btn=>{
+    if (!btn) return;
+    btn.setAttribute('aria-haspopup','menu');
+    btn.setAttribute('aria-expanded','false');
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault(); e.stopPropagation();
+      portal.hidden ? openMenu(btn) : closeMenu();
     });
-  }
-  function clearInert() {
-    ['header','main','footer'].forEach(sel=>{
-      const el = document.querySelector(sel);
-      if (el) el.inert = false;
-    });
-  }
-
-  function bindTriggers() {
-    TRIGGERS.forEach(sel => {
-      const btn = document.querySelector(sel);
-      if (!btn) return;
-      // aria 屬性
-      btn.setAttribute('aria-haspopup', 'menu');
-      btn.setAttribute('aria-expanded', 'false');
-
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (portal.hidden) {
-          btn.setAttribute('aria-expanded', 'true');
-          openMenu(btn);
-        } else {
-          btn.setAttribute('aria-expanded', 'false');
-          closeMenu();
-        }
-      });
-    });
-
-    // 選單點擊 → 切換語言
-    if (portal) {
-      portal.addEventListener('click', async (e) => {
-        const item = e.target.closest('.lang-item[data-lang]');
-        if (!item) return;
-        const codeRaw = item.dataset.lang;
-        const code = codeRaw.toLowerCase().replace('-', '_');
-        await I18N.setLang(code);
-
-        // 更新按鈕當前文字（優先更新你給的 mobile span）
-        const curMobile = document.getElementById('langCurrentMobile');
-        if (curMobile) curMobile.textContent = item.textContent.trim();
-
-        closeMenu();
-      });
-    }
-  }
-
-  /* ========== 啟動 ========== */
-  document.addEventListener('DOMContentLoaded', async () => {
-    // 先初始化 i18n（會渲染一次）
-    await I18N.init();
-
-    // 若使用者之前切過語言，更新 UI 顯示
-    const cur = localStorage.getItem('i18n.lang') || FALLBACK;
-    const label = (SUPPORTED.find(([c])=>c===cur)?.[1]) || 'English';
-    const curMobile = document.getElementById('langCurrentMobile');
-    if (curMobile) curMobile.textContent = label;
-
-    // 初始化選單
-    ensurePortal();
-    bindTriggers();
   });
 
+  // 點選語言 → 真正切換
+  portal.addEventListener('click', async (e)=>{
+    const item = e.target.closest('.lang-item[data-lang]');
+    if (!item) return;
+    const code = item.dataset.lang.toLowerCase().replace('-', '_'); // zh-tw -> zh_tw
+    if (window.I18N?.setLang) await I18N.setLang(code);             // 真的切換＆重渲染
+    localStorage.setItem('i18n.lang', code);                         // 與核心同步
+    setCurLabel(code);
+    closeMenu();
+  });
+
+  // 其他地方若呼叫了 I18N.setLang，也會同步按鈕顯示
+  document.addEventListener('i18n:changed', ev => setCurLabel(ev.detail?.lang || getCur()));
+
+  // 視窗改變關閉，避免定位跑位
+  window.addEventListener('resize', ()=>{ if (!portal.hidden) closeMenu(); }, { passive:true });
 })();
