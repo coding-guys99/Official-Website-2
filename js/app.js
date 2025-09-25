@@ -303,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', ()=> requestAnimationFrame(setup));
 })();
 
-<script>
 document.addEventListener('DOMContentLoaded', () => {
   /* ===== Mobile nav toggle ===== */
   const toggle = document.querySelector('.nav-toggle');
@@ -401,4 +400,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   DROPS.forEach(mountLang);
 });
-</script>
+
