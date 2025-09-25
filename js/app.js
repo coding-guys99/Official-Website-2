@@ -72,7 +72,7 @@ const Backdrop = (() => {
   });
 
   /* ========== 1) Mobile nav（唯一版本） ========== */
- /*== function mobileNav(){
+ function mobileNav(){
   const toggle = document.querySelector('.nav-toggle');
   const nav    = document.querySelector('#primaryNav') || document.querySelector('.nav-links');
   if (!toggle || !nav) return;
@@ -108,7 +108,7 @@ const Backdrop = (() => {
   window.addEventListener('resize', ()=>{
     if (window.innerWidth > 980) close(); 
   }, {passive:true});
-}==*/
+}
 
  // === Header 互動：行動選單 + Backdrop（桌機不顯示） ===
 document.addEventListener('DOMContentLoaded', () => {
@@ -518,6 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 })();
+
 
 
 
