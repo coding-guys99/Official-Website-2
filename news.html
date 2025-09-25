@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>News – KeySearch</title>
+  <title data-i18n="meta.title.news">News – KeySearch</title>
   <!-- 全局 -->
   <link rel="stylesheet" href="css/styles.css"/>
   <!-- 共用頁面樣式 -->
@@ -18,7 +18,7 @@
     <!-- Brand -->
     <a class="brand" href="index.html" aria-label="KeySearch home">
       <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
-      <span class="brand-text">KeySearch</span>
+      <span class="brand-text" data-i18n="header.brand">KeySearch</span>
     </a>
 
     <!-- Hamburger (only mobile) -->
@@ -40,7 +40,7 @@
       <!-- 行動版專用語言選單 -->
       <li class="mobile-only">
         <button class="lang-btn" id="langBtnMobile" aria-haspopup="menu" aria-expanded="false">
-          🌐 <span id="langCurrentMobile">English</span> ▾
+          🌐 <span id="langCurrentMobile" data-i18n="header.lang.current">English</span> ▾
         </button>
       </li>
 
@@ -71,9 +71,9 @@
     <!-- 年份篩選（可選） -->
     <section class="news-filter container">
       <div class="chip-group" id="newsYearChips">
-        <button class="chip active" data-year="all" aria-pressed="true">All</button>
-        <button class="chip" data-year="2025">2025</button>
-        <button class="chip" data-year="2024">2024</button>
+        <button class="chip active" data-year="all" aria-pressed="true" data-i18n="news.filter.all">All</button>
+        <button class="chip" data-year="2025" data-i18n="news.filter.2025">2025</button>
+        <button class="chip" data-year="2024" data-i18n="news.filter.2024">2024</button>
       </div>
     </section>
 
@@ -83,42 +83,42 @@
       <article class="news-card" data-year="2025">
         <div class="news-meta">
           <span class="badge">v1.3.0</span>
-          <time datetime="2025-09-01">Sep 1, 2025</time>
+          <time datetime="2025-09-01" data-i18n="news.v130.date">Sep 1, 2025</time>
         </div>
-        <h2>New: Multi-language (17 languages)</h2>
-        <p>Interface and website now support 17 languages with instant switching. Keyboard hints localized.</p>
+        <h2 data-i18n="news.v130.title">New: Multi-language (17 languages)</h2>
+        <p data-i18n="news.v130.desc">Interface and website now support 17 languages with instant switching. Keyboard hints localized.</p>
         <ul class="news-list">
-          <li>Added language dropdown across pages</li>
-          <li>JSON-based i18n, easy to contribute</li>
-          <li>Improved SEO meta for localized content</li>
+          <li data-i18n="news.v130.l1">Added language dropdown across pages</li>
+          <li data-i18n="news.v130.l2">JSON-based i18n, easy to contribute</li>
+          <li data-i18n="news.v130.l3">Improved SEO meta for localized content</li>
         </ul>
       </article>
 
       <article class="news-card" data-year="2025">
         <div class="news-meta">
           <span class="badge">v1.2.0</span>
-          <time datetime="2025-06-10">Jun 10, 2025</time>
+          <time datetime="2025-06-10" data-i18n="news.v120.date">Jun 10, 2025</time>
         </div>
-        <h2>Performance: Faster indexing</h2>
-        <p>Index build times reduced by ~30% on large projects. Memory footprint improved.</p>
+        <h2 data-i18n="news.v120.title">Performance: Faster indexing</h2>
+        <p data-i18n="news.v120.desc">Index build times reduced by ~30% on large projects. Memory footprint improved.</p>
         <ul class="news-list">
-          <li>Streaming tokenizer for large files</li>
-          <li>Incremental index rebuilds</li>
-          <li>Crash recovery on Windows</li>
+          <li data-i18n="news.v120.l1">Streaming tokenizer for large files</li>
+          <li data-i18n="news.v120.l2">Incremental index rebuilds</li>
+          <li data-i18n="news.v120.l3">Crash recovery on Windows</li>
         </ul>
       </article>
 
       <article class="news-card" data-year="2024">
         <div class="news-meta">
           <span class="badge">v1.1.0</span>
-          <time datetime="2024-12-15">Dec 15, 2024</time>
+          <time datetime="2024-12-15" data-i18n="news.v110.date">Dec 15, 2024</time>
         </div>
-        <h2>New: CSV export & better filters</h2>
-        <p>Export results to CSV; refine searches by type, date, and path. New UI polish for dark mode.</p>
+        <h2 data-i18n="news.v110.title">New: CSV export & better filters</h2>
+        <p data-i18n="news.v110.desc">Export results to CSV; refine searches by type, date, and path. New UI polish for dark mode.</p>
         <ul class="news-list">
-          <li>CSV export in one click</li>
-          <li>Filter presets (code / docs / media)</li>
-          <li>Keyboard: <kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd> quick search</li>
+          <li data-i18n="news.v110.l1">CSV export in one click</li>
+          <li data-i18n="news.v110.l2">Filter presets (code / docs / media)</li>
+          <li data-i18n="news.v110.l3">Keyboard: <kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd> quick search</li>
         </ul>
       </article>
     </section>
@@ -203,7 +203,7 @@
       <a href="#" data-i18n="foot.b.privacy">Privacy</a>
       <a href="#" data-i18n="foot.b.terms">Terms</a>
     </div>
-    <small>© 2025 KeySearch. All rights reserved.</small>
+    <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
   </div>
 </footer>
 
@@ -220,12 +220,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
