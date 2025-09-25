@@ -1,96 +1,135 @@
+// js/lang.js — 不修改你的 HTML/CSS；只提供 i18n + 與現有語言選單的橋接
 (function () {
-  const BASE = './i18n/';  // 語言檔目錄
+  /* ========== i18n 核心 ========== */
+  const BASE = './i18n/';        // 語言檔目錄（相對路徑最穩）
   const FALLBACK = 'en';
 
   const I18N = {
-    lang: FALLBACK, dict:{}, cache:new Map(),
+    lang: FALLBACK,
+    dict: {},
+    cache: new Map(),
 
-    async load(lang){
+    async load(lang) {
       const url = `${BASE}${lang}.json`;
-      if (!this.cache.has(lang)){
-        this.cache.set(lang, fetch(url).then(r=>r.json()));
+      if (!this.cache.has(lang)) {
+        this.cache.set(lang, fetch(url).then(r => {
+          if (!r.ok) throw new Error(`HTTP ${r.status} ${url}`);
+          return r.json();
+        }));
       }
       return this.cache.get(lang);
     },
 
-    t(key, dict=this.dict){
-      return key.split('.').reduce((o,k)=>o?.[k], dict);
+    t(key, dict = this.dict) {
+      return key.split('.').reduce((o, k) => (o && k in o) ? o[k] : undefined, dict);
     },
 
-    async setLang(input){
-      const lang = input.toLowerCase().replace('-','_');
-      const [cur, fb] = await Promise.all([ this.load(lang), this.load(FALLBACK) ]);
-      this.dict = Object.assign({}, fb, cur);
-      this.lang = lang;
-      document.documentElement.lang = lang.replace('_','-');
-      localStorage.setItem('i18n.lang', lang);
+    mergeFallback(primary, fallback) {
+      for (const k in fallback) {
+        const v = fallback[k];
+        if (v && typeof v === 'object' && !Array.isArray(v)) {
+          if (!(k in primary)) primary[k] = {};
+          this.mergeFallback(primary[k], v);
+        } else if (!(k in primary)) {
+          primary[k] = v;
+        }
+      }
+      return primary;
+    },
 
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
+    render(root = document) {
+      // 文字
+      root.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         const val = this.t(key);
-        if (val) el.textContent = val;
+        if (typeof val === 'string') el.textContent = val;
       });
-      document.dispatchEvent(new CustomEvent('i18n:changed',{detail:{lang}}));
-      console.log('[i18n] switch to:', lang);
+      // 屬性（可選）
+      root.querySelectorAll('[data-i18n-attr]').forEach(el => {
+        const baseKey = el.getAttribute('data-i18n');
+        const attrs = (el.getAttribute('data-i18n-attr') || '')
+          .split(',').map(s => s.trim()).filter(Boolean);
+        attrs.forEach(attr => {
+          const key = `${baseKey}.${attr}`;
+          const val = this.t(key) ?? this.t(baseKey);
+          if (typeof val === 'string') el.setAttribute(attr, val);
+        });
+      });
     },
 
-    detect(){
-      return localStorage.getItem('i18n.lang') || 'en';
+    async setLang(input) {
+      const lang = (input || FALLBACK).toLowerCase().replace('-', '_'); // zh-tw -> zh_tw
+      const [cur, fb] = await Promise.all([ this.load(lang), this.load(FALLBACK) ]);
+      this.dict = this.mergeFallback(JSON.parse(JSON.stringify(cur)), fb);
+      this.lang = lang;
+
+      document.documentElement.lang = lang.replace('_', '-');
+      localStorage.setItem('i18n.lang', lang);
+
+      this.render();
+      document.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
+      console.info('[i18n] switch to:', lang);
+    },
+
+    detect() {
+      const saved = localStorage.getItem('i18n.lang');
+      if (saved) return saved;
+      const nav = (navigator.language || 'en').toLowerCase();
+      if (nav.startsWith('zh-tw') || nav.startsWith('zh-hant')) return 'zh_tw';
+      if (nav.startsWith('zh-cn') || nav.startsWith('zh-hans')) return 'zh_cn';
+      return 'en';
     }
   };
   window.I18N = I18N;
 
-  document.addEventListener('DOMContentLoaded', ()=> I18N.setLang(I18N.detect()));
+  // 初始語言
+  document.addEventListener('DOMContentLoaded', () => I18N.setLang(I18N.detect()));
 
-  // ===== 語言選單 UI =====
-  const portal = document.getElementById('langPortal');
-  const btn    = document.getElementById('langBtnMobile');
-  const cur    = document.getElementById('langCurrentMobile');
+  /* ========== 與你現有語言選單的「橋接」 ========== */
+  const portal    = document.getElementById('langPortal');          // 你已有
+  const curMobile = document.getElementById('langCurrentMobile');   // 你已有
+  const langName  = { en:'English', zh_tw:'繁體中文', zh_cn:'简体中文', ja:'日本語', ko:'한국어' };
 
-  portal.hidden = true;
-  portal.removeAttribute('aria-hidden');
+  if (portal) {
+    // 1) 監聽點擊：你的 app.js 會自動建立 data-lang 的項目
+    portal.addEventListener('click', async (e) => {
+      const el = e.target.closest('[data-lang]');
+      if (!el) return;
+      const code = (el.dataset.lang || '').toLowerCase().replace('-', '_');
+      await I18N.setLang(code);
+      if (curMobile) {
+        // 以選項文字或內建對照更新顯示
+        curMobile.textContent = (el.textContent || langName[code] || code).trim();
+      }
+      // 不處理開關/樣式，交由你現有的程式與 CSS
+    });
 
-  const SUPPORTED = [
-    ['en','English'],
-    ['zh_tw','繁體中文'],
-    ['zh_cn','简体中文']
-  ];
+    // 2) 若別處（如 footer）也觸發切換，同步行動版顯示
+    document.addEventListener('i18n:changed', (ev) => {
+      const code = ev.detail?.lang;
+      if (curMobile && code) curMobile.textContent = langName[code] || code;
+      // 高亮目前選項（若你的清單使用 aria-current）
+      portal.querySelectorAll('[aria-current="true"]').forEach(b => b.removeAttribute('aria-current'));
+      portal.querySelector(`[data-lang="${code}"]`)?.setAttribute('aria-current', 'true');
+    });
 
-  if (!portal.dataset.built){
-    portal.innerHTML = SUPPORTED.map(([c,l])=>
-      `<button type="button" class="lang-item" data-lang="${c}">${l}</button>`
-    ).join('');
-    portal.dataset.built = '1';
+    // 3) 自動處理 aria-hidden（不改你的 CSS，但避免 A11y 警告）
+    //    你的程式會在打開時加 .open / 移除 aria-hidden；若沒移除，這裡幫忙處理。
+    const mo = new MutationObserver(() => {
+      const isOpen = portal.classList.contains('open');
+      if (isOpen) {
+        portal.removeAttribute('aria-hidden');     // 開啟時不要隱藏給 AT
+      } else {
+        // 關閉時再加回，維持你的結構
+        portal.setAttribute('aria-hidden', 'true');
+      }
+    });
+    mo.observe(portal, { attributes: true, attributeFilter: ['class', 'aria-hidden'] });
+
+    // 預設根據當前語言更新顯示
+    document.addEventListener('DOMContentLoaded', () => {
+      const code = localStorage.getItem('i18n.lang') || 'en';
+      if (curMobile) curMobile.textContent = langName[code] || 'English';
+    });
   }
-
-  const setCurLabel = (lang)=>{
-    const label = SUPPORTED.find(([c])=>c===lang)?.[1] || 'English';
-    cur.textContent = label;
-    portal.querySelectorAll('[aria-current]').forEach(b=>b.removeAttribute('aria-current'));
-    portal.querySelector(`[data-lang="${lang}"]`)?.setAttribute('aria-current','true');
-  };
-  document.addEventListener('i18n:changed', ev=> setCurLabel(ev.detail.lang));
-
-  btn.addEventListener('click',(e)=>{
-    e.stopPropagation();
-    if (portal.hidden){
-      const r = btn.getBoundingClientRect();
-      portal.style.top = (r.bottom+6)+'px';
-      portal.style.left = r.left+'px';
-      portal.hidden = false;
-    }else portal.hidden = true;
-  });
-
-  portal.addEventListener('click', async e=>{
-    const b = e.target.closest('[data-lang]');
-    if (!b) return;
-    await I18N.setLang(b.dataset.lang);
-    portal.hidden = true;
-  });
-
-  document.addEventListener('click', e=>{
-    if (!portal.hidden && !portal.contains(e.target) && !btn.contains(e.target)){
-      portal.hidden = true;
-    }
-  });
 })();
