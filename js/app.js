@@ -3,150 +3,136 @@
   const $  = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-document.addEventListener('DOMContentLoaded', () => {
-  /* ========= Mobile nav toggle (唯一版本) ========= */
-  const toggle = document.querySelector('.nav-toggle');
-  const nav    = document.getElementById('primaryNav');
+  /* ========== Boot ========== */
+  document.addEventListener('DOMContentLoaded', () => {
+    mobileNav();         // 行動選單
+    langPortal();        // 語言選單（桌機/手機/Footer 共用）
+    heroCtaSmooth();     // Index CTA 平滑捲動
+    heroTyping();        // Index 打字動畫
+    featureImgHover();   // Index/Features 圖片 hover
+    timelineHighlight(); // About 年代表
+    pricingToggle();     // Pricing 月/年
+    faqSingleOpen();     // Support FAQ
+    feedbackMailto();    // Support 表單
+    featureCardPolish(); // Features 卡片 hover 陰影
+    newsFilter();        // News 篩選
+    footerAccordion();   // Footer 手機手風琴
+  });
 
-  if (toggle && nav){
-    const closeNav = () => {
+  /* ========== 1) Mobile nav（唯一版本） ========== */
+  function mobileNav(){
+    const toggle = $('.nav-toggle');
+    const nav    = $('#primaryNav') || $('.nav-links');
+    if (!toggle || !nav) return;
+
+    const close = ()=>{
       nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-expanded','false');
     };
     toggle.addEventListener('click', (e)=>{
-      e.stopPropagation(); // 避免立刻被外層點擊關閉
+      e.stopPropagation();
       const open = !nav.classList.contains('open');
       nav.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', String(open));
     });
-    // 點選任一連結關掉
-    nav.addEventListener('click', (e) => {
-      if (e.target.closest('a')) closeNav();
-    });
-    // 點外面關
-    document.addEventListener('click', (e)=>{
-      if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
-    });
-    // 視窗放大回桌機，保證關閉
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 980) closeNav();
-    }, { passive:true });
+    nav.addEventListener('click', (e)=>{ if (e.target.closest('a')) close(); });
+    document.addEventListener('click', (e)=>{ if (!nav.contains(e.target) && !toggle.contains(e.target)) close(); });
+    document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') close(); });
+    window.addEventListener('resize', ()=>{ if (innerWidth>980) close(); }, {passive:true});
   }
 
-  /* ========= Language Portal（唯一版本） ========= */
-  const SUPPORTED = [
-    ['en','English'], ['zh-tw','繁體中文'], ['zh-cn','简体中文'],
-    ['ja','日本語'], ['ko','한국어'], ['fr','Français'], ['de','Deutsch']
-  ];
-  const portal     = document.getElementById('langPortal');
-  const btnDesk    = document.getElementById('langBtn');
-  const btnMobile  = document.getElementById('langBtnMobile');
-  const footLink   = document.getElementById('footLangLink');
-  const curDesk    = document.getElementById('langCurrent');
-  const curMobile  = document.getElementById('langCurrentMobile');
+  /* ========== 2) Language Portal（唯一版本） ========== */
+  function langPortal(){
+    const SUPPORTED = [
+      ['en','English'], ['zh-tw','繁體中文'], ['zh-cn','简体中文'],
+      ['ja','日本語'], ['ko','한국어'], ['fr','Français'], ['de','Deutsch']
+    ];
+    const portal     = $('#langPortal');
+    const btnDesk    = $('#langBtn');
+    const btnMobile  = $('#langBtnMobile');
+    const footLink   = $('#footLangLink');
+    const curDesk    = $('#langCurrent');
+    const curMobile  = $('#langCurrentMobile');
+    if (!portal) return;
 
-  let current = localStorage.getItem('ks_lang') || 'en';
+    let current = localStorage.getItem('ks_lang') || 'en';
 
-  // 建一次清單
-  if (!portal.dataset.built){
-    portal.innerHTML = SUPPORTED.map(([code,label]) =>
-      `<button type="button" role="menuitem" data-lang="${code}">${label}</button>`
-    ).join('');
-    portal.dataset.built = '1';
-  }
+    // 建一次清單
+    if (!portal.dataset.built){
+      portal.innerHTML = SUPPORTED.map(([code,label]) =>
+        `<button type="button" role="menuitem" data-lang="${code}">${label}</button>`
+      ).join('');
+      portal.dataset.built = '1';
+    }
 
-  function syncCurrent(){
-    const label = SUPPORTED.find(([c])=>c===current)?.[1] || 'English';
-    if (curDesk)   curDesk.textContent   = label;
-    if (curMobile) curMobile.textContent = label;
-    portal.querySelectorAll('[aria-current="true"]').forEach(b=>b.removeAttribute('aria-current'));
-    const active = portal.querySelector(`[data-lang="${current}"]`);
-    if (active) active.setAttribute('aria-current','true');
-  }
-  syncCurrent();
-
-  function setLang(code){
-    current = code;
-    localStorage.setItem('ks_lang', code);
+    const syncCurrent = ()=>{
+      const label = SUPPORTED.find(([c])=>c===current)?.[1] || 'English';
+      if (curDesk)   curDesk.textContent   = label;
+      if (curMobile) curMobile.textContent = label;
+      portal.querySelectorAll('[aria-current="true"]').forEach(b=>b.removeAttribute('aria-current'));
+      portal.querySelector(`[data-lang="${current}"]`)?.setAttribute('aria-current','true');
+    };
     syncCurrent();
-    // TODO: 如果有 i18n：window.KS_I18N?.setLang(code)
-    console.log('[i18n] switch to:', code);
-  }
 
-  // 開/關 portal
-  function openPortal(anchor){
-    // 先顯示再量尺寸
-    portal.classList.add('open');
-    portal.removeAttribute('aria-hidden');
+    const setLang = (code)=>{
+      current = code;
+      localStorage.setItem('ks_lang', code);
+      syncCurrent();
+      // 若有 i18n：window.KS_I18N?.setLang(code);
+      console.log('[i18n] switch to:', code);
+    };
 
-    const r = anchor.getBoundingClientRect();
-    const idealTop  = r.bottom + 8;
-    const idealLeft = Math.min(
-      Math.max(16, r.left),
-      window.innerWidth - portal.offsetWidth - 16
-    );
-    const top  = Math.min(idealTop, window.innerHeight - portal.offsetHeight - 16);
-    const left = Math.max(16, idealLeft);
+    // 開/關
+    const close = ()=>{
+      portal.classList.remove('open');
+      portal.setAttribute('aria-hidden','true');
+    };
+    const open = (anchor)=>{
+      portal.classList.add('open');
+      portal.removeAttribute('aria-hidden');
 
-    portal.style.top  = `${top}px`;
-    portal.style.left = `${left}px`;
+      // 先顯示再定位（需要尺寸）
+      const r = anchor.getBoundingClientRect();
+      const top  = Math.min(r.bottom + 8, window.innerHeight - portal.offsetHeight - 16);
+      const left = Math.min(
+        Math.max(16, r.left),
+        window.innerWidth - portal.offsetWidth - 16
+      );
+      portal.style.top  = `${Math.max(8, top)}px`;
+      portal.style.left = `${Math.max(8, left)}px`;
 
-    // 關閉監聽（只掛一次）
-    const onDoc = (e) => { if (!portal.contains(e.target)) closePortal(); };
-    const onEsc = (e) => { if (e.key === 'Escape') closePortal(); };
-    setTimeout(() => {
-      document.addEventListener('click', onDoc, { once:true });
-      document.addEventListener('keydown', onEsc, { once:true });
-    }, 0);
-  }
-  function closePortal(){
-    portal.classList.remove('open');
-    portal.setAttribute('aria-hidden','true');
-  }
+      // 點外面 / ESC 關閉
+      const onDoc = (e)=>{ if (!portal.contains(e.target)) close(); };
+      const onEsc = (e)=>{ if (e.key==='Escape') close(); };
+      setTimeout(()=>{
+        document.addEventListener('click', onDoc, { once:true });
+        document.addEventListener('keydown', onEsc, { once:true });
+      }, 0);
+    };
 
-  function bindOpen(el){
-    if (!el) return;
-    el.addEventListener('click', (e)=>{
-      e.preventDefault();
-      e.stopPropagation();   // 防止立刻被「點外面關閉」吃掉
-      if (portal.classList.contains('open')) {
-        closePortal();
-      } else {
-        openPortal(el);
-      }
+    const bindOpen = (el)=>{
+      if (!el) return;
+      el.addEventListener('click', (e)=>{
+        e.preventDefault();
+        e.stopPropagation();     // 避免馬上被「點外面關閉」吃掉
+        portal.classList.contains('open') ? close() : open(el);
+      });
+    };
+
+    bindOpen(btnDesk);
+    bindOpen(btnMobile);
+    bindOpen(footLink);
+
+    portal.addEventListener('click', (e)=>{
+      const b = e.target.closest('button[data-lang]');
+      if (!b) return;
+      setLang(b.dataset.lang);
+      close();
     });
   }
-  bindOpen(btnDesk);
-  bindOpen(btnMobile);
-  bindOpen(footLink);
 
-  portal.addEventListener('click', (e)=>{
-    const b = e.target.closest('button[data-lang]');
-    if (!b) return;
-    setLang(b.dataset.lang);
-    closePortal();
-  });
-});
-
-
-
-  function init(){
-    heroCtaSmoothScroll();
-    heroTyping();
-    featureImgHover();
-    timelineHighlight();
-    pricingToggle();
-    faqSingleOpen();
-    feedbackMailto();
-    featureCardPolish();
-    newsFilter();
-    mobileNav();
-    footerAccordion();
-    mountLangMenus();
-  }
-
-  /* ========== Index: CTA 平滑捲動 ========== */
-  function heroCtaSmoothScroll(){
+  /* ========== 3) Index: CTA 平滑捲動 ========== */
+  function heroCtaSmooth(){
     const btn = $('.hero .btn.primary');
     if (!btn) return;
     btn.addEventListener('click', (e)=>{
@@ -155,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== Index: 打字效果（含高度固定） ========== */
+  /* ========== 4) Index: 打字動畫（高度穩定） ========== */
   function heroTyping(){
     const titleEl = $('#heroTitle');
     const wrap    = $('#heroTitleWrap');
@@ -165,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const lines  = ['Find it. Fast.', 'No mess. Just answers.'];
 
-    // 固定外層高度，避免欄位抖動
+    // 固定外層高度，避免欄寬抖動
     (function fixHeroHeight(){
       const probe = document.createElement('div');
       const cs = getComputedStyle(titleEl);
@@ -200,21 +186,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function step(){
       const t = lines[idx];
       i += dir; span.textContent = t.slice(0, i);
-
       if (dir===1 && i>=t.length){
         clearInterval(timer);
         setTimeout(()=>{ dir=-1; timer=setInterval(step, cfg.back); }, cfg.pauseType);
       }else if (dir===-1 && i<=0){
         clearInterval(timer);
         idx = (idx+1) % lines.length;
-        if (cfg.loop){
-          setTimeout(()=>{ dir=1; timer=setInterval(step, cfg.type); }, cfg.pauseBack);
-        }
+        if (cfg.loop) setTimeout(()=>{ dir=1; timer=setInterval(step, cfg.type); }, cfg.pauseBack);
       }
     }
   }
 
-  /* ========== Index: Feature 圖片 hover ========== */
+  /* ========== 5) Index/Features: 圖片 hover ========== */
   function featureImgHover(){
     $$('.feature-img img').forEach(img=>{
       img.addEventListener('mouseenter', ()=>{
@@ -225,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== About: 年代表高亮 ========== */
+  /* ========== 6) About: 年代表高亮 ========== */
   function timelineHighlight(){
     const items = $$('.timeline-list li');
     if (!items.length) return;
@@ -235,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     items.forEach(i => io.observe(i));
   }
 
-  /* ========== Pricing: 月/年切換 ========== */
+  /* ========== 7) Pricing: 月/年切換 ========== */
   function pricingToggle(){
     const toggle = $('#billingToggle');
     if (!toggle) return;
@@ -268,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== Support: FAQ only-one-open ========== */
+  /* ========== 8) Support: FAQ only-one-open ========== */
   function faqSingleOpen(){
     const items = $$('.faq-item');
     if (!items.length) return;
@@ -279,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== Support: 送出 → 開 mailto + toast ========== */
+  /* ========== 9) Support: 送出 → mailto + toast ========== */
   function feedbackMailto(){
     const form  = $('#feedbackForm');
     const toast = $('#toast');
@@ -310,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== Features page: 掛一個淡淡的陰影互動 ========== */
+  /* ========== 10) Features: 卡片 hover 陰影 ========== */
   function featureCardPolish(){
     $$('.feature-card').forEach(card=>{
       card.addEventListener('mouseenter', ()=> card.style.boxShadow='0 8px 20px rgba(0,0,0,.4)');
@@ -318,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== News: 年份 chips 篩選 ========== */
+  /* ========== 11) News: 年份 chips 篩選 ========== */
   function newsFilter(){
     const group = $('#newsYearChips');
     if (!group) return;
@@ -332,29 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========== Header: 行動選單 ========== */
-  function mobileNav(){
-    const toggle = $('.nav-toggle');
-    const nav    = $('#primaryNav') || $('.nav-links');
-    if (!toggle || !nav) return;
-
-    const close = ()=>{
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded','false');
-    };
-    toggle.addEventListener('click', (e)=>{
-      e.stopPropagation();
-      const open = !nav.classList.contains('open');
-      nav.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-    nav.addEventListener('click', (e)=>{ if (e.target.closest('a')) close(); });
-    document.addEventListener('click', (e)=>{ if (!nav.contains(e.target) && !toggle.contains(e.target)) close(); });
-    document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') close(); });
-    window.addEventListener('resize', ()=>{ if (innerWidth>980) close(); }, {passive:true});
-  }
-
-  /* ========== Footer: 手機版收合 ========== */
+  /* ========== 12) Footer: 手機手風琴 ========== */
   function footerAccordion(){
     const mq = matchMedia('(max-width: 768px)');
     const cols = $$('.foot-col');
@@ -376,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       btn.addEventListener('click', ()=>{
         const next = !col.classList.contains('open');
-        // 可選：只開一個
+        // 只開一個
         cols.forEach(c=>{
           if (c!==col && c.classList.contains('open')){
             c.classList.remove('open');
@@ -402,9 +363,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setup();
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
-
-  
-
-
-
-
+})();
