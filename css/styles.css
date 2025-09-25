@@ -162,3 +162,32 @@ body.no-scroll { overflow: hidden; }
 
 /* 預設隱藏漢堡 */
 .nav-toggle { display: none; }
+
+/* 布局：左 = 品牌；中 = 空白撐開；右 = 操作/漢堡 */
+.bm-header .nav{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: 56px;             /* 你要 72px 也可以 */
+  gap: 12px;
+  padding: 0 12px;
+}
+
+/* 品牌固定靠左，Logo 與文字並排 */
+.bm-header .brand{
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #fff;
+  margin: 0;                /* 防止被外部樣式置中 */
+}
+
+/* 漢堡/動作區靠右 */
+.bm-header .nav-toggle,
+.bm-header .nav-actions{
+  justify-self: end;
+}
+
+
