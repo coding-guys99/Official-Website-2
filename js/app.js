@@ -302,3 +302,103 @@ document.addEventListener('DOMContentLoaded', () => {
   setup();
   window.addEventListener('resize', ()=> requestAnimationFrame(setup));
 })();
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  /* ===== Mobile nav toggle ===== */
+  const toggle = document.querySelector('.nav-toggle');
+  const nav    = document.getElementById('primaryNav');
+
+  if (toggle && nav) {
+    const closeNav = () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = !nav.classList.contains('open');
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    // Close when clicking a link
+    nav.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (a) closeNav();
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        closeNav();
+      }
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+  }
+
+  /* ===== Language dropdowns (desktop + mobile) ===== */
+  const DROPS = [
+    { btn: '#langBtn',        menu: '#langMenu',        current: '#langCurrent' },
+    { btn: '#langBtnMobile',  menu: '#langMenuMobile',  current: '#langCurrentMobile' },
+  ];
+
+  const SUPPORTED = [
+    ['en','English'], ['zh-tw','繁體中文'], ['zh-cn','简体中文'],
+    ['ja','日本語'], ['ko','한국어'], ['fr','Français'], ['de','Deutsch']
+  ];
+
+  function mountLang({btn,menu,current}) {
+    const $btn = document.querySelector(btn);
+    const $menu = document.querySelector(menu);
+    const $cur = document.querySelector(current);
+    if (!$btn || !$menu || !$cur) return;
+
+    // Build menu once
+    if (!$menu.dataset.built) {
+      $menu.innerHTML = SUPPORTED.map(([code,label]) =>
+        `<li role="menuitem" data-lang="${code}">${label}</li>`
+      ).join('');
+      $menu.dataset.built = '1';
+    }
+
+    const close = () => {
+      $menu.classList.remove('open');
+      $btn.setAttribute('aria-expanded','false');
+      $menu.setAttribute('aria-hidden','true');
+    };
+    const open = () => {
+      $menu.classList.add('open');
+      $btn.setAttribute('aria-expanded','true');
+      $menu.removeAttribute('aria-hidden');
+    };
+
+    $btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      $menu.classList.contains('open') ? close() : open();
+    });
+
+    $menu.addEventListener('click', (e) => {
+      const li = e.target.closest('li[data-lang]');
+      if (!li) return;
+      $cur.textContent = li.textContent;   // show native label
+      close();
+      // TODO: call your i18n setLang(li.dataset.lang)
+      console.log('Switch language:', li.dataset.lang);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!$menu.contains(e.target) && !$btn.contains(e.target)) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  }
+
+  DROPS.forEach(mountLang);
+});
+</script>
