@@ -384,3 +384,100 @@ html, body {
     display:block; text-align:center; width:100%; margin-top:8px;
   }
 }
+
+/* =========================
+   Mobile Header Polish
+   (<= 768px)
+   ========================= */
+@media (max-width: 768px){
+
+  /* 整個列更薄、更乾淨 */
+  .bm-header {
+    background: rgba(10,10,10,.92);
+    backdrop-filter: saturate(120%) blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    /* iOS 安全區域 */
+    padding-top: max(0px, env(safe-area-inset-top));
+    box-shadow: 0 2px 14px rgba(0,0,0,.35);
+  }
+
+  /* 置中對齊，高度更合理 */
+  .bm-header .nav{
+    grid-template-columns: auto 1fr auto; /* logo | 中間撐開 | 右側動作 */
+    height: 56px;                          /* 72 -> 56 更精緻 */
+    gap: 12px;                             
+    padding: 0 12px;
+  }
+
+  /* Logo 與文字：留 logo、縮小字 */
+  .bm-header .brand img{ width:24px; height:24px; }
+  .bm-header .brand-text{
+    font-size: .98rem;
+    letter-spacing:.2px;
+  }
+  /* 如果想更精簡：小螢幕隱藏品牌文字（保留 logo） */
+  @media (max-width: 420px){
+    .bm-header .brand-text{ display:none; }
+  }
+
+  /* 漢堡鈕：尺寸、觸控範圍與對比 */
+  .bm-header .nav-toggle{
+    display: inline-flex;
+    width: 36px; height: 36px;
+    align-items: center; justify-content: center;
+    border-radius: 10px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .bm-header .nav-toggle:active{
+    transform: translateY(1px);
+  }
+
+  /* 主要連結收合為抽屜（你現在已有 .open 行為，這裡只做視覺） */
+  .bm-header .nav-links{
+    position: absolute; 
+    left: 12px; right: 12px; top: calc(56px + max(0px, env(safe-area-inset-top)));
+    background: #0f0f0f;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    padding: 10px 12px;
+    display: none;
+    box-shadow: 0 14px 28px rgba(0,0,0,.45);
+  }
+  .bm-header .nav-links.open{ display: flex; flex-direction: column; gap: 10px; }
+  .bm-header .nav-links a{
+    padding: 10px 8px; border-radius: 8px;
+  }
+  .bm-header .nav-links a:hover{ background: rgba(255,255,255,.06); color:#fff; }
+
+  /* 右側動作區：更緊湊 */
+  .bm-header .nav-actions{
+    gap: 8px;
+  }
+
+  /* 「Try Web App」在手機隱藏（先前需求） */
+  .bm-header .bm-cta{ display:none; }
+
+  /* 語言按鈕：縮成膠囊、字級稍小，看起來更精緻 */
+  .lang-btn{
+    height: 36px; 
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: .9rem;
+    border-color: rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04);
+  }
+
+  /* 如果你已把語言選單放到行動抽屜，就把右上的語言按鈕直接隱藏 */
+  /* .bm-header .nav-actions .lang-dropdown{ display:none; } */
+
+  /* 語言選單 Popover 位置微調，貼齊右邊緣陰影更柔和 */
+  .lang-menu{
+    right: 0;
+    top: calc(100% + 8px);
+    border-radius: 12px;
+    box-shadow: 0 16px 34px rgba(0,0,0,.5);
+    min-width: 220px;
+  }
+}
+
