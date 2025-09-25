@@ -33,11 +33,11 @@
 
     <!-- Main nav -->
     <ul class="nav-links" id="primaryNav" role="menubar">
-      <li><a href="features.html">Features</a></li>
-      <li><a href="download.html">Download</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="support.html">Support</a></li>
+      <li><a href="features.html" data-i18n="header.features">Features</a></li>
+      <li><a href="download.html" data-i18n="header.download">Download</a></li>
+      <li><a href="pricing.html" data-i18n="header.pricing">Pricing</a></li>
+      <li><a href="about.html" data-i18n="header.about">About</a></li>
+      <li><a href="support.html" data-i18n="header.support">Support</a></li>
 
       <!-- 行動版專用語言選單 -->
       <li class="mobile-only">
@@ -48,7 +48,7 @@
 
       <!-- 行動版 Try Web App -->
       <li class="mobile-only">
-        <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
+        <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">
           🚀 Try Web App
         </a>
       </li>
@@ -56,7 +56,7 @@
 
     <!-- 桌機版右側動作 (只留 CTA) -->
     <div class="nav-actions desktop-only">
-      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
+      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">
         🚀 Try Web App
       </a>
     </div>
@@ -67,14 +67,14 @@
 
     <!-- Hero -->
     <section class="page-hero container">
-      <h1>About KeySearch</h1>
-      <p class="lead">Find it. Fast. No mess. Just answers.</p>
+      <h1 data-i18n="about.title">About KeySearch</h1>
+      <p class="lead" data-i18n="about.desc">Find it. Fast. No mess. Just answers.</p>
     </section>
 
     <!-- Mission -->
     <section class="container about-block reveal-on-scroll">
-      <h2>Mission</h2>
-      <p>
+      <h2 data-i18n="about.mission.t">Mission</h2>
+      <p data-i18n="about.mission.desc">
         Help people find exactly what they need—across notes, files, and ideas—instantly,
         without clutter, lock-in, or heavy cloud dependencies.
       </p>
@@ -83,42 +83,42 @@
     <!-- Differentiators -->
     <section class="container about-grid reveal-on-scroll">
       <article class="about-card">
-        <h3>Local-first</h3>
-        <p>Your data lives on your device (IndexedDB). Works offline. No account required.</p>
+        <h3 data-i18n="about.diff-1">Local-first</h3>
+        <p data-i18n="about.desc-1">Your data lives on your device (IndexedDB). Works offline. No account required.</p>
       </article>
       <article class="about-card">
-        <h3>Fast by design</h3>
-        <p>Indexed search with tags, filters, and global shortcuts—measured in milliseconds.</p>
+        <h3 data-i18n="about.diff-2">Fast by design</h3>
+        <p data-i18n="about.desc-2">Indexed search with tags, filters, and global shortcuts—measured in milliseconds.</p>
       </article>
       <article class="about-card">
-        <h3>No lock-in</h3>
-        <p>Export to CSV/JSON. Share read-only collections when you need to collaborate.</p>
+        <h3 data-i18n="about.diff-3">No lock-in</h3>
+        <p data-i18n="about.desc-3">Export to CSV/JSON. Share read-only collections when you need to collaborate.</p>
       </article>
       <article class="about-card">
-        <h3>Multi-language</h3>
-        <p>Switch UI instantly with i18n JSON. Ready for 17+ locales and counting.</p>
+        <h3 data-i18n="about.diff-4">Multi-language</h3>
+        <p data-i18n="about.desc-4">Switch UI instantly with i18n JSON. Ready for 17+ locales and counting.</p>
       </article>
     </section>
 
     <!-- Privacy / Trust callout -->
     <section class="container about-callout reveal-on-scroll">
-      <h3>Privacy & Transparency</h3>
-      <p>
+      <h3 data-i18n="about.privacy">Privacy & Transparency</h3>
+      <p data-i18n="about.privacy.desc">
         KeySearch is privacy-first. We don’t sell data. Optional telemetry is off by default
         and can be disabled anytime. Clear exports are built-in.
       </p>
       <div class="actions" style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a class="btn secondary" href="support.html#privacy">Read Privacy</a>
-        <a class="btn" href="news.html">Product Updates</a>
+        <a class="btn secondary" href="support.html#privacy" data-i18n="about.privacy.read">Read Privacy</a>
+        <a class="btn" href="news.html" data-i18n="about.privacy.update">Product Updates</a>
       </div>
     </section>
 
     <!-- Contact / Press -->
     <section class="container about-block reveal-on-scroll">
-      <h2>Contact</h2>
+      <h2 data-i18n="contact">Contact</h2>
       <p>
         Press or partnership? Email
-        <a href="mailto:hello@keysearch-app.com">hello@keysearch-app.com</a>
+        <a href="mailto:hello@keysearch-app.com" data-i18n="email">hello@keysearch-app.com</a>
       </p>
       <!-- 若未來提供素材可開放 -->
       <!-- <p><a class="btn link" href="assets/press/press-kit.zip">Download Press Kit</a></p> -->
@@ -132,9 +132,9 @@
     <!-- Brand -->
     <div class="bm-foot-brand">
       <a class="brand mini" href="index.html">
-        <span>KeySearch</span>
+        <span data-i18n="foot.brand">KeySearch</span>
       </a>
-      <p class="tagline">Find it. Fast.<br>No mess. Just answers.</p>
+      <p class="tagline" data-i18n="foot.slogan">Find it. Fast.<br>No mess. Just answers.</p>
     </div>
 
     <!-- Links grid（桌機四欄 / 手機手風琴） -->
@@ -143,45 +143,45 @@
       <!-- Product -->
       <section class="foot-col">
         <h4>
-          <button class="foot-head" type="button" aria-expanded="false">Product</button>
+          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button>
         </h4>
         <ul class="foot-links">
-          <li><a href="features.html">Features</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="download.html">Download</a></li>
+          <li data-i18n="foot.product.feat"><a href="features.html">Features</a></li>
+          <li data-i18n="foot.product.price"><a href="pricing.html">Pricing</a></li>
+          <li data-i18n="foot.product.download"><a href="download.html">Download</a></li>
         </ul>
       </section>
 
       <!-- Support -->
       <section class="foot-col">
         <h4>
-          <button class="foot-head" type="button" aria-expanded="false">Support</button>
+          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button>
         </h4>
         <ul class="foot-links">
-          <li><a href="support.html">Help Center</a></li>
-          <li><a href="#">Docs</a></li>
+          <li data-i18n="foot.support.help"><a href="support.html">Help Center</a></li>
+          <li data-i18n="foot.support.docs"><a href="#">Docs</a></li>
         </ul>
       </section>
 
       <!-- Company -->
       <section class="foot-col">
         <h4>
-          <button class="foot-head" type="button" aria-expanded="false">Company</button>
+          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button>
         </h4>
         <ul class="foot-links">
-          <li><a href="about.html">About</a></li>
-          <li><a href="mailto:hello@keysearch-app.com">Contact</a></li>
+          <li data-i18n="foot.company.about"><a href="about.html" >About</a></li>
+          <li data-i18n="foot.company.contact"><a href="mailto:hello@keysearch-app.com">Contact</a></li>
         </ul>
       </section>
 
       <!-- Follow -->
       <section class="foot-col">
         <h4>
-          <button class="foot-head" type="button" aria-expanded="false">Follow</button>
+          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button>
         </h4>
         <ul class="foot-links">
-          <li><a href="#" rel="me">Twitter</a></li>
-          <li><a href="#" rel="me">YouTube</a></li>
+          <li data-i18n="foot.follow.twitter"><a href="#" rel="me">Twitter</a></li>
+          <li data-i18n="foot.follow.youtube"><a href="#" rel="me">YouTube</a></li>
         </ul>
       </section>
 
@@ -191,9 +191,9 @@
   <!-- Bottom -->
   <div class="container bm-footer-bottom">
     <div class="legal">
-      <a href="#" id="footLangLink">Language</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+      <a href="#" id="footLangLink" data-i18n="foot.b.lang">Language</a>
+      <a href="#" data-i18n="foot.b.privacy">Privacy</a>
+      <a href="#" data-i18n="foot.b.terms">Terms</a>
     </div>
     <small>© 2025 KeySearch. All rights reserved.</small>
   </div>
@@ -208,6 +208,7 @@
 
 </body>
 </html>
+
 
 
 
