@@ -372,7 +372,7 @@ html, body {
     border-radius: 12px;
     padding: 14px;
     box-shadow: 0 18px 40px rgba(0,0,0,.5);
-    z-index: 1001;                 /* above header */
+    z-index: 9999;                 /* above header */
   }
   .nav-links.open{ display:block; }
 
@@ -511,7 +511,7 @@ html, body {
   padding: 10px;
   min-width: 220px;
   display: none;
-  z-index: 1000;
+  z-index: 9999;
 
   /* 三欄網格（桌機），手機自動變兩欄/單欄 */
   display: grid;
@@ -576,7 +576,7 @@ html, body {
     background: #0d0d0d;
     border-top: 1px solid rgba(255,255,255,.06);
     padding: 16px 20px;
-    z-index: 900;                /* 比內容高，但比語言 Portal 低 */
+    z-index: 9999;                /* 比內容高，但比語言 Portal 低 */
   }
   .nav-links.open{ display:block; }
   .nav-links li{ margin: 8px 0; }
