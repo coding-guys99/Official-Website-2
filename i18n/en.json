@@ -1,0 +1,75 @@
+{
+  "meta.title": "Support — KeySearch",
+
+  "header.brand": "KeySearch",
+  "header.features": "Features",
+  "header.download": "Download",
+  "header.pricing": "Pricing",
+  "header.about": "About",
+  "header.support": "Support",
+  "header.lang.current": "English",
+  "header.tryapp.cta": "🚀 Try Web App",
+
+  "support.title": "Support",
+  "support.lead": "Find quick answers, or send us your feedback.",
+
+  "support.quick.download": "Download",
+  "support.quick.billing": "Billing & Plans",
+  "support.quick.faq": "FAQ",
+  "support.quick.contact": "Contact",
+
+  "support.faq.title": "FAQ",
+  "support.faq.q1": "How do I install KeySearch?",
+  "support.faq.a1": "Download from the Download page and follow the installer. On macOS, you may need to allow apps from identified developers in System Settings.",
+  "support.faq.q2": "Is the web app different from the desktop app?",
+  "support.faq.a2": "Core features are the same. Desktop adds offline mode and local export.",
+  "support.faq.q3": "How do I switch languages?",
+  "support.faq.a3": "Use the language switcher in the top-right corner. More languages coming soon.",
+
+  "support.feedback.title": "Send us your feedback",
+  "support.feedback.name": "Your Name",
+  "support.feedback.email": "Your Email",
+  "support.feedback.topic": "Topic",
+  "support.feedback.topic.general": "General",
+  "support.feedback.topic.bug": "Bug Report",
+  "support.feedback.topic.feature": "Feature Request",
+  "support.feedback.topic.billing": "Billing",
+  "support.feedback.message": "Message",
+  "support.feedback.send": "Send",
+  "support.feedback.mailapp": "Open mail app",
+  "support.feedback.note": "We’ll reply to hello@keysearch-app.com. Your system won’t upload files.",
+  "support.feedback.toast": "Opening your email app…",
+
+  "donate.title": "Support development",
+  "donate.desc": "KeySearch is free to use. If it saves you time, consider supporting development.",
+  "donate.coffee": "Buy me a coffee",
+  "donate.kofi": "Ko-fi",
+  "donate.paypal": "PayPal",
+  "donate.stripe": "Stripe",
+  "donate.thanks": "Thanks for your support — it keeps KeySearch fast and focused.",
+
+  "foot.brand": "KeySearch",
+  "foot.slogan": "Find it. Fast.\nNo mess. Just answers.",
+
+  "foot.product": "Product",
+  "foot.product.feat": "Features",
+  "foot.product.price": "Pricing",
+  "foot.product.download": "Download",
+
+  "foot.support": "Support",
+  "foot.support.help": "Help Center",
+  "foot.support.docs": "Docs",
+
+  "foot.company": "Company",
+  "foot.company.about": "About",
+  "foot.company.contact": "Contact",
+
+  "foot.follow": "Follow",
+  "foot.follow.twitter": "Twitter",
+  "foot.follow.youtube": "YouTube",
+
+  "foot.b.lang": "Language",
+  "foot.b.privacy": "Privacy",
+  "foot.b.terms": "Terms",
+  "foot.b.copy": "© 2025 KeySearch. All rights reserved."
+}
