@@ -137,7 +137,7 @@ html, body { overflow-x: hidden; }
 
   .bm-foot-links-grid{ display: block; }  /* 手機下不要 contents */
 
-  .bm-footer .foot-col{ border-bottom: 1px solid rgba(255,255,255,.10); }
+  .bm-footer .foot-col{ border-bottom: 1px solid rgba(255,255,255,.10); grid-template-columns: 1fr !important;}
   .bm-footer .foot-col:last-child{ border-bottom: none; }
 
   .bm-footer .foot-head{
@@ -161,7 +161,8 @@ html, body { overflow-x: hidden; }
     padding: 0 12px;
   }
   .bm-footer .foot-col.open .foot-links{
-    max-height: 200px; padding: 6px 12px 10px;
+    max-height: 360px; padding: 6px 12px 10px;
+     grid-template-columns: 1fr !important;
   }
   .bm-footer .foot-links a{
     display: block; padding: 8px 0; color: #b8c0cf; text-decoration: none;
