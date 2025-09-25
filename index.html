@@ -21,25 +21,34 @@
     </a>
 
     <!-- Toggle -->
-    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+    <button class="nav-toggle" type="button"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="primaryNav">
       <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M3 6h18M3 12h18M3 18h18"
+              fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
 
     <!-- Primary nav -->
-    <ul class="nav-links" role="menubar">
+    <ul class="nav-links" id="primaryNav" role="menubar">
       <li><a href="features.html">Features</a></li>
       <li><a href="download.html">Download</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="support.html">Support</a></li>
 
-      <!-- Mobile extra (語言選單 & Try Web App) -->
+      <!-- Mobile extras -->
       <li class="mobile-only">
         <div class="lang-dropdown">
-          <button class="lang-btn" id="langBtnMobile">🌐 <span id="langCurrentMobile">English</span> ▾</button>
-          <ul class="lang-menu" id="langMenuMobile"></ul>
+          <button class="lang-btn" id="langBtnMobile"
+                  aria-haspopup="menu" aria-expanded="false"
+                  aria-controls="langMenuMobile">
+            🌐 <span id="langCurrentMobile">English</span> ▾
+          </button>
+          <ul class="lang-menu" id="langMenuMobile" role="menu" aria-hidden="true"></ul>
         </div>
       </li>
       <li class="mobile-only">
@@ -49,13 +58,15 @@
       </li>
     </ul>
 
-    <!-- Actions (桌機顯示) -->
+    <!-- Desktop actions -->
     <div class="nav-actions desktop-only">
       <div class="lang-dropdown">
-        <button class="lang-btn" id="langBtn" aria-haspopup="menu" aria-expanded="false" aria-controls="langMenu">
+        <button class="lang-btn" id="langBtn"
+                aria-haspopup="menu" aria-expanded="false"
+                aria-controls="langMenu">
           🌐 <span id="langCurrent">English</span> ▾
         </button>
-        <ul class="lang-menu" id="langMenu"></ul>
+        <ul class="lang-menu" id="langMenu" role="menu" aria-hidden="true"></ul>
       </div>
 
       <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
@@ -64,6 +75,7 @@
     </div>
   </div>
 </header>
+
 
 
   <!-- ===== Hero ===== -->
@@ -217,4 +229,5 @@
 <script src="js/footer-accordion.js" defer></script>
 </body>
 </html>
+
 
