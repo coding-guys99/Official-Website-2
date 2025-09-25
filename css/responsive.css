@@ -205,7 +205,7 @@ html, body { overflow-x: hidden; }
 }
    
   .bm-header .brand img{ width:24px; height:24px; }
-  .bm-header .brand-text{ font-size:.98rem; letter-spacing:.2px; }
+  .bm-header .brand-text{ font-size:2rem; letter-spacing:.2px; }
   @media (max-width: 420px){ .bm-header .brand-text{ display:none; } }
 
   .bm-header .nav-toggle{
