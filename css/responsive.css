@@ -385,3 +385,27 @@ html, body { overflow-x: hidden; }
   .feat-card{ padding:18px 14px !important; }
   .icon-wrap{ width:46px; height:46px; margin-bottom:10px; }
 }
+
+/* ===== About page – RWD ===== */
+
+/* <=1200px：3 欄 */
+@media (max-width: 1200px){
+  .about-grid{ grid-template-columns: repeat(3, 1fr) !important; gap: 20px !important; }
+}
+
+/* <=980px：2 欄 + 卡片內距縮小、置中節奏 */
+@media (max-width: 980px){
+  .page-hero { padding: 64px 0 18px !important; }
+  .about-grid{ grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; }
+  .about-card, .about-callout{ padding: 20px 16px !important; }
+  .about-block{ padding: 20px 0 !important; }
+  .about-callout .actions{ justify-content: center !important; }
+}
+
+/* <=560px：單欄 */
+@media (max-width: 560px){
+  .about-grid{ grid-template-columns: 1fr !important; gap: 14px !important; }
+  .about-card, .about-callout{ padding: 18px 14px !important; border-radius: 16px !important; }
+  .about-card h3{ font-size: 1.06rem !important; }
+  .about-card p{ font-size: .94rem !important; }
+}
