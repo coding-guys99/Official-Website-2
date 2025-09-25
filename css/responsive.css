@@ -362,3 +362,26 @@ html, body { overflow-x: hidden; }
     line-height: 1.5;
   }
 }
+
+/* ==== Feature Cards — responsive overrides ==== */
+
+/* <=1200px：3欄 */
+@media (max-width:1200px){
+  .feat-grid{ grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* <=980px：2欄；縮小陰影、內距再緊一點 */
+@media (max-width:980px){
+  .feat-grid{ grid-template-columns: repeat(2, 1fr) !important; gap:16px !important; }
+  .feat-card{ padding:20px 16px !important; box-shadow: 0 8px 20px rgba(0,0,0,.45) !important; }
+  .icon-wrap{ width:50px; height:50px; margin-bottom:12px; }
+  .feat-card h3{ font-size:1.05rem; }
+  .feat-card p{ font-size:.94rem; }
+}
+
+/* <=560px：單欄、可讀性優先 */
+@media (max-width:560px){
+  .feat-grid{ grid-template-columns: 1fr !important; gap:14px !important; }
+  .feat-card{ padding:18px 14px !important; }
+  .icon-wrap{ width:46px; height:46px; margin-bottom:10px; }
+}
