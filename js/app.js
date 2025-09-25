@@ -5,6 +5,107 @@
 
   document.addEventListener('DOMContentLoaded', init);
 
+document.addEventListener('DOMContentLoaded', () => {
+  /* ====== Mobile nav toggle ====== */
+  const toggle = document.querySelector('.nav-toggle');
+  const nav    = document.getElementById('primaryNav');
+  if (toggle && nav){
+    const closeNav = () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); };
+    toggle.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const open = !nav.classList.contains('open');
+      nav.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', (e)=>{
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
+    });
+    window.addEventListener('resize', ()=>{ if (window.innerWidth>980) closeNav(); }, {passive:true});
+  }
+
+  /* ====== Language Portal ====== */
+  const SUPPORTED = [
+    ['en','English'], ['zh-tw','繁體中文'], ['zh-cn','简体中文'],
+    ['ja','日本語'], ['ko','한국어'], ['fr','Français'], ['de','Deutsch']
+  ];
+
+  const portal = document.getElementById('langPortal');
+  const btnDesktop = document.getElementById('langBtn');
+  const btnMobile  = document.getElementById('langBtnMobile');
+  const footLink   = document.getElementById('footLangLink');
+  const curDesktop = document.getElementById('langCurrent');
+  const curMobile  = document.getElementById('langCurrentMobile');
+
+  // 狀態
+  let current = localStorage.getItem('ks_lang') || 'en';
+
+  // 建立清單（只一次）
+  if (!portal.dataset.built){
+    portal.innerHTML = SUPPORTED.map(([code,label]) =>
+      `<button type="button" role="menuitem" data-lang="${code}">${label}</button>`
+    ).join('');
+    portal.dataset.built = '1';
+  }
+  syncCurrentLabel();
+
+  function syncCurrentLabel(){
+    const label = SUPPORTED.find(([c])=>c===current)?.[1] || 'English';
+    if (curDesktop) curDesktop.textContent = label;
+    if (curMobile)  curMobile.textContent  = label;
+    // 高亮
+    portal.querySelectorAll('[aria-current="true"]').forEach(b=>b.removeAttribute('aria-current'));
+    const active = portal.querySelector(`[data-lang="${current}"]`);
+    if (active) active.setAttribute('aria-current','true');
+  }
+
+  function setLang(code){
+    current = code;
+    localStorage.setItem('ks_lang', code);
+    syncCurrentLabel();
+    // TODO: 如有 i18n： window.KS_I18N?.setLang(code);
+    console.log('[i18n] switch to:', code);
+  }
+
+  // 打開 Portal 並定位到觸發元件下方
+  function openPortal(anchor){
+    const r = anchor.getBoundingClientRect();
+    const top  = r.bottom + 8;            // 按鈕下方 8px
+    const left = Math.min(
+      Math.max(16, r.left),               // 不貼左邊
+      window.innerWidth - portal.offsetWidth - 16 // 不出右邊
+    );
+    portal.style.top  = `${Math.min(top, window.innerHeight - portal.offsetHeight - 16)}px`;
+    portal.style.left = `${left}px`;
+    portal.classList.add('open');
+    portal.removeAttribute('aria-hidden');
+    document.addEventListener('click', docCloseOnce, { once:true });
+    document.addEventListener('keydown', escClose, { once:true });
+  }
+  function closePortal(){
+    portal.classList.remove('open');
+    portal.setAttribute('aria-hidden','true');
+  }
+  function docCloseOnce(e){
+    if (!portal.contains(e.target)) closePortal();
+  }
+  function escClose(e){ if (e.key === 'Escape') closePortal(); }
+
+  // 綁定三個入口
+  function bindOpen(el){ if (!el) return; el.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); openPortal(el); }); }
+  bindOpen(btnDesktop);
+  bindOpen(btnMobile);
+  bindOpen(footLink);
+
+  // 點選語言
+  portal.addEventListener('click', (e)=>{
+    const b = e.target.closest('button[data-lang]');
+    if (!b) return;
+    setLang(b.dataset.lang);
+    closePortal();
+  });
+});
+
+
   function init(){
     heroCtaSmoothScroll();
     heroTyping();
@@ -328,3 +429,4 @@
     });
   }
 })();
+
