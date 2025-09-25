@@ -377,55 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 
-  /* ========== 語言選單（桌機 + 手機） ========== */
-  function mountLangMenus(){
-    const DROPS = [
-      { btn:'#langBtn',        menu:'#langMenu',        cur:'#langCurrent' },
-      { btn:'#langBtnMobile',  menu:'#langMenuMobile',  cur:'#langCurrentMobile' },
-    ];
-    const SUPPORTED = [
-      ['en','English'], ['zh-tw','繁體中文'], ['zh-cn','简体中文'],
-      ['ja','日本語'], ['ko','한국어'], ['fr','Français'], ['de','Deutsch']
-    ];
+  
 
-    DROPS.forEach(({btn,menu,cur})=>{
-      const $btn = $(btn), $menu=$(menu), $cur=$(cur);
-      if (!$btn || !$menu || !$cur) return;
-
-      if (!$menu.dataset.built){
-        $menu.innerHTML = SUPPORTED.map(([code,label]) =>
-          `<li role="menuitem" data-lang="${code}">${label}</li>`).join('');
-        $menu.dataset.built = '1';
-      }
-
-      const close = ()=>{
-        $menu.classList.remove('open');
-        $btn.setAttribute('aria-expanded','false');
-        $menu.setAttribute('aria-hidden','true');
-      };
-      const open = ()=>{
-        $menu.classList.add('open');
-        $btn.setAttribute('aria-expanded','true');
-        $menu.removeAttribute('aria-hidden');
-      };
-
-      $btn.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        $menu.classList.contains('open') ? close() : open();
-      });
-
-      $menu.addEventListener('click', (e)=>{
-        const li = e.target.closest('li[data-lang]'); if (!li) return;
-        $cur.textContent = li.textContent;
-        // TODO: 這裡接你的 i18n 切換：setLang(li.dataset.lang)
-        console.log('Switch language:', li.dataset.lang);
-        close();
-      });
-
-      document.addEventListener('click', (e)=>{ if (!$menu.contains(e.target) && !$btn.contains(e.target)) close(); });
-      document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') close(); });
-    });
-  }
-})();
 
 
