@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>Pricing — KeySearch</title>
+  <title data-i18n="meta.title.pricing">Pricing — KeySearch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <!-- 全局 -->
   <link rel="stylesheet" href="css/styles.css"/>
@@ -17,7 +17,7 @@
     <!-- Brand -->
     <a class="brand" href="index.html" aria-label="KeySearch home">
       <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
-      <span class="brand-text">KeySearch</span>
+      <span class="brand-text" data-i18n="header.brand">KeySearch</span>
     </a>
 
     <!-- Hamburger (only mobile) -->
@@ -39,7 +39,7 @@
       <!-- 行動版專用語言選單 -->
       <li class="mobile-only">
         <button class="lang-btn" id="langBtnMobile" aria-haspopup="menu" aria-expanded="false">
-          🌐 <span id="langCurrentMobile">English</span> ▾
+          🌐 <span id="langCurrentMobile" data-i18n="header.lang.current">English</span> ▾
         </button>
       </li>
 
@@ -64,18 +64,18 @@
   <main>
     <!-- Page Hero -->
     <section class="page-hero container reveal-on-scroll">
-      <h1>Pricing</h1>
-      <p class="lead">Simple, transparent plans that grow with you.</p>
+      <h1 data-i18n="pricing.title">Pricing</h1>
+      <p class="lead" data-i18n="pricing.lead">Simple, transparent plans that grow with you.</p>
     </section>
 
     <!-- Billing Toggle -->
     <section class="pricing-toggle container reveal-on-scroll" aria-label="Billing period">
       <div class="toggle-wrap">
-        <span>Monthly</span>
+        <span data-i18n="pricing.billing.monthly">Monthly</span>
         <button class="billing-toggle" id="billingToggle" aria-pressed="false" aria-label="Switch to yearly billing">
           <span class="knob"></span>
         </button>
-        <span>Yearly <em class="save">Save 20%</em></span>
+        <span data-i18n="pricing.billing.yearly">Yearly <em class="save" data-i18n="pricing.billing.save">Save 20%</em></span>
       </div>
     </section>
 
@@ -83,52 +83,52 @@
     <section class="pricing-grid container reveal-on-scroll">
       <!-- Free -->
       <article class="price-card" data-plan="free">
-        <h2>Free</h2>
-        <p class="price" data-monthly="$0" data-yearly="$0">$0 <span>/ forever</span></p>
+        <h2 data-i18n="pricing.free.title">Free</h2>
+        <p class="price" data-monthly="$0" data-yearly="$0">$0 <span data-i18n="pricing.free.perma">/ forever</span></p>
         <ul class="features">
-          <li>Unlimited searches</li>
-          <li>Basic tags & collections</li>
-          <li>Export CSV/JSON</li>
+          <li data-i18n="pricing.free.f1">Unlimited searches</li>
+          <li data-i18n="pricing.free.f2">Basic tags & collections</li>
+          <li data-i18n="pricing.free.f3">Export CSV/JSON</li>
         </ul>
-        <a href="download.html" class="btn secondary">Get Started</a>
+        <a href="download.html" class="btn secondary" data-i18n="pricing.free.cta">Get Started</a>
       </article>
 
       <!-- Pro (highlight) -->
       <article class="price-card highlight" data-plan="pro">
-        <div class="badge">Most Popular</div>
-        <h2>Pro</h2>
+        <div class="badge" data-i18n="pricing.pro.badge">Most Popular</div>
+        <h2 data-i18n="pricing.pro.title">Pro</h2>
         <p class="price" data-monthly="$9.99" data-yearly="$7.99">
-          $9.99 <span>/ month</span>
+          $9.99 <span data-i18n="pricing.pro.permonth">/ month</span>
         </p>
         <ul class="features">
-          <li>Everything in Free</li>
-          <li>Multi-language UI</li>
-          <li>Reminders & smart filters</li>
-          <li>Priority support</li>
+          <li data-i18n="pricing.pro.f1">Everything in Free</li>
+          <li data-i18n="pricing.pro.f2">Multi-language UI</li>
+          <li data-i18n="pricing.pro.f3">Reminders & smart filters</li>
+          <li data-i18n="pricing.pro.f4">Priority support</li>
         </ul>
-        <a href="download.html" class="btn primary">Upgrade Now</a>
+        <a href="download.html" class="btn primary" data-i18n="pricing.pro.cta">Upgrade Now</a>
       </article>
     </section>
 
     <!-- FAQ (short) -->
     <section class="mini-faq container reveal-on-scroll">
       <details>
-        <summary>Do you offer refunds?</summary>
-        <p>If you’re not satisfied, contact us within 14 days. We’ll help.</p>
+        <summary data-i18n="pricing.faq.refunds.q">Do you offer refunds?</summary>
+        <p data-i18n="pricing.faq.refunds.a">If you’re not satisfied, contact us within 14 days. We’ll help.</p>
       </details>
       <details>
-        <summary>Can I switch plans later?</summary>
-        <p>Yes. You can upgrade or cancel anytime.</p>
+        <summary data-i18n="pricing.faq.switch.q">Can I switch plans later?</summary>
+        <p data-i18n="pricing.faq.switch.a">Yes. You can upgrade or cancel anytime.</p>
       </details>
     </section>
 
     <!-- Final CTA -->
     <section class="cta container reveal-on-scroll">
-      <h2>Start searching smarter</h2>
-      <p>KeySearch is free to try. Upgrade when you’re ready.</p>
+      <h2 data-i18n="pricing.final.title">Start searching smarter</h2>
+      <p data-i18n="pricing.final.lead">KeySearch is free to try. Upgrade when you’re ready.</p>
       <div class="cta-row">
-        <a href="download.html" class="btn primary">Download Free</a>
-        <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary">Open Web</a>
+        <a href="download.html" class="btn primary" data-i18n="pricing.final.cta.download">Download Free</a>
+        <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary" data-i18n="pricing.final.cta.openweb">Open Web</a>
       </div>
     </section>
   </main>
@@ -202,7 +202,7 @@
       <a href="#" data-i18n="foot.b.privacy">Privacy</a>
       <a href="#" data-i18n="foot.b.terms">Terms</a>
     </div>
-    <small>© 2025 KeySearch. All rights reserved.</small>
+    <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
   </div>
 </footer>
 
@@ -214,11 +214,3 @@
   <script src="js/app.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
