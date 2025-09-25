@@ -542,3 +542,7 @@ p{ line-height: 1.7; }
   animation: caret-blink 1s step-end infinite;
 }
 @keyframes caret-blink { 50% { opacity: 0; } }
+
+/* 桌機：只顯示 nav-actions */
+.desktop-only { display: flex; }
+.mobile-only { display: none; }
