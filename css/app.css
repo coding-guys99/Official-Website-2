@@ -282,9 +282,13 @@ footer.site-footer.bm-footer .bm-footer-bottom .legal a:hover{
   padding: 24px 20px 22px;
   text-align:center;
   overflow:hidden;
-
   box-shadow: 0 6px 18px rgba(0,0,0,.35);
   transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+   max-width: 1080px;      /* 與全站 container 對齊 */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* 背景動態暈光（低調） */
