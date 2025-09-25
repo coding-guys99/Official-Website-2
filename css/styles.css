@@ -10,7 +10,8 @@
   border-bottom: 1px solid rgba(255,255,255,.06);
   backdrop-filter: saturate(120%) blur(8px);
   font-size: 1rem;         /* 統一字級 */
-   height:150px;
+   height:100px;
+   width:100%;
 }
 .bm-header .nav{
   display:grid; grid-template-columns: auto 1fr auto;
