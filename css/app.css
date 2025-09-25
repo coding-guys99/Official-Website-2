@@ -279,3 +279,76 @@ footer.site-footer.bm-footer .bm-footer-bottom .legal a:hover{
   font-size: .95rem;
   line-height: 1.6;
 }
+
+/* ==== Feature Cards — desktop polish ==== */
+
+/* 容器：4 欄、舒服的間距（你原本的 container 會限制寬度） */
+.feat-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  padding: 24px 0 80px;
+}
+
+/* 卡片本體：立體層次 + 微微光暈 */
+.feat-card{
+  position:relative;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+  border: 1px solid var(--border);
+  padding: 24px 20px 22px;
+  text-align:center;
+  overflow:hidden;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+/* 背景動態暈光（低調） */
+.feat-card::before{
+  content:"";
+  position:absolute; inset:-28% -22%;
+  background:
+    radial-gradient(40% 50% at 30% 25%, rgba(212,175,55,.12), transparent 60%),
+    radial-gradient(38% 48% at 70% 70%, rgba(64,206,255,.10), transparent 60%);
+  filter: blur(28px);
+  opacity:.55;
+  transition: opacity .35s ease, filter .35s ease;
+  z-index:0;
+}
+
+/* hover：上浮 + 強化邊與光暈 */
+.feat-card:hover{
+  transform: translateY(-6px);
+  border-color: var(--brand-cyan);
+  box-shadow: 0 14px 32px rgba(0,0,0,.55);
+}
+.feat-card:hover::before{ opacity:.9; filter: blur(36px); }
+
+/* icon 圓形徽章 */
+.icon-wrap{
+  position:relative; z-index:1;
+  width:56px; height:56px; margin:0 auto 14px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.12);
+  display:grid; place-items:center;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.35);
+}
+.icon{ font-size:24px; line-height:1; }
+
+/* 文字層級 */
+.feat-card h3{
+  margin:6px 0 8px;
+  font-size:1.15rem;
+  letter-spacing:.2px;
+}
+.feat-card p{
+  margin:0;
+  color: var(--fg-muted);
+  font-size: .95rem;
+}
+
+/* optional：進場 reveal（你已有 .reveal-on-scroll 的 JS） */
+.feat-card.reveal-on-scroll{ opacity:0; transform: translateY(10px); }
+.feat-card.reveal-on-scroll.is-visible{ opacity:1; transform:none; transition:.4s ease; }
