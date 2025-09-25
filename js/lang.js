@@ -1,4 +1,4 @@
-// ===== Language dropdown (desktop + mobile) — robust single binder =====
+// ===== Language dropdown (desktop + mobile) — robust & a11y safe =====
 (function(){
   const CONFIGS = [
     { btn:'#langBtn',       menu:'#langMenu',       cur:'#langCurrent' },
@@ -9,7 +9,6 @@
     ['ja','日本語'], ['ko','한국어'], ['fr','Français'], ['de','Deutsch']
   ];
 
-  // 綁定一次；若 DOM 尚未就緒，會稍後再試
   let tries = 0;
   function bindOnce(){
     let boundAny = false;
@@ -20,63 +19,60 @@
       const $cur = document.querySelector(cur);
       if (!$btn || !$menu || !$cur) return;
 
-      // 避免重複綁定
       if ($btn.dataset.langBound === '1') return;
 
       // 動態建清單（只建一次）
       if (!$menu.dataset.built){
         $menu.innerHTML = SUPPORTED.map(([code,label]) =>
-          `<li role="menuitem" data-lang="${code}">${label}</li>`
+          `<li role="none"><button type="button" role="menuitem" data-lang="${code}">${label}</button></li>`
         ).join('');
         $menu.dataset.built = '1';
+        $menu.hidden = true;        // 一開始就隱藏，取代 aria-hidden
       }
 
       const open  = ()=>{
-        $menu.classList.add('open');
-        $menu.removeAttribute('aria-hidden');
+        $menu.hidden = false;
         $btn.setAttribute('aria-expanded','true');
+        const first = $menu.querySelector('[data-lang]');
+        if (first) first.focus();   // 焦點移到第一個選項
       };
       const close = ()=>{
-        $menu.classList.remove('open');
-        $menu.setAttribute('aria-hidden','true');
+        $menu.hidden = true;
         $btn.setAttribute('aria-expanded','false');
+        $btn.focus();               // 焦點還給按鈕
       };
 
-      // 按鈕切換
       $btn.addEventListener('click', (e)=>{
         e.stopPropagation();
-        ($menu.classList.contains('open') ? close : open)();
+        ($menu.hidden ? open : close)();
       });
 
-      // 點選語言
       $menu.addEventListener('click', (e)=>{
-        const li = e.target.closest('li[data-lang]');
+        const li = e.target.closest('[data-lang]');
         if (!li) return;
-        $cur.textContent = li.textContent;      // 顯示母語名稱
-        // TODO: 在這裡接你的 i18n 切換邏輯，例如 KS_I18N.setLang(li.dataset.lang)
+        $cur.textContent = li.textContent;
         console.log('Switch language:', li.dataset.lang);
+        // TODO: 呼叫 I18N.setLang(li.dataset.lang);
         close();
       });
 
-      // 點外面關閉 / ESC 關閉
       document.addEventListener('click', (e)=>{
-        if (!$menu.contains(e.target) && !$btn.contains(e.target)) close();
+        if (!$menu.hidden && !$menu.contains(e.target) && !$btn.contains(e.target)) close();
       });
-      document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') close(); });
+      document.addEventListener('keydown', (e)=>{
+        if (e.key==='Escape' && !$menu.hidden) close();
+      });
 
-      // 標記已綁定
       $btn.dataset.langBound = '1';
       boundAny = true;
     });
 
-    // 如果一個都沒綁定（可能 DOM 還沒插入），重試幾次
     if (!boundAny && tries < 20){
       tries++;
       setTimeout(bindOnce, 100);
     }
   }
 
-  // 進入點：確保在 DOM ready 後跑，但也能容忍晚載入的 Header
   if (document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', bindOnce, { once:true });
   }else{
