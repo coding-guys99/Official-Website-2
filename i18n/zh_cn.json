@@ -1,5 +1,15 @@
 {
-  "meta": { "title": { "home": "KeySearch — 快速找到" } },
+  "meta": {
+    "title": {
+      "home": "KeySearch — 快速搜索，一键直达",
+      "features": "功能介绍 — KeySearch",
+      "download": "下载 — KeySearch",
+      "pricing": "方案与价格 — KeySearch",
+      "about": "关于我们 — KeySearch",
+      "news": "最新消息 — KeySearch",
+      "support": "支持服务 — KeySearch"
+    }
+  },
   "header": {
     "brand": "KeySearch",
     "features": "功能",
@@ -7,41 +17,272 @@
     "pricing": "价格",
     "about": "关于",
     "support": "支持",
-    "lang": { "current": "简体中文" },
-    "tryapp": { "cta": "🚀 试用网页版" }
+    "lang": {
+      "current": "简体中文"
+    },
+    "tryapp": {
+      "cta": "🚀 体验网页版"
+    }
   },
   "home": {
     "hero": {
-      "title": "快速找到",
-      "sub": "一切尽在掌握。无杂乱，只有答案。"
+      "title": "快速搜索，一键直达",
+      "sub": "所有内容尽在掌握。没有混乱，只有答案。"
     },
-    "cta": { "downloadNow": "立即下载" },
+    "cta": {
+      "downloadNow": "立即下载"
+    },
     "final": {
       "title": "准备开始了吗？",
-      "lead": "下载桌面版 KeySearch，或立即使用网页版。"
+      "lead": "下载 KeySearch 桌面版，或直接体验网页版。"
     }
   },
   "feature1": {
-    "title": "即时搜索任何内容",
-    "desc": "在项目、笔记或资源中快速找到你需要的。"
+    "title": "即时搜索",
+    "desc": "跨项目、笔记或资源，立即找到你需要的内容。"
   },
   "feature2": {
-    "title": "轻松保持井然有序",
-    "desc": "无需文件夹，无需混乱。KeySearch 让一切清晰易找。"
+    "title": "轻松保持有序",
+    "desc": "无需文件夹、不再杂乱。KeySearch 帮你自动整理。"
   },
-  "download": { "cta": { "text": "下载" }, "web": "打开网页版" },
+  "features": {
+    "title": "功能",
+    "lead": "让 KeySearch 强大又简单的原因。",
+    "cards": {
+      "instant": {
+        "title": "即时结果",
+        "desc": "毫秒级搜索笔记、文件与标签。"
+      },
+      "tags": {
+        "title": "智能标签",
+        "desc": "多层标签、筛选与自动完成，快速整理资料。"
+      },
+      "collections": {
+        "title": "集合",
+        "desc": "按项目或情境分组项目，可分享只读视图。"
+      },
+      "shortcuts": {
+        "title": "全局快捷键",
+        "desc": "一组快捷键即可跳转任何位置，内置命令面板。"
+      },
+      "i18n": {
+        "title": "多语言界面",
+        "desc": "即时切换语言，支持 17+ 种语言。"
+      },
+      "privacy": {
+        "title": "隐私优先",
+        "desc": "本地优先 (IndexedDB)。数据仅保留在你的设备中。"
+      },
+      "export": {
+        "title": "灵活导出",
+        "desc": "可导出 CSV/JSON，或与团队分享集合。"
+      },
+      "platforms": {
+        "title": "跨平台",
+        "desc": "网页与桌面一致体验，零学习成本。"
+      }
+    },
+    "final": {
+      "title": "想要试试吗？",
+      "lead": "下载 KeySearch，或立即通过浏览器使用。"
+    }
+  },
+  "download": {
+    "title": "下载",
+    "lead": "获取适合你平台的 KeySearch。",
+    "windows": {
+      "title": "Windows",
+      "version": "版本 1.0.1.0",
+      "cta": "下载 EXE"
+    },
+    "mac": {
+      "title": "macOS",
+      "version": "版本 1.0.1.0",
+      "cta": "下载 DMG"
+    },
+    "linux": {
+      "title": "Linux",
+      "version": "版本 1.0.1.0",
+      "cta": "下载 AppImage"
+    },
+    "hash": {
+      "label": "SHA256："
+    },
+    "webpref": {
+      "title": "想用网页版？",
+      "lead": "直接在浏览器运行 KeySearch，无需安装。"
+    },
+    "web": "打开网页版",
+    "cta": {
+      "text": "下载"
+    }
+  },
+  "pricing": {
+    "title": "价格方案",
+    "lead": "简单透明的方案，随需求成长。",
+    "billing": {
+      "monthly": "月付",
+      "yearly": "年付",
+      "save": "省 20%"
+    },
+    "free": {
+      "title": "免费版",
+      "perma": "/ 永久",
+      "f1": "不限次数搜索",
+      "f2": "基本标签与集合",
+      "f3": "导出 CSV/JSON",
+      "cta": "立即开始"
+    },
+    "pro": {
+      "badge": "最受欢迎",
+      "title": "专业版",
+      "permonth": "/ 月",
+      "f1": "包含免费版所有功能",
+      "f2": "多语言界面",
+      "f3": "提醒与智能筛选",
+      "f4": "优先客服支持",
+      "cta": "立即升级"
+    },
+    "faq": {
+      "refunds": {
+        "q": "是否提供退款？",
+        "a": "如果你不满意，请在 14 天内联系我们，我们会协助处理。"
+      },
+      "switch": {
+        "q": "可以之后更换方案吗？",
+        "a": "可以，随时升级或取消。"
+      }
+    },
+    "final": {
+      "title": "开始更聪明的搜索",
+      "lead": "KeySearch 免费试用，准备好再升级。",
+      "cta": {
+        "download": "免费下载",
+        "openweb": "打开网页版"
+      }
+    }
+  },
+  "about": {
+    "title": "关于 KeySearch",
+    "desc": "快速搜索，一键直达。没有混乱，只有答案。",
+    "mission": {
+      "t": "使命",
+      "desc": "帮助人们立即找到所需内容 —— 无论是笔记、文件或想法，没有混乱、绑定或依赖云端。"
+    },
+    "diff-1": "本地优先",
+    "desc-1": "数据仅保留在设备中 (IndexedDB)。支持离线使用，无需账号。",
+    "diff-2": "速度极快",
+    "desc-2": "索引搜索配合标签、筛选与快捷键，毫秒完成。",
+    "diff-3": "无绑定",
+    "desc-3": "可导出 CSV/JSON。需要协作时可分享只读集合。",
+    "diff-4": "多语言",
+    "desc-4": "通过 i18n JSON 即时切换界面，支持 17+ 种语言。",
+    "privacy": "隐私与透明度",
+    "privacy.desc": "KeySearch 坚持隐私优先，不会出售数据。可选的遥测默认关闭，随时可停用。内建清晰的导出功能。",
+    "privacy.read": "阅读隐私政策",
+    "privacy.update": "产品更新"
+  },
+  "contact": "联系我们",
+  "email": "hello@keysearch-app.com",
+  "news": {
+    "title": "最新消息",
+    "lead": "季度重点与版本更新。",
+    "filter": {
+      "all": "全部",
+      "2025": "2025",
+      "2024": "2024"
+    },
+    "v130": {
+      "date": "2025 年 9 月 1 日",
+      "title": "新功能：多语言界面 (17 种语言)",
+      "desc": "界面与网站支持 17 种语言，并能即时切换。快捷键提示也本地化。",
+      "l1": "全站新增语言下拉菜单",
+      "l2": "JSON 格式 i18n，易于贡献",
+      "l3": "改进本地化内容的 SEO Meta"
+    },
+    "v120": {
+      "date": "2025 年 6 月 10 日",
+      "title": "性能提升：更快的索引",
+      "desc": "大型项目索引速度提升约 30%。内存使用更精简。",
+      "l1": "大型文件采用流式分词器",
+      "l2": "支持增量索引重建",
+      "l3": "Windows 崩溃自动修复"
+    },
+    "v110": {
+      "date": "2024 年 12 月 15 日",
+      "title": "新功能：CSV 导出与更佳筛选",
+      "desc": "支持导出 CSV，并新增按类型、日期与路径筛选。深色模式 UI 更完善。",
+      "l1": "一键导出 CSV",
+      "l2": "默认筛选条件 (代码/文档/媒体)",
+      "l3": "快捷键：Ctrl/Cmd + K 快速搜索"
+    },
+    "ctaTitle": "想立即体验最新版？",
+    "ctaSub": "下载最新版本或直接打开网页版。"
+  },
+  "support": {
+    "title": "支持服务",
+    "lead": "快速找到答案，或将你的反馈告诉我们。",
+    "quick": {
+      "download": "下载",
+      "billing": "账单与方案",
+      "faq": "常见问题",
+      "contact": "联系我们"
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": "如何安装 KeySearch？",
+      "a1": "请到 <a href=\"download.html\">下载页面</a> 并按照安装指引操作。  \n在 macOS 上可能需要允许“已认证开发者”的应用程序。",
+      "q2": "网页版和桌面版有什么不同？",
+      "a2": "核心功能相同，桌面版多了离线模式与本地导出。",
+      "q3": "如何切换语言？",
+      "a3": "使用右上角的语言切换器即可。更多语言即将推出。"
+    },
+    "feedback": {
+      "title": "反馈表单",
+      "name": "你的姓名",
+      "email": "你的邮箱",
+      "topic": "主题",
+      "topic.general": "一般",
+      "topic.bug": "错误报告",
+      "topic.feature": "功能建议",
+      "topic.billing": "账务",
+      "message": "消息",
+      "send": "发送",
+      "mailapp": "打开邮件程序",
+      "note": "我们会回复到 <strong>hello@keysearch-app.com</strong>。系统不会上传文件。",
+      "toast": "正在打开邮件程序…"
+    }
+  },
+  "donate": {
+    "title": "赞助开发",
+    "desc": "KeySearch 免费使用，如果它为你节省了时间，请考虑支持开发。",
+    "coffee": "请我喝咖啡",
+    "kofi": "Ko-fi",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "thanks": "感谢你的支持，让 KeySearch 能持续快速、专注。"
+  },
   "foot": {
     "brand": "KeySearch",
-    "slogan": "快速找到。\n无杂乱，只有答案。",
-    "product": { "": "产品", "feat": "功能", "price": "价格", "download": "下载" },
-    "support": { "": "支持", "help": "帮助中心", "docs": "文档" },
-    "company": { "": "公司", "about": "关于", "contact": "联系" },
-    "follow": { "": "关注", "twitter": "推特", "youtube": "油管" },
+    "slogan": "快速搜索，一键直达。<br>没有混乱，只有答案。",
+    "product": "产品",
+    "product.feat": "功能",
+    "product.price": "价格",
+    "product.download": "下载",
+    "support": "支持",
+    "support.help": "帮助中心",
+    "support.docs": "文档",
+    "company": "公司",
+    "company.about": "关于我们",
+    "company.contact": "联系方式",
+    "follow": "关注我们",
+    "follow.twitter": "Twitter",
+    "follow.youtube": "YouTube",
     "b": {
       "lang": "语言",
-      "privacy": "隐私",
-      "terms": "条款",
-      "copy": "© 2025 KeySearch. 保留所有权利。"
+      "privacy": "隐私政策",
+      "terms": "使用条款",
+      "copy": "© 2025 KeySearch. 版权所有。"
     }
   }
 }
