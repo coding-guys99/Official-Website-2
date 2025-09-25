@@ -134,3 +134,46 @@
   }
 })();
 
+// ===== [補丁] 自動重渲染 + 標題同步 + 缺字偵測 =====
+
+// 1) 頁面完全載入後再渲染一次（避免其他腳本晚於 i18n）
+window.addEventListener('load', () => {
+  try {
+    I18N.render();
+    const t = I18N.t('meta.title');
+    if (typeof t === 'string' && t) document.title = t; // 同步 <title>
+  } catch (e) { console.warn('[i18n] late render failed', e); }
+}, { once: true });
+
+// 2) 監看 DOM 有沒有新增/替換含 data-i18n 的節點，有就重渲染（只渲染一次即可）
+const i18nMO = new MutationObserver((list) => {
+  const need = list.some(m =>
+    [...m.addedNodes].some(n =>
+      n.nodeType === 1 && (n.matches?.('[data-i18n],[data-i18n-attr]') ||
+      n.querySelector?.('[data-i18n],[data-i18n-attr]'))
+    )
+    || (m.type === 'attributes' && (m.target.matches?.('[data-i18n],[data-i18n-attr]')))
+  );
+  if (need) {
+    I18N.render();
+    // 同步 <title>
+    const t = I18N.t('meta.title');
+    if (typeof t === 'string' && t) document.title = t;
+  }
+});
+i18nMO.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-i18n','data-i18n-attr'] });
+
+// 3) 方便除錯：列出頁面上對不到的 key（只在開發時看 Console）
+(function debugMissingKeys(){
+  const els = document.querySelectorAll('[data-i18n]');
+  const missing = [];
+  els.forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    const v = I18N.t(k);
+    if (typeof v !== 'string') missing.push(k);
+  });
+  if (missing.length) {
+    console.warn('[i18n] missing keys (check your JSON):', Array.from(new Set(missing)));
+  }
+})();
+
