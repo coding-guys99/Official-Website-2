@@ -131,36 +131,39 @@
     },
 
     async setLang(input) {
-      const lang = (input || FALLBACK).toLowerCase().replace('-', '_');
+  const lang = (input || FALLBACK).toLowerCase().replace('-', '_');
+  localStorage.setItem('i18n.lang', lang);
 
-      // 先樂觀寫入，避免換頁倒回去
-      localStorage.setItem('i18n.lang', lang);
-
-      try {
-        const [cur, fb] = await Promise.all([this.load(lang), this.load(FALLBACK)]);
-        this.dict = this.mergeFallback(JSON.parse(JSON.stringify(cur)), fb);
-        this.lang = lang;
-
-        document.documentElement.lang = lang.replace('_','-');
-        this.render();
-
-        const title = this.t('meta.title.home');
-        if (typeof title === 'string' && title) document.title = title;
-
-        document.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
-        console.info('[i18n] switched to:', lang, 'base:', this.base);
-      } catch (err) {
-        console.error('[i18n] failed to load:', lang, err);
-        // 回退
-        localStorage.setItem('i18n.lang', FALLBACK);
-        this.lang = FALLBACK;
-        try {
-          this.dict = await this.load(FALLBACK);
-        } catch(e){ this.dict = {}; }
-        document.documentElement.lang = FALLBACK;
-        this.render();
-      }
+  try {
+    // 先載入目標語言
+    const cur = await this.load(lang);
+    let fb = {};
+    if (lang !== FALLBACK) {
+      try { fb = await this.load(FALLBACK); } catch(e) {}
     }
+
+    // 只在 merge 完成後一次性 render
+    this.dict = this.mergeFallback(JSON.parse(JSON.stringify(cur)), fb);
+    this.lang = lang;
+
+    document.documentElement.lang = lang.replace('_','-');
+    this.render();
+
+    const title = this.t('meta.title.home');
+    if (typeof title === 'string' && title) document.title = title;
+
+    document.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
+    console.info('[i18n] switched to:', lang, 'base:', this.base);
+
+  } catch (err) {
+    console.error('[i18n] failed to load:', lang, err);
+    this.lang = FALLBACK;
+    try {
+      this.dict = await this.load(FALLBACK);
+    } catch(e){ this.dict = {}; }
+    this.render();
+  }
+}
   };
 
   // 暴露全域
