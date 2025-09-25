@@ -72,7 +72,7 @@ const Backdrop = (() => {
   });
 
   /* ========== 1) Mobile nav（唯一版本） ========== */
-  function mobileNav(){
+ /*== function mobileNav(){
   const toggle = document.querySelector('.nav-toggle');
   const nav    = document.querySelector('#primaryNav') || document.querySelector('.nav-links');
   if (!toggle || !nav) return;
@@ -108,7 +108,54 @@ const Backdrop = (() => {
   window.addEventListener('resize', ()=>{
     if (window.innerWidth > 980) close(); 
   }, {passive:true});
-}
+}==*/
+
+ // === Header 互動：行動選單 + Backdrop（桌機不顯示） ===
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav    = document.getElementById('primaryNav') || document.querySelector('.nav-links');
+
+  // 動態建立 backdrop（手機用）
+  let backdrop = document.querySelector('.nav-backdrop');
+  if (!backdrop){
+    backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+  }
+
+  const isMobile = () => window.innerWidth <= 980;
+
+  const openNav  = () => {
+    if (!nav) return;
+    nav.classList.add('open');
+    if (isMobile()){
+      backdrop.classList.add('show');
+    }
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+  };
+  const closeNav = () => {
+    if (!nav) return;
+    nav.classList.remove('open');
+    backdrop.classList.remove('show');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  if (toggle && nav){
+    toggle.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      nav.classList.contains('open') ? closeNav() : openNav();
+    });
+    // 點選單中的連結就關閉
+    nav.addEventListener('click', (e)=>{ if (e.target.closest('a')) closeNav(); });
+    // 點 backdrop 關閉
+    backdrop.addEventListener('click', closeNav);
+    // 視窗放大回桌機：保證清乾淨
+    window.addEventListener('resize', ()=>{ if (!isMobile()) closeNav(); }, {passive:true});
+    // ESC 關閉
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeNav(); });
+  }
+});
+
 
 
   /* ========== 2) Language Portal（唯一版本 - 已修綁定/命名/定位） ========== */
@@ -471,6 +518,7 @@ const Backdrop = (() => {
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 })();
+
 
 
 
