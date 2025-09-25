@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>Support — KeySearch</title>
+  <title data-i18n="meta.title">Support — KeySearch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <!-- 全局 -->
   <link rel="stylesheet" href="css/styles.css"/>
@@ -17,7 +17,7 @@
     <!-- Brand -->
     <a class="brand" href="index.html" aria-label="KeySearch home">
       <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
-      <span class="brand-text">KeySearch</span>
+      <span class="brand-text" data-i18n="header.brand">KeySearch</span>
     </a>
 
     <!-- Hamburger (only mobile) -->
@@ -39,7 +39,7 @@
       <!-- 行動版專用語言選單 -->
       <li class="mobile-only">
         <button class="lang-btn" id="langBtnMobile" aria-haspopup="menu" aria-expanded="false">
-          🌐 <span id="langCurrentMobile">English</span> ▾
+          🌐 <span id="langCurrentMobile" data-i18n="header.lang.current">English</span> ▾
         </button>
       </li>
 
@@ -64,40 +64,40 @@
   <main>
     <!-- Hero -->
     <section class="page-hero container reveal-on-scroll">
-      <h1>Support</h1>
-      <p class="lead">Find quick answers, or send us your feedback.</p>
+      <h1 data-i18n="support.title">Support</h1>
+      <p class="lead" data-i18n="support.lead">Find quick answers, or send us your feedback.</p>
     </section>
 
     <!-- Quick links -->
     <section class="support-quick container reveal-on-scroll" aria-label="Quick help">
-      <a class="qk" href="download.html">Download</a>
-      <a class="qk" href="pricing.html">Billing & Plans</a>
-      <a class="qk" href="#faq">FAQ</a>
-      <a class="qk" href="#feedback">Contact</a>
+      <a class="qk" href="download.html" data-i18n="support.quick.download">Download</a>
+      <a class="qk" href="pricing.html" data-i18n="support.quick.billing">Billing & Plans</a>
+      <a class="qk" href="#faq" data-i18n="support.quick.faq">FAQ</a>
+      <a class="qk" href="#feedback" data-i18n="support.quick.contact">Contact</a>
     </section>
 
     <!-- FAQ -->
     <section id="faq" class="faq container reveal-on-scroll" aria-label="Frequently Asked Questions">
-      <h2>FAQ</h2>
+      <h2 data-i18n="support.faq.title">FAQ</h2>
 
       <details class="faq-item" name="faq">
-        <summary>How do I install KeySearch?</summary>
-        <div class="answer">
+        <summary data-i18n="support.faq.q1">How do I install KeySearch?</summary>
+        <div class="answer" data-i18n="support.faq.a1">
           Download from the <a href="download.html">Download page</a> and follow the installer.  
           On macOS, you may need to allow apps from identified developers in System Settings.
         </div>
       </details>
 
       <details class="faq-item" name="faq">
-        <summary>Is the web app different from the desktop app?</summary>
-        <div class="answer">
+        <summary data-i18n="support.faq.q2">Is the web app different from the desktop app?</summary>
+        <div class="answer" data-i18n="support.faq.a2">
           Core features are the same. Desktop adds offline mode and local export.
         </div>
       </details>
 
       <details class="faq-item" name="faq">
-        <summary>How do I switch languages?</summary>
-        <div class="answer">
+        <summary data-i18n="support.faq.q3">How do I switch languages?</summary>
+        <div class="answer" data-i18n="support.faq.a3">
           Use the language switcher in the top-right corner. More languages coming soon.
         </div>
       </details>
@@ -105,43 +105,44 @@
 
     <!-- Feedback -->
     <section id="feedback" class="feedback container reveal-on-scroll" aria-label="Send feedback">
-      <h2>Send us your feedback</h2>
-      <!-- 使用 JS 來組 mailto，可避免有些瀏覽器阻擋表單 mailto -->
+      <h2 data-i18n="support.feedback.title">Send us your feedback</h2>
       <form id="feedbackForm" class="feedback-form" novalidate>
         <div class="row2">
-          <label>
+          <label data-i18n="support.feedback.name">
             Your Name
             <input type="text" name="name" required>
           </label>
-          <label>
+          <label data-i18n="support.feedback.email">
             Your Email
             <input type="email" name="email" required>
           </label>
         </div>
-        <label>
+        <label data-i18n="support.feedback.topic">
           Topic
           <select name="topic">
-            <option value="general">General</option>
-            <option value="bug">Bug Report</option>
-            <option value="feature">Feature Request</option>
-            <option value="billing">Billing</option>
+            <option value="general" data-i18n="support.feedback.topic.general">General</option>
+            <option value="bug" data-i18n="support.feedback.topic.bug">Bug Report</option>
+            <option value="feature" data-i18n="support.feedback.topic.feature">Feature Request</option>
+            <option value="billing" data-i18n="support.feedback.topic.billing">Billing</option>
           </select>
         </label>
-        <label>
+        <label data-i18n="support.feedback.message">
           Message
           <textarea name="message" rows="6" required></textarea>
         </label>
         <!-- 蜜罐（防機器） -->
         <input type="text" name="website" class="honeypot" autocomplete="off" tabindex="-1" aria-hidden="true">
         <div class="actions">
-          <button type="submit" class="btn primary">Send</button>
-          <a class="btn ghost" href="mailto:hello@keysearch-app.com">Open mail app</a>
+          <button type="submit" class="btn primary" data-i18n="support.feedback.send">Send</button>
+          <a class="btn ghost" href="mailto:hello@keysearch-app.com" data-i18n="support.feedback.mailapp">Open mail app</a>
         </div>
-        <p class="tiny muted">We’ll reply to <strong>hello@keysearch-app.com</strong>. Your system won’t upload files.</p>
+        <p class="tiny muted" data-i18n="support.feedback.note">
+          We’ll reply to <strong>hello@keysearch-app.com</strong>. Your system won’t upload files.
+        </p>
       </form>
 
       <!-- 成功提示 -->
-      <div id="toast" role="status" aria-live="polite" class="toast" hidden>Opening your email app…</div>
+      <div id="toast" role="status" aria-live="polite" class="toast" hidden data-i18n="support.feedback.toast">Opening your email app…</div>
     </section>
 	
 	<!-- Donate / Support development -->
@@ -152,13 +153,12 @@
       KeySearch is free to use. If it saves you time, consider supporting development.
     </p>
     <div class="donate-actions">
-      <!-- TODO: 換成你的實際付款連結 -->
-      <a class="btn primary" href="https://www.buymeacoffee.com/yourid" target="_blank" rel="noopener">Buy me a coffee</a>
-      <a class="btn secondary" href="https://ko-fi.com/yourid" target="_blank" rel="noopener">Ko-fi</a>
-      <a class="btn secondary" href="https://paypal.me/yourid" target="_blank" rel="noopener">PayPal</a>
-      <a class="btn secondary" href="https://buy.stripe.com/yourlink" target="_blank" rel="noopener">Stripe</a>
+      <a class="btn primary" href="https://www.buymeacoffee.com/yourid" target="_blank" rel="noopener" data-i18n="donate.coffee">Buy me a coffee</a>
+      <a class="btn secondary" href="https://ko-fi.com/yourid" target="_blank" rel="noopener" data-i18n="donate.kofi">Ko-fi</a>
+      <a class="btn secondary" href="https://paypal.me/yourid" target="_blank" rel="noopener" data-i18n="donate.paypal">PayPal</a>
+      <a class="btn secondary" href="https://buy.stripe.com/yourlink" target="_blank" rel="noopener" data-i18n="donate.stripe">Stripe</a>
     </div>
-    <p class="fine-print">Thanks for your support — it keeps KeySearch fast and focused.</p>
+    <p class="fine-print" data-i18n="donate.thanks">Thanks for your support — it keeps KeySearch fast and focused.</p>
   </div>
 </section>
 
@@ -234,7 +234,7 @@
       <a href="#" data-i18n="foot.b.privacy">Privacy</a>
       <a href="#" data-i18n="foot.b.terms">Terms</a>
     </div>
-    <small>© 2025 KeySearch. All rights reserved.</small>
+    <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
   </div>
 </footer>
 
@@ -246,11 +246,3 @@
   <script src="js/app.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
