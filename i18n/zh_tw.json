@@ -1,73 +1,288 @@
 {
   "meta": {
     "title": {
-      "home": "KeySearch — 快速找到，簡單乾淨"
+      "home": "KeySearch — 快速搜尋，一鍵即達",
+      "features": "功能介紹 — KeySearch",
+      "download": "下載 — KeySearch",
+      "pricing": "方案與價格 — KeySearch",
+      "about": "關於我們 — KeySearch",
+      "news": "最新消息 — KeySearch",
+      "support": "支援服務 — KeySearch"
     }
   },
   "header": {
     "brand": "KeySearch",
-    "features": "功能介紹",
+    "features": "功能",
     "download": "下載",
-    "pricing": "方案價格",
-    "about": "關於我們",
+    "pricing": "價格",
+    "about": "關於",
     "support": "支援",
-    "lang": { "current": "繁體中文" },
-    "tryapp": { "cta": "🚀 線上試用" }
+    "lang": {
+      "current": "繁體中文"
+    },
+    "tryapp": {
+      "cta": "🚀 體驗線上版"
+    }
   },
   "home": {
     "hero": {
-      "title": "快速找到，簡單乾淨",
-      "sub": "一切觸手可及。零凌亂，只要答案。"
+      "title": "快速搜尋，一鍵即達",
+      "sub": "所有內容盡在掌握。沒有混亂，只有答案。"
     },
     "cta": {
       "downloadNow": "立即下載"
     },
     "final": {
-      "title": "準備好開始了嗎？",
-      "lead": "下載桌面版 KeySearch，或直接在瀏覽器中使用。"
+      "title": "準備開始了嗎？",
+      "lead": "下載 KeySearch 桌面版，或直接體驗線上版。"
     }
   },
   "feature1": {
-    "title": "即時搜尋任何內容",
-    "desc": "跨專案、筆記與資源快速找到所需。就是快。"
+    "title": "即時搜尋",
+    "desc": "跨專案、筆記或資源，立即找到你需要的內容。"
   },
   "feature2": {
-    "title": "輕鬆維持井然有序",
-    "desc": "不用資料夾、不怕雜亂；KeySearch 自動幫你整理、好找好用。"
+    "title": "輕鬆保持有序",
+    "desc": "不用資料夾、不會凌亂。KeySearch 幫你自動整理。"
+  },
+  "features": {
+    "title": "功能",
+    "lead": "讓 KeySearch 強大又簡單的原因。",
+    "cards": {
+      "instant": {
+        "title": "即時結果",
+        "desc": "毫秒級搜尋筆記、檔案與標籤。"
+      },
+      "tags": {
+        "title": "智慧標籤",
+        "desc": "多層標籤、篩選與自動完成，快速整理資料。"
+      },
+      "collections": {
+        "title": "集合",
+        "desc": "依專案或情境群組項目，並可分享唯讀視圖。"
+      },
+      "shortcuts": {
+        "title": "全域快捷鍵",
+        "desc": "一組快捷鍵即可跳轉任何位置，內建指令面板。"
+      },
+      "i18n": {
+        "title": "多語介面",
+        "desc": "即時切換語言，支援 17+ 種語系。"
+      },
+      "privacy": {
+        "title": "隱私優先",
+        "desc": "本地優先 (IndexedDB)。資料僅保留在你的裝置中。"
+      },
+      "export": {
+        "title": "彈性匯出",
+        "desc": "可匯出 CSV/JSON，或與團隊分享集合。"
+      },
+      "platforms": {
+        "title": "跨平台",
+        "desc": "網頁與桌面一致體驗，零學習成本。"
+      }
+    },
+    "final": {
+      "title": "想要試試嗎？",
+      "lead": "下載 KeySearch，或立即透過瀏覽器使用。"
+    }
   },
   "download": {
-    "cta": { "text": "下載" },
-    "web": "開啟線上版"
+    "title": "下載",
+    "lead": "取得適合你平台的 KeySearch。",
+    "windows": {
+      "title": "Windows",
+      "version": "版本 1.0.1.0",
+      "cta": "下載 EXE"
+    },
+    "mac": {
+      "title": "macOS",
+      "version": "版本 1.0.1.0",
+      "cta": "下載 DMG"
+    },
+    "linux": {
+      "title": "Linux",
+      "version": "版本 1.0.1.0",
+      "cta": "下載 AppImage"
+    },
+    "hash": {
+      "label": "SHA256："
+    },
+    "webpref": {
+      "title": "想用線上版？",
+      "lead": "直接在瀏覽器執行 KeySearch，無需安裝。"
+    },
+    "web": "開啟線上版",
+    "cta": {
+      "text": "下載"
+    }
+  },
+  "pricing": {
+    "title": "價格方案",
+    "lead": "簡單透明的方案，隨需求成長。",
+    "billing": {
+      "monthly": "月繳",
+      "yearly": "年繳",
+      "save": "省 20%"
+    },
+    "free": {
+      "title": "免費版",
+      "perma": "/ 永久",
+      "f1": "不限次數搜尋",
+      "f2": "基本標籤與集合",
+      "f3": "匯出 CSV/JSON",
+      "cta": "立即開始"
+    },
+    "pro": {
+      "badge": "最受歡迎",
+      "title": "專業版",
+      "permonth": "/ 月",
+      "f1": "包含免費版所有功能",
+      "f2": "多語言介面",
+      "f3": "提醒與智慧篩選",
+      "f4": "優先客服支援",
+      "cta": "立即升級"
+    },
+    "faq": {
+      "refunds": {
+        "q": "是否提供退款？",
+        "a": "若你不滿意，請於 14 天內聯繫我們，我們會協助處理。"
+      },
+      "switch": {
+        "q": "可以之後更換方案嗎？",
+        "a": "可以，隨時升級或取消。"
+      }
+    },
+    "final": {
+      "title": "開始更聰明的搜尋",
+      "lead": "KeySearch 免費試用，準備好再升級。",
+      "cta": {
+        "download": "免費下載",
+        "openweb": "開啟線上版"
+      }
+    }
+  },
+  "about": {
+    "title": "關於 KeySearch",
+    "desc": "快速搜尋，一鍵即達。沒有混亂，只有答案。",
+    "mission": {
+      "t": "使命",
+      "desc": "幫助人們立即找到所需內容 —— 無論是筆記、檔案或想法，沒有混亂、綁定或依賴雲端。"
+    },
+    "diff-1": "本地優先",
+    "desc-1": "資料僅保留在裝置中 (IndexedDB)。支援離線使用，無需帳號。",
+    "diff-2": "速度極快",
+    "desc-2": "索引搜尋搭配標籤、篩選與快捷鍵，毫秒完成。",
+    "diff-3": "無綁定",
+    "desc-3": "可匯出 CSV/JSON。需要協作時可分享唯讀集合。",
+    "diff-4": "多語言",
+    "desc-4": "透過 i18n JSON 即時切換介面，支援 17+ 語系。",
+    "privacy": "隱私與透明度",
+    "privacy.desc": "KeySearch 堅持隱私優先，不會販售資料。選用的遙測預設關閉，隨時可停用。內建清楚的匯出功能。",
+    "privacy.read": "閱讀隱私政策",
+    "privacy.update": "產品更新"
+  },
+  "contact": "聯絡我們",
+  "email": "hello@keysearch-app.com",
+  "news": {
+    "title": "最新消息",
+    "lead": "季度重點與版本更新。",
+    "filter": {
+      "all": "全部",
+      "2025": "2025",
+      "2024": "2024"
+    },
+    "v130": {
+      "date": "2025 年 9 月 1 日",
+      "title": "新功能：多語介面 (17 種語言)",
+      "desc": "介面與網站支援 17 種語言，並能即時切換。快捷鍵提示也本地化。",
+      "l1": "全站新增語言下拉選單",
+      "l2": "JSON 格式 i18n，易於貢獻",
+      "l3": "改善在地化內容的 SEO Meta"
+    },
+    "v120": {
+      "date": "2025 年 6 月 10 日",
+      "title": "效能提升：更快的索引",
+      "desc": "大型專案索引速度提升約 30%。記憶體使用更精簡。",
+      "l1": "大型檔案採用串流分詞器",
+      "l2": "支援增量索引重建",
+      "l3": "Windows 崩潰自動修復"
+    },
+    "v110": {
+      "date": "2024 年 12 月 15 日",
+      "title": "新功能：CSV 匯出與更佳篩選",
+      "desc": "支援匯出 CSV，並新增依類型、日期與路徑篩選。深色模式 UI 更完善。",
+      "l1": "一鍵匯出 CSV",
+      "l2": "預設篩選條件 (程式碼/文件/媒體)",
+      "l3": "快捷鍵：Ctrl/Cmd + K 快速搜尋"
+    },
+    "ctaTitle": "想立即體驗最新版？",
+    "ctaSub": "下載最新版本或直接開啟線上版。"
+  },
+  "support": {
+    "title": "支援服務",
+    "lead": "快速找到答案，或將你的回饋告訴我們。",
+    "quick": {
+      "download": "下載",
+      "billing": "帳單與方案",
+      "faq": "常見問題",
+      "contact": "聯絡我們"
+    },
+    "faq": {
+      "title": "常見問題",
+      "q1": "如何安裝 KeySearch？",
+      "a1": "請至 <a href=\"download.html\">下載頁面</a> 並依照安裝指引操作。  \n在 macOS 上可能需要允許「已認證開發者」的應用程式。",
+      "q2": "線上版和桌面版有什麼不同？",
+      "a2": "核心功能相同，桌面版多了離線模式與本地匯出。",
+      "q3": "如何切換語言？",
+      "a3": "使用右上角的語言切換器即可。更多語言即將推出。"
+    },
+    "feedback": {
+      "title": "回饋表單",
+      "name": "你的姓名",
+      "email": "你的信箱",
+      "topic": "主題",
+      "topic.general": "一般",
+      "topic.bug": "錯誤回報",
+      "topic.feature": "功能建議",
+      "topic.billing": "帳務",
+      "message": "訊息",
+      "send": "送出",
+      "mailapp": "開啟郵件程式",
+      "note": "我們會回覆至 <strong>hello@keysearch-app.com</strong>。系統不會上傳檔案。",
+      "toast": "正在開啟郵件程式…"
+    }
+  },
+  "donate": {
+    "title": "贊助開發",
+    "desc": "KeySearch 免費使用，若它為你節省了時間，請考慮支持開發。",
+    "coffee": "請我喝咖啡",
+    "kofi": "Ko-fi",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "thanks": "感謝你的支持，讓 KeySearch 能持續快速、專注。"
   },
   "foot": {
     "brand": "KeySearch",
-    "slogan": "快速找到。\n乾淨簡單。",
-    "product": {
-      "": "產品",
-      "feat": "功能介紹",
-      "price": "方案價格",
-      "download": "下載"
-    },
-    "support": {
-      "": "支援",
-      "help": "說明中心",
-      "docs": "文件"
-    },
-    "company": {
-      "": "公司",
-      "about": "關於我們",
-      "contact": "聯絡我們"
-    },
-    "follow": {
-      "": "追蹤我們",
-      "twitter": "推特",
-      "youtube": "YouTube"
-    },
+    "slogan": "快速搜尋，一鍵即達。<br>沒有混亂，只有答案。",
+    "product": "產品",
+    "product.feat": "功能",
+    "product.price": "價格",
+    "product.download": "下載",
+    "support": "支援",
+    "support.help": "幫助中心",
+    "support.docs": "文件",
+    "company": "公司",
+    "company.about": "關於我們",
+    "company.contact": "聯絡方式",
+    "follow": "追蹤我們",
+    "follow.twitter": "Twitter",
+    "follow.youtube": "YouTube",
     "b": {
       "lang": "語言",
-      "privacy": "隱私權",
-      "terms": "服務條款",
-      "copy": "© 2025 KeySearch. 保留所有權利。"
+      "privacy": "隱私政策",
+      "terms": "使用條款",
+      "copy": "© 2025 KeySearch. 版權所有。"
     }
   }
 }
