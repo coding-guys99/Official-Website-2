@@ -409,3 +409,26 @@ html, body { overflow-x: hidden; }
   .about-card h3{ font-size: 1.06rem !important; }
   .about-card p{ font-size: .94rem !important; }
 }
+
+/* ===== About spacing tuning (RWD) ===== */
+
+/* <=1200px：3 欄，保留較大間距 */
+@media (max-width: 1200px){
+  .about-grid{ gap: 24px !important; }
+}
+
+/* <=980px：2 欄，整體留白放大，閱讀更輕鬆 */
+@media (max-width: 980px){
+  .page-hero{ padding: 80px 0 24px !important; }
+  .about-block{ padding: 28px 0 !important; }
+  .about-grid{ gap: 20px !important; }
+  .about-card, .about-callout{ padding: 22px 18px !important; border-radius: 18px !important; }
+}
+
+/* <=560px：單欄，但別太擠 */
+@media (max-width: 560px){
+  .about-grid{ gap: 16px !important; }
+  .about-card, .about-callout{ padding: 20px 16px !important; border-radius: 16px !important; }
+  .about-card h3{ margin: 2px 0 8px !important; }
+}
+
