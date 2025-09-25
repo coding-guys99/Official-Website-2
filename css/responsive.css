@@ -188,11 +188,22 @@ html, body { overflow-x: hidden; }
     box-shadow: 0 2px 14px rgba(0,0,0,.35);
   }
   .bm-header .nav{
-    grid-template-columns: auto 1fr auto;
-    height: 56px;
-    gap: 12px;
-    padding: 0 12px;
+    display: grid;
+  grid-template-columns: auto 1fr auto; /* 左:品牌 | 中:空間 | 右:操作 */
+  align-items: center;
+  height: 56px;
+  padding: 0 12px;
   }
+
+.bm-header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+}
+   
   .bm-header .brand img{ width:24px; height:24px; }
   .bm-header .brand-text{ font-size:.98rem; letter-spacing:.2px; }
   @media (max-width: 420px){ .bm-header .brand-text{ display:none; } }
