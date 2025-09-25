@@ -73,39 +73,43 @@ const Backdrop = (() => {
 
   /* ========== 1) Mobile nav（唯一版本） ========== */
   function mobileNav(){
-    const toggle = $('.nav-toggle');
-    const nav    = $('#primaryNav') || $('.nav-links');   // 兩種寫法都支援
-    if (!toggle || !nav) return;
+  const toggle = document.querySelector('.nav-toggle');
+  const nav    = document.querySelector('#primaryNav') || document.querySelector('.nav-links');
+  if (!toggle || !nav) return;
 
-    const close = ()=>{
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded','false');
-      Backdrop.close();                 // <— 收掉遮罩
-    };
+  const close = ()=>{
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    Backdrop.close();
+  };
 
-    toggle.addEventListener('click', (e)=>{
-      e.stopPropagation();
-      const open = !nav.classList.contains('open');
-      nav.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-      if (open) Backdrop.open(close);   // <— 打開遮罩並把關閉邏輯交給他
-    else      Backdrop.close();
-    });
+  toggle.addEventListener('click', (e)=>{
+    // 桌機不作用
+    if (window.innerWidth > 980) return;
 
-    // 點 link 關閉
-    nav.addEventListener('click', (e)=>{ if (e.target.closest('a')) close(); });
+    e.stopPropagation();
+    const open = !nav.classList.contains('open');
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
 
-    // 點外面關閉
-    document.addEventListener('click', (e)=>{
-      if (!nav.contains(e.target) && !toggle.contains(e.target)) close();
-    });
+    if (open){
+      Backdrop.open(close);
+    }else{
+      Backdrop.close();
+    }
+  });
 
-    // ESC 關閉
-    document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') close(); });
+  nav.addEventListener('click', (e)=>{ 
+    if (e.target.closest('a')) close(); 
+  });
 
-    // 回到桌機時重置
-    window.addEventListener('resize', ()=>{ if (innerWidth>980) close(); }, {passive:true});
-  }
+  document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') close(); });
+
+  window.addEventListener('resize', ()=>{
+    if (window.innerWidth > 980) close(); 
+  }, {passive:true});
+}
+
 
   /* ========== 2) Language Portal（唯一版本 - 已修綁定/命名/定位） ========== */
   function langPortal(){
@@ -467,6 +471,7 @@ const Backdrop = (() => {
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 })();
+
 
 
 
