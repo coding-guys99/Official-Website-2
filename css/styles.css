@@ -135,3 +135,26 @@
   margin-right:16px; color:#b8c0cf; text-decoration:none;
 }
 .bm-footer-bottom .legal a:hover{ color:var(--brand-gold); }
+
+/* ===== Global backdrop ===== */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+  z-index: 9999;             /* 在內容之上、在抽屜/portal 之下 */
+}
+.backdrop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 鎖捲動 */
+body.no-scroll { overflow: hidden; }
+
+/* 讓層級關係清楚：portal > nav 抽屜 > backdrop */
+.nav-links.open { z-index: 10000; }
+.lang-portal.open { z-index: 10001; }
