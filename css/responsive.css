@@ -1,267 +1,99 @@
-/* ===================================================================
-   KeySearch - responsive.css
-   專門放 RWD 覆寫（不改動桌機 styles.css）
-   斷點：
-     - ≤1200px: 平板/大手機直
-     - ≤980px : 手機主要佈局
-     - ≤900px : Footer / About 補充
-     - ≤560px : 小手機
-   =================================================================== */
-
-/* ------- 共通：避免小螢幕水平捲動 ------- */
-html, body {
-  overflow-x: hidden;
-}
-
-/* ------- 1200px 以下：Hero/Features 先單欄化，格子微調 ------- */
-@media (max-width: 1200px){
-
-  /* 首屏 Hero 改為單欄 */
-  .hero {
-    grid-template-columns: 1fr !important;
-    gap: 28px !important;
-    padding-top: 110px !important;
-    padding-bottom: 60px !important;
-  }
-  .hero > * { min-width: 0; }
-  .hero-text { text-align: center !important; justify-self: center !important; }
-  .hero-text .actions { justify-content: center !important; }
-
-  /* 如果右側有 mockup，縮一點避免溢出 */
-  .device-mock { max-width: 92vw !important; margin-inline: auto !important; }
-
-  /* Features 區域由雙欄變單欄 */
-  .feature { grid-template-columns: 1fr !important; text-align: center !important; }
-  .feature.reverse { direction: ltr !important; }
-  .feature-img { margin-bottom: 24px !important; }
-  .feature-img img { max-width: 92vw !important; }
-
-  /* 四欄卡片（features page）→ 3 欄 */
-  .feat-grid { grid-template-columns: repeat(3, 1fr) !important; }
-}
-
-/* ------- 980px 以下：行動主要斷點 ------- */
-@media (max-width: 980px){
-
-  /* Header：顯示漢堡、下拉選單覆蓋 */
-  .nav-toggle { display: block !important; }
-  .nav-links { display: none !important; }
-  .nav-links.open{
-    display:flex !important; flex-direction: column !important; gap: 16px !important;
-    position: absolute !important; top: 72px !important; left: 0 !important; right: 0 !important;
-    background: #0d0d0d !important; border-top: 1px solid rgba(255,255,255,.06) !important;
-    padding: 18px 24px 22px !important; z-index: 150 !important;
-  }
-
-  /* 語言下拉：避免出畫面，貼齊右邊，寬度收斂 */
-  .lang-menu {
-    right: 0 !important;
-    min-width: 260px !important;
-    grid-template-columns: repeat(2, minmax(110px,1fr)) !important;
-  }
-
-  /* 首屏 Hero（保險再次設定） */
-  .hero {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-    padding-top: 104px !important;
-    padding-bottom: 56px !important;
-  }
-  .hero-text { text-align: center !important; justify-self: center !important; }
-  .hero-text .actions { justify-content: center !important; }
-  .hero-title-wrap { min-height: auto !important; }
-  .hero-title-wrap h1 { white-space: normal !important; } /* 小螢幕允許自動換行 */
-
-  /* Feature 區塊單欄 */
-  .feature { grid-template-columns: 1fr !important; text-align: center !important; }
-  .feature.reverse { direction: ltr !important; }
-  .feature-img { margin-bottom: 20px !important; }
-
-  /* Cards/Grids */
-  .features-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
-  .feat-grid     { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
-
-  /* Pricing */
-  .pricing-toggle { text-align: center !important; }
-  .pricing-grid   { grid-template-columns: 1fr !important; }
-  .price-card     { max-width: 560px; margin-inline: auto; }
-
-  /* Support 表單 */
-  .feedback-form .row2 { grid-template-columns: 1fr !important; }
-  .feedback .actions   { justify-content: center !important; }
-
-  /* Download 卡片 */
-  .dl-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
-  .dl-card { max-width: 560px; margin-inline: auto; }
-
-  /* News */
-  .news-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
-
-  /* Footer：改單欄堆疊 */
-  .bm-footer-top{
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-    text-align: center !important;
-    padding: 28px 0 !important;
-  }
-  .bm-foot-brand .tagline{ max-width: 28ch; margin-left:auto; margin-right:auto; }
-  .bm-footer-bottom{ flex-direction: column !important; text-align: center !important; gap: 8px !important; }
-}
-
-/* ------- 900px 以下：About 補充、Footer 收合 ------- */
+/* =========================
+   Footer accordion (≤900px)
+   ========================= */
 @media (max-width: 900px){
 
-  /* About 區段節奏 */
-  .page-hero{ padding: 60px 0 12px !important; }
-  .about-block{ padding: 22px 0 !important; }
-
-  /* About 四格卡片中置 */
-  .about-grid{
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
-    gap: 18px !important;
-    justify-items: stretch !important;
+  /* 整體留白與置中 */
+  .bm-footer{
+    padding: 24px 0 36px;
   }
-  .about-card{
-    max-width: none !important;
-    min-height: 140px !important;
+  .bm-footer .bm-footer-top{
+    display: block;           /* 改成單欄 */
+    padding: 0 0 8px;
   }
-
-  /* Footer（保險） */
-  .bm-footer-top{
-    grid-template-columns: 1fr !important;
+  .bm-foot-brand{
+    text-align: center;
+    margin: 0 0 6px;
   }
-}
-
-/* ------- 560px 以下：小手機收斂 ------- */
-@media (max-width: 560px){
-
-  /* Hero 字級與按鈕 */
-  .hero-title-wrap h1 { font-size: 1.9rem !important; }
-  .hero-text .actions { flex-wrap: wrap !important; gap: 12px !important; }
-
-  /* 卡片網格全面單欄 */
-  .features-grid,
-  .feat-grid,
-  .news-grid,
-  .dl-grid {
-    grid-template-columns: 1fr !important;
+  .bm-foot-brand .tagline{
+    max-width: 28ch;
+    margin: 6px auto 0;
   }
 
-  /* 語言選單：單欄落下 */
-  .lang-menu{
-    min-width: 200px !important;
-    grid-template-columns: 1fr !important;
+  /* 讓 links grid 不做多欄排版，改由每個 section 獨立展示 */
+  .bm-foot-links-grid{
+    display: block;
   }
 
-  /* 表單安全邊距 */
-  .feedback-form { padding-inline: 2px !important; }
-}
-
-/* ------- 補：動畫/特效在行動上稍微保守 ------- */
-@media (max-width: 980px){
-  .device-mock{
-    transform: none !important;
-    animation: fadeInOnly .6s ease both !important;
-    box-shadow: 0 8px 22px rgba(0,0,0,.45) !important;
+  /* 每一組（Product / Support / Company / Follow） */
+  .bm-footer .foot-col{
+    border-bottom: 1px solid rgba(255,255,255,.10);
   }
-  @keyframes fadeInOnly {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .feature-img:hover,
-  .dl-card:hover,
-  .price-card:hover,
-  .feat-card:hover,
-  .about-card:hover {
-    transform: translateY(-3px) !important;
-  }
-}
-
-/* ------- 補：News/Donate 細節 ------- */
-@media (max-width: 980px){
-  .donate-card { margin-inline: 16px !important; }
-  .donate-actions { justify-content: center !important; }
-}
-
-/* ---- Footer accordion only on small screens ---- */
-@media (max-width: 768px){
-  .bm-footer-top{
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-    text-align: left !important;
+  .bm-footer .foot-col:last-child{
+    border-bottom: none;
   }
 
-  .bm-foot-links-grid { display: block !important; } /* 手機下改回普通容器 */
+  /* 標題列（整條可點） */
+  .bm-footer .foot-head{
+    width: 100%;
+    padding: 14px 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
 
-  .foot-col{
-    border-top: 1px solid rgba(255,255,255,.08);
-    padding-top: 6px;
-  }
-
-  .foot-head{
-    all: unset;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    font-weight: 700;
-    font-size: 1.02rem;
-    padding: 12px 0;
-    cursor: pointer;
+
+    background: transparent;
+    border: none;
+    color: #e7ecf3;
   }
-  .foot-head::after{
-    content: "▾";
-    font-size: .9rem;
-    transform-origin: center;
-    transition: transform .2s ease;
-    opacity: .85;
+  /* 箭頭（收合/展開方向提示） */
+  .bm-footer .foot-head::after{
+    content: "▸";
+    display: inline-block;
+    transform: translateY(1px);
+    transition: transform .25s ease;
+    opacity: .9;
+  }
+  .bm-footer .foot-col.open .foot-head::after{
+    transform: rotate(90deg);
   }
 
-  .foot-links{
-    list-style: none;
-    margin: 0;
-    padding: 0 0 10px;
-    max-height: 0;             /* 初始收起 */
+  /* 連結區（預設收合，展開時滑出） */
+  .bm-footer .foot-links{
+    max-height: 0;
     overflow: hidden;
-    transition: max-height .25s ease;
+    transition: max-height .3s ease, padding .3s ease;
+    padding: 0 12px;          /* 左右縮一點，與標題對齊 */
   }
-  .foot-links a{ display:block; padding: 8px 0; }
-
-  /* 展開狀態（由 JS 加上 .open） */
-  .foot-col.open .foot-head::after{ transform: rotate(180deg); }
-  .foot-col.open .foot-links{ max-height: 420px; } /* 給一個足夠大的值即可 */
-}
-
-@media (max-width: 768px) {
-  /* Footer 手風琴標題間距縮小 */
-  .bm-footer .foot-col {
-    margin: 0;                  /* 移除多餘間距 */
-    padding: 0;                 /* 預設 padding 清空 */
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+  .bm-footer .foot-col.open .foot-links{
+    max-height: 420px;        /* 夠大的值以容納所有內容 */
+    padding: 6px 12px 10px;   /* 展開時加點下內距 */
   }
 
-  .bm-footer .foot-head {
-    width: 100%;
-    padding: 12px 0;            /* 比較緊湊的點擊區域 */
-    font-size: 1rem;
-    text-align: left;
-  }
-
-  /* 子連結區 */
-  .bm-footer .foot-links {
-    margin: 0;
-    padding: 0 0 0px 0;         /* 展開時留一點下邊距 */
-  }
-
-  .bm-footer .foot-links a {
+  /* 連結樣式 */
+  .bm-footer .foot-links a{
     display: block;
-    padding: 6px 0;             /* 子連結之間更緊湊 */
-    font-size: 0.95rem;
+    padding: 8px 0;
+    color: #b8c0cf;
+    text-decoration: none;
+    transition: color .2s ease;
+  }
+  .bm-footer .foot-links a:hover{
+    color: var(--brand-gold);
   }
 
-  /* 每個 section 間隔縮小 */
-  .bm-footer .foot-col + .foot-col {
-    margin-top: 4px;            /* 原本可能是 16px+，改小 */
+  /* 法律區塊置中換行 */
+  .bm-footer .bm-footer-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  .bm-footer .bm-footer-bottom .legal{
+    order: 2;                 /* 可視需要調整順序 */
   }
 }
