@@ -148,6 +148,7 @@ const Backdrop = (() => {
     const closePortal = ()=>{
       portal.classList.remove('open');
       portal.setAttribute('aria-hidden','true');
+      Backdrop.close(); // <— 收掉遮罩或遞減引用
       // 讓觸發鈕的 aria-expanded 回復
       [btnDesk, btnMobile, footLink].forEach(b => b?.setAttribute('aria-expanded','false'));
     };
@@ -461,5 +462,6 @@ const Backdrop = (() => {
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 })();
+
 
 
