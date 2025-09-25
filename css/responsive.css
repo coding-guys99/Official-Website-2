@@ -154,7 +154,7 @@ html, body { overflow-x: hidden; }
     opacity: .9;
      grid-template-columns: 1fr !important;
   }
-  .bm-footer .foot-col.open .foot-head::after{ transform: rotate(90deg); grid-template-columns: 1fr !important;}
+  .bm-footer .foot-col.open .foot-head::after{ transform: rotate(90deg); }
 
   .bm-footer .foot-links{
     max-height: 0; overflow: hidden;
@@ -163,7 +163,6 @@ html, body { overflow-x: hidden; }
   }
   .bm-footer .foot-col.open .foot-links{
     max-height: 360px; padding: 6px 12px 10px;
-     grid-template-columns: 1fr !important;
   }
   .bm-footer .foot-links a{
     display: block; padding: 8px 0; color: #b8c0cf; text-decoration: none;
