@@ -1,107 +1,73 @@
 {
-  "meta.title.home": "KeySearch — 快速搜尋",
-  "meta.title.features": "功能 — KeySearch",
-  "meta.title.pricing": "價格方案 — KeySearch",
-  "meta.title.news": "最新消息 — KeySearch",
-  "meta.title.download": "下載 — KeySearch",
-  "meta.title.about": "關於 — KeySearch",
-
-  "header.brand": "KeySearch",
-  "header.features": "功能",
-  "header.download": "下載",
-  "header.pricing": "價格",
-  "header.about": "關於",
-  "header.support": "支援",
-  "header.lang.current": "繁體中文",
-  "header.tryapp.cta": "🚀 試用網頁版",
-
-  "hero.title": "快速找到答案",
-  "hero.sub": "所有內容，一觸即達。沒有雜亂，只有答案。",
-  "hero.cta.download": "立即下載",
-  "hero.cta.web": "試用網頁版",
-
-  "features.title": "功能特色",
-  "features.lead": "讓 KeySearch 強大又簡單的原因。",
-
-  "pricing.title": "價格方案",
-  "pricing.lead": "簡單透明，隨著你的需求成長。",
-  "pricing.toggle.monthly": "月付",
-  "pricing.toggle.yearly": "年付",
-  "pricing.toggle.save": "省 20%",
-  "pricing.plan.free": "免費版",
-  "pricing.plan.pro": "專業版",
-  "pricing.plan.pro.badge": "最受歡迎",
-  "pricing.pro.feature1": "包含免費版所有功能",
-  "pricing.pro.feature2": "多語言介面",
-  "pricing.pro.feature3": "提醒與智慧篩選",
-  "pricing.pro.feature4": "優先客服",
-  "pricing.cta.get": "立即開始",
-  "pricing.cta.upgrade": "立即升級",
-  "pricing.cta.download": "免費下載",
-  "pricing.cta.web": "開啟網頁版",
-  "pricing.faq.refund.q": "提供退款嗎？",
-  "pricing.faq.refund.a": "若你不滿意，14 天內聯繫我們，我們會協助處理。",
-  "pricing.faq.switch.q": "之後可以更換方案嗎？",
-  "pricing.faq.switch.a": "可以，隨時升級或取消。",
-
-  "news.title": "產品更新",
-  "news.lead": "每季亮點與版本更新。",
-  "news.filter.all": "全部",
-  "news.filter.2025": "2025",
-  "news.filter.2024": "2024",
-  "news.ctaTitle": "想試試最新版本？",
-  "news.ctaSub": "立即下載最新版或開啟網頁版。",
-  "download.cta.text": "下載",
-  "download.web": "開啟網頁版",
-
-  "download.title": "下載",
-  "download.lead": "取得 KeySearch 適用於你常用的平台。",
-  "download.win": "Windows",
-  "download.mac": "macOS",
-  "download.linux": "Linux",
-  "download.ver": "版本 1.0.1.0",
-  "download.cta.exe": "下載 EXE",
-  "download.cta.dmg": "下載 DMG",
-  "download.cta.appimage": "下載 AppImage",
-  "download.webpref.title": "想用網頁版嗎？",
-  "download.webpref.lead": "直接在瀏覽器使用 KeySearch，免安裝。",
-
-  "about.title": "關於 KeySearch",
-  "about.desc": "快速找到答案。沒有雜亂，只有答案。",
-  "about.mission.t": "使命",
-  "about.mission.desc": "幫助人們快速找到所需內容 —— 筆記、檔案或想法，不需雜亂、綁定或依賴雲端。",
-  "about.diff-1": "本機優先",
-  "about.desc-1": "資料保存在你的裝置（IndexedDB），可離線使用，不需帳號。",
-  "about.diff-2": "速度至上",
-  "about.desc-2": "標籤、篩選與全域快捷鍵的索引搜尋，以毫秒為單位。",
-  "about.diff-3": "無綁定",
-  "about.desc-3": "可匯出 CSV/JSON，需要合作時分享唯讀集合。",
-  "about.diff-4": "多語言",
-  "about.desc-4": "即時切換介面，支援 17+ 語言。",
-  "about.privacy": "隱私與透明",
-  "about.privacy.desc": "KeySearch 以隱私為優先，我們不會販售資料。選擇性遙測預設關閉，可隨時停用，內建清楚匯出功能。",
-  "about.privacy.read": "閱讀隱私政策",
-  "about.privacy.update": "產品更新",
-  "contact": "聯繫我們",
-  "email": "hello@keysearch-app.com",
-
-  "foot.brand": "KeySearch",
-  "foot.slogan": "快速找到答案。\n沒有雜亂，只有答案。",
-  "foot.product": "產品",
-  "foot.product.feat": "功能",
-  "foot.product.price": "價格",
-  "foot.product.download": "下載",
-  "foot.support": "支援",
-  "foot.support.help": "說明中心",
-  "foot.support.docs": "文件",
-  "foot.company": "公司",
-  "foot.company.about": "關於",
-  "foot.company.contact": "聯繫",
-  "foot.follow": "追蹤我們",
-  "foot.follow.twitter": "Twitter",
-  "foot.follow.youtube": "YouTube",
-  "foot.b.lang": "語言",
-  "foot.b.privacy": "隱私政策",
-  "foot.b.terms": "使用條款",
-  "foot.b.copy": "© 2025 KeySearch. 版權所有。"
+  "meta": {
+    "title": {
+      "home": "KeySearch — 快速找到，簡單乾淨"
+    }
+  },
+  "header": {
+    "brand": "KeySearch",
+    "features": "功能介紹",
+    "download": "下載",
+    "pricing": "方案價格",
+    "about": "關於我們",
+    "support": "支援",
+    "lang": { "current": "繁體中文" },
+    "tryapp": { "cta": "🚀 線上試用" }
+  },
+  "home": {
+    "hero": {
+      "title": "快速找到，簡單乾淨",
+      "sub": "一切觸手可及。零凌亂，只要答案。"
+    },
+    "cta": {
+      "downloadNow": "立即下載"
+    },
+    "final": {
+      "title": "準備好開始了嗎？",
+      "lead": "下載桌面版 KeySearch，或直接在瀏覽器中使用。"
+    }
+  },
+  "feature1": {
+    "title": "即時搜尋任何內容",
+    "desc": "跨專案、筆記與資源快速找到所需。就是快。"
+  },
+  "feature2": {
+    "title": "輕鬆維持井然有序",
+    "desc": "不用資料夾、不怕雜亂；KeySearch 自動幫你整理、好找好用。"
+  },
+  "download": {
+    "cta": { "text": "下載" },
+    "web": "開啟線上版"
+  },
+  "foot": {
+    "brand": "KeySearch",
+    "slogan": "快速找到。\n乾淨簡單。",
+    "product": {
+      "": "產品",
+      "feat": "功能介紹",
+      "price": "方案價格",
+      "download": "下載"
+    },
+    "support": {
+      "": "支援",
+      "help": "說明中心",
+      "docs": "文件"
+    },
+    "company": {
+      "": "公司",
+      "about": "關於我們",
+      "contact": "聯絡我們"
+    },
+    "follow": {
+      "": "追蹤我們",
+      "twitter": "推特",
+      "youtube": "YouTube"
+    },
+    "b": {
+      "lang": "語言",
+      "privacy": "隱私權",
+      "terms": "服務條款",
+      "copy": "© 2025 KeySearch. 保留所有權利。"
+    }
+  }
 }
