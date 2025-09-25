@@ -629,3 +629,61 @@ footer.site-footer.bm-footer .bm-footer-bottom .legal a:hover{
   justify-content: space-between;
 }
 
+/* === Features：卡片網格與樣式（只影響 .feat-grid / .feat-card） === */
+.feat-grid{
+  display:grid;
+  gap:24px;
+  margin-block:24px 40px;
+}
+
+.feat-card{
+  background:var(--card, #171a21);
+  border:1px solid var(--border, #262b36);
+  border-radius:16px;
+  padding:22px;
+  text-align:center;
+  min-height:180px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+
+  /* 細節質感 */
+  box-shadow: 0 6px 18px rgba(0,0,0,.28);
+  position:relative;
+  overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+/* 內建淡淡的光暈，視覺集中 */
+.feat-card::after{
+  content:"";
+  position:absolute; inset:-20% -20% auto -20%; height:60%;
+  background:radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.06), transparent 60%);
+  pointer-events:none;
+}
+
+.feat-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.36);
+  border-color: rgba(255,255,255,.14);
+}
+
+.icon-wrap{
+  width:56px; height:56px; border-radius:50%;
+  display:grid; place-items:center; margin-bottom:12px;
+  background:radial-gradient(120% 120% at 30% 30%, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);
+}
+.icon{ font-size:26px; line-height:1; }
+
+.feat-card h3{
+  font-size:1.15rem;
+  margin:8px 0 6px;
+}
+.feat-card p{
+  color:var(--muted, #99a2b2);
+  margin:0;
+  line-height:1.55;
+}
