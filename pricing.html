@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/responsive.css"/>
 </head>
 <body>
-  <!-- ===== Header ===== -->
+ <!-- HEADER -->
 <header class="site-header bm-header" role="banner">
   <div class="container nav">
     <!-- Brand -->
@@ -20,44 +20,49 @@
       <span class="brand-text">KeySearch</span>
     </a>
 
-    <!-- Primary nav -->
+    <!-- Hamburger -->
     <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
 
-    <ul class="nav-links" role="menubar">
+    <!-- Primary nav -->
+    <ul class="nav-links" id="primaryNav" role="menubar">
       <li role="none"><a role="menuitem" href="features.html">Features</a></li>
       <li role="none"><a role="menuitem" href="download.html">Download</a></li>
       <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
       <li role="none"><a role="menuitem" href="about.html">About</a></li>
       <li role="none"><a role="menuitem" href="support.html">Support</a></li>
+
+      <!-- Mobile-only Language entry (呼同一個選單) -->
+      <li class="only-mobile" role="none">
+        <button id="langBtnMobile" class="lang-btn inline"
+                aria-haspopup="menu" aria-expanded="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 0c2.5 2.2 4 5.2 4 9s-1.5 6.8-4 9m0-18c-2.5 2.2-4 5.2-4 9s1.5 6.8 4 9M3 12h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span id="langCurrentMobile">English</span>
+          <span class="caret" aria-hidden="true">▾</span>
+        </button>
+      </li>
     </ul>
 
-    <!-- Actions -->
+    <!-- Actions (desktop) -->
     <div class="nav-actions">
-      <div class="lang-dropdown">
-  <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
-    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 0c2.5 2.2 4 5.2 4 9s-1.5 6.8-4 9m0-18c-2.5 2.2-4 5.2-4 9s1.5 6.8 4 9M3 12h18" 
-            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </svg>
-    <span id="langCurrent">English</span>
-    <span class="caret">▾</span>
-  </button>
+      <!-- Desktop-only Language -->
+      <button class="lang-btn only-desktop" id="langBtn"
+              aria-haspopup="menu" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 0c2.5 2.2 4 5.2 4 9s-1.5 6.8-4 9m0-18c-2.5 2.2-4 5.2-4 9s1.5 6.8 4 9M3 12h18"
+                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span id="langCurrent">English</span>
+        <span class="caret" aria-hidden="true">▾</span>
+      </button>
 
-  <ul class="lang-menu" id="langMenu" role="menu" aria-hidden="true">
-    <li role="menuitem" data-lang="en">English</li>
-    <li role="menuitem" data-lang="zh-tw">繁體中文</li>
-    <li role="menuitem" data-lang="zh-cn">简体中文</li>
-    <li role="menuitem" data-lang="ms">Bahasa Melayu</li>
-    <li role="menuitem" data-lang="ja">日本語</li>
-    <li role="menuitem" data-lang="ko">한국어</li>
-  </ul>
-</div>
-
-      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
+      <!-- Try Web App（桌機顯示，手機隱藏） -->
+      <a class="btn bm-cta only-desktop" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
         <span class="emoji" aria-hidden="true">🚀</span> Try Web App
       </a>
     </div>
@@ -215,4 +220,5 @@
   <script src="js/app.js" defer></script>
 </body>
 </html>
+
 
