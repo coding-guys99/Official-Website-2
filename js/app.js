@@ -3,8 +3,6 @@
   const $  = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-  document.addEventListener('DOMContentLoaded', init);
-
 document.addEventListener('DOMContentLoaded', () => {
   /* ====== Mobile nav toggle ====== */
   const toggle = document.querySelector('.nav-toggle');
@@ -429,4 +427,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 })();
+
 
