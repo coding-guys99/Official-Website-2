@@ -140,4 +140,71 @@
   "foot.b.copy": "© 2025 KeySearch. All rights reserved."
 }
 
+{
+  "meta.title.news": "News – KeySearch",
+
+  "header.brand": "KeySearch",
+  "header.features": "Features",
+  "header.download": "Download",
+  "header.pricing": "Pricing",
+  "header.about": "About",
+  "header.support": "Support",
+  "header.lang.current": "English",
+  "header.tryapp.cta": "🚀 Try Web App",
+
+  "news.title": "Product Updates",
+  "news.lead": "Quarterly highlights and release notes.",
+
+  "news.filter.all": "All",
+  "news.filter.2025": "2025",
+  "news.filter.2024": "2024",
+
+  "news.v130.date": "Sep 1, 2025",
+  "news.v130.title": "New: Multi-language (17 languages)",
+  "news.v130.desc": "Interface and website now support 17 languages with instant switching. Keyboard hints localized.",
+  "news.v130.l1": "Added language dropdown across pages",
+  "news.v130.l2": "JSON-based i18n, easy to contribute",
+  "news.v130.l3": "Improved SEO meta for localized content",
+
+  "news.v120.date": "Jun 10, 2025",
+  "news.v120.title": "Performance: Faster indexing",
+  "news.v120.desc": "Index build times reduced by ~30% on large projects. Memory footprint improved.",
+  "news.v120.l1": "Streaming tokenizer for large files",
+  "news.v120.l2": "Incremental index rebuilds",
+  "news.v120.l3": "Crash recovery on Windows",
+
+  "news.v110.date": "Dec 15, 2024",
+  "news.v110.title": "New: CSV export & better filters",
+  "news.v110.desc": "Export results to CSV; refine searches by type, date, and path. New UI polish for dark mode.",
+  "news.v110.l1": "CSV export in one click",
+  "news.v110.l2": "Filter presets (code / docs / media)",
+  "news.v110.l3": "Keyboard: Ctrl/Cmd + K quick search",
+
+  "news.ctaTitle": "Want to try the latest?",
+  "news.ctaSub": "Download the newest build or open the web version.",
+  "download.cta.text": "Download",
+  "download.web": "Open Web",
+
+  "foot.brand": "KeySearch",
+  "foot.slogan": "Find it. Fast.\nNo mess. Just answers.",
+  "foot.product": "Product",
+  "foot.product.feat": "Features",
+  "foot.product.price": "Pricing",
+  "foot.product.download": "Download",
+  "foot.support": "Support",
+  "foot.support.help": "Help Center",
+  "foot.support.docs": "Docs",
+  "foot.company": "Company",
+  "foot.company.about": "About",
+  "foot.company.contact": "Contact",
+  "foot.follow": "Follow",
+  "foot.follow.twitter": "Twitter",
+  "foot.follow.youtube": "YouTube",
+  "foot.b.lang": "Language",
+  "foot.b.privacy": "Privacy",
+  "foot.b.terms": "Terms",
+  "foot.b.copy": "© 2025 KeySearch. All rights reserved."
+}
+
+
 
