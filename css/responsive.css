@@ -12,7 +12,7 @@
 /* ------- 共通安全護欄 ------- */
 html, body { overflow-x: hidden; }
 .site-header, .bm-header { overflow: visible; }        /* 讓 popover/抽屜不被裁切 */
-.nav-links.open { z-index: 3000; }                     /* 主選單層級（lang-portal 會更高） }
+.nav-links.open { z-index: 999; }                     /* 主選單層級（lang-portal 會更高） }
 
 /* =========================
    ≤1200px：Hero/Features 單欄化
@@ -60,7 +60,7 @@ html, body { overflow-x: hidden; }
     border-top: 1px solid rgba(255,255,255,.06) !important;
     padding: 18px 24px 22px !important;
     box-shadow: 0 18px 40px rgba(0,0,0,.5);
-    z-index: 9999 !important; /* 低於 lang-portal */
+    z-index: 9999 ; /* 低於 lang-portal */
   }
 
   /* 「Try Web App」在手機隱藏（需求） */
