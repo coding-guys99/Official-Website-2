@@ -687,3 +687,8 @@ footer.site-footer.bm-footer .bm-footer-bottom .legal a:hover{
   margin:0;
   line-height:1.55;
 }
+
+/* 動畫關懷 */
+@media (prefers-reduced-motion: reduce){
+  .feat-card{ transition:none; }
+}
