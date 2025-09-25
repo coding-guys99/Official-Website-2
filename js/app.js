@@ -6,7 +6,7 @@
   /* ========== Boot ========== */
   document.addEventListener('DOMContentLoaded', () => {
     mobileNav();         // 行動選單
-    langPortal();        // 語言選單（桌機/手機/Footer 共用）
+    langPortal();        // 語言選單（桌機/手機/Footer 共用） ← 已修
     heroCtaSmooth();     // Index CTA 平滑捲動
     heroTyping();        // Index 打字動畫
     featureImgHover();   // Index/Features 圖片 hover
@@ -22,26 +22,37 @@
   /* ========== 1) Mobile nav（唯一版本） ========== */
   function mobileNav(){
     const toggle = $('.nav-toggle');
-    const nav    = $('#primaryNav') || $('.nav-links');
+    const nav    = $('#primaryNav') || $('.nav-links');   // 兩種寫法都支援
     if (!toggle || !nav) return;
 
     const close = ()=>{
       nav.classList.remove('open');
       toggle.setAttribute('aria-expanded','false');
     };
+
     toggle.addEventListener('click', (e)=>{
       e.stopPropagation();
       const open = !nav.classList.contains('open');
       nav.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', String(open));
     });
+
+    // 點 link 關閉
     nav.addEventListener('click', (e)=>{ if (e.target.closest('a')) close(); });
-    document.addEventListener('click', (e)=>{ if (!nav.contains(e.target) && !toggle.contains(e.target)) close(); });
+
+    // 點外面關閉
+    document.addEventListener('click', (e)=>{
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) close();
+    });
+
+    // ESC 關閉
     document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') close(); });
+
+    // 回到桌機時重置
     window.addEventListener('resize', ()=>{ if (innerWidth>980) close(); }, {passive:true});
   }
 
-  /* ========== 2) Language Portal（唯一版本） ========== */
+  /* ========== 2) Language Portal（唯一版本 - 已修綁定/命名/定位） ========== */
   function langPortal(){
     const SUPPORTED = [
       ['en','English'], ['zh-tw','繁體中文'], ['zh-cn','简体中文'],
@@ -59,12 +70,13 @@
 
     // 建一次清單
     if (!portal.dataset.built){
-      portal.innerHTML = SUPPORTED.map(([code,label]) =>
-        `<button type="button" role="menuitem" data-lang="${code}">${label}</button>`
-      ).join('');
+      portal.innerHTML = SUPPORTED
+        .map(([code,label]) => `<button type="button" role="menuitem" data-lang="${code}">${label}</button>`)
+        .join('');
       portal.dataset.built = '1';
     }
 
+    // 同步目前語言標籤
     const syncCurrent = ()=>{
       const label = SUPPORTED.find(([c])=>c===current)?.[1] || 'English';
       if (curDesk)   curDesk.textContent   = label;
@@ -82,51 +94,83 @@
       console.log('[i18n] switch to:', code);
     };
 
-    // 開/關
-    const close = ()=>{
+    // 關閉
+    const closePortal = ()=>{
       portal.classList.remove('open');
       portal.setAttribute('aria-hidden','true');
+      // 讓觸發鈕的 aria-expanded 回復
+      [btnDesk, btnMobile, footLink].forEach(b => b?.setAttribute('aria-expanded','false'));
     };
+
+    // 打開並計算位置（避免被裁切）
     function openPortal(anchor){
-  // 先顯示，才能量尺寸
-  portal.classList.add('open');
-  portal.removeAttribute('aria-hidden');
+      portal.classList.add('open');
+      portal.removeAttribute('aria-hidden');
 
-  const r = anchor.getBoundingClientRect();
-  const portalW = portal.offsetWidth;
-  const portalH = portal.offsetHeight;
+      const r = anchor.getBoundingClientRect();
+      const portalW = portal.offsetWidth;
+      const portalH = portal.offsetHeight;
+      const MARGIN = 12;
 
-  const margin = 12; // 與邊界留白
-  // 理想位置：按鈕下方靠左
-  let top  = r.bottom + 8;
-  let left = r.left;
+      // 預設在按鈕下方靠左
+      let top  = r.bottom + 8;
+      let left = r.left;
 
-  // 若右側會超出 → 往左收
-  if (left + portalW + margin > window.innerWidth){
-    left = Math.max(margin, window.innerWidth - portalW - margin);
-  }
-  // 若底部會超出 → 顯示在按鈕上方
-  if (top + portalH + margin > window.innerHeight){
-    top = Math.max(margin, r.top - portalH - 8);
-  }
-  // 最終夾在可視範圍內
-  top  = Math.min(Math.max(margin, top),  window.innerHeight - portalH - margin);
-  left = Math.min(Math.max(margin, left), window.innerWidth  - portalW - margin);
+      // 右邊溢出 → 往左收
+      if (left + portalW + MARGIN > window.innerWidth){
+        left = Math.max(MARGIN, window.innerWidth - portalW - MARGIN);
+      }
+      // 下方溢出 → 放到上方
+      if (top + portalH + MARGIN > window.innerHeight){
+        top = Math.max(MARGIN, r.top - portalH - 8);
+      }
+      // 夾回視窗範圍
+      top  = Math.min(Math.max(MARGIN, top),  window.innerHeight - portalH - MARGIN);
+      left = Math.min(Math.max(MARGIN, left), window.innerWidth  - portalW - MARGIN);
 
-  portal.style.top  = `${top}px`;
-  portal.style.left = `${left}px`;
+      portal.style.top  = `${top}px`;
+      portal.style.left = `${left}px`;
 
-  // 關閉監聽
-  const onDoc = (e) => { if (!portal.contains(e.target)) closePortal(); };
-  const onEsc = (e) => { if (e.key === 'Escape') closePortal(); };
-  const onScroll = () => closePortal(); // 捲動就關，避免位置跑掉
-  setTimeout(() => {
-    document.addEventListener('click', onDoc, { once:true });
-    document.addEventListener('keydown', onEsc, { once:true });
-    window.addEventListener('scroll', onScroll, { once:true, passive:true });
-  }, 0);
-}
+      // 外點 / ESC / 捲動 關閉（一次性）
+      const onDoc   = (e) => { if (!portal.contains(e.target)) closePortal(); };
+      const onEsc   = (e) => { if (e.key === 'Escape') closePortal(); };
+      const onScroll= ()   => closePortal();
 
+      setTimeout(() => {
+        document.addEventListener('click', onDoc,   { once:true });
+        document.addEventListener('keydown', onEsc, { once:true });
+        window.addEventListener('scroll', onScroll, { once:true, passive:true });
+      }, 0);
+    }
+
+    // 綁定觸發（桌機／手機／footer）
+    [btnDesk, btnMobile, footLink].forEach(btn=>{
+      if (!btn || btn.dataset.bound === '1') return;
+      btn.dataset.bound = '1';
+      btn.setAttribute('aria-haspopup','menu');
+      btn.setAttribute('aria-expanded','false');
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        if (portal.classList.contains('open')) {
+          closePortal();
+        } else {
+          openPortal(btn);
+          btn.setAttribute('aria-expanded','true');
+        }
+      });
+    });
+
+    // 選擇語言
+    portal.addEventListener('click', (e)=>{
+      const b = e.target.closest('button[data-lang]');
+      if (!b) return;
+      setLang(b.dataset.lang);
+      closePortal();
+    });
+
+    // 視窗尺寸變更時，如果開著就關掉（避免漂移位置）
+    window.addEventListener('resize', ()=>{ if (portal.classList.contains('open')) closePortal(); }, {passive:true});
   }
 
   /* ========== 3) Index: CTA 平滑捲動 ========== */
@@ -362,7 +406,3 @@
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 })();
-
-
-
-
