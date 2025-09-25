@@ -73,3 +73,71 @@
   "foot.b.terms": "Terms",
   "foot.b.copy": "© 2025 KeySearch. All rights reserved."
 }
+
+{
+  "meta.title.pricing": "Pricing — KeySearch",
+
+  "header.brand": "KeySearch",
+  "header.features": "Features",
+  "header.download": "Download",
+  "header.pricing": "Pricing",
+  "header.about": "About",
+  "header.support": "Support",
+  "header.lang.current": "English",
+  "header.tryapp.cta": "🚀 Try Web App",
+
+  "pricing.title": "Pricing",
+  "pricing.lead": "Simple, transparent plans that grow with you.",
+
+  "pricing.billing.monthly": "Monthly",
+  "pricing.billing.yearly": "Yearly",
+  "pricing.billing.save": "Save 20%",
+
+  "pricing.free.title": "Free",
+  "pricing.free.perma": "/ forever",
+  "pricing.free.f1": "Unlimited searches",
+  "pricing.free.f2": "Basic tags & collections",
+  "pricing.free.f3": "Export CSV/JSON",
+  "pricing.free.cta": "Get Started",
+
+  "pricing.pro.badge": "Most Popular",
+  "pricing.pro.title": "Pro",
+  "pricing.pro.permonth": "/ month",
+  "pricing.pro.f1": "Everything in Free",
+  "pricing.pro.f2": "Multi-language UI",
+  "pricing.pro.f3": "Reminders & smart filters",
+  "pricing.pro.f4": "Priority support",
+  "pricing.pro.cta": "Upgrade Now",
+
+  "pricing.faq.refunds.q": "Do you offer refunds?",
+  "pricing.faq.refunds.a": "If you’re not satisfied, contact us within 14 days. We’ll help.",
+  "pricing.faq.switch.q": "Can I switch plans later?",
+  "pricing.faq.switch.a": "Yes. You can upgrade or cancel anytime.",
+
+  "pricing.final.title": "Start searching smarter",
+  "pricing.final.lead": "KeySearch is free to try. Upgrade when you’re ready.",
+  "pricing.final.cta.download": "Download Free",
+  "pricing.final.cta.openweb": "Open Web",
+
+  "foot.brand": "KeySearch",
+  "foot.slogan": "Find it. Fast.\nNo mess. Just answers.",
+  "foot.product": "Product",
+  "foot.product.feat": "Features",
+  "foot.product.price": "Pricing",
+  "foot.product.download": "Download",
+  "foot.support": "Support",
+  "foot.support.help": "Help Center",
+  "foot.support.docs": "Docs",
+  "foot.company": "Company",
+  "foot.company.about": "About",
+  "foot.company.contact": "Contact",
+  "foot.follow": "Follow",
+  "foot.follow.twitter": "Twitter",
+  "foot.follow.youtube": "YouTube",
+  "foot.b.lang": "Language",
+  "foot.b.privacy": "Privacy",
+  "foot.b.terms": "Terms",
+  "foot.b.copy": "© 2025 KeySearch. All rights reserved."
+}
+
+
