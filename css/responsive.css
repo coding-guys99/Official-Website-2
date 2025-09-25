@@ -432,3 +432,112 @@ html, body { overflow-x: hidden; }
   .about-card h3{ margin: 2px 0 8px !important; }
 }
 
+/* ===== Support page — Mobile polish ===== */
+
+/* <= 980px：主要行動斷點 */
+@media (max-width: 980px){
+
+  /* 容器節奏放鬆一點 */
+  .page-hero.container,
+  .support-quick.container,
+  .faq.container,
+  .feedback.container,
+  .donate.container{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Quick links：兩欄排列、較大點擊區 */
+  .support-quick{
+    gap: 12px;
+    margin: 18px 0 28px;
+  }
+  .support-quick .qk{
+    flex: 1 1 calc(50% - 6px);   /* 兩欄 */
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  /* FAQ 卡片：字大一點、內距增加 */
+  .faq{ margin: 28px 0; }
+  .faq-item{ border-radius: 12px; }
+  .faq-item summary{
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
+  .faq-item .answer{
+    padding: 14px 16px;
+    font-size: .95rem;
+  }
+
+  /* Feedback 表單：改單欄、按鈕堆疊 */
+  .feedback-form{
+    padding: 22px 18px;
+    border-radius: 14px;
+  }
+  .feedback-form .row2{
+    grid-template-columns: 1fr;  /* 單欄 */
+    gap: 12px;
+  }
+  .feedback-form input,
+  .feedback-form select,
+  .feedback-form textarea{
+    font-size: 1rem;
+    padding: 12px 12px;
+  }
+  .feedback-form .actions{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .feedback-form .actions .btn{
+    width: 100%;
+    text-align: center;
+    padding: 12px 14px;
+  }
+
+  /* Donate 卡片：居中更緊湊 */
+  .donate-card{
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+  .donate-card .donate-actions{
+    gap: 10px;
+  }
+  .donate-card .donate-actions .btn{
+    flex: 1 1 48%;
+    min-width: 140px;
+  }
+}
+
+/* <= 560px：小手機細緻調整（單欄、字級微調、內距放鬆） */
+@media (max-width: 560px){
+
+  .page-hero.container{ padding-top: 12px; }
+  .page-hero .lead{ font-size: .98rem; }
+
+  /* Quick links：單欄 */
+  .support-quick .qk{
+    flex: 1 1 100%;
+    padding: 12px 16px;
+  }
+
+  /* FAQ：行距更舒適、邊距拉開 */
+  .faq-item summary{ font-size: 1.02rem; }
+  .faq-item .answer{ line-height: 1.65; }
+
+  /* 表單控件更好點擊 */
+  .feedback-form input,
+  .feedback-form select,
+  .feedback-form textarea{
+    padding: 13px 14px;
+    border-radius: 10px;
+  }
+  .feedback-form textarea{ min-height: 160px; }
+
+  /* Donate 按鈕改滿寬堆疊 */
+  .donate-card .donate-actions .btn{
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
