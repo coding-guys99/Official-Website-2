@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>KeySearch — Find it. Fast.</title>
+  <title data-i18n="meta.title.home">KeySearch — Find it. Fast.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- 全局樣式 -->
   <link rel="stylesheet" href="css/styles.css"/>
@@ -17,7 +17,7 @@
     <!-- Brand -->
     <a class="brand" href="index.html" aria-label="KeySearch home">
       <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
-      <span class="brand-text">KeySearch</span>
+      <span class="brand-text" data-i18n="header.brand">KeySearch</span>
     </a>
 
     <!-- Hamburger (only mobile) -->
@@ -39,7 +39,7 @@
       <!-- 行動版專用語言選單 -->
       <li class="mobile-only">
         <button class="lang-btn" id="langBtnMobile" aria-haspopup="menu" aria-expanded="false">
-          🌐 <span id="langCurrentMobile">English</span> ▾
+          🌐 <span id="langCurrentMobile" data-i18n="header.lang.current">English</span> ▾
         </button>
       </li>
 
@@ -69,11 +69,11 @@
   <!-- ===== Hero ===== -->
   <section class="hero container reveal-on-scroll">
     <div class="hero-text">
-      <h1 id="heroTitle" data-text="Find it. Fast.">Find it. Fast.</h1>
-      <p class="sub">Everything, in reach. No mess. Just answers.</p>
+      <h1 id="heroTitle" data-text="Find it. Fast." data-i18n="home.hero.title">Find it. Fast.</h1>
+      <p class="sub" data-i18n="home.hero.sub">Everything, in reach. No mess. Just answers.</p>
       <div class="cta-row">
-        <a href="download.html" class="btn primary">Download Now</a>
-        <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary">Try Web App</a>
+        <a href="download.html" class="btn primary" data-i18n="home.cta.downloadNow">Download Now</a>
+        <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary" data-i18n="header.tryapp.cta">Try Web App</a>
       </div>
     </div>
     <!-- Hero 右側產品圖 -->
@@ -109,8 +109,8 @@
     <img src="assets/img/feature1-1200.png" alt="Search instantly"/>
   </div>
   <div class="feature-text">
-    <h2>Search anything instantly</h2>
-    <p>Find exactly what you need, across projects, notes, or resources — instantly.</p>
+    <h2 data-i18n="feature1.title">Search anything instantly</h2>
+    <p data-i18n="feature1.desc">Find exactly what you need, across projects, notes, or resources — instantly.</p>
   </div>
 </section>
 
@@ -119,19 +119,19 @@
     <img src="assets/img/feature2-1200.png" alt="Stay organized without effort"/>
   </div>
   <div class="feature-text">
-    <h2>Stay organized without effort</h2>
-    <p>No folders, no clutter. KeySearch keeps everything structured and easy to reach.</p>
+    <h2 data-i18n="feature2.title">Stay organized without effort</h2>
+    <p data-i18n="feature2.desc">No folders, no clutter. KeySearch keeps everything structured and easy to reach.</p>
   </div>
 </section>
 
 
   <!-- ===== Final CTA ===== -->
   <section class="cta container reveal-on-scroll">
-    <h2>Ready to start?</h2>
-    <p>Download KeySearch for your desktop, or try the web app instantly.</p>
+    <h2 data-i18n="home.final.title">Ready to start?</h2>
+    <p data-i18n="home.final.lead">Download KeySearch for your desktop, or try the web app instantly.</p>
     <div class="cta-row">
-      <a href="download.html" class="btn primary">Download</a>
-      <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary">Open Web</a>
+      <a href="download.html" class="btn primary" data-i18n="download.cta.text">Download</a>
+      <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary" data-i18n="download.web">Open Web</a>
     </div>
   </section>
 
@@ -204,7 +204,7 @@
       <a href="#" data-i18n="foot.b.privacy">Privacy</a>
       <a href="#" data-i18n="foot.b.terms">Terms</a>
     </div>
-    <small>© 2025 KeySearch. All rights reserved.</small>
+    <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
   </div>
 </footer>
 
@@ -219,15 +219,3 @@
 <script src="js/footer-accordion.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
