@@ -207,6 +207,10 @@ html, body { overflow-x: hidden; }
   }
   .bm-header .nav-toggle:active{ transform: translateY(1px); }
 
+   .nav-toggle{
+      justify-content:center;
+   }
+
   .bm-header .nav-links{
     position: absolute;
     left: 12px; right: 12px;
