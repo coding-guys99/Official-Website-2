@@ -1,4 +1,8 @@
 {
+  "_meta": {
+    "lang": "English (母語)",
+    "dir": "ltr"
+  },
   "meta": {
     "title": {
       "home": "KeySearch — Find it. Fast.",
@@ -6,8 +10,8 @@
       "download": "Download — KeySearch",
       "pricing": "Pricing — KeySearch",
       "about": "About — KeySearch",
-      "news": "News – KeySearch",
-      "support": "Support — KeySearch"
+      "support": "Support — KeySearch",
+      "news": "News — KeySearch"
     }
   },
   "header": {
@@ -17,70 +21,32 @@
     "pricing": "Pricing",
     "about": "About",
     "support": "Support",
-    "lang": {
-      "current": "English"
-    },
-    "tryapp": {
-      "cta": "🚀 Try Web App"
-    }
+    "tryapp": { "cta": "🚀 Try Web App" },
+    "lang": { "current": "English" }
   },
   "home": {
     "hero": {
       "title": "Find it. Fast.",
       "sub": "Everything, in reach. No mess. Just answers."
     },
-    "cta": {
-      "downloadNow": "Download Now"
-    },
+    "cta": { "downloadNow": "Download Now" },
     "final": {
       "title": "Ready to start?",
       "lead": "Download KeySearch for your desktop, or try the web app instantly."
     }
   },
-  "feature1": {
-    "title": "Search anything instantly",
-    "desc": "Find exactly what you need, across projects, notes, or resources — instantly."
-  },
-  "feature2": {
-    "title": "Stay organized without effort",
-    "desc": "No folders, no clutter. KeySearch keeps everything structured and easy to reach."
-  },
   "features": {
     "title": "Features",
     "lead": "What makes KeySearch powerful and simple to use.",
     "cards": {
-      "instant": {
-        "title": "Instant Results",
-        "desc": "Search across notes, files, and tags in milliseconds."
-      },
-      "tags": {
-        "title": "Smart Tags",
-        "desc": "Multi-level tags, filters, and auto-complete for fast organization."
-      },
-      "collections": {
-        "title": "Collections",
-        "desc": "Group items by projects or contexts; share read-only views."
-      },
-      "shortcuts": {
-        "title": "Global Shortcuts",
-        "desc": "Jump anywhere with one key combo. Command-palette built-in."
-      },
-      "i18n": {
-        "title": "Multi-Language UI",
-        "desc": "Switch languages instantly. Ready for 17+ locales."
-      },
-      "privacy": {
-        "title": "Privacy-First",
-        "desc": "Local-first with IndexedDB. Your data stays on your device."
-      },
-      "export": {
-        "title": "Flexible Export",
-        "desc": "Export to CSV/JSON, or share collections with your team."
-      },
-      "platforms": {
-        "title": "Web & Desktop",
-        "desc": "Same experience on web and desktop. No learning curve."
-      }
+      "instant": { "title": "Instant Results", "desc": "Search across notes, files, and tags in milliseconds." },
+      "tags": { "title": "Smart Tags", "desc": "Multi-level tags, filters, and auto-complete for fast organization." },
+      "collections": { "title": "Collections", "desc": "Group items by projects or contexts; share read-only views." },
+      "shortcuts": { "title": "Global Shortcuts", "desc": "Jump anywhere with one key combo. Command-palette built-in." },
+      "i18n": { "title": "Multi-Language UI", "desc": "Switch languages instantly. Ready for 17+ locales." },
+      "privacy": { "title": "Privacy-First", "desc": "Local-first with IndexedDB. Your data stays on your device." },
+      "export": { "title": "Flexible Export", "desc": "Export to CSV/JSON, or share collections with your team." },
+      "platforms": { "title": "Web & Desktop", "desc": "Same experience on web and desktop. No learning curve." }
     },
     "final": {
       "title": "Ready to try?",
@@ -90,32 +56,13 @@
   "download": {
     "title": "Download",
     "lead": "Get KeySearch for your favorite platform.",
-    "windows": {
-      "title": "Windows",
-      "version": "Version 1.0.1.0",
-      "cta": "Download EXE"
-    },
-    "mac": {
-      "title": "macOS",
-      "version": "Version 1.0.1.0",
-      "cta": "Download DMG"
-    },
-    "linux": {
-      "title": "Linux",
-      "version": "Version 1.0.1.0",
-      "cta": "Download AppImage"
-    },
-    "hash": {
-      "label": "SHA256:"
-    },
-    "webpref": {
-      "title": "Prefer the Web App?",
-      "lead": "Run KeySearch in your browser — no installation needed."
-    },
-    "web": "Open Web",
-    "cta": {
-      "text": "Download"
-    }
+    "windows": { "title": "Windows", "version": "Version 1.0.1.0", "cta": "Download EXE" },
+    "mac": { "title": "macOS", "version": "Version 1.0.1.0", "cta": "Download DMG" },
+    "linux": { "title": "Linux", "version": "Version 1.0.1.0", "cta": "Download AppImage" },
+    "hash": { "label": "SHA256:" },
+    "webpref": { "title": "Prefer the Web App?", "lead": "Run KeySearch in your browser — no installation needed." },
+    "cta": { "text": "Download" },
+    "web": "Open Web"
   },
   "pricing": {
     "title": "Pricing",
@@ -144,94 +91,32 @@
       "cta": "Upgrade Now"
     },
     "faq": {
-      "refunds": {
-        "q": "Do you offer refunds?",
-        "a": "If you’re not satisfied, contact us within 14 days. We’ll help."
-      },
-      "switch": {
-        "q": "Can I switch plans later?",
-        "a": "Yes. You can upgrade or cancel anytime."
-      }
+      "refunds": { "q": "Do you offer refunds?", "a": "If you’re not satisfied, contact us within 14 days. We’ll help." },
+      "switch": { "q": "Can I switch plans later?", "a": "Yes. You can upgrade or cancel anytime." }
     },
-    "final": {
-      "title": "Start searching smarter",
-      "lead": "KeySearch is free to try. Upgrade when you’re ready.",
-      "cta": {
-        "download": "Download Free",
-        "openweb": "Open Web"
-      }
-    }
+    "final": { "title": "Start searching smarter", "lead": "KeySearch is free to try. Upgrade when you’re ready.", "cta": { "download": "Download Free", "openweb": "Open Web" } }
   },
   "about": {
     "title": "About KeySearch",
     "desc": "Find it. Fast. No mess. Just answers.",
-    "mission": {
-      "t": "Mission",
-      "desc": "Help people find exactly what they need—across notes, files, and ideas—instantly, without clutter, lock-in, or heavy cloud dependencies."
-    },
-    "diff-1": "Local-first",
-    "desc-1": "Your data lives on your device (IndexedDB). Works offline. No account required.",
-    "diff-2": "Fast by design",
-    "desc-2": "Indexed search with tags, filters, and global shortcuts—measured in milliseconds.",
-    "diff-3": "No lock-in",
-    "desc-3": "Export to CSV/JSON. Share read-only collections when you need to collaborate.",
-    "diff-4": "Multi-language",
-    "desc-4": "Switch UI instantly with i18n JSON. Ready for 17+ locales and counting.",
+    "mission": { "t": "Mission", "desc": "Help people find exactly what they need—across notes, files, and ideas—instantly, without clutter, lock-in, or heavy cloud dependencies." },
+    "diff-1": "Local-first", "desc-1": "Your data lives on your device (IndexedDB). Works offline. No account required.",
+    "diff-2": "Fast by design", "desc-2": "Indexed search with tags, filters, and global shortcuts—measured in milliseconds.",
+    "diff-3": "No lock-in", "desc-3": "Export to CSV/JSON. Share read-only collections when you need to collaborate.",
+    "diff-4": "Multi-language", "desc-4": "Switch UI instantly with i18n JSON. Ready for 17+ locales and counting.",
     "privacy": "Privacy & Transparency",
     "privacy.desc": "KeySearch is privacy-first. We don’t sell data. Optional telemetry is off by default and can be disabled anytime. Clear exports are built-in.",
     "privacy.read": "Read Privacy",
     "privacy.update": "Product Updates"
   },
-  "contact": "Contact",
-  "email": "hello@keysearch-app.com",
-  "news": {
-    "title": "Product Updates",
-    "lead": "Quarterly highlights and release notes.",
-    "filter": {
-      "all": "All",
-      "2025": "2025",
-      "2024": "2024"
-    },
-    "v130": {
-      "date": "Sep 1, 2025",
-      "title": "New: Multi-language (17 languages)",
-      "desc": "Interface and website now support 17 languages with instant switching. Keyboard hints localized.",
-      "l1": "Added language dropdown across pages",
-      "l2": "JSON-based i18n, easy to contribute",
-      "l3": "Improved SEO meta for localized content"
-    },
-    "v120": {
-      "date": "Jun 10, 2025",
-      "title": "Performance: Faster indexing",
-      "desc": "Index build times reduced by ~30% on large projects. Memory footprint improved.",
-      "l1": "Streaming tokenizer for large files",
-      "l2": "Incremental index rebuilds",
-      "l3": "Crash recovery on Windows"
-    },
-    "v110": {
-      "date": "Dec 15, 2024",
-      "title": "New: CSV export & better filters",
-      "desc": "Export results to CSV; refine searches by type, date, and path. New UI polish for dark mode.",
-      "l1": "CSV export in one click",
-      "l2": "Filter presets (code / docs / media)",
-      "l3": "Keyboard: Ctrl/Cmd + K quick search"
-    },
-    "ctaTitle": "Want to try the latest?",
-    "ctaSub": "Download the newest build or open the web version."
-  },
   "support": {
     "title": "Support",
     "lead": "Find quick answers, or send us your feedback.",
-    "quick": {
-      "download": "Download",
-      "billing": "Billing & Plans",
-      "faq": "FAQ",
-      "contact": "Contact"
-    },
+    "quick": { "download": "Download", "billing": "Billing & Plans", "faq": "FAQ", "contact": "Contact" },
     "faq": {
       "title": "FAQ",
       "q1": "How do I install KeySearch?",
-      "a1": "Download from the <a href=\"download.html\">Download page</a> and follow the installer.  \nOn macOS, you may need to allow apps from identified developers in System Settings.",
+      "a1": "Download from the Download page and follow the installer. On macOS, you may need to allow apps from identified developers in System Settings.",
       "q2": "Is the web app different from the desktop app?",
       "a2": "Core features are the same. Desktop adds offline mode and local export.",
       "q3": "How do I switch languages?",
@@ -249,7 +134,7 @@
       "message": "Message",
       "send": "Send",
       "mailapp": "Open mail app",
-      "note": "We’ll reply to <strong>hello@keysearch-app.com</strong>. Your system won’t upload files.",
+      "note": "We’ll reply to hello@keysearch-app.com. Your system won’t upload files.",
       "toast": "Opening your email app…"
     }
   },
@@ -262,22 +147,28 @@
     "stripe": "Stripe",
     "thanks": "Thanks for your support — it keeps KeySearch fast and focused."
   },
+  "news": {
+    "title": "Product Updates",
+    "lead": "Quarterly highlights and release notes.",
+    "filter": { "all": "All", "2025": "2025", "2024": "2024" },
+    "ctaTitle": "Want to try the latest?",
+    "ctaSub": "Download the newest build or open the web version.",
+    "v130": {
+      "date": "Sep 1, 2025",
+      "title": "New: Multi-language (17 languages)",
+      "desc": "Interface and website now support 17 languages with instant switching. Keyboard hints localized.",
+      "l1": "Added language dropdown across pages",
+      "l2": "JSON-based i18n, easy to contribute",
+      "l3": "Improved SEO meta for localized content"
+    }
+  },
   "foot": {
     "brand": "KeySearch",
     "slogan": "Find it. Fast.<br>No mess. Just answers.",
     "product": "Product",
-    "product.feat": "Features",
-    "product.price": "Pricing",
-    "product.download": "Download",
     "support": "Support",
-    "support.help": "Help Center",
-    "support.docs": "Docs",
     "company": "Company",
-    "company.about": "About",
-    "company.contact": "Contact",
     "follow": "Follow",
-    "follow.twitter": "Twitter",
-    "follow.youtube": "YouTube",
     "b": {
       "lang": "Language",
       "privacy": "Privacy",
