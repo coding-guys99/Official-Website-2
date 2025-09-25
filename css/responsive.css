@@ -146,6 +146,7 @@ html, body { overflow-x: hidden; }
     font-size: 1rem; font-weight: 600;
     display: flex; align-items: center; justify-content: space-between;
     cursor: pointer; background: transparent; border: 0; color: #e7ecf3;
+     grid-template-columns: 1fr !important;
   }
   .bm-footer .foot-head::after{
     content: "▸";
