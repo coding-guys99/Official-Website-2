@@ -54,7 +54,6 @@
   /* ----------  Boot  ---------- */
   const init = () => {
     mobileNav();
-    langPortal();
     heroCtaSmooth();
     heroTyping();
     featureImgHover();
@@ -99,105 +98,6 @@
     nav.addEventListener('click', (e)=>{ if (e.target.closest('a')) close(); });
     document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') close(); });
     window.addEventListener('resize', ()=>{ if (window.innerWidth > 980) Backdrop.force(), close(); }, { passive:true });
-  }
-
-  /* ========== 2) Language Portal（mobile header + footer） ========== */
-  function langPortal(){
-    const SUPPORTED = [
-      ['en','English'], ['zh-tw','繁體中文'], ['zh-cn','简体中文'],
-      ['ja','日本語'], ['ko','한국어'], ['fr','Français'], ['de','Deutsch']
-    ];
-
-    const portal    = $('#langPortal');
-    const btnMobile = $('#langBtnMobile');   // 漢堡選單內
-    const footLink  = $('#footLangLink');    // Footer 入口
-    const curMobile = $('#langCurrentMobile');
-
-    if (!portal) return;
-    let current = localStorage.getItem('ks_lang') || 'en';
-
-    // 建一次清單
-    if (!portal.dataset.built){
-      portal.innerHTML = SUPPORTED
-        .map(([code,label]) => `<button type="button" role="menuitem" data-lang="${code}">${label}</button>`)
-        .join('');
-      portal.dataset.built = '1';
-    }
-
-    const syncCurrent = ()=>{
-      const label = SUPPORTED.find(([c])=>c===current)?.[1] || 'English';
-      if (curMobile) curMobile.textContent = label;
-      portal.querySelectorAll('[aria-current="true"]').forEach(b => b.removeAttribute('aria-current'));
-      portal.querySelector(`[data-lang="${current}"]`)?.setAttribute('aria-current','true');
-    };
-    const setLang = (code)=>{
-      current = code;
-      localStorage.setItem('ks_lang', code);
-      syncCurrent();
-      // window.KS_I18N?.setLang(code);
-      console.log('[i18n] switch to:', code);
-    };
-    syncCurrent();
-
-    const closePortal = ()=>{
-      portal.classList.remove('open');
-      portal.setAttribute('aria-hidden','true');
-      Backdrop.close();
-      [btnMobile, footLink].forEach(b => b?.setAttribute('aria-expanded','false'));
-    };
-
-    const openPortal = (anchor)=>{
-      // 先顯示再量
-      portal.classList.add('open');
-      portal.removeAttribute('aria-hidden');
-
-      const r = anchor.getBoundingClientRect();
-      const W = portal.offsetWidth, H = portal.offsetHeight;
-      const M = 12;
-      let top  = r.bottom + 8;
-      let left = r.left;
-
-      if (left + W + M > innerWidth)  left = Math.max(M, innerWidth - W - M);
-      if (top  + H + M > innerHeight) top  = Math.max(M, r.top - H - 8);
-
-      portal.style.top  = Math.min(Math.max(M, top),  innerHeight - H - M) + 'px';
-      portal.style.left = Math.min(Math.max(M, left), innerWidth  - W - M) + 'px';
-
-      Backdrop.open(closePortal);
-
-      // 關閉策略
-      const onDoc = (e)=>{ if (!portal.contains(e.target)) closePortal(); };
-      const onEsc = (e)=>{ if (e.key === 'Escape') closePortal(); };
-      const onScroll = ()=> closePortal();
-      setTimeout(()=>{
-        document.addEventListener('click', onDoc, { once:true });
-        document.addEventListener('keydown', onEsc, { once:true });
-        window.addEventListener('scroll', onScroll, { once:true, passive:true });
-      },0);
-    };
-
-    // 綁定觸發（mobile + footer）
-    [btnMobile, footLink].forEach(btn=>{
-      if (!btn || btn.dataset.bound === '1') return;
-      btn.dataset.bound = '1';
-      btn.setAttribute('aria-haspopup','menu');
-      btn.setAttribute('aria-expanded','false');
-      btn.addEventListener('click', (e)=>{
-        e.preventDefault();
-        e.stopPropagation();
-        if (portal.classList.contains('open')) closePortal();
-        else { openPortal(btn); btn.setAttribute('aria-expanded','true'); }
-      });
-    });
-
-    portal.addEventListener('click', (e)=>{
-      const b = e.target.closest('button[data-lang]');
-      if (!b) return;
-      setLang(b.dataset.lang);
-      closePortal();
-    });
-
-    window.addEventListener('resize', ()=>{ if (portal.classList.contains('open')) closePortal(); }, { passive:true });
   }
 
   /* ========== 3) Index: CTA smooth scroll ========== */
