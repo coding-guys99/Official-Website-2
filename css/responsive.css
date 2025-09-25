@@ -241,6 +241,7 @@ html, body {
   /* 整體留白與置中 */
   .bm-footer{
     padding: 24px 0 36px;
+     grid-template-columns: minmax(220px,1fr) repeat(1, minmax(160px,1fr));
   }
   .bm-footer .bm-footer-top{
     display: block;           /* 改成單欄 */
