@@ -541,3 +541,20 @@ html, body { overflow-x: hidden; }
     width: 100%;
   }
 }
+
+/* 桌面 ≥ 960px：四欄 */
+@media (min-width: 960px){
+  .feat-grid{ grid-template-columns: repeat(4, 1fr); }
+}
+
+/* 平板 600–959px：兩欄 */
+@media (min-width: 600px) and (max-width: 959px){
+  .feat-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* 手機 < 600px：單欄 + 些微縮小間距 */
+@media (max-width: 599px){
+  .feat-grid{ grid-template-columns: 1fr; gap:16px; }
+  .feat-card{ padding:18px; min-height:160px; }
+  .icon{ font-size:24px; }
+}
