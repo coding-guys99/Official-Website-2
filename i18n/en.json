@@ -1,107 +1,73 @@
 {
-  "meta.title.home": "KeySearch — Find it. Fast.",
-  "meta.title.features": "Features — KeySearch",
-  "meta.title.pricing": "Pricing — KeySearch",
-  "meta.title.news": "News — KeySearch",
-  "meta.title.download": "Download — KeySearch",
-  "meta.title.about": "About — KeySearch",
-
-  "header.brand": "KeySearch",
-  "header.features": "Features",
-  "header.download": "Download",
-  "header.pricing": "Pricing",
-  "header.about": "About",
-  "header.support": "Support",
-  "header.lang.current": "English",
-  "header.tryapp.cta": "🚀 Try Web App",
-
-  "hero.title": "Find it. Fast.",
-  "hero.sub": "Everything, in reach. No mess. Just answers.",
-  "hero.cta.download": "Download Now",
-  "hero.cta.web": "Try Web App",
-
-  "features.title": "Features",
-  "features.lead": "What makes KeySearch powerful and simple to use.",
-
-  "pricing.title": "Pricing",
-  "pricing.lead": "Simple, transparent plans that grow with you.",
-  "pricing.toggle.monthly": "Monthly",
-  "pricing.toggle.yearly": "Yearly",
-  "pricing.toggle.save": "Save 20%",
-  "pricing.plan.free": "Free",
-  "pricing.plan.pro": "Pro",
-  "pricing.plan.pro.badge": "Most Popular",
-  "pricing.pro.feature1": "Everything in Free",
-  "pricing.pro.feature2": "Multi-language UI",
-  "pricing.pro.feature3": "Reminders & smart filters",
-  "pricing.pro.feature4": "Priority support",
-  "pricing.cta.get": "Get Started",
-  "pricing.cta.upgrade": "Upgrade Now",
-  "pricing.cta.download": "Download Free",
-  "pricing.cta.web": "Open Web",
-  "pricing.faq.refund.q": "Do you offer refunds?",
-  "pricing.faq.refund.a": "If you’re not satisfied, contact us within 14 days. We’ll help.",
-  "pricing.faq.switch.q": "Can I switch plans later?",
-  "pricing.faq.switch.a": "Yes. You can upgrade or cancel anytime.",
-
-  "news.title": "Product Updates",
-  "news.lead": "Quarterly highlights and release notes.",
-  "news.filter.all": "All",
-  "news.filter.2025": "2025",
-  "news.filter.2024": "2024",
-  "news.ctaTitle": "Want to try the latest?",
-  "news.ctaSub": "Download the newest build or open the web version.",
-  "download.cta.text": "Download",
-  "download.web": "Open Web",
-
-  "download.title": "Download",
-  "download.lead": "Get KeySearch for your favorite platform.",
-  "download.win": "Windows",
-  "download.mac": "macOS",
-  "download.linux": "Linux",
-  "download.ver": "Version 1.0.1.0",
-  "download.cta.exe": "Download EXE",
-  "download.cta.dmg": "Download DMG",
-  "download.cta.appimage": "Download AppImage",
-  "download.webpref.title": "Prefer the Web App?",
-  "download.webpref.lead": "Run KeySearch in your browser — no installation needed.",
-
-  "about.title": "About KeySearch",
-  "about.desc": "Find it. Fast. No mess. Just answers.",
-  "about.mission.t": "Mission",
-  "about.mission.desc": "Help people find exactly what they need—across notes, files, and ideas—instantly, without clutter, lock-in, or heavy cloud dependencies.",
-  "about.diff-1": "Local-first",
-  "about.desc-1": "Your data lives on your device (IndexedDB). Works offline. No account required.",
-  "about.diff-2": "Fast by design",
-  "about.desc-2": "Indexed search with tags, filters, and global shortcuts—measured in milliseconds.",
-  "about.diff-3": "No lock-in",
-  "about.desc-3": "Export to CSV/JSON. Share read-only collections when you need to collaborate.",
-  "about.diff-4": "Multi-language",
-  "about.desc-4": "Switch UI instantly with i18n JSON. Ready for 17+ locales and counting.",
-  "about.privacy": "Privacy & Transparency",
-  "about.privacy.desc": "KeySearch is privacy-first. We don’t sell data. Optional telemetry is off by default and can be disabled anytime. Clear exports are built-in.",
-  "about.privacy.read": "Read Privacy",
-  "about.privacy.update": "Product Updates",
-  "contact": "Contact",
-  "email": "hello@keysearch-app.com",
-
-  "foot.brand": "KeySearch",
-  "foot.slogan": "Find it. Fast.\nNo mess. Just answers.",
-  "foot.product": "Product",
-  "foot.product.feat": "Features",
-  "foot.product.price": "Pricing",
-  "foot.product.download": "Download",
-  "foot.support": "Support",
-  "foot.support.help": "Help Center",
-  "foot.support.docs": "Docs",
-  "foot.company": "Company",
-  "foot.company.about": "About",
-  "foot.company.contact": "Contact",
-  "foot.follow": "Follow",
-  "foot.follow.twitter": "Twitter",
-  "foot.follow.youtube": "YouTube",
-  "foot.b.lang": "Language",
-  "foot.b.privacy": "Privacy",
-  "foot.b.terms": "Terms",
-  "foot.b.copy": "© 2025 KeySearch. All rights reserved."
+  "meta": {
+    "title": {
+      "home": "KeySearch — Find it. Fast."
+    }
+  },
+  "header": {
+    "brand": "KeySearch",
+    "features": "Features",
+    "download": "Download",
+    "pricing": "Pricing",
+    "about": "About",
+    "support": "Support",
+    "lang": { "current": "English" },
+    "tryapp": { "cta": "🚀 Try Web App" }
+  },
+  "home": {
+    "hero": {
+      "title": "Find it. Fast.",
+      "sub": "Everything, in reach. No mess. Just answers."
+    },
+    "cta": {
+      "downloadNow": "Download Now"
+    },
+    "final": {
+      "title": "Ready to start?",
+      "lead": "Download KeySearch for your desktop, or try the web app instantly."
+    }
+  },
+  "feature1": {
+    "title": "Search anything instantly",
+    "desc": "Find exactly what you need, across projects, notes, or resources — instantly."
+  },
+  "feature2": {
+    "title": "Stay organized without effort",
+    "desc": "No folders, no clutter. KeySearch keeps everything structured and easy to reach."
+  },
+  "download": {
+    "cta": { "text": "Download" },
+    "web": "Open Web"
+  },
+  "foot": {
+    "brand": "KeySearch",
+    "slogan": "Find it. Fast.\nNo mess. Just answers.",
+    "product": {
+      "": "Product",
+      "feat": "Features",
+      "price": "Pricing",
+      "download": "Download"
+    },
+    "support": {
+      "": "Support",
+      "help": "Help Center",
+      "docs": "Docs"
+    },
+    "company": {
+      "": "Company",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "follow": {
+      "": "Follow",
+      "twitter": "Twitter",
+      "youtube": "YouTube"
+    },
+    "b": {
+      "lang": "Language",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "copy": "© 2025 KeySearch. All rights reserved."
+    }
+  }
 }
