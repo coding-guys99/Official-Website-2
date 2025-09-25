@@ -249,3 +249,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+(function(){
+  const mq = window.matchMedia('(max-width: 768px)');
+  const cols = Array.from(document.querySelectorAll('.foot-col'));
+
+  function setup(){
+    if (mq.matches){
+      cols.forEach(col=>{
+        const btn  = col.querySelector('.foot-head');
+        const list = col.querySelector('.foot-links');
+        if (!btn || !list) return;
+
+        // 初始化為收合
+        if (!col.classList.contains('open')){
+          btn.setAttribute('aria-expanded','false');
+          list.style.maxHeight = '0px';
+        }
+
+        if (!btn._bound){
+          btn._bound = true;
+          btn.addEventListener('click', ()=>{
+            const isOpen = col.classList.toggle('open');
+            btn.setAttribute('aria-expanded', String(isOpen));
+            list.style.maxHeight = isOpen ? list.scrollHeight + 'px' : '0px';
+
+            // 可選：一次只開一個
+            cols.forEach(other=>{
+              if (other !== col && other.classList.contains('open')){
+                other.classList.remove('open');
+                const b = other.querySelector('.foot-head');
+                const l = other.querySelector('.foot-links');
+                if (b) b.setAttribute('aria-expanded','false');
+                if (l) l.style.maxHeight = '0px';
+              }
+            });
+          });
+        }
+      });
+    }else{
+      // 回到桌機：全部展開、清除限制
+      cols.forEach(col=>{
+        const btn  = col.querySelector('.foot-head');
+        const list = col.querySelector('.foot-links');
+        col.classList.remove('open');
+        if (btn){ btn.removeAttribute('aria-expanded'); }
+        if (list){ list.style.maxHeight = ''; }
+      });
+    }
+  }
+
+  setup();
+  window.addEventListener('resize', ()=> requestAnimationFrame(setup));
+})();
