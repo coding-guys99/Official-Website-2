@@ -183,3 +183,50 @@ html, body {
   .donate-card { margin-inline: 16px !important; }
   .donate-actions { justify-content: center !important; }
 }
+
+/* ------- Footer 手風琴（僅手機） ------- */
+@media (max-width: 768px){
+  .bm-footer-top{
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    text-align: left !important;
+  }
+
+  .foot-col{
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 6px;
+  }
+
+  .foot-head{
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.02rem;
+    padding: 12px 0;
+    cursor: pointer;
+  }
+  .foot-head::after{
+    content: "▾";
+    font-size: .9rem;
+    transform-origin: center;
+    transition: transform .2s ease;
+    opacity: .85;
+  }
+
+  .foot-links{
+    list-style: none;
+    margin: 0;
+    padding: 0 0 10px;
+    max-height: 0;           /* 關鍵：預設收合 */
+    overflow: hidden;
+    transition: max-height .25s ease;
+  }
+  .foot-links a{ display:block; padding: 8px 0; }
+
+  /* 展開狀態（由 JS 加上 .open） */
+  .foot-col.open .foot-head::after{ transform: rotate(180deg); }
+  .foot-col.open .foot-links{ max-height: 420px; }  /* 夠大就行 */
+}
