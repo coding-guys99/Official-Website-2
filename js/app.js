@@ -3,10 +3,12 @@
   const $  = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-  /* ---------- Backdrop manager ---------- */
+/* ---------- Backdrop manager (mobile only) ---------- */
 const Backdrop = (() => {
   let el = null;
   let refCount = 0;
+  let closeHandler = null;
+
   const ensure = () => {
     if (el) return el;
     el = document.createElement('div');
@@ -15,21 +17,24 @@ const Backdrop = (() => {
     document.body.appendChild(el);
     return el;
   };
-  let closeHandler = null;
 
   return {
     open(onClick) {
+      // 桌機直接跳過
+      if (window.innerWidth > 980) return;
+
       ensure();
       refCount++;
       closeHandler = onClick || null;
       el.classList.add('show');
       document.body.classList.add('no-scroll');
 
-      // 點遮罩關閉「目前這層」
       el.onclick = () => { closeHandler?.(); };
     },
     close() {
       if (!el) return;
+      if (window.innerWidth > 980) return; // 桌機不處理
+
       refCount = Math.max(0, refCount - 1);
       if (refCount === 0) {
         el.classList.remove('show');
@@ -38,9 +43,9 @@ const Backdrop = (() => {
         closeHandler = null;
       }
     },
-    forceClose() {          // 偶爾需要強制收掉
-      refCount = 0;
+    forceClose() {
       if (!el) return;
+      refCount = 0;
       el.classList.remove('show');
       document.body.classList.remove('no-scroll');
       el.onclick = null;
@@ -462,6 +467,7 @@ const Backdrop = (() => {
     window.addEventListener('resize', ()=> requestAnimationFrame(setup));
   }
 })();
+
 
 
 
