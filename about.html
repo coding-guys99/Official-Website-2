@@ -23,50 +23,41 @@
       <span class="brand-text">KeySearch</span>
     </a>
 
-    <!-- Hamburger -->
+    <!-- Hamburger (only mobile) -->
     <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M3 6h18M3 12h18M3 18h18" 
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
 
-    <!-- Primary nav -->
+    <!-- Main nav -->
     <ul class="nav-links" id="primaryNav" role="menubar">
-      <li role="none"><a role="menuitem" href="features.html">Features</a></li>
-      <li role="none"><a role="menuitem" href="download.html">Download</a></li>
-      <li role="none"><a role="menuitem" href="pricing.html">Pricing</a></li>
-      <li role="none"><a role="menuitem" href="about.html">About</a></li>
-      <li role="none"><a role="menuitem" href="support.html">Support</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
 
-      <!-- Mobile-only Language entry (呼同一個選單) -->
-      <li class="only-mobile" role="none">
-        <button id="langBtnMobile" class="lang-btn inline"
-                aria-haspopup="menu" aria-expanded="false">
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 0c2.5 2.2 4 5.2 4 9s-1.5 6.8-4 9m0-18c-2.5 2.2-4 5.2-4 9s1.5 6.8 4 9M3 12h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <span id="langCurrentMobile">English</span>
-          <span class="caret" aria-hidden="true">▾</span>
+      <!-- 行動版專用語言選單 -->
+      <li class="mobile-only">
+        <button class="lang-btn" id="langBtnMobile" aria-haspopup="menu" aria-expanded="false">
+          🌐 <span id="langCurrentMobile">English</span> ▾
         </button>
+      </li>
+
+      <!-- 行動版 Try Web App -->
+      <li class="mobile-only">
+        <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
+          🚀 Try Web App
+        </a>
       </li>
     </ul>
 
-    <!-- Actions (desktop) -->
-    <div class="nav-actions">
-      <!-- Desktop-only Language -->
-      <button class="lang-btn only-desktop" id="langBtn"
-              aria-haspopup="menu" aria-expanded="false">
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 0c2.5 2.2 4 5.2 4 9s-1.5 6.8-4 9m0-18c-2.5 2.2-4 5.2-4 9s1.5 6.8 4 9M3 12h18"
-                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span id="langCurrent">English</span>
-        <span class="caret" aria-hidden="true">▾</span>
-      </button>
-
-      <!-- Try Web App（桌機顯示，手機隱藏） -->
-      <a class="btn bm-cta only-desktop" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
-        <span class="emoji" aria-hidden="true">🚀</span> Try Web App
+    <!-- 桌機版右側動作 (只留 CTA) -->
+    <div class="nav-actions desktop-only">
+      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener">
+        🚀 Try Web App
       </a>
     </div>
   </div>
@@ -217,6 +208,7 @@
 
 </body>
 </html>
+
 
 
 
