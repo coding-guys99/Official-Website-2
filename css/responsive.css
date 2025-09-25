@@ -315,3 +315,9 @@ html, body { overflow-x: hidden; }
 @media (max-width: 560px){
   .lang-portal{ grid-template-columns: 1fr; min-width: 180px; }
 }
+
+/* 小螢幕時可選擇隱藏品牌文字，只留圖示（看你需求） */
+@media (max-width: 420px){
+  .bm-header .brand-text{ display: none; }
+  .bm-header .brand img{ width: 24px; height: 24px; }
+}
