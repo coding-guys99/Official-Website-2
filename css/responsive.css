@@ -321,3 +321,8 @@ html, body { overflow-x: hidden; }
   .bm-header .brand-text{ display: none; }
   .bm-header .brand img{ width: 24px; height: 24px; }
 }
+
+/* 小螢幕才顯示 */
+@media (max-width: 980px){
+  .bm-header .nav-toggle{ display: inline-flex; }
+}
