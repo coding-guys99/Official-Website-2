@@ -352,3 +352,85 @@ footer.site-footer.bm-footer .bm-footer-bottom .legal a:hover{
 /* optional：進場 reveal（你已有 .reveal-on-scroll 的 JS） */
 .feat-card.reveal-on-scroll{ opacity:0; transform: translateY(10px); }
 .feat-card.reveal-on-scroll.is-visible{ opacity:1; transform:none; transition:.4s ease; }
+
+/* ===== About page – Cards Polishing (Desktop) ===== */
+
+/* 區塊節奏 */
+.page-hero { padding: 76px 0 26px; }
+.about-block { max-width: 880px; margin: 0 auto; padding: 28px 0; }
+.about-block .lead, .about-block p { color: var(--fg-muted); }
+
+/* 卡片共用樣式（淡暈光、柔和陰影、上浮） */
+.about-card,
+.about-callout{
+  position: relative;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+  border: 1px solid var(--border);
+  padding: 26px 22px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease, background .35s ease;
+}
+
+/* 背景暈光 */
+.about-card::before,
+.about-callout::before{
+  content: "";
+  position: absolute;
+  inset: -28% -22%;
+  background:
+    radial-gradient(42% 52% at 28% 24%, rgba(212,175,55,.12), transparent 60%),
+    radial-gradient(40% 50% at 72% 70%, rgba(64,206,255,.10), transparent 60%);
+  filter: blur(28px);
+  opacity: .55;
+  transition: opacity .35s ease, filter .35s ease;
+  z-index: 0;
+}
+
+/* hover / focus 上浮 */
+.about-card:hover,
+.about-card:focus-within,
+.about-callout:hover,
+.about-callout:focus-within{
+  transform: translateY(-6px);
+  border-color: var(--brand-cyan);
+  box-shadow: 0 14px 32px rgba(0,0,0,.55);
+}
+.about-card:hover::before,
+.about-callout:hover::before{ opacity: .9; filter: blur(36px); }
+
+/* 文字層保持在暈光上面 */
+.about-card > * ,
+.about-callout > * { position: relative; z-index: 1; }
+
+/* 卡片內標題/文字 */
+.about-card h3{ margin: 2px 0 8px; font-size: 1.12rem; }
+.about-card p { margin: 0; color: var(--fg-muted); font-size: .95rem; }
+
+/* Callout 版本：更醒目一點 */
+.about-callout{
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.10);
+}
+.about-callout h3{ margin: 0 0 8px; }
+.about-callout p { margin: 0 0 14px; color: var(--fg-muted); }
+
+/* 卡片網格：四格對齊、間距 */
+.about-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  padding: 10px 0 6px;
+}
+
+/* 按鈕細節：跟卡片對齊 */
+.about-callout .actions .btn{ border-radius: 12px; }
+.about-callout .btn:hover{ transform: translateY(-1px); }
+
+/* 小互動：鍵盤瀏覽外框 */
+.about-card:focus-within,
+.about-callout:focus-within{
+  outline: 2px solid color-mix(in oklab, var(--brand-cyan) 60%, white 0%);
+  outline-offset: 2px;
+}
