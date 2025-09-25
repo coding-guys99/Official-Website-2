@@ -4,97 +4,122 @@
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
 document.addEventListener('DOMContentLoaded', () => {
-  /* ====== Mobile nav toggle ====== */
+  /* ========= Mobile nav toggle (唯一版本) ========= */
   const toggle = document.querySelector('.nav-toggle');
   const nav    = document.getElementById('primaryNav');
+
   if (toggle && nav){
-    const closeNav = () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); };
+    const closeNav = () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
     toggle.addEventListener('click', (e)=>{
-      e.stopPropagation();
+      e.stopPropagation(); // 避免立刻被外層點擊關閉
       const open = !nav.classList.contains('open');
       nav.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', String(open));
     });
+    // 點選任一連結關掉
+    nav.addEventListener('click', (e) => {
+      if (e.target.closest('a')) closeNav();
+    });
+    // 點外面關
     document.addEventListener('click', (e)=>{
       if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
     });
-    window.addEventListener('resize', ()=>{ if (window.innerWidth>980) closeNav(); }, {passive:true});
+    // 視窗放大回桌機，保證關閉
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 980) closeNav();
+    }, { passive:true });
   }
 
-  /* ====== Language Portal ====== */
+  /* ========= Language Portal（唯一版本） ========= */
   const SUPPORTED = [
     ['en','English'], ['zh-tw','繁體中文'], ['zh-cn','简体中文'],
     ['ja','日本語'], ['ko','한국어'], ['fr','Français'], ['de','Deutsch']
   ];
-
-  const portal = document.getElementById('langPortal');
-  const btnDesktop = document.getElementById('langBtn');
+  const portal     = document.getElementById('langPortal');
+  const btnDesk    = document.getElementById('langBtn');
   const btnMobile  = document.getElementById('langBtnMobile');
   const footLink   = document.getElementById('footLangLink');
-  const curDesktop = document.getElementById('langCurrent');
+  const curDesk    = document.getElementById('langCurrent');
   const curMobile  = document.getElementById('langCurrentMobile');
 
-  // 狀態
   let current = localStorage.getItem('ks_lang') || 'en';
 
-  // 建立清單（只一次）
+  // 建一次清單
   if (!portal.dataset.built){
     portal.innerHTML = SUPPORTED.map(([code,label]) =>
       `<button type="button" role="menuitem" data-lang="${code}">${label}</button>`
     ).join('');
     portal.dataset.built = '1';
   }
-  syncCurrentLabel();
 
-  function syncCurrentLabel(){
+  function syncCurrent(){
     const label = SUPPORTED.find(([c])=>c===current)?.[1] || 'English';
-    if (curDesktop) curDesktop.textContent = label;
-    if (curMobile)  curMobile.textContent  = label;
-    // 高亮
+    if (curDesk)   curDesk.textContent   = label;
+    if (curMobile) curMobile.textContent = label;
     portal.querySelectorAll('[aria-current="true"]').forEach(b=>b.removeAttribute('aria-current'));
     const active = portal.querySelector(`[data-lang="${current}"]`);
     if (active) active.setAttribute('aria-current','true');
   }
+  syncCurrent();
 
   function setLang(code){
     current = code;
     localStorage.setItem('ks_lang', code);
-    syncCurrentLabel();
-    // TODO: 如有 i18n： window.KS_I18N?.setLang(code);
+    syncCurrent();
+    // TODO: 如果有 i18n：window.KS_I18N?.setLang(code)
     console.log('[i18n] switch to:', code);
   }
 
-  // 打開 Portal 並定位到觸發元件下方
+  // 開/關 portal
   function openPortal(anchor){
-    const r = anchor.getBoundingClientRect();
-    const top  = r.bottom + 8;            // 按鈕下方 8px
-    const left = Math.min(
-      Math.max(16, r.left),               // 不貼左邊
-      window.innerWidth - portal.offsetWidth - 16 // 不出右邊
-    );
-    portal.style.top  = `${Math.min(top, window.innerHeight - portal.offsetHeight - 16)}px`;
-    portal.style.left = `${left}px`;
+    // 先顯示再量尺寸
     portal.classList.add('open');
     portal.removeAttribute('aria-hidden');
-    document.addEventListener('click', docCloseOnce, { once:true });
-    document.addEventListener('keydown', escClose, { once:true });
+
+    const r = anchor.getBoundingClientRect();
+    const idealTop  = r.bottom + 8;
+    const idealLeft = Math.min(
+      Math.max(16, r.left),
+      window.innerWidth - portal.offsetWidth - 16
+    );
+    const top  = Math.min(idealTop, window.innerHeight - portal.offsetHeight - 16);
+    const left = Math.max(16, idealLeft);
+
+    portal.style.top  = `${top}px`;
+    portal.style.left = `${left}px`;
+
+    // 關閉監聽（只掛一次）
+    const onDoc = (e) => { if (!portal.contains(e.target)) closePortal(); };
+    const onEsc = (e) => { if (e.key === 'Escape') closePortal(); };
+    setTimeout(() => {
+      document.addEventListener('click', onDoc, { once:true });
+      document.addEventListener('keydown', onEsc, { once:true });
+    }, 0);
   }
   function closePortal(){
     portal.classList.remove('open');
     portal.setAttribute('aria-hidden','true');
   }
-  function docCloseOnce(e){
-    if (!portal.contains(e.target)) closePortal();
-  }
-  function escClose(e){ if (e.key === 'Escape') closePortal(); }
 
-  // 綁定三個入口
-  function bindOpen(el){ if (!el) return; el.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); openPortal(el); }); }
-  bindOpen(btnDesktop);
+  function bindOpen(el){
+    if (!el) return;
+    el.addEventListener('click', (e)=>{
+      e.preventDefault();
+      e.stopPropagation();   // 防止立刻被「點外面關閉」吃掉
+      if (portal.classList.contains('open')) {
+        closePortal();
+      } else {
+        openPortal(el);
+      }
+    });
+  }
+  bindOpen(btnDesk);
   bindOpen(btnMobile);
   bindOpen(footLink);
 
-  // 點選語言
   portal.addEventListener('click', (e)=>{
     const b = e.target.closest('button[data-lang]');
     if (!b) return;
@@ -102,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closePortal();
   });
 });
+
 
 
   function init(){
@@ -378,6 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   
+
 
 
 
