@@ -151,7 +151,7 @@ html, body {
   /* 語言選單：單欄落下 */
   .lang-menu{
     min-width: 200px !important;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 2fr !important;
   }
 
   /* 表單安全邊距 */
