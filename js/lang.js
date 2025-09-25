@@ -88,9 +88,14 @@
     document.addEventListener('click', closePortal, { once: true });
   }
   function closePortal() {
-    portal.classList.remove('open');
-    portal.setAttribute('aria-hidden','true');
+  // 移除焦點，避免 aria-hidden 警告
+  if (portal.contains(document.activeElement)) {
+    document.activeElement.blur();
   }
+
+  portal.classList.remove('open');
+  portal.setAttribute('aria-hidden','true');
+}
 
   [btnMobile, footLink].forEach(btn=>{
     if (!btn) return;
