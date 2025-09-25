@@ -2,7 +2,8 @@
    Header (Blackmagic-style) — merged desktop
    =========================== */
 .bm-header{
-  position: sticky;        /* 保持吸頂 */
+   height:50px;
+  position: fixed;        /* 保持吸頂 */
   top: 0;
   z-index: 5000;           /* 高於內容，低於語言 Portal（若有） */
   overflow: visible;       /* 關鍵：讓下拉不被裁切 */
