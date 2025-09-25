@@ -131,7 +131,7 @@ html, body { overflow-x: hidden; }
 
   /* Footer：單欄 + 手風琴（唯一版本，配合 JS） */
   .bm-footer{ padding: 24px 0 36px; grid-template-columns: 1fr !important;}
-  .bm-footer .bm-footer-top{ display: block; padding: 0 0 8px; grid-template-columns: 1fr !important;}
+  .bm-footer .bm-footer-top{ display: block; padding: 0 0 8px; }
   .bm-foot-brand{ text-align: center; margin: 0 0 6px; }
   .bm-foot-brand .tagline{ max-width: 28ch; margin: 6px auto 0; }
 
@@ -161,7 +161,7 @@ html, body { overflow-x: hidden; }
     padding: 0 12px;
   }
   .bm-footer .foot-col.open .foot-links{
-    max-height: 420px; padding: 6px 12px 10px;
+    max-height: 200px; padding: 6px 12px 10px;
   }
   .bm-footer .foot-links a{
     display: block; padding: 8px 0; color: #b8c0cf; text-decoration: none;
