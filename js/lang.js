@@ -1,5 +1,5 @@
 // ================================
-// KeySearch i18n with auto BASE resolve
+// KeySearch i18n (no-flash, auto base resolve)
 // ================================
 (function(){
   const FALLBACK = 'en';
@@ -7,50 +7,40 @@
   const I18N = {
     lang: FALLBACK,
     dict: {},
-    base: null, // 例如 '/Official-Website/i18n/' 或 './i18n/'
+    base: null, // 解析後像 '/Official-Website/i18n/' 或 './i18n/'
 
-    // ---------- 0) 動態解析 i18n 目錄 ----------
+    // ---------- 0) 自動解析 i18n 目錄 ----------
     async resolveBase() {
-      // 若先前已成功解析，直接用
       const cached = localStorage.getItem('i18n.base');
-      if (cached) {
-        this.base = cached;
-        return;
-      }
+      if (cached) { this.base = cached; return; }
 
       const script = document.currentScript || (function(){
-        // 找到包含 lang.js 的 <script>
         const arr = Array.from(document.scripts || []);
         return arr.find(s=>/\/js\/lang\.js(\?|#|$)/.test(s.src)) || arr[arr.length-1];
       })();
 
       const origin = location.origin;
-      const path   = location.pathname; // 例如 /Official-Website/index.html
-      const firstSeg = path.split('/').filter(Boolean)[0] || ''; // 例如 'Official-Website'
+      const path   = location.pathname;
+      const firstSeg = path.split('/').filter(Boolean)[0] || '';
 
-      // 由 script src 推導：.../js/lang.js -> .../i18n/
       let fromScript = '';
       if (script && script.src) {
         try {
           const u = new URL(script.src, origin);
-          // 取出到 /js/ 之前的目錄
           const dir = u.pathname.replace(/\/js\/lang\.js.*$/,'/');
-          fromScript = new URL('./i18n/', origin + dir).pathname; // 結果是一個絕對 path
+          fromScript = new URL('./i18n/', origin + dir).pathname;
         } catch(e){}
       }
 
-      // 候選清單（依序嘗試）
       const candidates = [
-        fromScript || '',                                 // 由 script 推導
-        `/${firstSeg ? firstSeg + '/' : ''}i18n/`,       // /<repo>/i18n/（GitHub Pages 專案頁）
-        '/i18n/',                                        // 網站根目錄
-        './i18n/'                                        // 與 HTML 同層
+        fromScript || '',
+        `/${firstSeg ? firstSeg + '/' : ''}i18n/`,
+        '/i18n/',
+        './i18n/'
       ].filter(Boolean);
 
-      // 確保唯一
       const unique = [...new Set(candidates)];
 
-      // 逐一嘗試抓 en.json，第一個成功的就用
       for (const base of unique) {
         try {
           const testUrl = new URL(base + 'en.json', origin);
@@ -64,20 +54,20 @@
         } catch(e){}
       }
 
-      // 都失敗，最後用相對路徑，可能 404，但至少不爆炸
       this.base = './i18n/';
       console.warn('[i18n] base fallback to ./i18n/ (may 404)');
     },
 
+    // ---------- 1) 載入 JSON ----------
     async load(lang) {
       if (!this.base) await this.resolveBase();
-      const origin = location.origin;
-      const url = new URL(this.base + `${lang}.json`, origin).href;
+      const url = new URL(this.base + `${lang}.json`, location.origin).href;
       const res = await fetch(url, { cache:'no-store' });
       if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
       return res.json();
     },
 
+    // ---------- 2) 合併 fallback（僅補缺，不觸發渲染） ----------
     mergeFallback(primary, fallback) {
       if (!primary) return { ...fallback };
       const out = { ...fallback };
@@ -90,12 +80,14 @@
       return out;
     },
 
+    // ---------- 3) 取詞 ----------
     t(key) {
       return key.split('.').reduce((o, i) => (o ? o[i] : undefined), this.dict);
     },
 
+    // ---------- 4) 套用到 DOM（一次性渲染） ----------
     render() {
-      // data-i18n（文字/HTML）
+      // data-i18n（內文/HTML）
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const k = el.getAttribute('data-i18n');
         const val = this.t(k);
@@ -107,8 +99,7 @@
           }
         }
       });
-
-      // data-i18n-attr（屬性翻譯，如 title/aria-label 等）
+      // data-i18n-attr（屬性）
       document.querySelectorAll('[data-i18n-attr]').forEach(el => {
         const baseKey = el.getAttribute('data-i18n');
         const attrs = (el.getAttribute('data-i18n-attr') || '')
@@ -123,54 +114,60 @@
       if (typeof title === 'string' && title) document.title = title;
     },
 
+    // ---------- 5) 偵測語言 ----------
     detect() {
       const nav = (navigator.languages && navigator.languages[0]) || navigator.language || FALLBACK;
       const code = nav.toLowerCase().replace('-', '_');
-      if (code.startsWith('zh')) return code.includes('tw') || code.includes('hant') ? 'zh_tw' : 'zh_cn';
+      if (code.startsWith('zh')) return (code.includes('tw') || code.includes('hant')) ? 'zh_tw' : 'zh_cn';
       return code.split('_')[0] || FALLBACK;
     },
 
+    // ---------- 6) 切換語言（無英文閃爍） ----------
     async setLang(input) {
-  const lang = (input || FALLBACK).toLowerCase().replace('-', '_');
-  localStorage.setItem('i18n.lang', lang);
+      const lang = (input || FALLBACK).toLowerCase().replace('-', '_');
 
-  try {
-    // 先載入目標語言
-    const cur = await this.load(lang);
-    let fb = {};
-    if (lang !== FALLBACK) {
-      try { fb = await this.load(FALLBACK); } catch(e) {}
+      // 先樂觀寫入（避免切頁還原）
+      localStorage.setItem('i18n.lang', lang);
+
+      try {
+        // 先載入主語言，成功後才載入 fallback 來補缺
+        const cur = await this.load(lang);
+        let fb = {};
+        if (lang !== FALLBACK) {
+          try { fb = await this.load(FALLBACK); } catch(e){}
+        }
+
+        // 完成字典才一次性 render → 不會閃英文
+        this.dict = this.mergeFallback(JSON.parse(JSON.stringify(cur)), fb);
+        this.lang = lang;
+
+        document.documentElement.lang = lang.replace('_','-');
+        this.render();
+
+        const title = this.t('meta.title.home');
+        if (typeof title === 'string' && title) document.title = title;
+
+        document.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
+        console.info('[i18n] switched to:', lang, 'base:', this.base);
+
+      } catch (err) {
+        console.error('[i18n] failed to load:', lang, err);
+        // 回退：至少保證 English 可用且無閃爍
+        this.lang = FALLBACK;
+        try {
+          this.dict = await this.load(FALLBACK);
+        } catch(e){ this.dict = {}; }
+        document.documentElement.lang = FALLBACK;
+        this.render();
+      }
     }
-
-    // 只在 merge 完成後一次性 render
-    this.dict = this.mergeFallback(JSON.parse(JSON.stringify(cur)), fb);
-    this.lang = lang;
-
-    document.documentElement.lang = lang.replace('_','-');
-    this.render();
-
-    const title = this.t('meta.title.home');
-    if (typeof title === 'string' && title) document.title = title;
-
-    document.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
-    console.info('[i18n] switched to:', lang, 'base:', this.base);
-
-  } catch (err) {
-    console.error('[i18n] failed to load:', lang, err);
-    this.lang = FALLBACK;
-    try {
-      this.dict = await this.load(FALLBACK);
-    } catch(e){ this.dict = {}; }
-    this.render();
-  }
-}
   };
 
-  // 暴露全域
+  // 暴露給全域（讓其他腳本可呼叫 I18N.setLang）
   window.I18N = I18N;
 
   // ================================
-  // 初始化：先解析 base，再用 saved->detect
+  // 初始化（先解析 base，再用 saved->detect）
   // ================================
   document.addEventListener('DOMContentLoaded', async () => {
     const saved = localStorage.getItem('i18n.lang') || I18N.detect();
@@ -180,7 +177,7 @@
   });
 
   // ================================
-  // 簡易語言選單（沿用 #langPortal）
+  // 語言選單 UI（沿用 #langPortal 與 .lang-btn/#footLangLink）
   // ================================
   function bindLangUI(){
     const portal    = document.getElementById('langPortal');
@@ -258,7 +255,7 @@
       const item = e.target.closest('[data-lang]');
       if (!item) return;
       const code = item.dataset.lang;
-      await I18N.setLang(code);
+      await I18N.setLang(code); // 無閃爍切換
       syncLabel(code);
       closePortal();
     });
