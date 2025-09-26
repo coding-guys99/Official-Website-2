@@ -4,54 +4,40 @@
   <meta charset="utf-8"/>
   <title data-i18n="meta.title.home">KeySearch — Find it. Fast.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- 全局樣式 -->
   <link rel="stylesheet" href="css/styles.css"/>
-  <!-- 頁面專屬樣式 -->
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/responsive.css"/>
 </head>
 <body>
-<!-- HEADER -->
 <header class="site-header bm-header" role="banner">
   <div class="container nav">
-    <!-- Brand -->
     <a class="brand" href="index.html" aria-label="KeySearch home">
       <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
       <span class="brand-text" data-i18n="header.brand">KeySearch</span>
     </a>
-
-    <!-- Hamburger (only mobile) -->
     <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" 
+        <path d="M3 6h18M3 12h18M3 18h18"
               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
-
-    <!-- Main nav -->
     <ul class="nav-links" id="primaryNav" role="menubar">
       <li><a href="features.html" data-i18n="header.features">Features</a></li>
       <li><a href="download.html" data-i18n="header.download">Download</a></li>
       <li><a href="pricing.html" data-i18n="header.pricing">Pricing</a></li>
       <li><a href="about.html" data-i18n="header.about">About</a></li>
       <li><a href="support.html" data-i18n="header.support">Support</a></li>
-
-      <!-- 行動版專用語言選單 -->
       <li class="mobile-only">
         <button class="lang-btn" id="langBtnMobile" aria-haspopup="menu" aria-expanded="false">
           🌐 <span id="langCurrentMobile" data-i18n="header.lang.current">English</span> ▾
         </button>
       </li>
-
-      <!-- 行動版 Try Web App -->
       <li class="mobile-only">
         <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">
           🚀 Try Web App
         </a>
       </li>
     </ul>
-
-    <!-- 桌機版右側動作 (只留 CTA) -->
     <div class="nav-actions desktop-only">
       <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">
         🚀 Try Web App
@@ -59,58 +45,38 @@
     </div>
   </div>
 </header>
-
-
-<!-- 共用語言選單（Portal，單一節點） -->
 <div id="langPortal" class="lang-portal" role="menu" aria-hidden="true"></div>
 
-
-
-  <!-- ===== Hero ===== -->
-  <section class="hero container reveal-on-scroll">
-    <div class="hero-text">
-      <h1 id="heroTitle" data-text="Find it. Fast." data-i18n="home.hero.title">Find it. Fast.</h1>
-      <p class="sub" data-i18n="home.hero.sub">Everything, in reach. No mess. Just answers.</p>
-      <div class="cta-row">
-        <a href="download.html" class="btn primary" data-i18n="home.cta.downloadNow">Download Now</a>
-        <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary" data-i18n="header.tryapp.cta">Try Web App</a>
-      </div>
+<section class="hero container reveal-on-scroll">
+  <div class="hero-text">
+    <h1 id="heroTitle" data-text="Find it. Fast." data-i18n="home.hero.title">Find it. Fast.</h1>
+    <p class="sub" data-i18n="home.hero.sub">Everything, in reach. No mess. Just answers.</p>
+    <div class="cta-row">
+      <a href="download.html" class="btn primary" data-i18n="home.cta.downloadNow">Download Now</a>
+      <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary" data-i18n="header.tryapp.cta">Try Web App</a>
     </div>
-    <!-- Hero 右側產品圖 -->
-<div class="device-mock" aria-label="KeySearch interface preview">
-  <!-- 瀏覽器上框（裝飾） -->
-  <div class="browser-chrome" aria-hidden="true">
-    <span class="dot red"></span>
-    <span class="dot yellow"></span>
-    <span class="dot green"></span>
-    <div class="url">keysearch-app.com</div>
   </div>
+  <div class="device-mock" aria-label="KeySearch interface preview">
+    <div class="browser-chrome" aria-hidden="true">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <div class="url">keysearch-app.com</div>
+    </div>
+    <div class="screen ar-16x9 contain">
+      <img src="assets/img/hero-ui.png" alt="KeySearch interface" width="1280" height="720"
+           loading="eager" fetchpriority="high"
+           srcset="assets/img/hero-ui-800.png 800w, assets/img/hero-ui-1200.png 1200w, assets/img/hero-ui.png 1600w"
+           sizes="(max-width: 980px) 92vw, 40vw"/>
+    </div>
+  </div>
+</section>
 
-  <!-- 你的軟體截圖 -->
-  <div class="screen ar-16x9 contain">
-  <img
-    src="assets/img/hero-ui.png"
-    alt="KeySearch interface"
-    width="1280" height="720"
-    loading="eager" fetchpriority="high"
-    srcset="
-      assets/img/hero-ui-800.png 800w,
-      assets/img/hero-ui-1200.png 1200w,
-      assets/img/hero-ui.png 1600w"
-    sizes="(max-width: 980px) 92vw, 40vw"
-  /></div>
-</div>
-
-  </section>
-
-  <!-- ===== Features preview ===== -->
-  <section class="feature container reveal-on-scroll">
+<section class="feature container reveal-on-scroll">
   <div class="feature-img">
     <img src="assets/img/feature1-1200.png" alt="Search instantly"/>
   </div>
   <div class="feature-text">
-    <h2 data-i18n="feature1.title">Search anything instantly</h2>
-    <p data-i18n="feature1.desc">Find exactly what you need, across projects, notes, or resources — instantly.</p>
+    <h2 data-i18n="home.feature1.title">Search anything instantly</h2>
+    <p data-i18n="home.feature1.desc">Find exactly what you need, across projects, notes, or resources — instantly.</p>
   </div>
 </section>
 
@@ -119,85 +85,59 @@
     <img src="assets/img/feature2-1200.png" alt="Stay organized without effort"/>
   </div>
   <div class="feature-text">
-    <h2 data-i18n="feature2.title">Stay organized without effort</h2>
-    <p data-i18n="feature2.desc">No folders, no clutter. KeySearch keeps everything structured and easy to reach.</p>
+    <h2 data-i18n="home.feature2.title">Stay organized without effort</h2>
+    <p data-i18n="home.feature2.desc">No folders, no clutter. KeySearch keeps everything structured and easy to reach.</p>
   </div>
 </section>
 
-
-  <!-- ===== Final CTA ===== -->
-  <section class="cta container reveal-on-scroll">
-    <h2 data-i18n="home.final.title">Ready to start?</h2>
-    <p data-i18n="home.final.lead">Download KeySearch for your desktop, or try the web app instantly.</p>
-    <div class="cta-row">
-      <a href="download.html" class="btn primary" data-i18n="download.cta.text">Download</a>
-      <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary" data-i18n="download.web">Open Web</a>
-    </div>
-  </section>
-
-   <!-- ===== Footer ===== -->
+<section class="cta container reveal-on-scroll">
+  <h2 data-i18n="home.final.title">Ready to start?</h2>
+  <p data-i18n="home.final.lead">Download KeySearch for your desktop, or try the web app instantly.</p>
+  <div class="cta-row">
+    <a href="download.html" class="btn primary" data-i18n="download.cta.text">Download</a>
+    <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary" data-i18n="download.web">Open Web</a>
+  </div>
+</section>
 <footer class="site-footer bm-footer">
   <div class="container bm-footer-top">
-    <!-- Brand -->
     <div class="bm-foot-brand">
       <a class="brand mini" href="index.html">
         <span data-i18n="foot.brand">KeySearch</span>
       </a>
       <p class="tagline" data-i18n="foot.slogan">Find it. Fast.<br>No mess. Just answers.</p>
     </div>
-
-    <!-- Links grid（桌機四欄 / 手機手風琴） -->
     <div class="bm-foot-links-grid">
-
-      <!-- Product -->
       <section class="foot-col">
-        <h4>
-          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button>
-        </h4>
+        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button></h4>
         <ul class="foot-links">
-          <li data-i18n="foot.product.feat"><a href="features.html">Features</a></li>
-          <li data-i18n="foot.product.price"><a href="pricing.html">Pricing</a></li>
-          <li data-i18n="foot.product.download"><a href="download.html">Download</a></li>
+          <li><a href="features.html" data-i18n="foot.product.feat">Features</a></li>
+          <li><a href="pricing.html" data-i18n="foot.product.price">Pricing</a></li>
+          <li><a href="download.html" data-i18n="foot.product.download">Download</a></li>
         </ul>
       </section>
-
-      <!-- Support -->
       <section class="foot-col">
-        <h4>
-          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button>
-        </h4>
+        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button></h4>
         <ul class="foot-links">
-          <li data-i18n="foot.support.help"><a href="support.html">Help Center</a></li>
-          <li data-i18n="foot.support.docs"><a href="#">Docs</a></li>
+          <li><a href="support.html" data-i18n="foot.support.help">Help Center</a></li>
+          <li><a href="#" data-i18n="foot.support.docs">Docs</a></li>
         </ul>
       </section>
-
-      <!-- Company -->
       <section class="foot-col">
-        <h4>
-          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button>
-        </h4>
+        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button></h4>
         <ul class="foot-links">
-          <li data-i18n="foot.company.about"><a href="about.html" >About</a></li>
-          <li data-i18n="foot.company.contact"><a href="mailto:hello@keysearch-app.com">Contact</a></li>
+          <li><a href="about.html" data-i18n="foot.company.about">About</a></li>
+          <li><a href="mailto:hello@keysearch-app.com" data-i18n="foot.company.contact">Contact</a></li>
         </ul>
       </section>
-
-      <!-- Follow -->
       <section class="foot-col">
-        <h4>
-          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button>
-        </h4>
+        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button></h4>
         <ul class="foot-links">
-          <li data-i18n="foot.follow.twitter"><a href="#" rel="me">Twitter</a></li>
-          <li data-i18n="foot.follow.youtube"><a href="#" rel="me">YouTube</a></li>
+          <li><a href="#" rel="me" data-i18n="foot.follow.twitter">Twitter</a></li>
+          <li><a href="#" rel="me" data-i18n="foot.follow.youtube">YouTube</a></li>
         </ul>
       </section>
-
     </div>
   </div>
-
-  <!-- Bottom -->
   <div class="container bm-footer-bottom">
     <div class="legal">
       <a href="#" id="footLangLink" data-i18n="foot.b.lang">Language</a>
@@ -208,14 +148,7 @@
   </div>
 </footer>
 
-<div id="langPortal" class="lang-portal" role="menu" aria-hidden="true"></div>
-
-
-  <!-- JS -->
- <script src="js/lang.js" ></script>
-  <script src="js/reveal.js" defer></script>
-  <script src="js/app.js" defer></script>
-  
-</body>
-</html>
-
+<script src="js/lang.js" defer></script>
+<script src="js/reveal.js" defer></script>
+<script src="js/app.js" defer></script>
+</body></html>
