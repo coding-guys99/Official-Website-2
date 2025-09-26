@@ -1,0 +1,221 @@
+{
+  "_meta": { "lang": "Deutsch", "dir": "ltr" },
+
+  "meta": {
+    "title": {
+      "home": "KeySearch — Finde es. Schnell.",
+      "features": "Funktionen — KeySearch",
+      "download": "Download — KeySearch",
+      "pricing": "Preise — KeySearch",
+      "about": "Über uns — KeySearch",
+      "support": "Support — KeySearch",
+      "news": "Neuigkeiten — KeySearch"
+    }
+  },
+
+  "header": {
+    "brand": "KeySearch",
+    "features": "Funktionen",
+    "download": "Download",
+    "pricing": "Preise",
+    "about": "Über uns",
+    "support": "Support",
+    "tryapp": { "cta": "🚀 Web-App testen" },
+    "lang": { "current": "Deutsch" }
+  },
+
+  "home": {
+    "hero": {
+      "title": "Schnell finden, auf den Punkt",
+      "sub": "Alles griffbereit. Kein Chaos. Nur Antworten."
+    },
+    "cta": { "downloadNow": "Jetzt herunterladen" },
+    "final": {
+      "title": "Bereit zu starten?",
+      "lead": "Lade KeySearch für den Desktop herunter oder nutze sofort die Web-App."
+    },
+    "feature1": {
+      "title": "Alles sofort durchsuchen",
+      "desc": "Finde exakt, was du brauchst – über Projekte, Notizen und Ressourcen hinweg."
+    },
+    "feature2": {
+      "title": "Mühelos organisiert",
+      "desc": "Keine Ordner, kein Durcheinander. KeySearch hält alles übersichtlich."
+    }
+  },
+
+  "features": {
+    "title": "Funktionen",
+    "lead": "Warum KeySearch leistungsstark und einfach ist.",
+    "cards": {
+      "instant": { "title": "Sofortige Ergebnisse", "desc": "Suche in Millisekunden in Notizen, Dateien und Tags." },
+      "tags": { "title": "Intelligente Tags", "desc": "Mehrstufige Tags, Filter und Autovervollständigung für schnelles Ordnen." },
+      "collections": { "title": "Sammlungen", "desc": "Nach Projekten/Kontexten gruppieren; schreibgeschützte Ansichten teilen." },
+      "shortcuts": { "title": "Globale Shortcuts", "desc": "Überall mit einer Tastenkombination. Befehlspalette inklusive." },
+      "i18n": { "title": "Mehrsprachige UI", "desc": "Sprache sofort umschalten. Bereit für 17+ Sprachen." },
+      "privacy": { "title": "Privatsphäre zuerst", "desc": "Local-first (IndexedDB). Daten bleiben auf deinem Gerät." },
+      "export": { "title": "Flexibler Export", "desc": "Export nach CSV/JSON oder Sammlungen mit dem Team teilen." },
+      "platforms": { "title": "Web & Desktop", "desc": "Gleiche Erfahrung im Web und auf dem Desktop. Keine Lernkurve." }
+    },
+    "final": {
+      "title": "Jetzt ausprobieren?",
+      "lead": "Lade KeySearch herunter oder nutze es sofort im Browser."
+    }
+  },
+
+  "download": {
+    "title": "Download",
+    "lead": "Hole dir KeySearch für deine bevorzugte Plattform.",
+    "windows": { "title": "Windows", "version": "Version 1.0.1.0", "cta": "EXE herunterladen" },
+    "mac": { "title": "macOS", "version": "Version 1.0.1.0", "cta": "DMG herunterladen" },
+    "linux": { "title": "Linux", "version": "Version 1.0.1.0", "cta": "AppImage herunterladen" },
+    "hash": { "label": "SHA256:" },
+    "webpref": { "title": "Lieber die Web-App?", "lead": "KeySearch direkt im Browser ausführen – keine Installation nötig." },
+    "cta": { "text": "Download" },
+    "web": "Web öffnen"
+  },
+
+  "pricing": {
+    "title": "Preise",
+    "lead": "Einfache, transparente Pläne, die mit dir wachsen.",
+    "billing": { "monthly": "Monatlich", "yearly": "Jährlich", "save": "20 % sparen" },
+    "free": {
+      "title": "Kostenlos",
+      "perma": "/ für immer",
+      "f1": "Unbegrenzte Suchen",
+      "f2": "Grundlegende Tags & Sammlungen",
+      "f3": "CSV/JSON-Export",
+      "cta": "Loslegen"
+    },
+    "pro": {
+      "badge": "Am beliebtesten",
+      "title": "Pro",
+      "permonth": "/ Monat",
+      "f1": "Alles aus Kostenlos",
+      "f2": "Mehrsprachige UI",
+      "f3": "Erinnerungen & smarte Filter",
+      "f4": "Priorisierter Support",
+      "cta": "Jetzt upgraden"
+    },
+    "faq": {
+      "refunds": { "q": "Bietet ihr Rückerstattungen an?", "a": "Wenn du unzufrieden bist, kontaktiere uns innerhalb von 14 Tagen. Wir helfen weiter." },
+      "switch": { "q": "Kann ich später den Tarif wechseln?", "a": "Ja. Du kannst jederzeit upgraden oder kündigen." }
+    },
+    "final": {
+      "title": "Schlauer suchen",
+      "lead": "KeySearch kostenlos testen. Upgrade, wenn du bereit bist.",
+      "cta": { "download": "Kostenlos herunterladen", "openweb": "Web öffnen" }
+    }
+  },
+
+  "about": {
+    "title": "Über KeySearch",
+    "desc": "Finde es. Schnell. Kein Chaos. Nur Antworten.",
+    "mission": {
+      "t": "Mission",
+      "desc": "Menschen helfen, genau das zu finden, was sie brauchen — in Notizen, Dateien und Ideen — ohne Chaos, Lock-in oder Cloud-Abhängigkeit."
+    },
+    "diff-1": "Local-first",
+    "desc-1": "Daten bleiben auf deinem Gerät (IndexedDB). Offline-fähig. Kein Konto nötig.",
+    "diff-2": "Schnell by Design",
+    "desc-2": "Indexsuche mit Tags, Filtern und globalen Shortcuts — in Millisekunden.",
+    "diff-3": "Kein Lock-in",
+    "desc-3": "Export als CSV/JSON. Schreibgeschützte Sammlungen teilen.",
+    "diff-4": "Mehrsprachig",
+    "desc-4": "UI per i18n-JSON sofort umschalten. 17+ Sprachen bereit.",
+    "privacy": {
+      "_": "Datenschutz & Transparenz",
+      "desc": "KeySearch respektiert deine Privatsphäre. Keine Datenverkäufe. Optionale Telemetrie ist standardmäßig aus und jederzeit abschaltbar. Klare Exporte inklusive.",
+      "read": "Datenschutz lesen",
+      "update": "Produkt-Updates"
+    }
+  },
+
+  "contact": {
+    "_": "Kontakt",
+    "partner": "Presse oder Partnerschaft? E-Mail an"
+  },
+  "email": "hello@keysearch-app.com",
+
+  "support": {
+    "title": "Support",
+    "lead": "Finde schnelle Antworten oder sende uns Feedback.",
+    "quick": { "download": "Download", "billing": "Abos & Abrechnung", "faq": "FAQ", "contact": "Kontakt" },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Wie installiere ich KeySearch?",
+      "a1": "Von der Download-Seite laden und Installer ausführen. Unter macOS ggf. Apps von identifizierten Entwicklern erlauben.",
+      "q2": "Unterscheidet sich Web- von Desktop-App?",
+      "a2": "Die Kernfunktionen sind gleich. Desktop bietet zusätzlich Offline und lokalen Export.",
+      "q3": "Wie wechsle ich die Sprache?",
+      "a3": "Nutze den Sprachschalter oben rechts. Weitere Sprachen folgen."
+    },
+    "feedback": {
+      "title": "Sende uns dein Feedback",
+      "name": "Dein Name",
+      "email": "Deine E-Mail",
+      "topic": "Thema",
+      "topic.general": "Allgemein",
+      "topic.bug": "Fehler melden",
+      "topic.feature": "Funktionswunsch",
+      "topic.billing": "Abrechnung",
+      "message": "Nachricht",
+      "send": "Senden",
+      "mailapp": "Mail-App öffnen",
+      "note": "Wir antworten von hello@keysearch-app.com. Es werden keine lokalen Dateien hochgeladen.",
+      "toast": "Mail-App wird geöffnet…"
+    }
+  },
+
+  "donate": {
+    "title": "Entwicklung unterstützen",
+    "desc": "KeySearch ist kostenlos. Wenn es dir Zeit spart, freue ich mich über Unterstützung.",
+    "coffee": "Einen Kaffee ausgeben",
+    "kofi": "Ko-fi",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "thanks": "Danke für deine Unterstützung — sie hält KeySearch schnell und fokussiert."
+  },
+
+  "news": {
+    "title": "Neuigkeiten",
+    "lead": "Vierteljährliche Highlights & Release Notes.",
+    "filter": { "all": "Alle", "2025": "2025", "2024": "2024" },
+    "ctaTitle": "Die neuesten Funktionen testen?",
+    "ctaSub": "Lade den neuesten Build oder öffne die Web-App.",
+    "v130": {
+      "date": "1. Sept. 2025",
+      "title": "Neu: Mehrsprachig (17 Sprachen)",
+      "desc": "Interface & Website unterstützen 17 Sprachen mit sofortigem Umschalten. Tastenkürzel lokalisiert.",
+      "l1": "Sprachmenü auf allen Seiten",
+      "l2": "JSON-basiertes i18n, leicht beizutragen",
+      "l3": "Bessere SEO-Meta für lokalisierte Inhalte"
+    },
+    "v120": {
+      "date": "10. Juni 2025",
+      "title": "Performance: schnellere Indizierung",
+      "desc": "Indexaufbau ca. 30 % schneller bei großen Projekten. Weniger Speicherbedarf.",
+      "l1": "Streaming-Tokenizer für große Dateien",
+      "l2": "Inkrementeller Index-Neuaufbau",
+      "l3": "Crash-Recovery unter Windows"
+    },
+    "v110": {
+      "date": "15. Dez. 2024",
+      "title": "Neu: CSV-Export & bessere Filter",
+      "desc": "Ergebnisse als CSV exportieren; nach Typ, Datum, Pfad verfeinern. Dunkelmodus überarbeitet.",
+      "l1": "CSV-Export mit einem Klick",
+      "l2": "Filter-Presets (Code / Docs / Medien)",
+      "l3": "Tastatur: Ctrl/Cmd + K Schnellsuche"
+    }
+  },
+
+  "foot": {
+    "brand": "KeySearch",
+    "slogan-1": "Schnell finden, auf den Punkt.<br>Kein Chaos. Nur Antworten.",
+    "product": { "_": "Produkt", "feat": "Funktionen", "price": "Preise", "download": "Download" },
+    "support": { "_": "Support", "help": "Hilfe-Center", "docs": "Dokumente" },
+    "company": { "_": "Unternehmen", "about": "Über uns", "contact": "Kontakt" },
+    "follow":  { "_": "Folgen", "twitter": "Twitter", "youtube": "YouTube" },
+    "b": { "lang": "Sprache", "privacy": "Datenschutz", "terms": "Bedingungen", "copy": "© 2025 KeySearch. Alle Rechte vorbehalten." }
+  }
+}
