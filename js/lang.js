@@ -19,7 +19,7 @@
     ['de','Deutsch'],
     ['fr','Français'],
     ['pt','Português'],
-    ['ru','Bahasa Indonesia'],
+    ['ru','Русский'],
     ['ar','Deutsch'],
     ['hi','Français']
   ];
