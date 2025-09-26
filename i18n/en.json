@@ -126,12 +126,16 @@
     "desc-3": "Export to CSV/JSON. Share read-only collections when you need to collaborate.",
     "diff-4": "Multi-language",
     "desc-4": "Switch UI instantly with i18n JSON. Ready for 17+ locales and counting.",
-    "privacy": "Privacy & Transparency",
-    "privacy.desc": "KeySearch is privacy-first. We don’t sell data. Optional telemetry is off by default and can be disabled anytime. Clear exports are built-in.",
-    "privacy.read": "Read Privacy",
-    "privacy.update": "Product Updates"
+    "privacy": "Privacy & Transparency"
   },
 
+  "about": {
+        "privacy": {
+          "desc": "KeySearch is privacy-first. We don’t sell data. Optional telemetry is off by default and can be disabled anytime. Clear exports are built-in.",
+          "read": "Read Privacy",
+          "update": "Product Updates"
+    },
+  "partner": "Press or partnership? Email",
   "contact": "Contact",
   "email": "hello@keysearch-app.com",
 
