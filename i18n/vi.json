@@ -1,0 +1,221 @@
+{
+  "_meta": { "lang": "Tiếng Việt", "dir": "ltr" },
+
+  "meta": {
+    "title": {
+      "home": "KeySearch — Tìm nhanh. Chính xác.",
+      "features": "Tính năng — KeySearch",
+      "download": "Tải xuống — KeySearch",
+      "pricing": "Giá — KeySearch",
+      "about": "Giới thiệu — KeySearch",
+      "support": "Hỗ trợ — KeySearch",
+      "news": "Tin tức — KeySearch"
+    }
+  },
+
+  "header": {
+    "brand": "KeySearch",
+    "features": "Tính năng",
+    "download": "Tải xuống",
+    "pricing": "Giá",
+    "about": "Giới thiệu",
+    "support": "Hỗ trợ",
+    "tryapp": { "cta": "🚀 Dùng bản Web" },
+    "lang": { "current": "Tiếng Việt" }
+  },
+
+  "home": {
+    "hero": {
+      "title": "Tìm nhanh, gọn nhẹ",
+      "sub": "Mọi thứ trong tầm tay. Gọn gàng. Có ngay câu trả lời."
+    },
+    "cta": { "downloadNow": "Tải ngay" },
+    "final": {
+      "title": "Sẵn sàng bắt đầu?",
+      "lead": "Tải KeySearch cho máy tính hoặc dùng ngay trên trình duyệt."
+    },
+    "feature1": {
+      "title": "Tìm bất cứ gì tức thì",
+      "desc": "Tìm chính xác điều bạn cần trên dự án, ghi chú, tài nguyên — ngay lập tức."
+    },
+    "feature2": {
+      "title": "Ngăn nắp mà không tốn công",
+      "desc": "Không thư mục rườm rà. KeySearch giữ mọi thứ rõ ràng, dễ truy cập."
+    }
+  },
+
+  "features": {
+    "title": "Tính năng",
+    "lead": "Điều làm KeySearch mạnh mẽ và dễ dùng.",
+    "cards": {
+      "instant": { "title": "Kết quả tức thì", "desc": "Tìm trong ghi chú, tệp và thẻ chỉ trong mili-giây." },
+      "tags": { "title": "Thẻ thông minh", "desc": "Thẻ đa cấp, bộ lọc, tự động điền — sắp xếp siêu nhanh." },
+      "collections": { "title": "Bộ sưu tập", "desc": "Nhóm theo dự án/ngữ cảnh; chia sẻ chế độ chỉ đọc." },
+      "shortcuts": { "title": "Phím tắt toàn hệ", "desc": "Đi bất cứ đâu với một tổ hợp phím. Có sẵn bảng lệnh." },
+      "i18n": { "title": "Giao diện đa ngôn ngữ", "desc": "Đổi ngôn ngữ ngay lập tức. Hỗ trợ 17+ ngôn ngữ." },
+      "privacy": { "title": "Ưu tiên quyền riêng tư", "desc": "Local-first (IndexedDB). Dữ liệu ở lại trên thiết bị của bạn." },
+      "export": { "title": "Xuất linh hoạt", "desc": "Xuất CSV/JSON hoặc chia sẻ bộ sưu tập cho nhóm." },
+      "platforms": { "title": "Web & Máy tính", "desc": "Trải nghiệm giống nhau trên Web và máy tính. Không cần học lại." }
+    },
+    "final": {
+      "title": "Muốn thử ngay?",
+      "lead": "Tải KeySearch hoặc dùng tức thì trong trình duyệt."
+    }
+  },
+
+  "download": {
+    "title": "Tải xuống",
+    "lead": "Lấy KeySearch cho nền tảng bạn thích.",
+    "windows": { "title": "Windows", "version": "Phiên bản 1.0.1.0", "cta": "Tải EXE" },
+    "mac": { "title": "macOS", "version": "Phiên bản 1.0.1.0", "cta": "Tải DMG" },
+    "linux": { "title": "Linux", "version": "Phiên bản 1.0.1.0", "cta": "Tải AppImage" },
+    "hash": { "label": "SHA256:" },
+    "webpref": { "title": "Thích dùng Web hơn?", "lead": "Chạy KeySearch trong trình duyệt — không cần cài đặt." },
+    "cta": { "text": "Tải xuống" },
+    "web": "Mở bản Web"
+  },
+
+  "pricing": {
+    "title": "Giá",
+    "lead": "Gói đơn giản, minh bạch và có thể mở rộng theo bạn.",
+    "billing": { "monthly": "Theo tháng", "yearly": "Theo năm", "save": "Tiết kiệm 20%" },
+    "free": {
+      "title": "Miễn phí",
+      "perma": "/ trọn đời",
+      "f1": "Tìm kiếm không giới hạn",
+      "f2": "Thẻ & bộ sưu tập cơ bản",
+      "f3": "Xuất CSV/JSON",
+      "cta": "Bắt đầu"
+    },
+    "pro": {
+      "badge": "Phổ biến nhất",
+      "title": "Pro",
+      "permonth": "/ tháng",
+      "f1": "Tất cả trong gói Miễn phí",
+      "f2": "Giao diện đa ngôn ngữ",
+      "f3": "Nhắc nhở & bộ lọc thông minh",
+      "f4": "Hỗ trợ ưu tiên",
+      "cta": "Nâng cấp ngay"
+    },
+    "faq": {
+      "refunds": { "q": "Có hoàn tiền không?", "a": "Nếu không hài lòng, hãy liên hệ trong 14 ngày. Chúng tôi sẽ hỗ trợ." },
+      "switch": { "q": "Tôi có thể đổi gói sau này không?", "a": "Có. Bạn có thể nâng cấp hoặc hủy bất cứ lúc nào." }
+    },
+    "final": {
+      "title": "Bắt đầu tìm thông minh hơn",
+      "lead": "KeySearch miễn phí để thử. Nâng cấp khi bạn sẵn sàng.",
+      "cta": { "download": "Tải miễn phí", "openweb": "Mở bản Web" }
+    }
+  },
+
+  "about": {
+    "title": "Giới thiệu KeySearch",
+    "desc": "Tìm nhanh. Gọn gàng. Có câu trả lời ngay.",
+    "mission": {
+      "t": "Sứ mệnh",
+      "desc": "Giúp mọi người tìm chính xác điều họ cần — qua ghi chú, tệp và ý tưởng — tức thì, không rối rắm hay lệ thuộc đám mây."
+    },
+    "diff-1": "Local-first",
+    "desc-1": "Dữ liệu nằm trên thiết bị của bạn (IndexedDB). Dùng offline. Không cần tài khoản.",
+    "diff-2": "Nhanh từ thiết kế",
+    "desc-2": "Tìm kiếm có chỉ mục với thẻ, bộ lọc, phím tắt — tính bằng mili-giây.",
+    "diff-3": "Không bị khóa",
+    "desc-3": "Xuất CSV/JSON. Chia sẻ bộ sưu tập chỉ-đọc khi cần cộng tác.",
+    "diff-4": "Đa ngôn ngữ",
+    "desc-4": "Chuyển giao diện tức thì bằng i18n JSON. Hỗ trợ 17+ locale.",
+    "privacy": {
+      "_": "Quyền riêng tư & minh bạch",
+      "desc": "KeySearch ưu tiên quyền riêng tư. Không bán dữ liệu. Telemetry tùy chọn tắt mặc định và có thể tắt bất cứ lúc nào. Có sẵn xuất dữ liệu rõ ràng.",
+      "read": "Đọc Chính sách quyền riêng tư",
+      "update": "Cập nhật sản phẩm"
+    }
+  },
+
+  "contact": {
+    "_": "Liên hệ",
+    "partner": "Báo chí hay hợp tác? Email"
+  },
+  "email": "hello@keysearch-app.com",
+
+  "support": {
+    "title": "Hỗ trợ",
+    "lead": "Tìm câu trả lời nhanh hoặc gửi phản hồi cho chúng tôi.",
+    "quick": { "download": "Tải xuống", "billing": "Thanh toán & gói", "faq": "FAQ", "contact": "Liên hệ" },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Cách cài đặt KeySearch?",
+      "a1": "Tải từ trang Tải xuống và chạy trình cài đặt. Trên macOS có thể cần cho phép ứng dụng từ nhà phát triển đã xác định.",
+      "q2": "Bản Web khác gì bản Desktop?",
+      "a2": "Tính năng cốt lõi giống nhau. Bản Desktop có thêm offline và xuất cục bộ.",
+      "q3": "Làm sao đổi ngôn ngữ?",
+      "a3": "Dùng bộ chuyển ngôn ngữ ở góc phải trên. Sẽ có thêm ngôn ngữ mới."
+    },
+    "feedback": {
+      "title": "Gửi phản hồi",
+      "name": "Tên của bạn",
+      "email": "Email của bạn",
+      "topic": "Chủ đề",
+      "topic.general": "Chung",
+      "topic.bug": "Báo lỗi",
+      "topic.feature": "Yêu cầu tính năng",
+      "topic.billing": "Thanh toán",
+      "message": "Nội dung",
+      "send": "Gửi",
+      "mailapp": "Mở ứng dụng mail",
+      "note": "Chúng tôi sẽ phản hồi từ hello@keysearch-app.com. Hệ thống không tải lên tệp cục bộ.",
+      "toast": "Đang mở ứng dụng mail…"
+    }
+  },
+
+  "donate": {
+    "title": "Ủng hộ phát triển",
+    "desc": "KeySearch miễn phí sử dụng. Nếu giúp bạn tiết kiệm thời gian, hãy cân nhắc ủng hộ nhé.",
+    "coffee": "Mua cho tôi ly cà phê",
+    "kofi": "Ko-fi",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "thanks": "Cảm ơn bạn — sự ủng hộ giúp KeySearch luôn nhanh và tập trung."
+  },
+
+  "news": {
+    "title": "Tin tức",
+    "lead": "Điểm nhấn theo quý & ghi chú phát hành.",
+    "filter": { "all": "Tất cả", "2025": "2025", "2024": "2024" },
+    "ctaTitle": "Muốn thử phiên bản mới nhất?",
+    "ctaSub": "Tải bản build mới nhất hoặc mở bản Web.",
+    "v130": {
+      "date": "1 Tháng 9, 2025",
+      "title": "Mới: Đa ngôn ngữ (17 ngôn ngữ)",
+      "desc": "Giao diện & website hỗ trợ 17 ngôn ngữ với chuyển đổi tức thì. Phím gợi ý đã nội địa hóa.",
+      "l1": "Thêm menu Ngôn ngữ trên mọi trang",
+      "l2": "i18n dựa trên JSON, dễ đóng góp",
+      "l3": "Meta SEO tốt hơn cho nội dung bản địa hóa"
+    },
+    "v120": {
+      "date": "10 Tháng 6, 2025",
+      "title": "Hiệu năng: Lập chỉ mục nhanh hơn",
+      "desc": "Thời gian lập chỉ mục giảm ~30% trên dự án lớn. Giảm sử dụng bộ nhớ.",
+      "l1": "Tokenizer dạng streaming cho tệp lớn",
+      "l2": "Tái tạo chỉ mục gia tăng",
+      "l3": "Khôi phục sau sự cố trên Windows"
+    },
+    "v110": {
+      "date": "15 Tháng 12, 2024",
+      "title": "Mới: Xuất CSV & bộ lọc tốt hơn",
+      "desc": "Xuất kết quả CSV; lọc theo loại, ngày và đường dẫn. Giao diện tối được trau chuốt.",
+      "l1": "Xuất CSV một cú nhấp",
+      "l2": "Preset lọc (code / docs / media)",
+      "l3": "Bàn phím: Ctrl/Cmd + K tìm nhanh"
+    }
+  },
+
+  "foot": {
+    "brand": "KeySearch",
+    "slogan-1": "Tìm nhanh, gọn nhẹ.<br>Không rối. Chỉ có câu trả lời.",
+    "product": { "_": "Sản phẩm", "feat": "Tính năng", "price": "Giá", "download": "Tải xuống" },
+    "support": { "_": "Hỗ trợ", "help": "Trung tâm trợ giúp", "docs": "Tài liệu" },
+    "company": { "_": "Công ty", "about": "Giới thiệu", "contact": "Liên hệ" },
+    "follow":  { "_": "Theo dõi", "twitter": "Twitter", "youtube": "YouTube" },
+    "b": { "lang": "Ngôn ngữ", "privacy": "Quyền riêng tư", "terms": "Điều khoản", "copy": "© 2025 KeySearch. Bảo lưu mọi quyền." }
+  }
+}
