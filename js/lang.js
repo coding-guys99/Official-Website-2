@@ -18,7 +18,7 @@
     ['id','Bahasa Indonesia'],
     ['de','Deutsch'],
     ['fr','Français'],
-    ['pt','Bahasa Indonesia'],
+    ['pt','Português'],
     ['ru','Bahasa Indonesia'],
     ['ar','Deutsch'],
     ['hi','Français']
