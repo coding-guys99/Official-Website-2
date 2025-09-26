@@ -1,0 +1,221 @@
+{
+  "_meta": { "lang": "Bahasa Indonesia", "dir": "ltr" },
+
+  "meta": {
+    "title": {
+      "home": "KeySearch — Temukan cepat.",
+      "features": "Fitur — KeySearch",
+      "download": "Unduh — KeySearch",
+      "pricing": "Harga — KeySearch",
+      "about": "Tentang — KeySearch",
+      "support": "Dukungan — KeySearch",
+      "news": "Berita — KeySearch"
+    }
+  },
+
+  "header": {
+    "brand": "KeySearch",
+    "features": "Fitur",
+    "download": "Unduh",
+    "pricing": "Harga",
+    "about": "Tentang",
+    "support": "Dukungan",
+    "tryapp": { "cta": "🚀 Coba Versi Web" },
+    "lang": { "current": "Bahasa Indonesia" }
+  },
+
+  "home": {
+    "hero": {
+      "title": "Cari cepat, hasil tepat",
+      "sub": "Semua dalam jangkauan. Rapi. Jawaban langsung."
+    },
+    "cta": { "downloadNow": "Unduh Sekarang" },
+    "final": {
+      "title": "Siap mulai?",
+      "lead": "Unduh KeySearch untuk desktop, atau gunakan versi web sekarang."
+    },
+    "feature1": {
+      "title": "Cari apa pun seketika",
+      "desc": "Temukan yang kamu butuhkan di proyek, catatan, dan sumber — seketika."
+    },
+    "feature2": {
+      "title": "Tetap rapi tanpa repot",
+      "desc": "Tanpa folder dan berantakan. KeySearch membuat semuanya jelas dan mudah dijangkau."
+    }
+  },
+
+  "features": {
+    "title": "Fitur",
+    "lead": "Mengapa KeySearch kuat dan mudah digunakan.",
+    "cards": {
+      "instant": { "title": "Hasil Instan", "desc": "Telusuri catatan, file, dan tag dalam milidetik." },
+      "tags": { "title": "Tag Cerdas", "desc": "Tag bertingkat, filter, dan pelengkapan otomatis untuk pengorganisasian cepat." },
+      "collections": { "title": "Koleksi", "desc": "Kelompokkan berdasarkan proyek/konteks; bagikan tampilan hanya-baca." },
+      "shortcuts": { "title": "Pintasan Global", "desc": "Ke mana saja dengan satu kombinasi tombol. Command palette bawaan." },
+      "i18n": { "title": "UI Multibahasa", "desc": "Ganti bahasa seketika. Siap 17+ lokal." },
+      "privacy": { "title": "Privasi Utama", "desc": "Local-first (IndexedDB). Data tetap di perangkatmu." },
+      "export": { "title": "Ekspor Fleksibel", "desc": "Ekspor ke CSV/JSON, atau bagikan koleksi dengan tim." },
+      "platforms": { "title": "Web & Desktop", "desc": "Pengalaman yang sama di web dan desktop. Tanpa kurva belajar." }
+    },
+    "final": {
+      "title": "Ingin coba?",
+      "lead": "Unduh KeySearch atau gunakan langsung di browser."
+    }
+  },
+
+  "download": {
+    "title": "Unduh",
+    "lead": "Dapatkan KeySearch untuk platform favoritmu.",
+    "windows": { "title": "Windows", "version": "Versi 1.0.1.0", "cta": "Unduh EXE" },
+    "mac": { "title": "macOS", "version": "Versi 1.0.1.0", "cta": "Unduh DMG" },
+    "linux": { "title": "Linux", "version": "Versi 1.0.1.0", "cta": "Unduh AppImage" },
+    "hash": { "label": "SHA256:" },
+    "webpref": { "title": "Lebih suka Web?", "lead": "Jalankan KeySearch di browser — tanpa instalasi." },
+    "cta": { "text": "Unduh" },
+    "web": "Buka Versi Web"
+  },
+
+  "pricing": {
+    "title": "Harga",
+    "lead": "Paket sederhana dan transparan yang tumbuh bersama kamu.",
+    "billing": { "monthly": "Bulanan", "yearly": "Tahunan", "save": "Hemat 20%" },
+    "free": {
+      "title": "Gratis",
+      "perma": "/ selamanya",
+      "f1": "Pencarian tanpa batas",
+      "f2": "Tag & koleksi dasar",
+      "f3": "Ekspor CSV/JSON",
+      "cta": "Mulai"
+    },
+    "pro": {
+      "badge": "Paling Populer",
+      "title": "Pro",
+      "permonth": "/ bulan",
+      "f1": "Semua di Paket Gratis",
+      "f2": "UI multibahasa",
+      "f3": "Pengingat & filter pintar",
+      "f4": "Dukungan prioritas",
+      "cta": "Upgrade Sekarang"
+    },
+    "faq": {
+      "refunds": { "q": "Apakah ada pengembalian dana?", "a": "Jika tidak puas, hubungi kami dalam 14 hari. Kami akan membantu." },
+      "switch": { "q": "Bisa ganti paket nanti?", "a": "Bisa. Kamu dapat upgrade atau batalkan kapan saja." }
+    },
+    "final": {
+      "title": "Mulai mencari lebih cerdas",
+      "lead": "KeySearch gratis untuk dicoba. Upgrade saat siap.",
+      "cta": { "download": "Unduh Gratis", "openweb": "Buka Web" }
+    }
+  },
+
+  "about": {
+    "title": "Tentang KeySearch",
+    "desc": "Temukan cepat. Tanpa berantakan. Jawaban langsung.",
+    "mission": {
+      "t": "Misi",
+      "desc": "Membantu siapa pun menemukan tepat yang dibutuhkan — lintas catatan, file, dan ide — tanpa berantakan, tanpa terkunci, tanpa bergantung pada cloud."
+    },
+    "diff-1": "Local-first",
+    "desc-1": "Data ada di perangkatmu (IndexedDB). Bisa offline. Tanpa akun.",
+    "diff-2": "Cepat dari desain",
+    "desc-2": "Pencarian berindeks dengan tag, filter, dan pintasan global — dalam milidetik.",
+    "diff-3": "Tanpa lock-in",
+    "desc-3": "Ekspor ke CSV/JSON. Bagikan koleksi hanya-baca untuk kolaborasi.",
+    "diff-4": "Multibahasa",
+    "desc-4": "Ganti UI instan lewat i18n JSON. 17+ lokal siap.",
+    "privacy": {
+      "_": "Privasi & Transparansi",
+      "desc": "KeySearch mengutamakan privasi. Tidak menjual data. Telemetri opsional nonaktif secara default dan bisa dimatikan kapan saja. Ekspor jelas tersedia.",
+      "read": "Baca Privasi",
+      "update": "Pembaruan Produk"
+    }
+  },
+
+  "contact": {
+    "_": "Kontak",
+    "partner": "Pers atau kemitraan? Email"
+  },
+  "email": "hello@keysearch-app.com",
+
+  "support": {
+    "title": "Dukungan",
+    "lead": "Temukan jawaban cepat, atau kirim masukan Anda.",
+    "quick": { "download": "Unduh", "billing": "Tagihan & paket", "faq": "FAQ", "contact": "Kontak" },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Bagaimana memasang KeySearch?",
+      "a1": "Unduh dari halaman Unduh dan jalankan installer. Di macOS, mungkin perlu mengizinkan aplikasi dari pengembang teridentifikasi.",
+      "q2": "Apa beda Web dan Desktop?",
+      "a2": "Fitur inti sama. Desktop menambah mode offline dan ekspor lokal.",
+      "q3": "Bagaimana mengganti bahasa?",
+      "a3": "Gunakan pengalih bahasa di kanan atas. Lebih banyak bahasa akan hadir."
+    },
+    "feedback": {
+      "title": "Kirim masukan",
+      "name": "Nama Anda",
+      "email": "Email Anda",
+      "topic": "Topik",
+      "topic.general": "Umum",
+      "topic.bug": "Laporan bug",
+      "topic.feature": "Permintaan fitur",
+      "topic.billing": "Tagihan",
+      "message": "Pesan",
+      "send": "Kirim",
+      "mailapp": "Buka aplikasi email",
+      "note": "Kami akan membalas dari hello@keysearch-app.com. Sistem tidak mengunggah file lokal.",
+      "toast": "Membuka aplikasi email…"
+    }
+  },
+
+  "donate": {
+    "title": "Dukung pengembangan",
+    "desc": "KeySearch gratis digunakan. Jika menghemat waktu Anda, pertimbangkan untuk mendukung kami.",
+    "coffee": "Belikan kopi",
+    "kofi": "Ko-fi",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "thanks": "Terima kasih atas dukungan Anda — membantu KeySearch tetap cepat dan fokus."
+  },
+
+  "news": {
+    "title": "Berita",
+    "lead": "Sorotan triwulan & catatan rilis.",
+    "filter": { "all": "Semua", "2025": "2025", "2024": "2024" },
+    "ctaTitle": "Ingin coba yang terbaru?",
+    "ctaSub": "Unduh build terbaru atau buka versi web.",
+    "v130": {
+      "date": "1 Sep 2025",
+      "title": "Baru: Multi-bahasa (17 bahasa)",
+      "desc": "Antarmuka & situs mendukung 17 bahasa dengan pengalihan instan. Petunjuk keyboard dilokalkan.",
+      "l1": "Tambahan menu Bahasa di semua halaman",
+      "l2": "i18n berbasis JSON, mudah dikontribusikan",
+      "l3": "Meta SEO lebih baik untuk konten lokal"
+    },
+    "v120": {
+      "date": "10 Jun 2025",
+      "title": "Performa: Pengindeksan lebih cepat",
+      "desc": "Waktu membangun indeks turun ~30% pada proyek besar. Jejak memori membaik.",
+      "l1": "Tokenizer streaming untuk file besar",
+      "l2": "Bangun ulang indeks bertahap",
+      "l3": "Pemulihan crash di Windows"
+    },
+    "v110": {
+      "date": "15 Des 2024",
+      "title": "Baru: Ekspor CSV & filter lebih baik",
+      "desc": "Ekspor hasil ke CSV; saring menurut jenis, tanggal, dan path. Polesan mode gelap.",
+      "l1": "Ekspor CSV sekali klik",
+      "l2": "Preset filter (kode / dok / media)",
+      "l3": "Keyboard: Ctrl/Cmd + K pencarian cepat"
+    }
+  },
+
+  "foot": {
+    "brand": "KeySearch",
+    "slogan-1": "Cari cepat, hasil tepat.<br>Rapi. Jawaban langsung.",
+    "product": { "_": "Produk", "feat": "Fitur", "price": "Harga", "download": "Unduh" },
+    "support": { "_": "Dukungan", "help": "Pusat bantuan", "docs": "Dokumentasi" },
+    "company": { "_": "Perusahaan", "about": "Tentang", "contact": "Kontak" },
+    "follow":  { "_": "Ikuti", "twitter": "Twitter", "youtube": "YouTube" },
+    "b": { "lang": "Bahasa", "privacy": "Privasi", "terms": "Ketentuan", "copy": "© 2025 KeySearch. Hak cipta dilindungi." }
+  }
+}
