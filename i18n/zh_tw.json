@@ -40,44 +40,44 @@
     },
     "feature2": {
       "title": "輕鬆維持井然有序",
-      "desc": "無需資料夾、沒有雜亂。KeySearch 讓一切清楚好找。"
+      "desc": "無需資料夾、不再雜亂。KeySearch 讓一切清楚好找。"
     }
   },
 
   "features": {
     "title": "功能特色",
-    "lead": "讓 KeySearch 強大且簡單易用的原因。",
+    "lead": "讓 KeySearch 強大又好用的關鍵。",
     "cards": {
       "instant": { "title": "即時搜尋", "desc": "毫秒間搜尋筆記、檔案與標籤。" },
       "tags": { "title": "智慧標籤", "desc": "多層級標籤、篩選與自動完成，加速整理。" },
       "collections": { "title": "集合管理", "desc": "依專案或情境分組；可分享唯讀檢視。" },
-      "shortcuts": { "title": "全域快捷鍵", "desc": "一組快捷鍵跳到任意位置，內建指令面板。" },
+      "shortcuts": { "title": "全域快捷鍵", "desc": "一組快捷鍵跳到任何地方，內建指令面板。" },
       "i18n": { "title": "多語介面", "desc": "可即時切換語言，支援 17+ 語系。" },
-      "privacy": { "title": "隱私優先", "desc": "本地優先（IndexedDB），資料僅在你的裝置。" },
+      "privacy": { "title": "隱私優先", "desc": "本地優先（IndexedDB），資料只在你的裝置。" },
       "export": { "title": "彈性匯出", "desc": "匯出 CSV/JSON，或分享集合給團隊。" },
       "platforms": { "title": "網頁與桌面", "desc": "網頁與桌面體驗一致，零學習門檻。" }
     },
     "final": {
-      "title": "準備好要體驗了嗎？",
-      "lead": "下載 KeySearch，或直接在瀏覽器中使用。"
+      "title": "準備好要試試了嗎？",
+      "lead": "立即下載 KeySearch，或直接在瀏覽器使用。"
     }
   },
 
   "download": {
     "title": "下載",
-    "lead": "選擇你偏好的平台下載 KeySearch。",
+    "lead": "選擇你的平台下載 KeySearch。",
     "windows": { "title": "Windows", "version": "版本 1.0.1.0", "cta": "下載 EXE" },
     "mac": { "title": "macOS", "version": "版本 1.0.1.0", "cta": "下載 DMG" },
     "linux": { "title": "Linux", "version": "版本 1.0.1.0", "cta": "下載 AppImage" },
     "hash": { "label": "SHA256 校驗：" },
-    "webpref": { "title": "偏好用網頁版？", "lead": "在瀏覽器執行 KeySearch，免安裝。" },
+    "webpref": { "title": "偏好使用網頁版？", "lead": "在瀏覽器執行 KeySearch，免安裝。" },
     "cta": { "text": "下載" },
     "web": "開啟網頁版"
   },
 
   "pricing": {
     "title": "價格方案",
-    "lead": "簡單透明，隨你成長的方案。",
+    "lead": "簡單透明，能隨你成長的方案。",
     "billing": { "monthly": "月繳", "yearly": "年繳", "save": "省 20%" },
     "free": {
       "title": "免費",
@@ -98,7 +98,7 @@
       "cta": "立即升級"
     },
     "faq": {
-      "refunds": { "q": "可以退款嗎？", "a": "若你不滿意，請於 14 天內與我們聯繫，我們會協助處理。" },
+      "refunds": { "q": "可以退款嗎？", "a": "若不滿意，請於 14 天內與我們聯繫，我們會協助處理。" },
       "switch": { "q": "之後可以更換方案嗎？", "a": "可以，你可隨時升級或取消。" }
     },
     "final": {
@@ -116,19 +116,21 @@
       "desc": "幫助每個人即時找到所需的筆記、檔案與想法，不被雜亂、綁定或雲端依賴拖累。"
     },
     "diff-1": "本地優先",
-    "desc-1": "資料存於你的裝置（IndexedDB）。可離線使用，無需帳號。",
+    "desc-1": "資料存於你的裝置（IndexedDB），可離線使用，無需帳號。",
     "diff-2": "極速設計",
     "desc-2": "索引搜尋搭配標籤、篩選與快捷鍵——以毫秒計算。",
     "diff-3": "無綁定",
     "desc-3": "可匯出 CSV/JSON；需要協作時分享唯讀集合。",
     "diff-4": "多語支援",
-    "desc-4": "使用 i18n JSON 即時切換介面，已支援 17+ 語系。",
-    "privacy": "隱私與透明",
-    "privacy.desc": "KeySearch 重視隱私。我們不販售資料。可選遙測預設關閉並可隨時停用；內建清楚的匯出功能。",
-    "privacy.read": "閱讀隱私政策",
-    "privacy.update": "產品更新"
+    "desc-4": "使用 i18n JSON 即時切換介面，支援 17+ 語系。",
+    "privacy": {
+      "desc": "KeySearch 重視隱私。我們不販售資料。可選遙測預設關閉並可隨時停用；內建清楚的匯出功能。",
+      "read": "閱讀隱私政策",
+      "update": "產品更新"
+    }
   },
 
+  "partner": "媒體或合作洽談？來信",
   "contact": "聯絡我們",
   "email": "hello@keysearch-app.com",
 
@@ -143,7 +145,7 @@
       "q2": "網頁版和桌面版差在哪？",
       "a2": "核心功能一致；桌面版額外提供離線模式與本地匯出。",
       "q3": "怎麼切換語言？",
-      "a3": "用右上角語言切換器。更多語言即將上線。"
+      "a3": "使用右上角語言切換器。更多語言即將上線。"
     },
     "feedback": {
       "title": "傳送回饋",
@@ -169,7 +171,7 @@
     "kofi": "Ko-fi",
     "paypal": "PayPal",
     "stripe": "Stripe",
-    "thanks": "感謝你的支持，讓 KeySearch 保持快速且專注。"
+    "thanks": "感謝你的支持——讓 KeySearch 保持快速與專注。"
   },
 
   "news": {
@@ -211,6 +213,6 @@
     "support": { "help": "幫助中心", "docs": "文件" },
     "company": { "about": "關於我們", "contact": "聯絡我們" },
     "follow": { "twitter": "Twitter", "youtube": "YouTube" },
-    "b": { "lang": "語言", "privacy": "隱私政策", "terms": "使用條款", "copy": "© 2025 KeySearch. 版權所有。" }
+    "b": { "lang": "語言", "privacy": "隱私", "terms": "條款", "copy": "© 2025 KeySearch. 版權所有。" }
   }
 }
