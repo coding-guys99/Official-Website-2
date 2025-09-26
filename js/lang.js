@@ -13,9 +13,12 @@
     ['ko','한국어'],
     ['th','日本語'],
     ['ms','日本語'],
-    ['vi','日本語'],
-    ['ja','日本語'],
-    ['ja','日本語']
+    ['vi','Tiếng Việt'],
+    ['es','Español'],
+    ['id','Bahasa Indonesia'],
+    ['de','Deutsch'],
+    ['fr','Français'],
+    ['id','Bahasa Indonesia']
   ];
 
   // ====== I18N 物件 ======
