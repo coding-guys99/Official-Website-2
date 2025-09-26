@@ -209,6 +209,13 @@
   },
 
   "foot": {
+    "product": { "產品" },
+    "support": { "支援" },
+    "company": { "公司" },
+    "follow": { "追踪" },
+  },
+
+  "foot": {
     "brand": "KeySearch",
     "slogan": "快速搜尋，一步到位。<br>乾淨俐落，直達答案。",
     "product": { "feat": "功能", "price": "價格", "download": "下載" },
