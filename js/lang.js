@@ -18,7 +18,10 @@
     ['id','Bahasa Indonesia'],
     ['de','Deutsch'],
     ['fr','Français'],
-    ['id','Bahasa Indonesia']
+    ['pt','Bahasa Indonesia'],
+    ['ru','Bahasa Indonesia'],
+    ['ar','Deutsch'],
+    ['hi','Français']
   ];
 
   // ====== I18N 物件 ======
