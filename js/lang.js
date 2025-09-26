@@ -1,9 +1,8 @@
-// js/lang.js — i18n 核心 + 快速渲染 + 語言選單 UI（含物件→字串回退）
+// js/lang.js — i18n 核心 + 快速渲染(含 data-i18n-html) + 語言選單 UI
 (function () {
   // ====== 基本設定 ======
   const FALLBACK = 'en';
-  // 自動推得 /i18n/ 目錄（支援子資料夾部署）
-  const BASE_URL = new URL('./i18n/', location.href).toString();
+  const BASE_URL = new URL('./i18n/', location.href).toString(); // 自動推得 /i18n/ 目錄
   const STORE_KEY = 'i18n.lang';
 
   const SUPPORTED = [
@@ -67,8 +66,7 @@
 
         this.render(); // 立即渲染
 
-        // 如果頁面 <title> 有 data-i18n，就會被 render 處理；
-        // 保險起見，補一次 meta.title.home 作為兜底（在沒 data-i18n 的頁面）
+        // 兜底：如果頁面 <title> 沒 data-i18n，仍更新為 meta.title.home
         const title = this.t('meta.title.home');
         if (typeof title === 'string' && title) document.title = title;
 
@@ -77,7 +75,6 @@
       } catch (err) {
         console.error('[i18n] failed to load:', lang, err);
         if (lang !== FALLBACK) {
-          // 回退到英語
           localStorage.setItem(STORE_KEY, FALLBACK);
           return this.setLang(FALLBACK);
         }
@@ -99,12 +96,12 @@
   const I18NIndex = { text: [], attrs: [] };
 
   function indexI18nNodes(root = document) {
-    // 純文字節點
+    // 純文字/HTML 節點（支援 data-i18n-html）
     root.querySelectorAll('[data-i18n]').forEach(el => {
-      // 若此節點是純屬性翻譯就跳過（交由 attrs 處理）
-      if (el.hasAttribute('data-i18n-attr')) return;
-      const key = el.getAttribute('data-i18n');
-      I18NIndex.text.push({ el, key, last: undefined });
+      if (el.hasAttribute('data-i18n-attr')) return; // 屬性翻譯交給 attrs 流程
+      const key  = el.getAttribute('data-i18n');
+      const html = el.hasAttribute('data-i18n-html'); // <-- 新增：若有就用 innerHTML
+      I18NIndex.text.push({ el, key, html, last: undefined });
     });
     // 屬性翻譯（data-i18n-attr="title,aria-label"）
     root.querySelectorAll('[data-i18n-attr]').forEach(el => {
@@ -115,9 +112,9 @@
     });
   }
 
-  // ====== 渲染（含物件→字串回退：title/label/_） ======
+  // ====== 渲染（含物件→字串回退：title/label/_ + data-i18n-html） ======
   I18N.render = function renderFast() {
-    // 文字內容
+    // 文字 / 內文
     for (let n of I18NIndex.text) {
       if (!n.el.isConnected) continue;
       let val = this.t(n.key);
@@ -125,11 +122,12 @@
         val = val.title || val.label || val._; // 物件回退
       }
       if (typeof val === 'string' && val !== n.last) {
-        // <title> 標籤
         if (n.el.tagName === 'TITLE') {
-          document.title = val;
+          document.title = val; // <title> 特殊處理
+        } else if (n.html) {
+          n.el.innerHTML = val; // 允許 <br> 等 HTML
         } else {
-          n.el.textContent = val;
+          n.el.textContent = val; // 預設：純文字安全
         }
         n.last = val;
       }
@@ -140,7 +138,6 @@
       for (let attr of n.attrs) {
         const key = `${n.baseKey}.${attr}`;
         let val = this.t(key);
-        // 若取不到，回退到 baseKey 本身（支援 val 為物件時的回退）
         if (val === undefined) val = this.t(n.baseKey);
         if (val && typeof val === 'object') {
           val = val.title || val.label || val._;
@@ -175,7 +172,7 @@
         });
       }
       if (m.type === 'attributes' &&
-          (m.attributeName === 'data-i18n' || m.attributeName === 'data-i18n-attr')) {
+          (m.attributeName === 'data-i18n' || m.attributeName === 'data-i18n-attr' || m.attributeName === 'data-i18n-html')) {
         indexI18nNodes(m.target);
         needRender = true;
       }
@@ -187,7 +184,7 @@
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ['data-i18n', 'data-i18n-attr']
+      attributeFilter: ['data-i18n', 'data-i18n-attr', 'data-i18n-html']
     });
   });
 
@@ -216,6 +213,7 @@
     if (!portal) return;
     portal.classList.add('open');
     portal.removeAttribute('aria-hidden');
+
     // 定位
     const r = anchor.getBoundingClientRect();
     const W = portal.offsetWidth, H = portal.offsetHeight, M = 12;
@@ -237,7 +235,7 @@
 
   function closePortal(anchor) {
     if (!portal) return;
-    // 先把焦點移回觸發鈕，避免 aria-hidden/focus 警告
+    // 把焦點移回觸發鈕，避免「aria-hidden 包住 focus」警告
     if (anchor && document.activeElement && portal.contains(document.activeElement)) {
       anchor.focus();
     }
@@ -268,7 +266,7 @@
       const code = item.dataset.lang.toLowerCase().replace('-', '_');
       await I18N.setLang(code);
       syncCurrentLabel(code);
-      // 關閉選單
+      // 關閉選單（找出剛剛的 opener）
       const opener = (btnMobile?.getAttribute('aria-expanded')==='true') ? btnMobile
                     : (footLink?.getAttribute('aria-expanded')==='true') ? footLink
                     : null;
