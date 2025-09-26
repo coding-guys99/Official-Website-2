@@ -12,7 +12,7 @@
     ['ja','日本語'],
     ['ko','한국어'],
     ['th','ไทย'],
-    ['ms','日本語'],
+    ['ms','Bahasa Melayu'],
     ['vi','Tiếng Việt'],
     ['es','Español'],
     ['id','Bahasa Indonesia'],
