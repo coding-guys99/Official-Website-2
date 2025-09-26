@@ -36,6 +36,17 @@
     }
   },
 
+  "home": {
+    "feature1": {
+      "title": "Search anything instantly",
+      "desc": "Find exactly what you need, across projects, notes, or resources — instantly."
+    },
+    "feature1": {
+      "title": "Stay organized without effort",
+      "desc": "No folders, no clutter. KeySearch keeps everything structured and easy to reach."
+    }
+  },
+
   "features": {
     "title": "Features",
     "lead": "What makes KeySearch powerful and simple to use.",
@@ -198,24 +209,37 @@
 
   "foot": {
     "brand": "KeySearch",
-    "slogan": "Find it. Fast.<br>No mess. Just answers.",
+    "slogan": "Find it. Fast.<br>No mess. Just answers."，
     "product": "Product",
     "support": "Support",
     "company": "Company",
-    "follow": "Follow",
+    "follow": "Follow"
+  }
 
-    "product.feat": "Features",
-    "product.price": "Pricing",
-    "product.download": "Download",
+  "foot": {
+    "product": {
+      "feat": "Features",
+      "price": "Pricing"，
+      "download": "Download"
+    },
 
-    "support.help": "Help Center",
-    "support.docs": "Docs",
+    "foot": {
+      "support": {
+        "help": "Help Center",
+        "docs": "Docs",
+    },
 
-    "company.about": "About",
-    "company.contact": "Contact",
+    "foot": {
+      "company": {
+        "about": "About",
+        "contact": "Contact",
+    },
 
-    "follow.twitter": "Twitter",
-    "follow.youtube": "YouTube",
+      "foot": {
+        "follow": {
+          "twitter": "Twitter",
+          "youtube": "YouTube"
+    },
 
     "b": {
       "lang": "Language",
