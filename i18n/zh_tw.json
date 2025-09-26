@@ -1,8 +1,6 @@
 {
-  "_meta": {
-    "lang": "繁體中文",
-    "dir": "ltr"
-  },
+  "_meta": { "lang": "繁體中文", "dir": "ltr" },
+
   "meta": {
     "title": {
       "home": "KeySearch — 快速找到答案",
@@ -14,6 +12,7 @@
       "news": "最新消息 — KeySearch"
     }
   },
+
   "header": {
     "brand": "KeySearch",
     "features": "功能",
@@ -24,6 +23,7 @@
     "tryapp": { "cta": "🚀 體驗網頁版" },
     "lang": { "current": "繁體中文" }
   },
+
   "home": {
     "hero": {
       "title": "快速搜尋，一步到位",
@@ -32,10 +32,10 @@
     "cta": { "downloadNow": "立即下載" },
     "final": {
       "title": "準備開始了嗎？",
-      "lead": "下載 KeySearch 桌面版，或立即體驗網頁版。",
-      "cta": { "download": "下載", "openweb": "開啟網頁版" }
+      "lead": "下載 KeySearch 桌面版，或立即體驗網頁版。"
     }
   },
+
   "features": {
     "title": "功能特色",
     "lead": "讓 KeySearch 強大且簡單易用的原因。",
@@ -45,7 +45,7 @@
       "collections": { "title": "集合管理", "desc": "依專案或情境分組，分享唯讀檢視。" },
       "shortcuts": { "title": "全域快捷鍵", "desc": "用一組快捷鍵跳到任何地方，內建指令面板。" },
       "i18n": { "title": "多語介面", "desc": "可即時切換語言，支援 17+ 種語系。" },
-      "privacy": { "title": "隱私優先", "desc": "本地優先，資料僅存於裝置 (IndexedDB)。" },
+      "privacy": { "title": "隱私優先", "desc": "本地優先，資料僅存於裝置（IndexedDB）。" },
       "export": { "title": "彈性匯出", "desc": "可匯出成 CSV/JSON，或與團隊分享集合。" },
       "platforms": { "title": "網頁與桌面", "desc": "網頁與桌面體驗一致，零學習門檻。" }
     },
@@ -54,6 +54,7 @@
       "lead": "立即下載 KeySearch，或直接於瀏覽器使用。"
     }
   },
+
   "download": {
     "title": "下載",
     "lead": "選擇你喜愛的平台下載 KeySearch。",
@@ -65,14 +66,11 @@
     "cta": { "text": "下載" },
     "web": "開啟網頁版"
   },
+
   "pricing": {
     "title": "價格方案",
     "lead": "簡單透明，隨你成長的方案。",
-    "billing": {
-      "monthly": "月繳",
-      "yearly": "年繳",
-      "save": "省 20%"
-    },
+    "billing": { "monthly": "月繳", "yearly": "年繳", "save": "省 20%" },
     "free": {
       "title": "免費",
       "perma": "/ 永久",
@@ -101,6 +99,7 @@
       "cta": { "download": "免費下載", "openweb": "開啟網頁版" }
     }
   },
+
   "about": {
     "title": "關於 KeySearch",
     "desc": "快速搜尋，一步到位。乾淨俐落，直達答案。",
@@ -109,7 +108,7 @@
       "desc": "幫助人們即時找到所需的筆記、檔案與想法，免除雜亂、綁定與過度倚賴雲端。"
     },
     "diff-1": "本地優先",
-    "desc-1": "資料僅存在你的裝置 (IndexedDB)。可離線使用，無需帳號。",
+    "desc-1": "資料僅存在你的裝置（IndexedDB）。可離線使用，無需帳號。",
     "diff-2": "極速設計",
     "desc-2": "索引搜尋搭配標籤、篩選與快捷鍵，毫秒完成。",
     "diff-3": "無綁定",
@@ -121,15 +120,14 @@
     "privacy.read": "閱讀隱私政策",
     "privacy.update": "產品更新"
   },
+
+  "contact": "聯絡我們",
+  "email": "hello@keysearch-app.com",
+
   "support": {
     "title": "支援",
     "lead": "快速找到答案，或提供你的意見。",
-    "quick": {
-      "download": "下載",
-      "billing": "帳單與方案",
-      "faq": "常見問題",
-      "contact": "聯絡我們"
-    },
+    "quick": { "download": "下載", "billing": "帳單與方案", "faq": "常見問題", "contact": "聯絡我們" },
     "faq": {
       "title": "常見問題",
       "q1": "如何安裝 KeySearch？",
@@ -155,6 +153,7 @@
       "toast": "正在開啟郵件應用程式…"
     }
   },
+
   "donate": {
     "title": "支持開發",
     "desc": "KeySearch 免費使用。若它為你節省了時間，請考慮支持我們。",
@@ -164,6 +163,7 @@
     "stripe": "Stripe",
     "thanks": "感謝你的支持，這讓 KeySearch 保持快速且專注。"
   },
+
   "news": {
     "title": "最新消息",
     "lead": "每季重點與版本更新。",
@@ -172,13 +172,30 @@
     "ctaSub": "立即下載最新安裝檔或開啟網頁版。",
     "v130": {
       "date": "2025 年 9 月 1 日",
-      "title": "新功能：多語支援 (17 種語言)",
+      "title": "新功能：多語支援（17 種語言）",
       "desc": "介面與官網現在支援 17 種語言，即時切換。快捷鍵提示也已在地化。",
       "l1": "全站新增語言下拉選單",
       "l2": "JSON 架構的 i18n，方便社群貢獻",
       "l3": "加強在地化內容的 SEO meta"
+    },
+    "v120": {
+      "date": "2025 年 6 月 10 日",
+      "title": "效能：更快的索引建立",
+      "desc": "大型專案的索引時間縮短約 30%，記憶體占用更佳。",
+      "l1": "大型檔案的串流分詞器",
+      "l2": "增量式重建索引",
+      "l3": "Windows 當機復原"
+    },
+    "v110": {
+      "date": "2024 年 12 月 15 日",
+      "title": "新功能：CSV 匯出與更好的篩選",
+      "desc": "可將結果匯出 CSV；依類型、日期、路徑進一步過濾。深色模式 UI 更精緻。",
+      "l1": "一鍵匯出 CSV",
+      "l2": "篩選預設（程式碼／文件／媒體）",
+      "l3": "鍵盤：Ctrl/Cmd + K 快速搜尋"
     }
   },
+
   "foot": {
     "brand": "KeySearch",
     "slogan": "快速搜尋，一步到位。<br>乾淨俐落，直達答案。",
@@ -186,15 +203,20 @@
     "support": "支援",
     "company": "公司",
     "follow": "追蹤我們",
+
     "product.feat": "功能",
     "product.price": "價格",
     "product.download": "下載",
+
     "support.help": "幫助中心",
     "support.docs": "文件",
+
     "company.about": "關於我們",
     "company.contact": "聯絡我們",
+
     "follow.twitter": "Twitter",
     "follow.youtube": "YouTube",
+
     "b": {
       "lang": "語言",
       "privacy": "隱私政策",
