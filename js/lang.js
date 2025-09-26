@@ -1,268 +1,279 @@
-// ================================
-// KeySearch i18n (no-flash, auto base resolve)
-// ================================
-(function(){
+// js/lang.js — i18n 核心 + 快速渲染 + 語言選單 UI（含物件→字串回退）
+(function () {
+  // ====== 基本設定 ======
   const FALLBACK = 'en';
+  // 自動推得 /i18n/ 目錄（支援子資料夾部署）
+  const BASE_URL = new URL('./i18n/', location.href).toString();
+  const STORE_KEY = 'i18n.lang';
 
+  const SUPPORTED = [
+    ['en','English'],
+    ['zh_tw','繁體中文'],
+    ['zh_cn','简体中文'],
+    ['ja','日本語'],
+    ['ko','한국어']
+  ];
+
+  // ====== I18N 物件 ======
   const I18N = {
     lang: FALLBACK,
     dict: {},
-    base: null, // 解析後像 '/Official-Website/i18n/' 或 './i18n/'
+    cache: new Map(),
 
-    // ---------- 0) 自動解析 i18n 目錄 ----------
-    async resolveBase() {
-      const cached = localStorage.getItem('i18n.base');
-      if (cached) { this.base = cached; return; }
-
-      const script = document.currentScript || (function(){
-        const arr = Array.from(document.scripts || []);
-        return arr.find(s=>/\/js\/lang\.js(\?|#|$)/.test(s.src)) || arr[arr.length-1];
-      })();
-
-      const origin = location.origin;
-      const path   = location.pathname;
-      const firstSeg = path.split('/').filter(Boolean)[0] || '';
-
-      let fromScript = '';
-      if (script && script.src) {
-        try {
-          const u = new URL(script.src, origin);
-          const dir = u.pathname.replace(/\/js\/lang\.js.*$/,'/');
-          fromScript = new URL('./i18n/', origin + dir).pathname;
-        } catch(e){}
-      }
-
-      const candidates = [
-        fromScript || '',
-        `/${firstSeg ? firstSeg + '/' : ''}i18n/`,
-        '/i18n/',
-        './i18n/'
-      ].filter(Boolean);
-
-      const unique = [...new Set(candidates)];
-
-      for (const base of unique) {
-        try {
-          const testUrl = new URL(base + 'en.json', origin);
-          const res = await fetch(testUrl.href, { method:'GET', cache:'no-store' });
-          if (res.ok) {
-            this.base = base;
-            localStorage.setItem('i18n.base', base);
-            console.info('[i18n] base resolved =>', base);
-            return;
-          }
-        } catch(e){}
-      }
-
-      this.base = './i18n/';
-      console.warn('[i18n] base fallback to ./i18n/ (may 404)');
-    },
-
-    // ---------- 1) 載入 JSON ----------
     async load(lang) {
-      if (!this.base) await this.resolveBase();
-      const url = new URL(this.base + `${lang}.json`, location.origin).href;
-      const res = await fetch(url, { cache:'no-store' });
-      if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
-      return res.json();
-    },
-
-    // ---------- 2) 合併 fallback（僅補缺，不觸發渲染） ----------
-    mergeFallback(primary, fallback) {
-      if (!primary) return { ...fallback };
-      const out = { ...fallback };
-      for (const k in primary) {
-        out[k] =
-          primary[k] && typeof primary[k] === 'object' && !Array.isArray(primary[k])
-            ? this.mergeFallback(primary[k], fallback?.[k] || {})
-            : primary[k];
+      const url = new URL(`${lang}.json`, BASE_URL).toString();
+      if (!this.cache.has(lang)) {
+        this.cache.set(
+          lang,
+          fetch(url).then(r => {
+            if (!r.ok) throw new Error(`HTTP ${r.status} ${url}`);
+            return r.json();
+          })
+        );
       }
-      return out;
+      return this.cache.get(lang);
     },
 
-    // ---------- 3) 取詞 ----------
-    t(key) {
-      return key.split('.').reduce((o, i) => (o ? o[i] : undefined), this.dict);
+    // 取值（支援 a.b.c）
+    t(key, dict = this.dict) {
+      return key.split('.').reduce((o, k) => (o && k in o) ? o[k] : undefined, dict);
     },
 
-    // ---------- 4) 套用到 DOM（一次性渲染） ----------
-    render() {
-      // data-i18n（內文/HTML）
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const k = el.getAttribute('data-i18n');
-        const val = this.t(k);
-        if (typeof val === 'string') {
-          if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
-            el.placeholder = val;
-          } else {
-            el.innerHTML = val;
-          }
+    // 將 fallback 內容補到 primary 缺漏處（不覆蓋已存在鍵）
+    mergeFallback(primary, fallback) {
+      for (const k in fallback) {
+        const v = fallback[k];
+        if (v && typeof v === 'object' && !Array.isArray(v)) {
+          if (!(k in primary)) primary[k] = {};
+          this.mergeFallback(primary[k], v);
+        } else if (!(k in primary)) {
+          primary[k] = v;
         }
-      });
-      // data-i18n-attr（屬性）
-      document.querySelectorAll('[data-i18n-attr]').forEach(el => {
-        const baseKey = el.getAttribute('data-i18n');
-        const attrs = (el.getAttribute('data-i18n-attr') || '')
-          .split(',').map(s=>s.trim()).filter(Boolean);
-        attrs.forEach(a=>{
-          const v = this.t(`${baseKey}.${a}`) ?? this.t(baseKey);
-          if (typeof v === 'string') el.setAttribute(a, v);
-        });
-      });
-
-      const title = this.t('meta.title.home');
-      if (typeof title === 'string' && title) document.title = title;
+      }
+      return primary;
     },
 
-    // ---------- 5) 偵測語言 ----------
-    detect() {
-      const nav = (navigator.languages && navigator.languages[0]) || navigator.language || FALLBACK;
-      const code = nav.toLowerCase().replace('-', '_');
-      if (code.startsWith('zh')) return (code.includes('tw') || code.includes('hant')) ? 'zh_tw' : 'zh_cn';
-      return code.split('_')[0] || FALLBACK;
-    },
-
-    // ---------- 6) 切換語言（無英文閃爍） ----------
+    // 設定語言 + 觸發渲染
     async setLang(input) {
       const lang = (input || FALLBACK).toLowerCase().replace('-', '_');
-
-      // 先樂觀寫入（避免切頁還原）
-      localStorage.setItem('i18n.lang', lang);
-
       try {
-        // 先載入主語言，成功後才載入 fallback 來補缺
-        const cur = await this.load(lang);
-        let fb = {};
-        if (lang !== FALLBACK) {
-          try { fb = await this.load(FALLBACK); } catch(e){}
-        }
-
-        // 完成字典才一次性 render → 不會閃英文
+        const [cur, fb] = await Promise.all([this.load(lang), this.load(FALLBACK)]);
+        // 深拷貝後補齊 fallback
         this.dict = this.mergeFallback(JSON.parse(JSON.stringify(cur)), fb);
         this.lang = lang;
 
-        document.documentElement.lang = lang.replace('_','-');
-        this.render();
+        document.documentElement.lang = lang.replace('_', '-');
+        localStorage.setItem(STORE_KEY, lang);
 
+        this.render(); // 立即渲染
+
+        // 如果頁面 <title> 有 data-i18n，就會被 render 處理；
+        // 保險起見，補一次 meta.title.home 作為兜底（在沒 data-i18n 的頁面）
         const title = this.t('meta.title.home');
         if (typeof title === 'string' && title) document.title = title;
 
         document.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
-        console.info('[i18n] switched to:', lang, 'base:', this.base);
-
+        console.info('[i18n] switched to:', lang, 'base:', BASE_URL);
       } catch (err) {
         console.error('[i18n] failed to load:', lang, err);
-        // 回退：至少保證 English 可用且無閃爍
-        this.lang = FALLBACK;
-        try {
-          this.dict = await this.load(FALLBACK);
-        } catch(e){ this.dict = {}; }
-        document.documentElement.lang = FALLBACK;
-        this.render();
+        if (lang !== FALLBACK) {
+          // 回退到英語
+          localStorage.setItem(STORE_KEY, FALLBACK);
+          return this.setLang(FALLBACK);
+        }
+      }
+    },
+
+    detect() {
+      const saved = localStorage.getItem(STORE_KEY);
+      if (saved) return saved;
+      const nav = (navigator.language || 'en').toLowerCase();
+      if (nav.startsWith('zh-tw') || nav.startsWith('zh-hant')) return 'zh_tw';
+      if (nav.startsWith('zh-cn') || nav.startsWith('zh-hans')) return 'zh_cn';
+      return 'en';
+    }
+  };
+  window.I18N = I18N;
+
+  // ====== 快速索引 ======
+  const I18NIndex = { text: [], attrs: [] };
+
+  function indexI18nNodes(root = document) {
+    // 純文字節點
+    root.querySelectorAll('[data-i18n]').forEach(el => {
+      // 若此節點是純屬性翻譯就跳過（交由 attrs 處理）
+      if (el.hasAttribute('data-i18n-attr')) return;
+      const key = el.getAttribute('data-i18n');
+      I18NIndex.text.push({ el, key, last: undefined });
+    });
+    // 屬性翻譯（data-i18n-attr="title,aria-label"）
+    root.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      const baseKey = el.getAttribute('data-i18n');
+      const attrs = (el.getAttribute('data-i18n-attr') || '')
+        .split(',').map(s => s.trim()).filter(Boolean);
+      I18NIndex.attrs.push({ el, baseKey, attrs, last: Object.create(null) });
+    });
+  }
+
+  // ====== 渲染（含物件→字串回退：title/label/_） ======
+  I18N.render = function renderFast() {
+    // 文字內容
+    for (let n of I18NIndex.text) {
+      if (!n.el.isConnected) continue;
+      let val = this.t(n.key);
+      if (val && typeof val === 'object') {
+        val = val.title || val.label || val._; // 物件回退
+      }
+      if (typeof val === 'string' && val !== n.last) {
+        // <title> 標籤
+        if (n.el.tagName === 'TITLE') {
+          document.title = val;
+        } else {
+          n.el.textContent = val;
+        }
+        n.last = val;
+      }
+    }
+    // 屬性內容
+    for (let n of I18NIndex.attrs) {
+      if (!n.el.isConnected) continue;
+      for (let attr of n.attrs) {
+        const key = `${n.baseKey}.${attr}`;
+        let val = this.t(key);
+        // 若取不到，回退到 baseKey 本身（支援 val 為物件時的回退）
+        if (val === undefined) val = this.t(n.baseKey);
+        if (val && typeof val === 'object') {
+          val = val.title || val.label || val._;
+        }
+        if (typeof val === 'string' && val !== n.last[attr]) {
+          n.el.setAttribute(attr, val);
+          n.last[attr] = val;
+        }
       }
     }
   };
 
-  // 暴露給全域（讓其他腳本可呼叫 I18N.setLang）
-  window.I18N = I18N;
-
-  // ================================
-  // 初始化（先解析 base，再用 saved->detect）
-  // ================================
-  document.addEventListener('DOMContentLoaded', async () => {
-    const saved = localStorage.getItem('i18n.lang') || I18N.detect();
-    await I18N.resolveBase();
-    I18N.setLang(saved);
-    bindLangUI();
+  // ====== 啟動 & 監控新增節點 ======
+  document.addEventListener('DOMContentLoaded', () => {
+    indexI18nNodes(document);
+    I18N.setLang(I18N.detect());
   });
 
-  // ================================
-  // 語言選單 UI（沿用 #langPortal 與 .lang-btn/#footLangLink）
-  // ================================
-  function bindLangUI(){
-    const portal    = document.getElementById('langPortal');
-    const btnMobile = document.getElementById('langBtnMobile');
-    const footLink  = document.getElementById('footLangLink');
-    const curMobile = document.getElementById('langCurrentMobile');
+  const mo = new MutationObserver(muts => {
+    let needRender = false;
+    for (const m of muts) {
+      if (m.type === 'childList') {
+        m.addedNodes.forEach(n => {
+          if (n.nodeType !== 1) return;
+          if (
+            n.matches?.('[data-i18n],[data-i18n-attr]') ||
+            n.querySelector?.('[data-i18n],[data-i18n-attr]')
+          ) {
+            indexI18nNodes(n);
+            needRender = true;
+          }
+        });
+      }
+      if (m.type === 'attributes' &&
+          (m.attributeName === 'data-i18n' || m.attributeName === 'data-i18n-attr')) {
+        indexI18nNodes(m.target);
+        needRender = true;
+      }
+    }
+    if (needRender) requestAnimationFrame(() => I18N.render());
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    mo.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['data-i18n', 'data-i18n-attr']
+    });
+  });
 
-    const SUPPORTED = [
-      ['en','English'],
-      ['zh_cn','简体中文'],
-      ['zh_tw','繁體中文'],
-      ['ja','日本語'],
-      ['ko','한국어'],
-      ['ms','Bahasa Melayu'],
-      ['th','ภาษาไทย'],
-      ['ko','한국어'],
-      ['ko','한국어'],
-      ['ko','한국어']
-    ];
+  // ====== 語言選單 UI（共用 #langPortal） ======
+  const portal    = document.getElementById('langPortal');
+  const btnMobile = document.getElementById('langBtnMobile'); // 行動版
+  const footLink  = document.getElementById('footLangLink');  // Footer
+  const curMobile = document.getElementById('langCurrentMobile');
 
+  function buildMenu() {
+    if (!portal || portal.dataset.built) return;
+    portal.innerHTML = SUPPORTED
+      .map(([code,label]) => `<button type="button" role="menuitem" class="lang-item" data-lang="${code}">${label}</button>`)
+      .join('');
+    portal.dataset.built = '1';
+  }
+
+  function syncCurrentLabel(code) {
+    const label = SUPPORTED.find(([c]) => c === code)?.[1] || 'English';
+    if (curMobile) curMobile.textContent = label;
+    portal?.querySelectorAll('[aria-current="true"]').forEach(b => b.removeAttribute('aria-current'));
+    portal?.querySelector(`[data-lang="${code}"]`)?.setAttribute('aria-current','true');
+  }
+
+  function openPortal(anchor) {
     if (!portal) return;
+    portal.classList.add('open');
+    portal.removeAttribute('aria-hidden');
+    // 定位
+    const r = anchor.getBoundingClientRect();
+    const W = portal.offsetWidth, H = portal.offsetHeight, M = 12;
+    let top  = r.bottom + 8;
+    let left = r.left;
+    if (left + W + M > innerWidth)  left = Math.max(M, innerWidth - W - M);
+    if (top  + H + M > innerHeight) top  = Math.max(M, r.top - H - 8);
+    portal.style.position = 'fixed';
+    portal.style.top  = Math.min(Math.max(M, top),  innerHeight - H - M) + 'px';
+    portal.style.left = Math.min(Math.max(M, left), innerWidth  - W - M) + 'px';
 
-    if (!portal.dataset.built) {
-      portal.innerHTML = SUPPORTED
-        .map(([c,l])=>`<button type="button" class="lang-item" data-lang="${c}">${l}</button>`)
-        .join('');
-      portal.dataset.built = '1';
-    }
+    const onDoc = (e)=>{ if (!portal.contains(e.target) && !anchor.contains(e.target)) closePortal(anchor); };
+    const onEsc = (e)=>{ if (e.key==='Escape') closePortal(anchor); };
+    setTimeout(()=>{
+      document.addEventListener('click', onDoc, { once:true });
+      document.addEventListener('keydown', onEsc, { once:true });
+    },0);
+  }
 
-    function syncLabel(code){
-      const label = SUPPORTED.find(([c])=>c===code)?.[1] || 'English';
-      if (curMobile) curMobile.textContent = label;
-      portal.querySelectorAll('[aria-current="true"]').forEach(b=>b.removeAttribute('aria-current'));
-      portal.querySelector(`[data-lang="${code}"]`)?.setAttribute('aria-current','true');
+  function closePortal(anchor) {
+    if (!portal) return;
+    // 先把焦點移回觸發鈕，避免 aria-hidden/focus 警告
+    if (anchor && document.activeElement && portal.contains(document.activeElement)) {
+      anchor.focus();
     }
-    document.addEventListener('i18n:changed', e => syncLabel(e.detail?.lang || 'en'));
-    syncLabel(localStorage.getItem('i18n.lang') || 'en');
+    portal.classList.remove('open');
+    portal.setAttribute('aria-hidden','true');
+    anchor?.setAttribute('aria-expanded','false');
+  }
 
-    function openPortal(anchor){
-      portal.classList.add('open');
-      portal.removeAttribute('aria-hidden');
-      const r = anchor.getBoundingClientRect();
-      const W = portal.offsetWidth, H = portal.offsetHeight, M = 12;
-      let top  = r.bottom + 8 + window.scrollY;
-      let left = r.left + window.scrollX;
-      if (left + W + M > innerWidth + window.scrollX)  left = Math.max(M, innerWidth + window.scrollX - W - M);
-      if (top  + H + M > innerHeight + window.scrollY) top  = Math.max(M, r.top + window.scrollY - H - 8);
-      portal.style.position = 'absolute';
-      portal.style.top  = Math.min(Math.max(M, top),  innerHeight + window.scrollY - H - M) + 'px';
-      portal.style.left = Math.min(Math.max(M, left), innerWidth  + window.scrollX - W - M) + 'px';
-
-      const onDoc = (e)=>{ if (!portal.contains(e.target) && !anchor.contains(e.target)) closePortal(); };
-      const onEsc = (e)=>{ if (e.key==='Escape') closePortal(); };
-      setTimeout(()=>{
-        document.addEventListener('click', onDoc, { once:true });
-        document.addEventListener('keydown', onEsc, { once:true });
-      },0);
-    }
-    function closePortal(){
-      portal.classList.remove('open');
-      portal.setAttribute('aria-hidden','true');
-    }
+  document.addEventListener('DOMContentLoaded', () => {
+    buildMenu();
+    syncCurrentLabel(localStorage.getItem(STORE_KEY) || 'en');
 
     [btnMobile, footLink].forEach(btn=>{
       if (!btn) return;
       btn.setAttribute('aria-haspopup','menu');
       btn.setAttribute('aria-expanded','false');
-      btn.addEventListener('click', e=>{
+      btn.addEventListener('click',(e)=>{
         e.preventDefault();
         e.stopPropagation();
-        if (portal.classList.contains('open')) {
-          closePortal(); btn.setAttribute('aria-expanded','false');
-        } else {
-          openPortal(btn); btn.setAttribute('aria-expanded','true');
-        }
+        if (portal?.classList.contains('open')) closePortal(btn);
+        else { openPortal(btn); btn.setAttribute('aria-expanded','true'); }
       });
     });
 
-    portal.addEventListener('click', async e=>{
+    portal?.addEventListener('click', async (e)=>{
       const item = e.target.closest('[data-lang]');
       if (!item) return;
-      const code = item.dataset.lang;
-      await I18N.setLang(code); // 無閃爍切換
-      syncLabel(code);
-      closePortal();
+      const code = item.dataset.lang.toLowerCase().replace('-', '_');
+      await I18N.setLang(code);
+      syncCurrentLabel(code);
+      // 關閉選單
+      const opener = (btnMobile?.getAttribute('aria-expanded')==='true') ? btnMobile
+                    : (footLink?.getAttribute('aria-expanded')==='true') ? footLink
+                    : null;
+      closePortal(opener);
     });
-  }
+  });
+
 })();
