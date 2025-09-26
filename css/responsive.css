@@ -558,3 +558,65 @@ html, body { overflow-x: hidden; }
   .feat-card{ padding:18px; min-height:160px; }
   .icon{ font-size:24px; }
 }
+
+/* ===== News page Responsive ===== */
+
+/* 手機 (max-width: 640px) */
+@media (max-width: 640px) {
+  .page-hero.container {
+    padding-top: 32px;
+    padding-bottom: 8px;
+    text-align: center;
+  }
+  .page-hero h1 { font-size: 24px; }
+  .page-hero .lead { font-size: 14px; }
+
+  .chip-group {
+    justify-content: center;
+    gap: 6px;
+  }
+  .chip {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr; /* 單欄 */
+    gap: 12px;
+  }
+  .news-card {
+    padding: 14px 14px 12px;
+  }
+  .news-card h2 { font-size: 18px; }
+  .news-meta { font-size: 12px; }
+  .news-meta .badge { font-size: 11px; padding: 3px 7px; }
+}
+
+/* 平板 (641px ~ 879px) */
+@media (min-width: 641px) and (max-width: 879px) {
+  .news-grid {
+    grid-template-columns: 1fr; /* 還是單欄，較寬 */
+    gap: 14px;
+  }
+  .news-card {
+    padding: 16px 16px 14px;
+  }
+  .news-card h2 { font-size: 19px; }
+}
+
+/* 桌機 (≥880px) */
+@media (min-width: 880px) {
+  .news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 兩欄 */
+    gap: 18px;
+  }
+  .news-card h2 { font-size: 20px; }
+}
+
+/* 大桌機 (≥1280px) 可選三欄 */
+@media (min-width: 1280px) {
+  .news-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
