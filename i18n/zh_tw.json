@@ -210,12 +210,13 @@
   },
 
   "foot": {
-    "brand": "KeySearch",
-    "slogan": "快速搜尋，一步到位。<br>乾淨俐落，直達答案。",
-    "product": { "feat": "功能", "price": "價格", "download": "下載" },
-    "support": { "help": "幫助中心", "docs": "文件" },
-    "company": { "about": "關於我們", "contact": "聯絡我們" },
-    "follow": { "twitter": "Twitter", "youtube": "YouTube" },
-    "b": { "lang": "語言", "privacy": "隱私", "terms": "條款", "copy": "© 2025 KeySearch. 版權所有。" }
-  }
+  "brand": "KeySearch",
+  "slogan": "快速搜尋，一步到位。<br>乾淨俐落，直達答案。",
+  "product": { "_": "產品", "feat": "功能", "price": "價格", "download": "下載" },
+  "support": { "_": "支援", "help": "幫助中心", "docs": "文件" },
+  "company": { "_": "公司", "about": "關於我們", "contact": "聯絡我們" },
+  "follow":  { "_": "追蹤我們", "twitter": "Twitter", "youtube": "YouTube" },
+  "b": { "lang": "語言", "privacy": "隱私", "terms": "條款", "copy": "© 2025 KeySearch. 版權所有。" }
+}
+
 }
