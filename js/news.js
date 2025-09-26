@@ -1,110 +1,138 @@
-// js/news.js — 動態渲染 News 卡片（非模組版）
+// js/news.js — 動態產生 News chips + cards，支援 i18n 切換
+
 (function () {
-  // 小工具：建立節點
-  function h(tag, attrs = {}, children = []) {
-    const el = document.createElement(tag);
-    for (const k in attrs) {
-      if (k === 'class') el.className = attrs[k];
-      else if (k === 'dataset') {
-        const ds = attrs[k] || {};
-        for (const dk in ds) el.dataset[dk] = ds[dk];
-      } else if (k === 'html') {
-        el.innerHTML = attrs[k];
-      } else {
-        el.setAttribute(k, attrs[k]);
+  const grid  = document.getElementById('newsGrid');
+  const chips = document.getElementById('newsYearChips');
+
+  if (!grid || !chips) return;
+
+  // 取得目前語系的 news 區塊
+  function getNewsDict() {
+    const d = (window.I18N && I18N.dict) || {};
+    return d.news || {};
+  }
+
+  // 從 items 取出所有年份（若缺 year 就由 date 推）
+  function collectYears(items) {
+    const years = new Set();
+    items.forEach(it => {
+      let y = it.year;
+      if (!y && it.date) {
+        // 嘗試從 "Sep 1, 2025" / "2025-09-01" 等取年
+        const m = String(it.date).match(/(\d{4})/);
+        if (m) y = m[1];
       }
-    }
-    (Array.isArray(children) ? children : [children]).forEach(c => {
-      if (c == null) return;
-      if (typeof c === 'string') el.appendChild(document.createTextNode(c));
-      else el.appendChild(c);
+      if (y) years.add(String(y));
     });
-    return el;
+    // 由大到小排序
+    return Array.from(years).sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
   }
 
-  const gridId = 'newsGrid';
-  const chipsId = 'newsYearChips';
+  // 產生年份 chips
+  function renderChips(dict) {
+    const items = dict.items || [];
+    const years = collectYears(items);
+    const allLabel = dict.filter?.all || 'All';
 
-  function buildOneCard(item) {
-    // item: {version, date, title, desc, bullets[], year}
-    const meta = h('div', { class: 'news-meta' }, [
-      item.version ? h('span', { class: 'badge' }, item.version) : null,
-      item.date ? h('time', { datetime: item.date }, item.date) : null
-    ]);
+    // 先清空
+    chips.innerHTML = '';
 
-    const title = h('h2', {}, item.title || '');
-    const desc  = h('p',  {}, item.desc  || '');
+    // All
+    const btnAll = document.createElement('button');
+    btnAll.className = 'chip active';
+    btnAll.dataset.year = 'all';
+    btnAll.setAttribute('aria-pressed', 'true');
+    btnAll.textContent = allLabel;
+    chips.appendChild(btnAll);
 
-    const ul = h('ul', { class: 'news-list' });
-    if (Array.isArray(item.bullets)) {
-      item.bullets.forEach(b => ul.appendChild(h('li', {}, b)));
-    }
-
-    return h('article', {
-      class: 'news-card',
-      dataset: { year: String(item.year || '') }
-    }, [meta, title, desc, ul]);
-  }
-
-  function sortItems(items) {
-    // 嘗試用 Date 解析，失敗就維持原順序
-    return [...items].sort((a, b) => {
-      const da = Date.parse(a.date || '') || 0;
-      const db = Date.parse(b.date || '') || 0;
-      return db - da; // 新到舊
+    // 逐年
+    years.forEach(y => {
+      const b = document.createElement('button');
+      b.className = 'chip';
+      b.dataset.year = y;
+      b.textContent = y;
+      b.setAttribute('aria-pressed', 'false');
+      chips.appendChild(b);
     });
   }
 
-  function renderNews() {
-    const grid = document.getElementById(gridId);
-    if (!grid) return;
-
-    // 讀 i18n 陣列
-    const items = (window.I18N && window.I18N.t('news.items')) || [];
-    if (!Array.isArray(items) || items.length === 0) {
-      grid.innerHTML = '';
-      console.warn('[news] no items in i18n: news.items');
-      return;
-    }
-
-    // 清空並重建
-    grid.innerHTML = '';
-    sortItems(items).forEach(it => {
-      grid.appendChild(buildOneCard(it));
-    });
-
-    // 預設顯示「All」
-    applyFilter('all');
+  // 產生卡片 HTML
+  function cardHTML(it) {
+    const year = it.year || (String(it.date || '').match(/(\d{4})/)?.[1] || '');
+    const bullets = (it.bullets || []).map(li => `<li>${li}</li>`).join('');
+    return `
+      <article class="news-card" data-year="${year}">
+        <div class="news-meta">
+          ${it.version ? `<span class="badge">${it.version}</span>` : ''}
+          ${it.date ? `<time datetime="${it.date}">${it.date}</time>` : ''}
+        </div>
+        <h2>${it.title || ''}</h2>
+        <p>${it.desc || ''}</p>
+        ${bullets ? `<ul class="news-list">${bullets}</ul>` : ''}
+      </article>
+    `;
   }
 
-  function applyFilter(year) {
-    const cards = document.querySelectorAll('#' + gridId + ' .news-card');
+  // 渲染卡片（依目前字典）
+  function renderCards(dict) {
+    const items = (dict.items || []).slice();
+
+    // 依日期/版本做個大致排序（新→舊）
+    items.sort((a, b) => {
+      // 先比年份
+      const ya = (a.year || String(a.date || '').match(/(\d{4})/)?.[1] || '0');
+      const yb = (b.year || String(b.date || '').match(/(\d{4})/)?.[1] || '0');
+      if (yb !== ya) return yb.localeCompare(ya, undefined, { numeric: true });
+      // 再比日期字串（最佳做法是改成 ISO 日期，但這裡就先字串比較）
+      return String(b.date || '').localeCompare(String(a.date || ''));
+    });
+
+    grid.innerHTML = items.map(cardHTML).join('');
+  }
+
+  // 綁定 chip 點擊事件
+  function bindChipEvents() {
+    chips.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+
+      // 切換 active 與 aria-pressed
+      chips.querySelectorAll('.chip').forEach(c => {
+        const active = c === btn;
+        c.classList.toggle('active', active);
+        c.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      const yr = btn.dataset.year;
+      filterByYear(yr);
+    });
+  }
+
+  // 依年份過濾
+  function filterByYear(year) {
+    const cards = grid.querySelectorAll('.news-card');
     cards.forEach(card => {
-      const y = card.dataset.year || '';
-      const show = (year === 'all') || (y === String(year));
+      const y = card.getAttribute('data-year');
+      const show = (year === 'all') || (year === y);
       card.style.display = show ? '' : 'none';
     });
   }
 
-  function bindYearChips() {
-    const wrap = document.getElementById(chipsId);
-    if (!wrap) return;
-    wrap.addEventListener('click', e => {
-      const btn = e.target.closest('.chip');
-      if (!btn) return;
-      wrap.querySelectorAll('.chip').forEach(c => {
-        c.classList.toggle('active', c === btn);
-        c.setAttribute('aria-pressed', c === btn ? 'true' : 'false');
-      });
-      applyFilter(btn.dataset.year || 'all');
-    });
+  // 首次渲染
+  function firstRender() {
+    const dict = getNewsDict();
+    renderChips(dict);
+    renderCards(dict);
+    // 預設顯示 All
+    filterByYear('all');
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderNews();
-    bindYearChips();
+  // 當語言切換時重渲染（文字會換語言、年份 chip 也會用該語言的 "All"）
+  document.addEventListener('i18n:changed', firstRender);
 
-    // 語言切換時重渲染（I18N 在 lang.js 內會 dispatch 這個事件）
-    document.addEventListener('i18n:changed', renderNews, { once: false });
+  // DOM 準備好就先跑一次（若 i18n 還沒載完，下一次 i18n:changed 會再覆蓋）
+  document.addEventListener('DOMContentLoaded', () => {
+    bindChipEvents();
+    firstRender();
   });
 })();
