@@ -123,14 +123,16 @@
     "desc-3": "可匯出 CSV/JSON；需要協作時分享唯讀集合。",
     "diff-4": "多語支援",
     "desc-4": "使用 i18n JSON 即時切換介面，支援 17+ 語系。",
-    "privacy": {
+    "privacy": "隱私與透明度",
+    
+    "privacy":{
       "desc": "KeySearch 重視隱私。我們不販售資料。可選遙測預設關閉並可隨時停用；內建清楚的匯出功能。",
       "read": "閱讀隱私政策",
       "update": "產品更新"
     }
   },
 
-  "partner": "媒體或合作洽談？來信",
+  "contact.partner": "媒體或合作洽談？來信",
   "contact": "聯絡我們",
   "email": "hello@keysearch-app.com",
 
