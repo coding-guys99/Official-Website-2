@@ -1,8 +1,6 @@
 {
-  "_meta": {
-    "lang": "English",
-    "dir": "ltr"
-  },
+  "_meta": { "lang": "English", "dir": "ltr" },
+
   "meta": {
     "title": {
       "home": "KeySearch — Find it. Fast.",
@@ -14,6 +12,7 @@
       "news": "News — KeySearch"
     }
   },
+
   "header": {
     "brand": "KeySearch",
     "features": "Features",
@@ -24,6 +23,7 @@
     "tryapp": { "cta": "🚀 Try Web App" },
     "lang": { "current": "English" }
   },
+
   "home": {
     "hero": {
       "title": "Find it. Fast.",
@@ -35,6 +35,7 @@
       "lead": "Download KeySearch for your desktop, or try the web app instantly."
     }
   },
+
   "features": {
     "title": "Features",
     "lead": "What makes KeySearch powerful and simple to use.",
@@ -53,6 +54,7 @@
       "lead": "Download KeySearch or use it instantly in your browser."
     }
   },
+
   "download": {
     "title": "Download",
     "lead": "Get KeySearch for your favorite platform.",
@@ -64,14 +66,11 @@
     "cta": { "text": "Download" },
     "web": "Open Web"
   },
+
   "pricing": {
     "title": "Pricing",
     "lead": "Simple, transparent plans that grow with you.",
-    "billing": {
-      "monthly": "Monthly",
-      "yearly": "Yearly",
-      "save": "Save 20%"
-    },
+    "billing": { "monthly": "Monthly", "yearly": "Yearly", "save": "Save 20%" },
     "free": {
       "title": "Free",
       "perma": "/ forever",
@@ -100,6 +99,7 @@
       "cta": { "download": "Download Free", "openweb": "Open Web" }
     }
   },
+
   "about": {
     "title": "About KeySearch",
     "desc": "Find it. Fast. No mess. Just answers.",
@@ -120,15 +120,14 @@
     "privacy.read": "Read Privacy",
     "privacy.update": "Product Updates"
   },
+
+  "contact": "Contact",
+  "email": "hello@keysearch-app.com",
+
   "support": {
     "title": "Support",
     "lead": "Find quick answers, or send us your feedback.",
-    "quick": {
-      "download": "Download",
-      "billing": "Billing & Plans",
-      "faq": "FAQ",
-      "contact": "Contact"
-    },
+    "quick": { "download": "Download", "billing": "Billing & Plans", "faq": "FAQ", "contact": "Contact" },
     "faq": {
       "title": "FAQ",
       "q1": "How do I install KeySearch?",
@@ -154,6 +153,7 @@
       "toast": "Opening your email app…"
     }
   },
+
   "donate": {
     "title": "Support development",
     "desc": "KeySearch is free to use. If it saves you time, consider supporting development.",
@@ -163,6 +163,7 @@
     "stripe": "Stripe",
     "thanks": "Thanks for your support — it keeps KeySearch fast and focused."
   },
+
   "news": {
     "title": "Product Updates",
     "lead": "Quarterly highlights and release notes.",
@@ -176,8 +177,25 @@
       "l1": "Added language dropdown across pages",
       "l2": "JSON-based i18n, easy to contribute",
       "l3": "Improved SEO meta for localized content"
+    },
+    "v120": {
+      "date": "Jun 10, 2025",
+      "title": "Performance: Faster indexing",
+      "desc": "Index build times reduced by ~30% on large projects. Memory footprint improved.",
+      "l1": "Streaming tokenizer for large files",
+      "l2": "Incremental index rebuilds",
+      "l3": "Crash recovery on Windows"
+    },
+    "v110": {
+      "date": "Dec 15, 2024",
+      "title": "New: CSV export & better filters",
+      "desc": "Export results to CSV; refine searches by type, date, and path. New UI polish for dark mode.",
+      "l1": "CSV export in one click",
+      "l2": "Filter presets (code / docs / media)",
+      "l3": "Keyboard: Ctrl/Cmd + K quick search"
     }
   },
+
   "foot": {
     "brand": "KeySearch",
     "slogan": "Find it. Fast.<br>No mess. Just answers.",
@@ -185,15 +203,20 @@
     "support": "Support",
     "company": "Company",
     "follow": "Follow",
+
     "product.feat": "Features",
     "product.price": "Pricing",
     "product.download": "Download",
+
     "support.help": "Help Center",
     "support.docs": "Docs",
+
     "company.about": "About",
     "company.contact": "Contact",
+
     "follow.twitter": "Twitter",
     "follow.youtube": "YouTube",
+
     "b": {
       "lang": "Language",
       "privacy": "Privacy",
