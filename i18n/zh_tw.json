@@ -211,7 +211,7 @@
 
   "foot": {
   "brand": "KeySearch",
-  "slogan": "快速搜尋，一步到位。<br>乾淨俐落，直達答案。",
+  "slogan-1": "快速搜尋，一步到位。<br>乾淨俐落，直達答案。",
   "product": { "_": "產品", "feat": "功能", "price": "價格", "download": "下載" },
   "support": { "_": "支援", "help": "幫助中心", "docs": "文件" },
   "company": { "_": "公司", "about": "關於我們", "contact": "聯絡我們" },
