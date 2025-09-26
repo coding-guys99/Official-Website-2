@@ -620,3 +620,94 @@ html, body { overflow-x: hidden; }
     gap: 20px;
   }
 }
+
+/* === Footer: Mobile accordion === */
+@media (max-width: 640px) {
+  .bm-footer-top { padding-top: 24px; }
+  .bm-foot-brand { margin-bottom: 8px; }
+
+  .bm-foot-links-grid {
+    display: block;          /* 手機一欄 */
+    gap: 0;
+  }
+
+  .foot-col {
+    border-top: 1px solid var(--c-border, rgba(255,255,255,.12));
+    padding: 0;
+  }
+
+  .foot-col h4 { margin: 0; }
+
+  .foot-head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    border: 0;
+    color: inherit;
+  }
+  /* 小箭頭 */
+  .foot-head::after {
+    content: '▾';
+    font-size: 14px;
+    line-height: 1;
+    transform-origin: 50% 50%;
+    transition: transform .2s ease;
+    opacity: .8;
+  }
+  .foot-head[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+  }
+
+  /* 連結區塊：默認收起，以 max-height 動畫展開 */
+  .foot-links {
+    margin: 0 0 8px 0;
+    padding: 0 0 12px 0;
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .28s ease;
+  }
+  .foot-head[aria-expanded="true"] + .foot-links {
+    max-height: 400px; /* 足夠容納 3~6 列；需要可調 */
+  }
+  .foot-links li a {
+    display: inline-block;
+    padding: 6px 0;
+  }
+
+  /* 底部法務列：壓縮間距、避免擠出畫面 */
+  .bm-footer-bottom {
+    padding-top: 12px;
+    padding-bottom: 24px;
+  }
+  .bm-footer-bottom .legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    align-items: center;
+  }
+  .bm-footer-bottom small {
+    display: block;
+    margin-top: 8px;
+    opacity: .8;
+  }
+}
+
+/* 桌機回復為四欄且固定展開，不受 max-height 影響 */
+@media (min-width: 641px) {
+  .bm-foot-links-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 24px;
+  }
+  .foot-links {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .foot-head::after { content: none; } /* 桌機不顯示箭頭 */
+}
