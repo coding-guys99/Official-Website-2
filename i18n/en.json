@@ -178,36 +178,50 @@
   },
 
   "news": {
-    "title": "Product Updates",
-    "lead": "Quarterly highlights and release notes.",
-    "filter": { "all": "All", "2025": "2025", "2024": "2024" },
-    "ctaTitle": "Want to try the latest?",
-    "ctaSub": "Download the newest build or open the web version.",
-    "v130": {
+  "title": "Product Updates",
+  "lead": "Quarterly highlights and release notes.",
+  "filter": { "all": "All", "2025": "2025", "2024": "2024" },
+  "ctaTitle": "Want to try the latest?",
+  "ctaSub": "Download the newest build or open the web version.",
+  "items": [
+    {
+      "version": "v1.3.0",
       "date": "Sep 1, 2025",
       "title": "New: Multi-language (17 languages)",
       "desc": "Interface and website now support 17 languages with instant switching. Keyboard hints localized.",
-      "l1": "Added language dropdown across pages",
-      "l2": "JSON-based i18n, easy to contribute",
-      "l3": "Improved SEO meta for localized content"
+      "bullets": [
+        "Added language dropdown across pages",
+        "JSON-based i18n, easy to contribute",
+        "Improved SEO meta for localized content"
+      ],
+      "year": "2025"
     },
-    "v120": {
+    {
+      "version": "v1.2.0",
       "date": "Jun 10, 2025",
       "title": "Performance: Faster indexing",
       "desc": "Index build times reduced by ~30% on large projects. Memory footprint improved.",
-      "l1": "Streaming tokenizer for large files",
-      "l2": "Incremental index rebuilds",
-      "l3": "Crash recovery on Windows"
+      "bullets": [
+        "Streaming tokenizer for large files",
+        "Incremental index rebuilds",
+        "Crash recovery on Windows"
+      ],
+      "year": "2025"
     },
-    "v110": {
+    {
+      "version": "v1.1.0",
       "date": "Dec 15, 2024",
       "title": "New: CSV export & better filters",
       "desc": "Export results to CSV; refine searches by type, date, and path. New UI polish for dark mode.",
-      "l1": "CSV export in one click",
-      "l2": "Filter presets (code / docs / media)",
-      "l3": "Keyboard: Ctrl/Cmd + K quick search"
+      "bullets": [
+        "CSV export in one click",
+        "Filter presets (code / docs / media)",
+        "Keyboard: Ctrl/Cmd + K quick search"
+      ],
+      "year": "2024"
     }
-  },
+  ]
+},
 
   "foot": {
   "brand": "KeySearch",
