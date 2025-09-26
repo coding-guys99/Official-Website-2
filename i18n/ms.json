@@ -1,0 +1,186 @@
+{
+  "_meta": {
+    "lang": "Bahasa Melayu (母語)",
+    "dir": "ltr"
+  },
+  "meta": {
+    "title": {
+      "home": "KeySearch — Cari dengan pantas.",
+      "features": "Ciri-ciri — KeySearch",
+      "download": "Muat turun — KeySearch",
+      "pricing": "Harga — KeySearch",
+      "about": "Tentang — KeySearch",
+      "support": "Sokongan — KeySearch",
+      "news": "Berita — KeySearch"
+    }
+  },
+  "header": {
+    "brand": "KeySearch",
+    "features": "Ciri-ciri",
+    "download": "Muat turun",
+    "pricing": "Harga",
+    "about": "Tentang",
+    "support": "Sokongan",
+    "tryapp": { "cta": "🚀 Cuba Aplikasi Web" },
+    "lang": { "current": "Bahasa Melayu" }
+  },
+  "home": {
+    "hero": {
+      "title": "Cari dengan pantas.",
+      "sub": "Segalanya dalam capaian. Tiada serabut. Hanya jawapan."
+    },
+    "cta": { "downloadNow": "Muat turun Sekarang" },
+    "final": {
+      "title": "Bersedia untuk bermula?",
+      "lead": "Muat turun KeySearch untuk desktop anda, atau cuba aplikasi web segera."
+    }
+  },
+  "features": {
+    "title": "Ciri-ciri",
+    "lead": "Apa yang menjadikan KeySearch berkuasa dan mudah digunakan.",
+    "cards": {
+      "instant": { "title": "Hasil Segera", "desc": "Cari nota, fail, dan tag dalam milisaat." },
+      "tags": { "title": "Tag Pintar", "desc": "Tag berbilang tahap, penapis, dan auto-lengkap untuk pengurusan pantas." },
+      "collections": { "title": "Koleksi", "desc": "Kumpulkan item mengikut projek atau konteks; kongsi paparan baca sahaja." },
+      "shortcuts": { "title": "Pintasan Global", "desc": "Lompat ke mana-mana dengan satu kombinasi kekunci. Palet perintah terbina." },
+      "i18n": { "title": "UI Pelbagai Bahasa", "desc": "Tukar bahasa serta-merta. Sedia untuk 17+ bahasa." },
+      "privacy": { "title": "Privasi Didahulukan", "desc": "Mod setempat dengan IndexedDB. Data anda kekal di peranti." },
+      "export": { "title": "Eksport Fleksibel", "desc": "Eksport ke CSV/JSON, atau kongsi koleksi dengan pasukan anda." },
+      "platforms": { "title": "Web & Desktop", "desc": "Pengalaman sama di web dan desktop. Tiada keluk pembelajaran." }
+    },
+    "final": {
+      "title": "Sedia untuk cuba?",
+      "lead": "Muat turun KeySearch atau gunakan segera dalam pelayar anda."
+    }
+  },
+  "download": {
+    "title": "Muat turun",
+    "lead": "Dapatkan KeySearch untuk platform kegemaran anda.",
+    "windows": { "title": "Windows", "version": "Versi 1.0.1.0", "cta": "Muat turun EXE" },
+    "mac": { "title": "macOS", "version": "Versi 1.0.1.0", "cta": "Muat turun DMG" },
+    "linux": { "title": "Linux", "version": "Versi 1.0.1.0", "cta": "Muat turun AppImage" },
+    "hash": { "label": "SHA256:" },
+    "webpref": { "title": "Lebih suka Aplikasi Web?", "lead": "Jalankan KeySearch dalam pelayar — tiada pemasangan diperlukan." },
+    "cta": { "text": "Muat turun" },
+    "web": "Buka Web"
+  },
+  "pricing": {
+    "title": "Harga",
+    "lead": "Pelan ringkas dan telus yang berkembang bersama anda.",
+    "billing": {
+      "monthly": "Bulanan",
+      "yearly": "Tahunan",
+      "save": "Jimat 20%"
+    },
+    "free": {
+      "title": "Percuma",
+      "perma": "/ selamanya",
+      "f1": "Carian tanpa had",
+      "f2": "Tag & koleksi asas",
+      "f3": "Eksport CSV/JSON",
+      "cta": "Mulakan Sekarang"
+    },
+    "pro": {
+      "badge": "Paling Popular",
+      "title": "Pro",
+      "permonth": "/ bulan",
+      "f1": "Semua dalam Percuma",
+      "f2": "UI pelbagai bahasa",
+      "f3": "Peringatan & penapis pintar",
+      "f4": "Sokongan keutamaan",
+      "cta": "Tingkatkan Sekarang"
+    },
+    "faq": {
+      "refunds": { "q": "Adakah anda menawarkan bayaran balik?", "a": "Jika anda tidak berpuas hati, hubungi kami dalam masa 14 hari. Kami akan membantu." },
+      "switch": { "q": "Bolehkah saya tukar pelan kemudian?", "a": "Ya. Anda boleh naik taraf atau batalkan bila-bila masa." }
+    },
+    "final": {
+      "title": "Mula mencari dengan lebih bijak",
+      "lead": "KeySearch percuma untuk dicuba. Naik taraf bila anda sedia.",
+      "cta": { "download": "Muat turun Percuma", "openweb": "Buka Web" }
+    }
+  },
+  "about": {
+    "title": "Tentang KeySearch",
+    "desc": "Cari dengan pantas. Tiada serabut. Hanya jawapan.",
+    "mission": {
+      "t": "Misi",
+      "desc": "Membantu orang mencari apa yang mereka perlukan — nota, fail, dan idea — serta-merta, tanpa serabut, kunci masuk, atau pergantungan awan berat."
+    },
+    "diff-1": "Setempat didahulukan", "desc-1": "Data anda disimpan di peranti (IndexedDB). Berfungsi luar talian. Tiada akaun diperlukan.",
+    "diff-2": "Pantas secara reka bentuk", "desc-2": "Carian berindeks dengan tag, penapis, dan pintasan global — dalam milisaat.",
+    "diff-3": "Tiada kunci masuk", "desc-3": "Eksport ke CSV/JSON. Kongsi koleksi baca sahaja bila perlu bekerjasama.",
+    "diff-4": "Pelbagai bahasa", "desc-4": "Tukar UI serta-merta dengan i18n JSON. Sedia untuk 17+ bahasa.",
+    "privacy": "Privasi & Ketelusan",
+    "privacy.desc": "KeySearch mengutamakan privasi. Kami tidak menjual data. Telemetri pilihan dimatikan secara lalai dan boleh dilumpuhkan bila-bila masa. Eksport jelas terbina dalam.",
+    "privacy.read": "Baca Privasi",
+    "privacy.update": "Kemas kini Produk"
+  },
+  "support": {
+    "title": "Sokongan",
+    "lead": "Cari jawapan pantas, atau hantar maklum balas anda.",
+    "quick": { "download": "Muat turun", "billing": "Bil & Pelan", "faq": "FAQ", "contact": "Hubungi" },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Bagaimana cara memasang KeySearch?",
+      "a1": "Muat turun dari halaman Muat Turun dan ikut pemasang. Di macOS, anda mungkin perlu membenarkan aplikasi daripada pembangun dikenal pasti dalam Tetapan Sistem.",
+      "q2": "Adakah aplikasi web berbeza daripada aplikasi desktop?",
+      "a2": "Ciri teras adalah sama. Desktop menambah mod luar talian dan eksport setempat.",
+      "q3": "Bagaimana cara menukar bahasa?",
+      "a3": "Gunakan penukar bahasa di penjuru kanan atas. Lebih banyak bahasa akan datang tidak lama lagi."
+    },
+    "feedback": {
+      "title": "Hantar maklum balas anda",
+      "name": "Nama Anda",
+      "email": "Emel Anda",
+      "topic": "Topik",
+      "topic.general": "Umum",
+      "topic.bug": "Laporan Pepijat",
+      "topic.feature": "Permintaan Ciri",
+      "topic.billing": "Bil",
+      "message": "Mesej",
+      "send": "Hantar",
+      "mailapp": "Buka aplikasi mel",
+      "note": "Kami akan membalas ke hello@keysearch-app.com. Sistem anda tidak akan memuat naik fail.",
+      "toast": "Membuka aplikasi mel anda…"
+    }
+  },
+  "donate": {
+    "title": "Sokong pembangunan",
+    "desc": "KeySearch percuma untuk digunakan. Jika ia menjimatkan masa anda, pertimbangkan untuk menyokong pembangunan.",
+    "coffee": "Belanja saya kopi",
+    "kofi": "Ko-fi",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "thanks": "Terima kasih atas sokongan anda — ia memastikan KeySearch pantas dan fokus."
+  },
+  "news": {
+    "title": "Kemas Kini Produk",
+    "lead": "Sorotan suku tahunan dan nota keluaran.",
+    "filter": { "all": "Semua", "2025": "2025", "2024": "2024" },
+    "ctaTitle": "Mahu cuba versi terkini?",
+    "ctaSub": "Muat turun binaan terbaru atau buka versi web.",
+    "v130": {
+      "date": "1 Sep 2025",
+      "title": "Baharu: Pelbagai bahasa (17 bahasa)",
+      "desc": "Antara muka dan laman web kini menyokong 17 bahasa dengan penukaran segera. Petunjuk papan kekunci dilokalkan.",
+      "l1": "Tambah menu lungsur bahasa di semua halaman",
+      "l2": "i18n berasaskan JSON, mudah untuk sumbangan",
+      "l3": "SEO dipertingkat untuk kandungan dilokalkan"
+    }
+  },
+  "foot": {
+    "brand": "KeySearch",
+    "slogan": "Cari dengan pantas.<br>Tiada serabut. Hanya jawapan.",
+    "product": "Produk",
+    "support": "Sokongan",
+    "company": "Syarikat",
+    "follow": "Ikuti",
+    "b": {
+      "lang": "Bahasa",
+      "privacy": "Privasi",
+      "terms": "Terma",
+      "copy": "© 2025 KeySearch. Hak cipta terpelihara."
+    }
+  }
+}
