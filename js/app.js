@@ -353,3 +353,44 @@
     els.forEach(e => io.observe(e));
   }
 })();
+
+
+// ===== News page: year filter + gentle animation =====
+(function () {
+  const chipWrap = document.getElementById('newsYearChips');
+  if (!chipWrap) return;
+
+  const chips = Array.from(chipWrap.querySelectorAll('.chip'));
+  const cards = Array.from(document.querySelectorAll('.news-card'));
+
+  function setActive(targetYear) {
+    // 切換 chip 樣式
+    chips.forEach(btn => {
+      const on = btn.dataset.year === targetYear || (targetYear === 'all' && btn.dataset.year === 'all');
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+
+    // 顯示 / 隱藏卡片（含動畫）
+    cards.forEach(card => {
+      const y = card.getAttribute('data-year');
+      const show = (targetYear === 'all') || (y === targetYear);
+      card.toggleAttribute('data-hide', !show);
+    });
+  }
+
+  // 点选切换
+  chipWrap.addEventListener('click', (e) => {
+    const btn = e.target.closest('.chip');
+    if (!btn) return;
+    const year = btn.dataset.year || 'all';
+    setActive(year);
+
+    // 可選：更新 URL hash，讓重新整理能記住年份
+    history.replaceState(null, '', year === 'all' ? location.pathname : `#y-${year}`);
+  });
+
+  // 初始：依 hash 或預設 all
+  const initHash = location.hash.match(/^#y-(\d{4})$/)?.[1];
+  setActive(initHash || 'all');
+})();
