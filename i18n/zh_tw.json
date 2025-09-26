@@ -33,6 +33,14 @@
     "final": {
       "title": "準備開始了嗎？",
       "lead": "下載 KeySearch 桌面版，或立即體驗網頁版。"
+    },
+    "feature1": {
+      "title": "瞬間搜尋任何內容",
+      "desc": "跨專案、筆記與資源，精準找到所需 — 立刻。"
+    },
+    "feature2": {
+      "title": "輕鬆維持井然有序",
+      "desc": "無需資料夾、沒有雜亂。KeySearch 讓一切清楚好找。"
     }
   },
 
@@ -40,29 +48,29 @@
     "title": "功能特色",
     "lead": "讓 KeySearch 強大且簡單易用的原因。",
     "cards": {
-      "instant": { "title": "即時搜尋", "desc": "在毫秒之內搜尋筆記、檔案與標籤。" },
+      "instant": { "title": "即時搜尋", "desc": "毫秒間搜尋筆記、檔案與標籤。" },
       "tags": { "title": "智慧標籤", "desc": "多層級標籤、篩選與自動完成，加速整理。" },
-      "collections": { "title": "集合管理", "desc": "依專案或情境分組，分享唯讀檢視。" },
-      "shortcuts": { "title": "全域快捷鍵", "desc": "用一組快捷鍵跳到任何地方，內建指令面板。" },
-      "i18n": { "title": "多語介面", "desc": "可即時切換語言，支援 17+ 種語系。" },
-      "privacy": { "title": "隱私優先", "desc": "本地優先，資料僅存於裝置（IndexedDB）。" },
-      "export": { "title": "彈性匯出", "desc": "可匯出成 CSV/JSON，或與團隊分享集合。" },
+      "collections": { "title": "集合管理", "desc": "依專案或情境分組；可分享唯讀檢視。" },
+      "shortcuts": { "title": "全域快捷鍵", "desc": "一組快捷鍵跳到任意位置，內建指令面板。" },
+      "i18n": { "title": "多語介面", "desc": "可即時切換語言，支援 17+ 語系。" },
+      "privacy": { "title": "隱私優先", "desc": "本地優先（IndexedDB），資料僅在你的裝置。" },
+      "export": { "title": "彈性匯出", "desc": "匯出 CSV/JSON，或分享集合給團隊。" },
       "platforms": { "title": "網頁與桌面", "desc": "網頁與桌面體驗一致，零學習門檻。" }
     },
     "final": {
       "title": "準備好要體驗了嗎？",
-      "lead": "立即下載 KeySearch，或直接於瀏覽器使用。"
+      "lead": "下載 KeySearch，或直接在瀏覽器中使用。"
     }
   },
 
   "download": {
     "title": "下載",
-    "lead": "選擇你喜愛的平台下載 KeySearch。",
+    "lead": "選擇你偏好的平台下載 KeySearch。",
     "windows": { "title": "Windows", "version": "版本 1.0.1.0", "cta": "下載 EXE" },
     "mac": { "title": "macOS", "version": "版本 1.0.1.0", "cta": "下載 DMG" },
     "linux": { "title": "Linux", "version": "版本 1.0.1.0", "cta": "下載 AppImage" },
     "hash": { "label": "SHA256 校驗：" },
-    "webpref": { "title": "偏好使用網頁版？", "lead": "直接在瀏覽器中執行 KeySearch，免安裝。" },
+    "webpref": { "title": "偏好用網頁版？", "lead": "在瀏覽器執行 KeySearch，免安裝。" },
     "cta": { "text": "下載" },
     "web": "開啟網頁版"
   },
@@ -90,11 +98,11 @@
       "cta": "立即升級"
     },
     "faq": {
-      "refunds": { "q": "可以退款嗎？", "a": "若你不滿意，請於 14 天內聯繫我們，我們將協助處理。" },
-      "switch": { "q": "之後可以更換方案嗎？", "a": "可以，你可以隨時升級或取消。" }
+      "refunds": { "q": "可以退款嗎？", "a": "若你不滿意，請於 14 天內與我們聯繫，我們會協助處理。" },
+      "switch": { "q": "之後可以更換方案嗎？", "a": "可以，你可隨時升級或取消。" }
     },
     "final": {
-      "title": "開始更聰明的搜尋吧",
+      "title": "開始更聰明的搜尋",
       "lead": "KeySearch 可免費試用，準備好再升級。",
       "cta": { "download": "免費下載", "openweb": "開啟網頁版" }
     }
@@ -105,18 +113,18 @@
     "desc": "快速搜尋，一步到位。乾淨俐落，直達答案。",
     "mission": {
       "t": "使命",
-      "desc": "幫助人們即時找到所需的筆記、檔案與想法，免除雜亂、綁定與過度倚賴雲端。"
+      "desc": "幫助每個人即時找到所需的筆記、檔案與想法，不被雜亂、綁定或雲端依賴拖累。"
     },
     "diff-1": "本地優先",
-    "desc-1": "資料僅存在你的裝置（IndexedDB）。可離線使用，無需帳號。",
+    "desc-1": "資料存於你的裝置（IndexedDB）。可離線使用，無需帳號。",
     "diff-2": "極速設計",
-    "desc-2": "索引搜尋搭配標籤、篩選與快捷鍵，毫秒完成。",
+    "desc-2": "索引搜尋搭配標籤、篩選與快捷鍵——以毫秒計算。",
     "diff-3": "無綁定",
-    "desc-3": "可匯出 CSV/JSON，合作時分享唯讀集合。",
+    "desc-3": "可匯出 CSV/JSON；需要協作時分享唯讀集合。",
     "diff-4": "多語支援",
-    "desc-4": "以 i18n JSON 即時切換介面，已支援超過 17 種語系。",
+    "desc-4": "使用 i18n JSON 即時切換介面，已支援 17+ 語系。",
     "privacy": "隱私與透明",
-    "privacy.desc": "KeySearch 堅持隱私優先。我們不販售資料。可選的遙測預設關閉，並可隨時停用。內建清楚的匯出功能。",
+    "privacy.desc": "KeySearch 重視隱私。我們不販售資料。可選遙測預設關閉並可隨時停用；內建清楚的匯出功能。",
     "privacy.read": "閱讀隱私政策",
     "privacy.update": "產品更新"
   },
@@ -126,19 +134,19 @@
 
   "support": {
     "title": "支援",
-    "lead": "快速找到答案，或提供你的意見。",
+    "lead": "快速找到答案，或把想法告訴我們。",
     "quick": { "download": "下載", "billing": "帳單與方案", "faq": "常見問題", "contact": "聯絡我們" },
     "faq": {
       "title": "常見問題",
       "q1": "如何安裝 KeySearch？",
-      "a1": "請到下載頁面取得安裝檔並依指示安裝。macOS 可能需要在系統設定允許已識別開發者的應用程式。",
-      "q2": "網頁版和桌面版有差嗎？",
-      "a2": "核心功能相同。桌面版多了離線模式與本地匯出。",
-      "q3": "如何切換語言？",
-      "a3": "使用右上角的語言切換器。更多語言即將推出。"
+      "a1": "請至下載頁取得安裝檔並依指示安裝。macOS 可能需在系統設定允許已識別開發者的 App。",
+      "q2": "網頁版和桌面版差在哪？",
+      "a2": "核心功能一致；桌面版額外提供離線模式與本地匯出。",
+      "q3": "怎麼切換語言？",
+      "a3": "用右上角語言切換器。更多語言即將上線。"
     },
     "feedback": {
-      "title": "傳送意見回饋",
+      "title": "傳送回饋",
       "name": "你的姓名",
       "email": "你的 Email",
       "topic": "主題",
@@ -148,48 +156,48 @@
       "topic.billing": "帳單",
       "message": "訊息",
       "send": "送出",
-      "mailapp": "開啟郵件應用程式",
-      "note": "我們將回覆至 hello@keysearch-app.com。系統不會上傳檔案。",
-      "toast": "正在開啟郵件應用程式…"
+      "mailapp": "開啟郵件程式",
+      "note": "我們會回覆到 hello@keysearch-app.com。系統不會上傳檔案。",
+      "toast": "正在開啟郵件程式…"
     }
   },
 
   "donate": {
     "title": "支持開發",
-    "desc": "KeySearch 免費使用。若它為你節省了時間，請考慮支持我們。",
+    "desc": "KeySearch 可免費使用。若它為你省下時間，歡迎支持我們。",
     "coffee": "請我喝杯咖啡",
     "kofi": "Ko-fi",
     "paypal": "PayPal",
     "stripe": "Stripe",
-    "thanks": "感謝你的支持，這讓 KeySearch 保持快速且專注。"
+    "thanks": "感謝你的支持，讓 KeySearch 保持快速且專注。"
   },
 
   "news": {
     "title": "最新消息",
-    "lead": "每季重點與版本更新。",
+    "lead": "季度亮點與版本記事。",
     "filter": { "all": "全部", "2025": "2025", "2024": "2024" },
     "ctaTitle": "想試試最新版本？",
-    "ctaSub": "立即下載最新安裝檔或開啟網頁版。",
+    "ctaSub": "下載最新安裝檔或開啟網頁版。",
     "v130": {
       "date": "2025 年 9 月 1 日",
       "title": "新功能：多語支援（17 種語言）",
-      "desc": "介面與官網現在支援 17 種語言，即時切換。快捷鍵提示也已在地化。",
-      "l1": "全站新增語言下拉選單",
-      "l2": "JSON 架構的 i18n，方便社群貢獻",
-      "l3": "加強在地化內容的 SEO meta"
+      "desc": "介面與網站支援 17 種語言並可即時切換。快捷提示皆已在地化。",
+      "l1": "各頁面新增語言下拉選單",
+      "l2": "採用 JSON 的 i18n，便於貢獻",
+      "l3": "在地化內容的 SEO 更完善"
     },
     "v120": {
       "date": "2025 年 6 月 10 日",
-      "title": "效能：更快的索引建立",
-      "desc": "大型專案的索引時間縮短約 30%，記憶體占用更佳。",
-      "l1": "大型檔案的串流分詞器",
+      "title": "效能：索引更快",
+      "desc": "大型專案索引時間縮短約 30%，記憶體占用更小。",
+      "l1": "大型檔案串流分詞器",
       "l2": "增量式重建索引",
       "l3": "Windows 當機復原"
     },
     "v110": {
       "date": "2024 年 12 月 15 日",
-      "title": "新功能：CSV 匯出與更好的篩選",
-      "desc": "可將結果匯出 CSV；依類型、日期、路徑進一步過濾。深色模式 UI 更精緻。",
+      "title": "新功能：CSV 匯出與更佳篩選",
+      "desc": "結果可匯出 CSV；依類型、日期、路徑精準過濾。深色模式更精緻。",
       "l1": "一鍵匯出 CSV",
       "l2": "篩選預設（程式碼／文件／媒體）",
       "l3": "鍵盤：Ctrl/Cmd + K 快速搜尋"
@@ -199,29 +207,10 @@
   "foot": {
     "brand": "KeySearch",
     "slogan": "快速搜尋，一步到位。<br>乾淨俐落，直達答案。",
-    "product": "產品",
-    "support": "支援",
-    "company": "公司",
-    "follow": "追蹤我們",
-
-    "product.feat": "功能",
-    "product.price": "價格",
-    "product.download": "下載",
-
-    "support.help": "幫助中心",
-    "support.docs": "文件",
-
-    "company.about": "關於我們",
-    "company.contact": "聯絡我們",
-
-    "follow.twitter": "Twitter",
-    "follow.youtube": "YouTube",
-
-    "b": {
-      "lang": "語言",
-      "privacy": "隱私政策",
-      "terms": "使用條款",
-      "copy": "© 2025 KeySearch. 版權所有。"
-    }
+    "product": { "feat": "功能", "price": "價格", "download": "下載" },
+    "support": { "help": "幫助中心", "docs": "文件" },
+    "company": { "about": "關於我們", "contact": "聯絡我們" },
+    "follow": { "twitter": "Twitter", "youtube": "YouTube" },
+    "b": { "lang": "語言", "privacy": "隱私政策", "terms": "使用條款", "copy": "© 2025 KeySearch. 版權所有。" }
   }
 }
