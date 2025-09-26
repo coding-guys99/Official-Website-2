@@ -12,132 +12,71 @@
 </head>
 <body>
 
- <!-- HEADER -->
+<!-- HEADER -->
 <header class="site-header bm-header" role="banner">
   <div class="container nav">
-    <!-- Brand -->
     <a class="brand" href="index.html" aria-label="KeySearch home">
       <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
       <span class="brand-text" data-i18n="header.brand">KeySearch</span>
     </a>
 
-    <!-- Hamburger (only mobile) -->
     <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" 
-              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
 
-    <!-- Main nav -->
     <ul class="nav-links" id="primaryNav" role="menubar">
       <li><a href="features.html" data-i18n="header.features">Features</a></li>
       <li><a href="download.html" data-i18n="header.download">Download</a></li>
       <li><a href="pricing.html" data-i18n="header.pricing">Pricing</a></li>
       <li><a href="about.html" data-i18n="header.about">About</a></li>
       <li><a href="support.html" data-i18n="header.support">Support</a></li>
-
-      <!-- 行動版專用語言選單 -->
       <li class="mobile-only">
         <button class="lang-btn" id="langBtnMobile" aria-haspopup="menu" aria-expanded="false">
           🌐 <span id="langCurrentMobile" data-i18n="header.lang.current">English</span> ▾
         </button>
       </li>
-
-      <!-- 行動版 Try Web App -->
       <li class="mobile-only">
-        <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">
-          🚀 Try Web App
-        </a>
+        <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">🚀 Try Web App</a>
       </li>
     </ul>
 
-    <!-- 桌機版右側動作 (只留 CTA) -->
     <div class="nav-actions desktop-only">
-      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">
-        🚀 Try Web App
-      </a>
+      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">🚀 Try Web App</a>
     </div>
   </div>
 </header>
 
-  <main>
-    <!-- Page hero -->
-    <section class="page-hero container">
-      <h1 data-i18n="news.title">Product Updates</h1>
-      <p class="lead" data-i18n="news.lead">Quarterly highlights and release notes.</p>
-    </section>
+<main>
+  <!-- Page hero -->
+  <section class="page-hero container">
+    <h1 data-i18n="news.title">Product Updates</h1>
+    <p class="lead" data-i18n="news.lead">Quarterly highlights and release notes.</p>
+  </section>
 
-    <!-- 年份篩選（可選） -->
-    <section class="news-filter container">
-      <div class="chip-group" id="newsYearChips">
-        <button class="chip active" data-year="all" aria-pressed="true" data-i18n="news.filter.all">All</button>
-        <button class="chip" data-year="2025" data-i18n="news.filter.2025">2025</button>
-        <button class="chip" data-year="2024" data-i18n="news.filter.2024">2024</button>
-      </div>
-    </section>
+  <!-- 年份篩選（自動產生） -->
+  <section class="news-filter container">
+    <div class="chip-group" id="newsYearChips"></div>
+  </section>
 
-    <!-- Updates Grid -->
-    <section class="news-grid container">
-      <!-- 一張卡 = 一次更新；用 data-year 方便篩選 -->
-      <article class="news-card" data-year="2025">
-        <div class="news-meta">
-          <span class="badge">v1.3.0</span>
-          <time datetime="2025-09-01" data-i18n="news.v130.date">Sep 1, 2025</time>
-        </div>
-        <h2 data-i18n="news.v130.title">New: Multi-language (17 languages)</h2>
-        <p data-i18n="news.v130.desc">Interface and website now support 17 languages with instant switching. Keyboard hints localized.</p>
-        <ul class="news-list">
-          <li data-i18n="news.v130.l1">Added language dropdown across pages</li>
-          <li data-i18n="news.v130.l2">JSON-based i18n, easy to contribute</li>
-          <li data-i18n="news.v130.l3">Improved SEO meta for localized content</li>
-        </ul>
-      </article>
+  <!-- Updates Grid（自動產生） -->
+  <section class="news-grid container" id="newsGrid"></section>
 
-      <article class="news-card" data-year="2025">
-        <div class="news-meta">
-          <span class="badge">v1.2.0</span>
-          <time datetime="2025-06-10" data-i18n="news.v120.date">Jun 10, 2025</time>
-        </div>
-        <h2 data-i18n="news.v120.title">Performance: Faster indexing</h2>
-        <p data-i18n="news.v120.desc">Index build times reduced by ~30% on large projects. Memory footprint improved.</p>
-        <ul class="news-list">
-          <li data-i18n="news.v120.l1">Streaming tokenizer for large files</li>
-          <li data-i18n="news.v120.l2">Incremental index rebuilds</li>
-          <li data-i18n="news.v120.l3">Crash recovery on Windows</li>
-        </ul>
-      </article>
+  <!-- CTA -->
+  <section class="cta container">
+    <h2 data-i18n="news.ctaTitle">Want to try the latest?</h2>
+    <p class="sub" data-i18n="news.ctaSub">Download the newest build or open the web version.</p>
+    <div class="actions">
+      <a class="btn primary" href="download.html" data-i18n="download.cta.text">Download</a>
+      <a class="btn secondary" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="download.web">Open Web</a>
+    </div>
+  </section>
+</main>
 
-      <article class="news-card" data-year="2024">
-        <div class="news-meta">
-          <span class="badge">v1.1.0</span>
-          <time datetime="2024-12-15" data-i18n="news.v110.date">Dec 15, 2024</time>
-        </div>
-        <h2 data-i18n="news.v110.title">New: CSV export & better filters</h2>
-        <p data-i18n="news.v110.desc">Export results to CSV; refine searches by type, date, and path. New UI polish for dark mode.</p>
-        <ul class="news-list">
-          <li data-i18n="news.v110.l1">CSV export in one click</li>
-          <li data-i18n="news.v110.l2">Filter presets (code / docs / media)</li>
-          <li data-i18n="news.v110.l3">Keyboard: <kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd> quick search</li>
-        </ul>
-      </article>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta container">
-      <h2 data-i18n="news.ctaTitle">Want to try the latest?</h2>
-      <p class="sub" data-i18n="news.ctaSub">Download the newest build or open the web version.</p>
-      <div class="actions">
-        <a class="btn primary" href="download.html" data-i18n="download.cta.text">Download</a>
-        <a class="btn secondary" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="download.web">Open Web</a>
-      </div>
-    </section>
-  </main>
-
-     <!-- ===== Footer ===== -->
+<!-- ===== Footer ===== -->
 <footer class="site-footer bm-footer">
   <div class="container bm-footer-top">
-    <!-- Brand -->
     <div class="bm-foot-brand">
       <a class="brand mini" href="index.html">
         <span data-i18n="foot.brand">KeySearch</span>
@@ -145,58 +84,39 @@
       <p class="tagline" data-i18n="foot.slogan" data-i18n-html>Find it. Fast.<br>No mess. Just answers.</p>
     </div>
 
-    <!-- Links grid（桌機四欄 / 手機手風琴） -->
     <div class="bm-foot-links-grid">
-
-      <!-- Product -->
       <section class="foot-col">
-        <h4>
-          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button>
-        </h4>
+        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button></h4>
         <ul class="foot-links">
           <li data-i18n="foot.product.feat"><a href="features.html">Features</a></li>
           <li data-i18n="foot.product.price"><a href="pricing.html">Pricing</a></li>
           <li data-i18n="foot.product.download"><a href="download.html">Download</a></li>
         </ul>
       </section>
-
-      <!-- Support -->
       <section class="foot-col">
-        <h4>
-          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button>
-        </h4>
+        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button></h4>
         <ul class="foot-links">
           <li data-i18n="foot.support.help"><a href="support.html">Help Center</a></li>
           <li data-i18n="foot.support.docs"><a href="#">Docs</a></li>
         </ul>
       </section>
-
-      <!-- Company -->
       <section class="foot-col">
-        <h4>
-          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button>
-        </h4>
+        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button></h4>
         <ul class="foot-links">
-          <li data-i18n="foot.company.about"><a href="about.html" >About</a></li>
+          <li data-i18n="foot.company.about"><a href="about.html">About</a></li>
           <li data-i18n="foot.company.contact"><a href="mailto:hello@keysearch-app.com">Contact</a></li>
         </ul>
       </section>
-
-      <!-- Follow -->
       <section class="foot-col">
-        <h4>
-          <button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button>
-        </h4>
+        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button></h4>
         <ul class="foot-links">
           <li data-i18n="foot.follow.twitter"><a href="#" rel="me">Twitter</a></li>
           <li data-i18n="foot.follow.youtube"><a href="#" rel="me">YouTube</a></li>
         </ul>
       </section>
-
     </div>
   </div>
 
-  <!-- Bottom -->
   <div class="container bm-footer-bottom">
     <div class="legal">
       <a href="#" id="footLangLink" data-i18n="foot.b.lang">Language</a>
@@ -207,16 +127,12 @@
   </div>
 </footer>
 
-  <div id="langPortal" class="lang-portal" role="menu" aria-hidden="true"></div>
-  
-  <!-- JS -->
-  <script src="js/lang.js" ></script>
-  <script src="js/reveal.js" defer></script>
-  <script src="js/app.js" defer></script>
+<div id="langPortal" class="lang-portal" role="menu" aria-hidden="true"></div>
 
-  <script>
-    // footer 年份
-    document.getElementById('yearNow').textContent = new Date().getFullYear();
-  </script>
+<!-- JS -->
+<script src="js/lang.js"></script>
+<script src="js/reveal.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/news.js" defer></script>
 </body>
 </html>
