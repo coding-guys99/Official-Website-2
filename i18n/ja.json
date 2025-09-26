@@ -1,116 +1,186 @@
 {
-  "meta.title.home": "KeySearch — すぐ見つける",
-  "meta.title.features": "機能 — KeySearch",
-  "meta.title.download": "ダウンロード — KeySearch",
-  "meta.title.pricing": "料金 — KeySearch",
-  "meta.title.about": "概要 — KeySearch",
-  "meta.title.support": "サポート — KeySearch",
-
-  "header.brand": "KeySearch",
-  "header.features": "機能",
-  "header.download": "ダウンロード",
-  "header.pricing": "料金",
-  "header.about": "概要",
-  "header.support": "サポート",
-  "header.lang.current": "日本語",
-  "header.tryapp.cta": "🚀 Webアプリを試す",
-
-  "home.hero.title": "すぐ見つける",
-  "home.hero.sub": "すべてを手の届くところに。乱雑なし。答えだけ。",
-  "home.cta.downloadNow": "今すぐダウンロード",
-  "home.final.title": "始めましょう",
-  "home.final.lead": "デスクトップ用をダウンロード、またはWeb版を今すぐ体験。",
-
-  "features.title": "機能",
-  "features.lead": "KeySearchを強力でシンプルにする理由。",
-  "features.cards.instant.title": "即時検索",
-  "features.cards.instant.desc": "ノート、ファイル、タグをミリ秒で検索。",
-  "features.cards.tags.title": "スマートタグ",
-  "features.cards.tags.desc": "多階層タグ、フィルター、自動補完。",
-  "features.cards.collections.title": "コレクション",
-  "features.cards.collections.desc": "プロジェクトや文脈でアイテムを整理。",
-  "features.cards.shortcuts.title": "ショートカット",
-  "features.cards.shortcuts.desc": "コマンドパレットで即ジャンプ。",
-  "features.cards.i18n.title": "多言語UI",
-  "features.cards.i18n.desc": "瞬時に言語切替、17言語以上対応。",
-  "features.cards.privacy.title": "プライバシー第一",
-  "features.cards.privacy.desc": "データはデバイス上に保存されます。",
-  "features.cards.export.title": "柔軟なエクスポート",
-  "features.cards.export.desc": "CSV/JSONにエクスポート可能。",
-  "features.cards.platforms.title": "Web & デスクトップ",
-  "features.cards.platforms.desc": "同じ体験をどこでも。学習不要。",
-
-  "download.title": "ダウンロード",
-  "download.lead": "お好みのプラットフォームでKeySearchを入手。",
-  "download.windows.title": "Windows",
-  "download.windows.cta": "EXEをダウンロード",
-  "download.mac.title": "macOS",
-  "download.mac.cta": "DMGをダウンロード",
-  "download.linux.title": "Linux",
-  "download.linux.cta": "AppImageをダウンロード",
-  "download.webpref.title": "Webアプリを利用しますか？",
-  "download.webpref.lead": "ブラウザで動作、インストール不要。",
-  "download.web": "Webを開く",
-
-  "pricing.title": "料金",
-  "pricing.lead": "シンプルで透明なプラン。",
-  "pricing.billing.monthly": "月額",
-  "pricing.billing.yearly": "年額",
-  "pricing.billing.save": "20%お得",
-  "pricing.free.title": "無料",
-  "pricing.free.perma": "ずっと無料",
-  "pricing.free.cta": "今すぐ開始",
-  "pricing.pro.title": "プロ",
-  "pricing.pro.permonth": " / 月",
-  "pricing.pro.cta": "アップグレード",
-  "pricing.pro.badge": "一番人気",
-
-  "about.title": "KeySearchについて",
-  "about.desc": "すぐに見つける。乱雑なし。答えだけ。",
-  "about.mission.t": "ミッション",
-  "about.mission.desc": "人々が必要な情報を即座に見つけられるよう支援します。",
-  "about.diff-1": "ローカル優先",
-  "about.diff-2": "設計による高速化",
-  "about.diff-3": "ロックインなし",
-  "about.diff-4": "多言語対応",
-  "about.privacy": "プライバシーと透明性",
-  "about.privacy.read": "プライバシーを読む",
-  "about.privacy.update": "製品アップデート",
-
-  "support.title": "サポート",
-  "support.lead": "よくある質問やフィードバック。",
-  "support.quick.download": "ダウンロード",
-  "support.quick.billing": "料金プラン",
-  "support.quick.faq": "FAQ",
-  "support.quick.contact": "連絡",
-  "support.faq.title": "FAQ",
-  "support.faq.q1": "KeySearchをどうやってインストールしますか？",
-  "support.faq.q2": "Webアプリとデスクトップ版は違いますか？",
-  "support.faq.q3": "言語を切り替えるには？",
-  "support.feedback.title": "フィードバックを送信",
-  "support.feedback.send": "送信",
-  "support.feedback.mailapp": "メールアプリを開く",
-  "support.feedback.note": "返信は hello@keysearch-app.com 宛に送られます。",
-
-  "donate.title": "開発をサポート",
-  "donate.desc": "KeySearchは無料で使用できます。ご支援をお願いします。",
-  "donate.coffee": "コーヒーをおごる",
-  "donate.kofi": "Ko-fi",
-  "donate.paypal": "PayPal",
-  "donate.stripe": "Stripe",
-  "donate.thanks": "ご支援ありがとうございます！",
-
-  "foot.brand": "KeySearch",
-  "foot.slogan": "すぐ見つける。<br>乱雑なし。答えだけ。",
-  "foot.product": "製品",
-  "foot.product.feat": "機能",
-  "foot.product.price": "料金",
-  "foot.product.download": "ダウンロード",
-  "foot.support": "サポート",
-  "foot.company": "会社",
-  "foot.follow": "フォロー",
-  "foot.b.lang": "言語",
-  "foot.b.privacy": "プライバシー",
-  "foot.b.terms": "利用規約",
-  "foot.b.copy": "© 2025 KeySearch. 全著作権所有。"
+  "_meta": {
+    "lang": "日本語 (母語)",
+    "dir": "ltr"
+  },
+  "meta": {
+    "title": {
+      "home": "KeySearch — すぐ見つかる",
+      "features": "機能 — KeySearch",
+      "download": "ダウンロード — KeySearch",
+      "pricing": "料金 — KeySearch",
+      "about": "概要 — KeySearch",
+      "support": "サポート — KeySearch",
+      "news": "ニュース — KeySearch"
+    }
+  },
+  "header": {
+    "brand": "KeySearch",
+    "features": "機能",
+    "download": "ダウンロード",
+    "pricing": "料金",
+    "about": "概要",
+    "support": "サポート",
+    "tryapp": { "cta": "🚀 Web アプリを試す" },
+    "lang": { "current": "日本語" }
+  },
+  "home": {
+    "hero": {
+      "title": "すぐ見つかる",
+      "sub": "すべてが手の届くところに。散らからず、答えだけ。"
+    },
+    "cta": { "downloadNow": "今すぐダウンロード" },
+    "final": {
+      "title": "始めませんか？",
+      "lead": "デスクトップ版をダウンロード、または Web 版をすぐに利用できます。"
+    }
+  },
+  "features": {
+    "title": "機能",
+    "lead": "KeySearch を強力かつシンプルにする要素。",
+    "cards": {
+      "instant": { "title": "即時検索", "desc": "ノート、ファイル、タグを数ミリ秒で検索。" },
+      "tags": { "title": "スマートタグ", "desc": "階層タグ、フィルター、自動補完で効率的に整理。" },
+      "collections": { "title": "コレクション", "desc": "プロジェクトや文脈ごとにグループ化、閲覧専用で共有。" },
+      "shortcuts": { "title": "グローバルショートカット", "desc": "ワンキーでどこへでも移動。コマンドパレット内蔵。" },
+      "i18n": { "title": "多言語 UI", "desc": "即時に言語切替。17以上のロケールに対応。" },
+      "privacy": { "title": "プライバシー重視", "desc": "IndexedDB を利用したローカル優先設計。データは端末に保存。" },
+      "export": { "title": "柔軟なエクスポート", "desc": "CSV/JSON へ出力、チームとコレクション共有も可能。" },
+      "platforms": { "title": "Web & デスクトップ", "desc": "Web とデスクトップで同じ体験。学習不要。" }
+    },
+    "final": {
+      "title": "試してみませんか？",
+      "lead": "KeySearch をダウンロード、またはブラウザですぐに利用可能。"
+    }
+  },
+  "download": {
+    "title": "ダウンロード",
+    "lead": "お好みのプラットフォーム用 KeySearch を入手。",
+    "windows": { "title": "Windows", "version": "バージョン 1.0.1.0", "cta": "EXE をダウンロード" },
+    "mac": { "title": "macOS", "version": "バージョン 1.0.1.0", "cta": "DMG をダウンロード" },
+    "linux": { "title": "Linux", "version": "バージョン 1.0.1.0", "cta": "AppImage をダウンロード" },
+    "hash": { "label": "SHA256:" },
+    "webpref": { "title": "Web アプリを利用しますか？", "lead": "ブラウザで動作 — インストール不要。" },
+    "cta": { "text": "ダウンロード" },
+    "web": "Web 版を開く"
+  },
+  "pricing": {
+    "title": "料金",
+    "lead": "シンプルで透明なプラン。あなたの成長に合わせて。",
+    "billing": {
+      "monthly": "月払い",
+      "yearly": "年払い",
+      "save": "20% 割引"
+    },
+    "free": {
+      "title": "無料",
+      "perma": "／永遠に",
+      "f1": "無制限検索",
+      "f2": "基本タグとコレクション",
+      "f3": "CSV/JSON エクスポート",
+      "cta": "今すぐ開始"
+    },
+    "pro": {
+      "badge": "最も人気",
+      "title": "Pro",
+      "permonth": "／月",
+      "f1": "無料プランのすべて",
+      "f2": "多言語 UI",
+      "f3": "リマインダーとスマートフィルター",
+      "f4": "優先サポート",
+      "cta": "今すぐアップグレード"
+    },
+    "faq": {
+      "refunds": { "q": "返金はありますか？", "a": "満足できない場合、14日以内にご連絡ください。対応します。" },
+      "switch": { "q": "後でプランを変更できますか？", "a": "はい。いつでもアップグレードや解約が可能です。" }
+    },
+    "final": {
+      "title": "賢く検索を始めよう",
+      "lead": "KeySearch は無料でお試し可能。準備ができたらアップグレード。",
+      "cta": { "download": "無料でダウンロード", "openweb": "Web 版を開く" }
+    }
+  },
+  "about": {
+    "title": "KeySearch について",
+    "desc": "すぐ見つかる。散らからない。答えだけ。",
+    "mission": {
+      "t": "使命",
+      "desc": "ノート・ファイル・アイデアを瞬時に見つける手助けを。クラウド依存や混乱なく。"
+    },
+    "diff-1": "ローカル優先", "desc-1": "データは端末に保存 (IndexedDB)。オフライン動作、アカウント不要。",
+    "diff-2": "高速設計", "desc-2": "タグ・フィルタ付きインデックス検索。ミリ秒単位で動作。",
+    "diff-3": "ロックインなし", "desc-3": "CSV/JSON 出力、共有ビューも可能。",
+    "diff-4": "多言語", "desc-4": "JSON ベースの i18n で即切替。17 言語以上に対応。",
+    "privacy": "プライバシー & 透明性",
+    "privacy.desc": "KeySearch はプライバシー重視。データ販売なし。テレメトリはオフ。明確なエクスポートあり。",
+    "privacy.read": "プライバシーを読む",
+    "privacy.update": "製品アップデート"
+  },
+  "support": {
+    "title": "サポート",
+    "lead": "すぐに答えを探すか、フィードバックを送信してください。",
+    "quick": { "download": "ダウンロード", "billing": "請求とプラン", "faq": "FAQ", "contact": "お問い合わせ" },
+    "faq": {
+      "title": "FAQ",
+      "q1": "KeySearch のインストール方法は？",
+      "a1": "ダウンロードページからインストーラを取得。macOS では設定で許可が必要な場合あり。",
+      "q2": "Web 版とデスクトップ版の違いは？",
+      "a2": "基本機能は同じ。デスクトップ版はオフラインとローカルエクスポート対応。",
+      "q3": "言語を切り替えるには？",
+      "a3": "右上の切替メニューを利用。今後さらに追加予定。"
+    },
+    "feedback": {
+      "title": "フィードバックを送る",
+      "name": "お名前",
+      "email": "メールアドレス",
+      "topic": "件名",
+      "topic.general": "一般",
+      "topic.bug": "バグ報告",
+      "topic.feature": "機能リクエスト",
+      "topic.billing": "請求",
+      "message": "メッセージ",
+      "send": "送信",
+      "mailapp": "メールアプリを開く",
+      "note": "返信は hello@keysearch-app.com から。ファイルアップロードなし。",
+      "toast": "メールアプリを開いています…"
+    }
+  },
+  "donate": {
+    "title": "開発を支援",
+    "desc": "KeySearch は無料で利用可能。役立ったら開発支援を検討してください。",
+    "coffee": "コーヒーをおごる",
+    "kofi": "Ko-fi",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "thanks": "サポートありがとうございます — KeySearch を速く集中したままに保ちます。"
+  },
+  "news": {
+    "title": "製品アップデート",
+    "lead": "四半期ごとのハイライトとリリースノート。",
+    "filter": { "all": "すべて", "2025": "2025", "2024": "2024" },
+    "ctaTitle": "最新を試しますか？",
+    "ctaSub": "最新ビルドをダウンロード、または Web 版を開く。",
+    "v130": {
+      "date": "2025年9月1日",
+      "title": "新機能: 多言語対応 (17言語)",
+      "desc": "UI とウェブサイトが 17 言語対応。キーボードヒントもローカライズ。",
+      "l1": "各ページに言語ドロップダウン追加",
+      "l2": "JSON ベース i18n、貢献しやすい",
+      "l3": "ローカライズ済みコンテンツの SEO 改善"
+    }
+  },
+  "foot": {
+    "brand": "KeySearch",
+    "slogan": "すぐ見つかる。<br>散らからず、答えだけ。",
+    "product": "製品",
+    "support": "サポート",
+    "company": "会社",
+    "follow": "フォロー",
+    "b": {
+      "lang": "言語",
+      "privacy": "プライバシー",
+      "terms": "利用規約",
+      "copy": "© 2025 KeySearch. 全著作権所有。"
+    }
+  }
 }
