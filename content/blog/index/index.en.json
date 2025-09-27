@@ -1,0 +1,22 @@
+{
+  "title": "Product Updates & Best Practices",
+  "lead": "Go from scattered to clear: card-ified info and a tidy workflow.",
+  "items": [
+    {
+      "slug": "cards-find-answers-fast",
+      "title": "Turn information into cards, find answers fast",
+      "excerpt": "Card-ify notes, docs, and links so search and scanning become effortless.",
+      "date": "2025-09-01",
+      "readingTime": "3 min",
+      "cover": "assets/blog/cards.jpg"
+    },
+    {
+      "slug": "beyond-speed-organized",
+      "title": "Not just fast — truly organized",
+      "excerpt": "Speed matters, but structure matters more: tags, collections, and quick filters.",
+      "date": "2025-06-10",
+      "readingTime": "4 min",
+      "cover": "assets/blog/organized.jpg"
+    }
+  ]
+}
