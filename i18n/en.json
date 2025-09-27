@@ -9,7 +9,18 @@
       "pricing": "Pricing — KeySearch",
       "about": "About — KeySearch",
       "support": "Support — KeySearch",
-      "news": "News — KeySearch"
+      "news": "News — KeySearch",
+      "donate": "Support Development — KeySearch"
+    },
+    "description": {
+      "home": "KeySearch is a fast, privacy-first search tool for notes and files. Find anything instantly and stay organized without the clutter.",
+      "features": "Explore KeySearch features: instant results, smart tags, collections, global shortcuts, multi-language UI, and privacy-first design.",
+      "download": "Download KeySearch for Windows, macOS, and Linux — or try the Web App with no installation required.",
+      "pricing": "Simple, transparent pricing. Start free and upgrade to Pro for multi-language UI, reminders, filters, and priority support.",
+      "about": "KeySearch helps you find exactly what you need — instantly. Local-first, fast by design, and no vendor lock-in.",
+      "support": "Get help with installation, language switching, billing, and more. Send feedback directly to the KeySearch team.",
+      "news": "Product updates, highlights, and release notes for KeySearch — indexed performance, export options, and localization.",
+      "donate": "If KeySearch saves you time, consider supporting development via Buy Me a Coffee, Ko-fi, PayPal, or Stripe."
     }
   },
 
@@ -178,59 +189,58 @@
   },
 
   "news": {
-  "title": "Product Updates",
-  "lead": "Quarterly highlights and release notes.",
-  "filter": { "all": "All", "2025": "2025", "2024": "2024" },
-  "ctaTitle": "Want to try the latest?",
-  "ctaSub": "Download the newest build or open the web version.",
-  "items": [
-    {
-      "version": "v1.3.0",
-      "date": "Sep 1, 2025",
-      "title": "New: Multi-language (17 languages)",
-      "desc": "Interface and website now support 17 languages with instant switching. Keyboard hints localized.",
-      "bullets": [
-        "Added language dropdown across pages",
-        "JSON-based i18n, easy to contribute",
-        "Improved SEO meta for localized content"
-      ],
-      "year": "2025"
-    },
-    {
-      "version": "v1.2.0",
-      "date": "Jun 10, 2025",
-      "title": "Performance: Faster indexing",
-      "desc": "Index build times reduced by ~30% on large projects. Memory footprint improved.",
-      "bullets": [
-        "Streaming tokenizer for large files",
-        "Incremental index rebuilds",
-        "Crash recovery on Windows"
-      ],
-      "year": "2025"
-    },
-    {
-      "version": "v1.1.0",
-      "date": "Dec 15, 2024",
-      "title": "New: CSV export & better filters",
-      "desc": "Export results to CSV; refine searches by type, date, and path. New UI polish for dark mode.",
-      "bullets": [
-        "CSV export in one click",
-        "Filter presets (code / docs / media)",
-        "Keyboard: Ctrl/Cmd + K quick search"
-      ],
-      "year": "2024"
-    }
-  ]
-},
+    "title": "Product Updates",
+    "lead": "Quarterly highlights and release notes.",
+    "filter": { "all": "All", "2025": "2025", "2024": "2024" },
+    "ctaTitle": "Want to try the latest?",
+    "ctaSub": "Download the newest build or open the web version.",
+    "items": [
+      {
+        "version": "v1.3.0",
+        "date": "Sep 1, 2025",
+        "title": "New: Multi-language (17 languages)",
+        "desc": "Interface and website now support 17 languages with instant switching. Keyboard hints localized.",
+        "bullets": [
+          "Added language dropdown across pages",
+          "JSON-based i18n, easy to contribute",
+          "Improved SEO meta for localized content"
+        ],
+        "year": "2025"
+      },
+      {
+        "version": "v1.2.0",
+        "date": "Jun 10, 2025",
+        "title": "Performance: Faster indexing",
+        "desc": "Index build times reduced by ~30% on large projects. Memory footprint improved.",
+        "bullets": [
+          "Streaming tokenizer for large files",
+          "Incremental index rebuilds",
+          "Crash recovery on Windows"
+        ],
+        "year": "2025"
+      },
+      {
+        "version": "v1.1.0",
+        "date": "Dec 15, 2024",
+        "title": "New: CSV export & better filters",
+        "desc": "Export results to CSV; refine searches by type, date, and path. New UI polish for dark mode.",
+        "bullets": [
+          "CSV export in one click",
+          "Filter presets (code / docs / media)",
+          "Keyboard: Ctrl/Cmd + K quick search"
+        ],
+        "year": "2024"
+      }
+    ]
+  },
 
   "foot": {
-  "brand": "KeySearch",
-  "slogan": "Find it. Fast.<br>No mess. Just answers.",
-  "product": { "_": "Product", "feat": "Features", "price": "Pricing", "download": "Download" },
-  "support": { "_": "Support", "help": "Help Center", "docs": "Docs" },
-  "company": { "_": "Company", "about": "About", "contact": "Contact" },
-  "follow":  { "_": "Follow", "twitter": "Twitter", "youtube": "YouTube" },
-  "b": { "lang": "Language", "privacy": "Privacy", "terms": "Terms", "copy": "© 2025 KeySearch. All rights reserved." }
-}
-
+    "brand": "KeySearch",
+    "slogan": "Find it. Fast.<br>No mess. Just answers.",
+    "product": { "_": "Product", "feat": "Features", "price": "Pricing", "download": "Download" },
+    "support": { "_": "Support", "help": "Help Center", "docs": "Docs" },
+    "company": { "_": "Company", "about": "About", "contact": "Contact" },
+    "follow": { "_": "Follow", "twitter": "Twitter", "youtube": "YouTube" },
+    "b": { "lang": "Language", "privacy": "Privacy", "terms": "Terms", "copy": "© 2025 KeySearch. All rights reserved." }
+  }
 }
