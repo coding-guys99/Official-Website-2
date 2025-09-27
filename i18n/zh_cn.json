@@ -1,15 +1,25 @@
 {
   "_meta": { "lang": "简体中文", "dir": "ltr" },
-
   "meta": {
     "title": {
-      "home": "KeySearch — 快速找到答案",
-      "features": "功能特色 — KeySearch",
+      "home": "KeySearch — 快速找到，一切尽在掌握",
+      "features": "功能 — KeySearch",
       "download": "下载 — KeySearch",
-      "pricing": "价格方案 — KeySearch",
-      "about": "关于我们 — KeySearch",
+      "pricing": "价格 — KeySearch",
+      "about": "关于 — KeySearch",
       "support": "支持 — KeySearch",
-      "news": "最新消息 — KeySearch"
+      "news": "新闻 — KeySearch",
+      "donate": "支持开发 — KeySearch"
+    },
+    "description": {
+      "home": "KeySearch 是一款快速、隐私优先的搜索工具，帮助你即时找到笔记与文件，整理更轻松不凌乱。",
+      "features": "探索 KeySearch 功能：即时结果、智能标签、集合、全局快捷键、多语言界面与隐私优先设计。",
+      "download": "下载 KeySearch（Windows、macOS、Linux），或直接使用无需安装的网页版。",
+      "pricing": "简单透明的定价。免费开始，升级 Pro 享多语言界面、提醒、过滤与优先支持。",
+      "about": "KeySearch 让你瞬间找到所需。本地优先、极速设计，无供应商锁定。",
+      "support": "获取安装、语言切换、账单等支持，或直接向 KeySearch 团队反馈。",
+      "news": "KeySearch 产品更新、性能优化、导出功能与本地化的发布要点。",
+      "donate": "如果 KeySearch 为你节省了时间，欢迎通过 Buy Me a Coffee、Ko-fi、PayPal 或 Stripe 支持开发。"
     }
   },
 
