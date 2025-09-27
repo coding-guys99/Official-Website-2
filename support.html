@@ -107,39 +107,28 @@
     <section id="feedback" class="feedback container reveal-on-scroll" aria-label="Send feedback">
       <h2 data-i18n="support.feedback.title">Send us your feedback</h2>
       <form id="feedbackForm" class="feedback-form" novalidate>
-        <div class="row2">
-          <label data-i18n="support.feedback.name">
-            Your Name
-            <input type="text" name="name" required>
-          </label>
-          <label data-i18n="support.feedback.email">
-            Your Email
-            <input type="email" name="email" required>
-          </label>
-        </div>
-        <label data-i18n="support.feedback.topic">
-          Topic
-          <select name="topic">
-            <option value="general" data-i18n="support.feedback.topic.general">General</option>
-            <option value="bug" data-i18n="support.feedback.topic.bug">Bug Report</option>
-            <option value="feature" data-i18n="support.feedback.topic.feature">Feature Request</option>
-            <option value="billing" data-i18n="support.feedback.topic.billing">Billing</option>
-          </select>
-        </label>
-        <label data-i18n="support.feedback.message">
-          Message
-          <textarea name="message" rows="6" required></textarea>
-        </label>
-        <!-- 蜜罐（防機器） -->
-        <input type="text" name="website" class="honeypot" autocomplete="off" tabindex="-1" aria-hidden="true">
-        <div class="actions">
-          <button type="submit" class="btn primary" data-i18n="support.feedback.send">Send</button>
-          <a class="btn ghost" href="mailto:hello@keysearch-app.com" data-i18n="support.feedback.mailapp">Open mail app</a>
-        </div>
-        <p class="tiny muted" data-i18n="support.feedback.note">
-          We’ll reply to <strong>hello@keysearch-app.com</strong>. Your system won’t upload files.
-        </p>
-      </form>
+  <label> Your Name
+    <input type="text" name="name" placeholder="John Doe" required>
+  </label>
+
+  <label> Your Email
+    <input type="email" name="email" placeholder="you@example.com" required>
+  </label>
+
+  <label> Topic
+    <select name="topic">
+      <option value="general">General</option>
+      <option value="bug">Bug Report</option>
+      <option value="feature">Feature Request</option>
+      <option value="billing">Billing</option>
+    </select>
+  </label>
+
+  <label> Message
+    <textarea name="message" rows="6" placeholder="Tell us more..." required></textarea>
+  </label>
+  …
+</form>
 
       <!-- 成功提示 -->
       <div id="toast" role="status" aria-live="polite" class="toast" hidden data-i18n="support.feedback.toast">Opening your email app…</div>
