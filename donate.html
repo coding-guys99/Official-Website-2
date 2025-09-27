@@ -142,10 +142,17 @@
         <label>
           <span data-i18n="donate.currency">Currency</span>
           <select id="donate-currency" aria-label="Choose currency">
-            <option value="USD" selected>USD $</option>
-            <option value="TWD">TWD NT$</option>
-            <option value="MYR">MYR RM</option>
-          </select>
+  <option value="USD" selected>USD $</option>
+  <option value="EUR">EUR €</option>
+  <option value="GBP">GBP £</option>
+  <option value="TWD">TWD NT$</option>
+  <option value="MYR">MYR RM</option>
+  <option value="HKD">HKD HK$</option>
+  <option value="JPY">JPY ¥</option>
+  <option value="SGD">SGD S$</option>
+  <option value="CAD">CAD C$</option>
+  <option value="AUD">AUD A$</option>
+</select>
         </label>
 
         <div class="chips" id="chips">
@@ -197,160 +204,178 @@
   </main>
 
   <script>
-  (function(){
-    // ====== PayPal.me（你的 ID 已填好）======
-    const PAYPAL_ME_BASE = 'https://paypal.me/AndyWongChernInn';
+(function(){
+  // ====== PayPal.me ======
+  const PAYPAL_ME_BASE = 'https://paypal.me/AndyWongChernInn';
 
-    // ====== Stripe Payment Links（請替換為你的）======
-    // 結構：STRIPE_LINKS[幣別].byAmount[金額]；沒有精準金額時 fallback。
-    const STRIPE_LINKS = {
-      USD: {
-        fallback: 'https://buy.stripe.com/your_usd_fallback',
-        byAmount: {
-          5:  'https://buy.stripe.com/usd_5_link',
-          10: 'https://buy.stripe.com/usd_10_link',
-          20: 'https://buy.stripe.com/usd_20_link',
-          50: 'https://buy.stripe.com/usd_50_link'
-        }
-      },
-      TWD: {
-        fallback: 'https://buy.stripe.com/your_twd_fallback',
-        byAmount: {
-          160: 'https://buy.stripe.com/twd_160_link',
-          320: 'https://buy.stripe.com/twd_320_link',
-          640: 'https://buy.stripe.com/twd_640_link',
-          1600:'https://buy.stripe.com/twd_1600_link'
-        }
-      },
-      MYR: {
-        fallback: 'https://buy.stripe.com/your_myr_fallback',
-        byAmount: {
-          24: 'https://buy.stripe.com/myr_24_link',
-          48: 'https://buy.stripe.com/myr_48_link',
-          96: 'https://buy.stripe.com/myr_96_link',
-          240:'https://buy.stripe.com/myr_240_link'
-        }
-      }
-    };
+  // ====== Stripe Payment Links（沿用你貼的 7 幣別 mapping）======
+  const STRIPE_LINKS = {
+    USD: { fallback:'https://buy.stripe.com/usd_fallback_link', byAmount:{
+      5:'https://buy.stripe.com/usd_5_link',10:'https://buy.stripe.com/usd_10_link',20:'https://buy.stripe.com/usd_20_link',50:'https://buy.stripe.com/usd_50_link'}},
+    EUR: { fallback:'https://buy.stripe.com/eur_fallback_link', byAmount:{
+      5:'https://buy.stripe.com/eur_5_link',10:'https://buy.stripe.com/eur_10_link',20:'https://buy.stripe.com/eur_20_link',50:'https://buy.stripe.com/eur_50_link'}},
+    GBP: { fallback:'https://buy.stripe.com/gbp_fallback_link', byAmount:{
+      5:'https://buy.stripe.com/gbp_5_link',10:'https://buy.stripe.com/gbp_10_link',20:'https://buy.stripe.com/gbp_20_link',50:'https://buy.stripe.com/gbp_50_link'}},
+    TWD: { fallback:'https://buy.stripe.com/twd_fallback_link', byAmount:{
+      160:'https://buy.stripe.com/twd_160_link',320:'https://buy.stripe.com/twd_320_link',640:'https://buy.stripe.com/twd_640_link',1600:'https://buy.stripe.com/twd_1600_link'}},
+    MYR: { fallback:'https://buy.stripe.com/myr_fallback_link', byAmount:{
+      24:'https://buy.stripe.com/myr_24_link',48:'https://buy.stripe.com/myr_48_link',96:'https://buy.stripe.com/myr_96_link',240:'https://buy.stripe.com/myr_240_link'}},
+    HKD: { fallback:'https://buy.stripe.com/hkd_fallback_link', byAmount:{
+      40:'https://buy.stripe.com/hkd_40_link',80:'https://buy.stripe.com/hkd_80_link',160:'https://buy.stripe.com/hkd_160_link',400:'https://buy.stripe.com/hkd_400_link'}},
+    JPY: { fallback:'https://buy.stripe.com/jpy_fallback_link', byAmount:{
+      750:'https://buy.stripe.com/jpy_750_link',1500:'https://buy.stripe.com/jpy_1500_link',3000:'https://buy.stripe.com/jpy_3000_link',7500:'https://buy.stripe.com/jpy_7500_link'}},
+    SGD: {
+  fallback: 'https://buy.stripe.com/sgd_fallback_link',
+  byAmount: {
+    7:  'https://buy.stripe.com/sgd_7_link',
+    15: 'https://buy.stripe.com/sgd_15_link',
+    30: 'https://buy.stripe.com/sgd_30_link',
+    75: 'https://buy.stripe.com/sgd_75_link'
+  }
+},
+CAD: {
+  fallback: 'https://buy.stripe.com/cad_fallback_link',
+  byAmount: {
+    7:  'https://buy.stripe.com/cad_7_link',
+    14: 'https://buy.stripe.com/cad_14_link',
+    28: 'https://buy.stripe.com/cad_28_link',
+    70: 'https://buy.stripe.com/cad_70_link'
+  }
+},
+AUD: {
+  fallback: 'https://buy.stripe.com/aud_fallback_link',
+  byAmount: {
+    8:  'https://buy.stripe.com/aud_8_link',
+    16: 'https://buy.stripe.com/aud_16_link',
+    32: 'https://buy.stripe.com/aud_32_link',
+    80: 'https://buy.stripe.com/aud_80_link'
+  }
+}
+  };
 
-    // 粗略換算（僅用於顯示 chip 標籤）
-    const RATE = { USD_TWD: 32, USD_MYR: 4.8 };
+  // ====== 固定檔位（不追匯率）======
+  const PRESET = {
+  USD:[5,10,20,50],
+  EUR:[5,10,20,50],
+  GBP:[5,10,20,50],
+  TWD:[160,320,640,1600],
+  MYR:[24,48,96,240],
+  HKD:[40,80,160,400],
+  JPY:[750,1500,3000,7500],
+  SGD:[7,15,30,75],
+  CAD:[7,14,28,70],
+  AUD:[8,16,32,80]
+};
+const CURRENCY_PREFIX = {
+  USD:'$', EUR:'€', GBP:'£', TWD:'NT$', MYR:'RM',
+  HKD:'HK$', JPY:'¥', SGD:'S$', CAD:'C$', AUD:'A$'
+};
+    
+        // ====== DOM ======
+  const selCcy = document.getElementById('donate-currency');
+  const chips  = Array.from(document.querySelectorAll('.chip'));
+  const input  = document.getElementById('donate-custom');
+  const btnPP  = document.getElementById('btn-paypal');
+  const btnSt  = document.getElementById('btn-stripe');
 
-    const selCcy = document.getElementById('donate-currency');
-    const chips  = Array.from(document.querySelectorAll('.chip'));
-    const input  = document.getElementById('donate-custom');
-    const btnPP  = document.getElementById('btn-paypal');
-    const btnSt  = document.getElementById('btn-stripe');
+  // ====== 狀態 ======
+  const current = { currency: selCcy.value, amount: 5 };
 
-    const fmt = (ccy, val) => ({USD:'$',TWD:'NT$',MYR:'RM'}[ccy]||'$') + val;
+  // ====== 工具 ======
+  function renderChips(ccy){
+    const list = PRESET[ccy] || PRESET.USD;
+    chips.forEach((ch, i)=>{
+      const val = list[i] ?? list[0];
+      ch.dataset.amt = String(val);
+      ch.textContent  = (CURRENCY_PREFIX[ccy]||'$') + val;
+    });
+  }
+  function setActiveChipByAmt(amt){
+    chips.forEach(c=>c.classList.toggle('active', Number(c.dataset.amt)===Number(amt)));
+  }
+  function stripeLink(ccy, amt){
+    const cfg = STRIPE_LINKS[ccy] || STRIPE_LINKS.USD;
+    return cfg.byAmount[String(amt)] || cfg.fallback;
+  }
+  function updateLinks(){
+    const ccy = selCcy.value;
+    const amt = current.amount;
+    btnPP.href = amt ? `${PAYPAL_ME_BASE}/${amt}` : PAYPAL_ME_BASE;
+    btnSt.href = stripeLink(ccy, amt);
+  }
+  function withUtm(href, method, ccy, amt){
+    try{
+      const u = new URL(href);
+      u.searchParams.set('utm_source','site');
+      u.searchParams.set('utm_campaign','donate');
+      u.searchParams.set('method', method);
+      u.searchParams.set('ccy', ccy);
+      u.searchParams.set('amt', amt);
+      return u.toString();
+    }catch{ return href; }
+  }
 
-    // 將 chip 以 base USD 換算成當地幣別顯示
-    function renderChips(ccy){
-      chips.forEach(ch=>{
-        const usd = Number(ch.dataset.baseUsd);
-        const val = (ccy==='TWD')? Math.round(usd*RATE.USD_TWD)
-                  : (ccy==='MYR')? Math.round(usd*RATE.USD_MYR)
-                  : usd;
-        ch.dataset.amt = String(val);
-        ch.textContent = fmt(ccy, val);
-      });
-    }
+  // ====== 初始化 ======
+  renderChips(current.currency);
+  setActiveChipByAmt(current.amount);
+  updateLinks();
 
-    function setActiveChipByAmt(amt){
-      chips.forEach(c => c.classList.toggle('active', Number(c.dataset.amt)===Number(amt)));
-    }
-
-    function stripeLink(ccy, amt){
-      const cfg = STRIPE_LINKS[ccy] || STRIPE_LINKS.USD;
-      return cfg.byAmount[String(amt)] || cfg.fallback;
-    }
-
-    function updateLinks(){
-      const ccy = selCcy.value;
-      const amt = current.amount;
-      btnPP.href = amt ? `${PAYPAL_ME_BASE}/${amt}` : PAYPAL_ME_BASE;
-      btnSt.href = stripeLink(ccy, amt);
-    }
-
-    function withUtm(href, method, ccy, amt){
-      try{
-        const u = new URL(href);
-        u.searchParams.set('utm_source','site');
-        u.searchParams.set('utm_campaign','donate');
-        u.searchParams.set('method', method);
-        u.searchParams.set('ccy', ccy);
-        u.searchParams.set('amt', amt);
-        return u.toString();
-      }catch{ return href; }
-    }
-
-    // 狀態
-    const current = { currency: selCcy.value, amount: 5 };
-
-    // 初始化
+  // ====== 事件 ======
+  selCcy.addEventListener('change', ()=>{
+    current.currency = selCcy.value;
     renderChips(current.currency);
+    // 預設選第一顆
+    const first = chips[0];
+    current.amount = Number(first.dataset.amt);
     setActiveChipByAmt(current.amount);
+    input.value = '';
     updateLinks();
+  });
 
-    // 事件
-    selCcy.addEventListener('change', ()=>{
-      current.currency = selCcy.value;
-      renderChips(current.currency);
-      // 預設選第一顆 chip（5 USD 等值）
+  chips.forEach(ch=>{
+    ch.addEventListener('click', ()=>{
+      current.amount = Number(ch.dataset.amt);
+      input.value = '';
+      setActiveChipByAmt(current.amount);
+      updateLinks();
+    });
+  });
+
+  input.addEventListener('input', ()=>{
+    const v = Math.max(1, Math.floor(Number(input.value)||0));
+    current.amount = v;
+    setActiveChipByAmt(null); // 自訂金額時取消 chip 高亮
+    updateLinks();
+  });
+
+  // 付款按鈕加 UTM
+  btnPP.addEventListener('click', ()=>{ btnPP.href = withUtm(btnPP.href,'paypal', current.currency, current.amount); });
+  btnSt.addEventListener('click', ()=>{ btnSt.href = withUtm(btnSt.href,'stripe', current.currency, current.amount); });
+
+  // URL 參數：?ccy=GBP&amt=10
+  (function applyUrlParams(){
+    const p = new URLSearchParams(location.search);
+    const c = (p.get('ccy')||'').toUpperCase();
+    const a = Number(p.get('amt')||'');
+    const allowed = ['USD','EUR','GBP','TWD','MYR','HKD','JPY','SGD','CAD','AUD'];
+    if (allowed.includes(c)){
+      selCcy.value = c;
+      current.currency = c;
+      renderChips(c);
+    }
+    if (!Number.isNaN(a) && a>0){
+      current.amount = a;
+      input.value = '';
+      setActiveChipByAmt(a);
+    }else{
+      // 沒帶 amt 就選第一顆
       const first = chips[0];
       current.amount = Number(first.dataset.amt);
       setActiveChipByAmt(current.amount);
-      input.value = '';
-      updateLinks();
-    });
-
-    chips.forEach(ch=>{
-      ch.addEventListener('click', ()=>{
-        current.amount = Number(ch.dataset.amt);
-        input.value = '';
-        setActiveChipByAmt(current.amount);
-        updateLinks();
-      });
-    });
-
-    input.addEventListener('input', ()=>{
-      const v = Math.max(1, Math.floor(Number(input.value)||0));
-      current.amount = v;
-      setActiveChipByAmt(null);
-      updateLinks();
-    });
-
-    // 付款按鈕加 UTM
-    btnPP.addEventListener('click', ()=>{
-      btnPP.href = withUtm(btnPP.href, 'paypal', current.currency, current.amount);
-    });
-    btnSt.addEventListener('click', ()=>{
-      btnSt.href = withUtm(btnSt.href, 'stripe', current.currency, current.amount);
-    });
-
-    // URL 參數：?ccy=USD&amt=10
-    (function applyUrlParams(){
-      const p = new URLSearchParams(location.search);
-      const c = (p.get('ccy')||'').toUpperCase();
-      const a = Number(p.get('amt')||'');
-      if (c && ['USD','TWD','MYR'].includes(c)){
-        selCcy.value = c;
-        current.currency = c;
-        renderChips(c);
-      }
-      if (!Number.isNaN(a) && a>0){
-        current.amount = a;
-        input.value = '';
-        setActiveChipByAmt(a);
-      }else{
-        // 如果沒有傳 amt，用第一顆 chip
-        const first = chips[0];
-        current.amount = Number(first.dataset.amt);
-        setActiveChipByAmt(current.amount);
-      }
-      updateLinks();
-    })();
+    }
+    updateLinks();
   })();
-  </script>
+})();
+</script>
 </body>
 </html>
