@@ -1,15 +1,25 @@
 {
   "_meta": { "lang": "Deutsch", "dir": "ltr" },
-
   "meta": {
     "title": {
-      "home": "KeySearch — Finde es. Schnell.",
+      "home": "KeySearch — Finde es schnell, alles in Reichweite",
       "features": "Funktionen — KeySearch",
       "download": "Download — KeySearch",
       "pricing": "Preise — KeySearch",
-      "about": "Über uns — KeySearch",
+      "about": "Über — KeySearch",
       "support": "Support — KeySearch",
-      "news": "Neuigkeiten — KeySearch"
+      "news": "Neuigkeiten — KeySearch",
+      "donate": "Entwicklung unterstützen — KeySearch"
+    },
+    "description": {
+      "home": "KeySearch ist ein schnelles, datenschutzorientiertes Suchtool. Finde sofort Notizen und Dateien und bleibe ohne Unordnung organisiert.",
+      "features": "Entdecke die Funktionen von KeySearch: sofortige Ergebnisse, intelligente Tags, Sammlungen, globale Shortcuts, mehrsprachige Oberfläche und Datenschutz-Design.",
+      "download": "Lade KeySearch für Windows, macOS und Linux herunter — oder nutze die Web-App ohne Installation.",
+      "pricing": "Einfache, transparente Preise. Starte kostenlos und wechsle zu Pro für mehrsprachige Oberfläche, Erinnerungen, Filter und priorisierten Support.",
+      "about": "KeySearch hilft dir, sofort zu finden, was du brauchst. Lokal zuerst, schnell im Design, ohne Anbieterbindung.",
+      "support": "Erhalte Hilfe zu Installation, Sprachwechsel, Abrechnung und mehr. Sende dein Feedback direkt an das KeySearch-Team.",
+      "news": "KeySearch-Updates, Leistungsverbesserungen, Exportoptionen und Lokalisierung.",
+      "donate": "Wenn KeySearch dir Zeit spart, unterstütze die Entwicklung über Buy Me a Coffee, Ko-fi, PayPal oder Stripe."
     }
   },
 
