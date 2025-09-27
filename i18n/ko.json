@@ -1,15 +1,25 @@
 {
   "_meta": { "lang": "한국어", "dir": "ltr" },
-
   "meta": {
     "title": {
-      "home": "KeySearch — 빨리 찾기.",
+      "home": "KeySearch — 빠르게 찾고, 모든 것을 손쉽게",
       "features": "기능 — KeySearch",
       "download": "다운로드 — KeySearch",
-      "pricing": "요금 — KeySearch",
+      "pricing": "요금제 — KeySearch",
       "about": "소개 — KeySearch",
       "support": "지원 — KeySearch",
-      "news": "소식 — KeySearch"
+      "news": "뉴스 — KeySearch",
+      "donate": "개발 후원 — KeySearch"
+    },
+    "description": {
+      "home": "KeySearch 는 빠르고 프라이버시 중심의 검색 도구입니다. 노트와 파일을 즉시 찾아 깔끔하게 정리할 수 있습니다.",
+      "features": "KeySearch 기능: 즉시 결과, 스마트 태그, 컬렉션, 전역 단축키, 다국어 UI, 프라이버시 중심 설계.",
+      "download": "Windows·macOS·Linux용 KeySearch 다운로드. 설치 없이 웹 버전도 즉시 사용 가능합니다.",
+      "pricing": "단순하고 투명한 요금제. 무료로 시작하고 Pro 업그레이드 시 다국어 UI, 알림, 필터, 우선 지원 제공.",
+      "about": "KeySearch 는 필요한 것을 즉시 찾도록 돕습니다. 로컬 우선, 초고속 설계, 벤더 종속 없음.",
+      "support": "설치, 언어 전환, 결제 관련 도움을 확인하거나 KeySearch 팀에 직접 피드백을 보낼 수 있습니다.",
+      "news": "KeySearch 제품 업데이트, 성능 최적화, 내보내기 기능, 현지화 릴리스 노트.",
+      "donate": "KeySearch 가 시간을 절약해줬다면 Buy Me a Coffee·Ko-fi·PayPal·Stripe 로 개발을 지원해주세요."
     }
   },
 
