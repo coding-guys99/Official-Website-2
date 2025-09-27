@@ -258,3 +258,31 @@ html, body { overflow-x: hidden; }
   }
   .bm-footer .foot-head::after{ content: none !important; }
 }
+
+/* ===== Footer mobile: ensure links clickable ===== */
+@media (max-width: 640px) {
+
+  /* 每組 foot-col 要自己撐開高度 */
+  .bm-footer .foot-col {
+    position: relative;
+    overflow: visible !important;
+  }
+
+  /* 展開後的 link 區塊：完全可見，不被裁切 */
+  .bm-footer .foot-links {
+    overflow: visible !important;
+    pointer-events: auto !important;   /* 確保可點 */
+  }
+
+  /* 確保 a 連結比背景層高 */
+  .bm-footer .foot-links a {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* 手風琴動畫還是保留，但用 padding 撐開避免覆蓋 */
+  .bm-footer .foot-head[aria-expanded="true"] + .foot-links {
+    max-height: 600px !important;   /* 足夠大，保證能看見所有 link */
+    padding-bottom: 12px !important;
+  }
+}
