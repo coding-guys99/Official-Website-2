@@ -76,12 +76,12 @@
   "download": {
     "title": "Unduh",
     "lead": "Dapatkan KeySearch untuk platform favoritmu.",
-    "windows": { "title": "Windows", "version": "Versi 1.0.1.0", "cta": "Unduh EXE" },
-    "mac": { "title": "macOS", "version": "Versi 1.0.1.0", "cta": "Unduh DMG" },
-    "linux": { "title": "Linux", "version": "Versi 1.0.1.0", "cta": "Unduh AppImage" },
+    "windows": { "title": "Windows", "version": "Versi 1.0.1.0", "cta": "Segera hadir" },
+    "mac": { "title": "macOS", "version": "Versi 1.0.1.0", "cta": "Segera hadir" },
+    "linux": { "title": "Linux", "version": "Versi 1.0.1.0", "cta": "Segera hadir" },
     "hash": { "label": "SHA256:" },
     "webpref": { "title": "Lebih suka Web?", "lead": "Jalankan KeySearch di browser — tanpa instalasi." },
-    "cta": { "text": "Unduh" },
+    "cta": { "text": "Segera hadir" },
     "web": "Buka Versi Web"
   },
 
@@ -95,7 +95,7 @@
       "f1": "Pencarian tanpa batas",
       "f2": "Tag & koleksi dasar",
       "f3": "Ekspor CSV/JSON",
-      "cta": "Mulai"
+      "cta": "Segera hadir"
     },
     "pro": {
       "badge": "Paling Populer",
@@ -105,7 +105,7 @@
       "f2": "UI multibahasa",
       "f3": "Pengingat & filter pintar",
       "f4": "Dukungan prioritas",
-      "cta": "Upgrade Sekarang"
+      "cta": "Segera hadir"
     },
     "faq": {
       "refunds": { "q": "Apakah ada pengembalian dana?", "a": "Jika tidak puas, hubungi kami dalam 14 hari. Kami akan membantu." },
@@ -114,7 +114,7 @@
     "final": {
       "title": "Mulai mencari lebih cerdas",
       "lead": "KeySearch gratis untuk dicoba. Upgrade saat siap.",
-      "cta": { "download": "Unduh Gratis", "openweb": "Buka Web" }
+      "cta": { "download": "Segera hadir", "openweb": "Buka Web" }
     }
   },
 
