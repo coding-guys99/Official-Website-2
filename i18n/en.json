@@ -179,13 +179,36 @@
   },
 
   "donate": {
+    "back": "← Back",
     "title": "Support development",
-    "desc": "KeySearch is free to use. If it saves you time, consider supporting development.",
+    "subtitle": "KeySearch is free. If it saves you time, consider supporting the project.",
+    "card": {
+      "title": "Donate",
+      "desc": "Choose your currency and amount. Then pick PayPal or Stripe to complete payment."
+    },
+    "currency": "Currency",
+    "chips": {
+      "custom": "Custom"
+    },
+    "paypal": "Pay with PayPal",
+    "stripe": "Pay with Stripe",
     "coffee": "Buy me a coffee",
-    "kofi": "Ko-fi",
-    "paypal": "PayPal",
-    "stripe": "Stripe",
-    "thanks": "Thanks for your support — it keeps KeySearch fast and focused."
+    "uses": {
+      "1": "Funds cover hosting, storage, testing devices, and development time.",
+      "2": "Roadmap priorities: performance, multi-language, desktop packaging, and licensing."
+    },
+    "thanks": "Thanks for your support — it keeps KeySearch fast and focused.",
+    "faq": {
+      "title": "FAQ",
+      "q1": "Can I get a receipt?",
+      "a1": "Yes. PayPal/Stripe emails a receipt automatically after payment.",
+      "q2": "Which currency will I be charged in?",
+      "a2": "PayPal uses your account currency; Stripe uses the currency shown on the checkout page.",
+      "q3": "Refunds?",
+      "a3": "Donations are voluntary and typically non-refundable. If there’s an issue, contact us.",
+      "q4": "Is there a subscription?",
+      "a4": "For now donations are one-time. Subscriptions may be added later."
+    }
   },
 
   "news": {
