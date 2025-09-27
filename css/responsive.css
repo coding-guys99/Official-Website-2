@@ -171,7 +171,7 @@ html, body { overflow-x: hidden; }
   .bm-footer-bottom small { display: block; margin-top: 8px; opacity: .8; }
 }
 @media (min-width: 641px) {
-  .bm-foot-links-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px; }
+  .bm-foot-links-grid { display: grid; grid-template-columns: repeat(1, minmax(0,1fr)); gap: 24px; }
   .foot-links { max-height: none !important; overflow: visible !important; }
   .foot-head::after { content: none; }
 }
