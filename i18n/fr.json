@@ -76,12 +76,12 @@
   "download": {
     "title": "Téléchargement",
     "lead": "Obtenez KeySearch pour votre plateforme préférée.",
-    "windows": { "title": "Windows", "version": "Version 1.0.1.0", "cta": "Télécharger EXE" },
-    "mac": { "title": "macOS", "version": "Version 1.0.1.0", "cta": "Télécharger DMG" },
-    "linux": { "title": "Linux", "version": "Version 1.0.1.0", "cta": "Télécharger AppImage" },
+    "windows": { "title": "Windows", "version": "Version 1.0.1.0", "cta": "Bientôt disponible" },
+    "mac": { "title": "macOS", "version": "Version 1.0.1.0", "cta": "Bientôt disponible" },
+    "linux": { "title": "Linux", "version": "Version 1.0.1.0", "cta": "Bientôt disponible" },
     "hash": { "label": "SHA256 :" },
     "webpref": { "title": "Vous préférez le Web ?", "lead": "Lancez KeySearch dans votre navigateur — aucune installation." },
-    "cta": { "text": "Télécharger" },
+    "cta": { "text": "Bientôt disponible" },
     "web": "Ouvrir la version Web"
   },
 
@@ -95,7 +95,7 @@
       "f1": "Recherches illimitées",
       "f2": "Tags et collections de base",
       "f3": "Export CSV/JSON",
-      "cta": "Commencer"
+      "cta": "Bientôt disponible"
     },
     "pro": {
       "badge": "Le plus populaire",
@@ -105,7 +105,7 @@
       "f2": "Interface multilingue",
       "f3": "Rappels & filtres intelligents",
       "f4": "Support prioritaire",
-      "cta": "Passer au Pro"
+      "cta": "Bientôt disponible"
     },
     "faq": {
       "refunds": { "q": "Proposez-vous des remboursements ?", "a": "Si vous n’êtes pas satisfait, contactez-nous sous 14 jours. Nous vous aiderons." },
