@@ -1,15 +1,25 @@
 {
   "_meta": { "lang": "日本語", "dir": "ltr" },
-
   "meta": {
     "title": {
-      "home": "KeySearch — すばやく見つける。",
+      "home": "KeySearch — すぐに見つける。すべて手元に。",
       "features": "機能 — KeySearch",
       "download": "ダウンロード — KeySearch",
-      "pricing": "価格 — KeySearch",
+      "pricing": "料金 — KeySearch",
       "about": "概要 — KeySearch",
       "support": "サポート — KeySearch",
-      "news": "ニュース — KeySearch"
+      "news": "ニュース — KeySearch",
+      "donate": "開発を支援 — KeySearch"
+    },
+    "description": {
+      "home": "KeySearch は高速かつプライバシー重視の検索ツール。ノートやファイルを瞬時に見つけ、整理をシンプルにします。",
+      "features": "KeySearch の機能：即時検索、スマートタグ、コレクション、グローバルショートカット、多言語 UI、プライバシー優先設計。",
+      "download": "KeySearch を Windows・macOS・Linux 向けにダウンロード。インストール不要の Web 版も利用可能。",
+      "pricing": "シンプルで透明な料金。無料で開始、Pro で多言語 UI・リマインダー・フィルター・優先サポートを提供。",
+      "about": "KeySearch は必要な情報を瞬時に発見。ローカル優先・超高速設計・ベンダーロックインなし。",
+      "support": "インストール、言語切替、請求などのヘルプを確認、または KeySearch チームへフィードバック。",
+      "news": "KeySearch の製品アップデート、パフォーマンス改善、エクスポート機能、多言語対応のリリースノート。",
+      "donate": "KeySearch が役立ったら、Buy Me a Coffee・Ko-fi・PayPal・Stripe で開発を支援してください。"
     }
   },
 
