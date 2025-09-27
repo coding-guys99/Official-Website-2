@@ -139,6 +139,30 @@
   background-position: right 12px center;
   background-size: 14px;
 }
+
+/* 桌機：讓下拉清單更清楚（白底黑字），加粗尺寸與聚焦框 */
+#donate-currency {
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+  background: transparent;
+  border: 1px solid var(--ks-border);
+  border-radius: 999px;
+  padding: 8px 32px 8px 14px;
+  font-weight: 600; font-size: 15px; line-height: 1.2;
+  color: var(--ks-text); cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23d3b36b' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M5.25 7.5L10 12.25L14.75 7.5H5.25Z'/></svg>");
+  background-repeat: no-repeat; background-position: right 12px center; background-size: 14px;
+}
+#donate-currency:hover { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(211,179,107,.12) inset; }
+#donate-currency:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(211,179,107,.20) inset; }
+
+/* 讓下拉面板內容在大多數瀏覽器呈現白底黑字，避免灰灰的 */
+#donate-currency option { color: #0f1115; background: #fff; }
+
+/* 防止被父層透明度或 pointer-events 影響（有時會灰掉/無法點） */
+.donate-controls, #donate-currency { opacity: 1; pointer-events: auto; }
+
+/* 提升層級避免被卡片陰影或容器裁切 */
+#donate-currency { position: relative; z-index: 2; }
     
   </style>
 </head>
