@@ -76,9 +76,9 @@
   "download": {
     "title": "下載",
     "lead": "選擇你的平台下載 KeySearch。",
-    "windows": { "title": "Windows", "version": "版本 1.0.1.0", "cta": "下載 EXE" },
-    "mac": { "title": "macOS", "version": "版本 1.0.1.0", "cta": "下載 DMG" },
-    "linux": { "title": "Linux", "version": "版本 1.0.1.0", "cta": "下載 AppImage" },
+    "windows": { "title": "Windows", "version": "版本 1.0.1.0", "cta": "即將推出" },
+    "mac": { "title": "macOS", "version": "版本 1.0.1.0", "cta": "即將推出" },
+    "linux": { "title": "Linux", "version": "版本 1.0.1.0", "cta": "即將推出" },
     "hash": { "label": "SHA256 校驗：" },
     "webpref": { "title": "偏好使用網頁版？", "lead": "在瀏覽器執行 KeySearch，免安裝。" },
     "cta": { "text": "下載" },
@@ -95,7 +95,7 @@
       "f1": "不限次數搜尋",
       "f2": "基本標籤與集合",
       "f3": "匯出 CSV/JSON",
-      "cta": "立即開始"
+      "cta": "即將推出"
     },
     "pro": {
       "badge": "最受歡迎",
@@ -105,7 +105,7 @@
       "f2": "多語介面",
       "f3": "提醒與智慧篩選",
       "f4": "優先支援",
-      "cta": "立即升級"
+      "cta": "即將推出"
     },
     "faq": {
       "refunds": { "q": "可以退款嗎？", "a": "若不滿意，請於 14 天內與我們聯繫，我們會協助處理。" },
@@ -114,7 +114,7 @@
     "final": {
       "title": "開始更聰明的搜尋",
       "lead": "KeySearch 可免費試用，準備好再升級。",
-      "cta": { "download": "免費下載", "openweb": "開啟網頁版" }
+      "cta": { "download": "即將推出", "openweb": "開啟網頁版" }
     }
   },
 
