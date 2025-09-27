@@ -258,3 +258,46 @@ html, body { overflow-x: hidden; }
   }
   .bm-footer .foot-head::after{ content: none !important; }
 }
+
+/* ===== Footer — Desktop restore (override mobile accordion) ===== */
+@media (min-width: 901px){
+  /* 還原版頭區塊與四欄連結區 */
+  .bm-footer-top{ display: block; } /* 或依你的原樣式：grid / flex */
+  .bm-foot-links-grid{
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0,1fr)) !important;
+    gap: 24px !important;
+  }
+
+  /* 每一欄不要邊框與收合動作 */
+  .bm-footer .foot-col{ border: 0 !important; }
+
+  .bm-footer .foot-head{
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    cursor: default !important;
+  }
+  /* 桌機隱藏箭頭 */
+  .bm-footer .foot-head::after{ content: none !important; }
+
+  /* 連結永遠展開，不用 max-height 限制 */
+  .bm-footer .foot-links{
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  /* 品牌區回左對齊（避免被置中擠壓） */
+  .bm-foot-brand{ text-align: left !important; margin-bottom: 0 !important; }
+
+  /* 法務列保持單行排列 */
+  .bm-footer-bottom{
+    text-align: left !important;
+  }
+}
+
+/* 若你把手機樣式寫在 ≤900px，保險再限定： */
+@media (max-width: 900px){
+  /* 手機維持手風琴（無改動） */
+}
