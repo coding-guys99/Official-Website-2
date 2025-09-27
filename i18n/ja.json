@@ -76,12 +76,12 @@
   "download": {
     "title": "ダウンロード",
     "lead": "お好みのプラットフォーム向け KeySearch を入手。",
-    "windows": { "title": "Windows", "version": "バージョン 1.0.1.0", "cta": "EXE をダウンロード" },
-    "mac": { "title": "macOS", "version": "バージョン 1.0.1.0", "cta": "DMG をダウンロード" },
-    "linux": { "title": "Linux", "version": "バージョン 1.0.1.0", "cta": "AppImage をダウンロード" },
+    "windows": { "title": "Windows", "version": "バージョン 1.0.1.0", "cta": "近日公開" },
+    "mac": { "title": "macOS", "version": "バージョン 1.0.1.0", "cta": "近日公開" },
+    "linux": { "title": "Linux", "version": "バージョン 1.0.1.0", "cta": "近日公開" },
     "hash": { "label": "SHA256:" },
     "webpref": { "title": "Web 版をご希望ですか？", "lead": "ブラウザーで動作。インストールは不要です。" },
-    "cta": { "text": "ダウンロード" },
+    "cta": { "text": "近日公開" },
     "web": "Web を開く"
   },
 
@@ -95,7 +95,7 @@
       "f1": "無制限検索",
       "f2": "基本タグ & コレクション",
       "f3": "CSV/JSON エクスポート",
-      "cta": "はじめる"
+      "cta": "近日公開"
     },
     "pro": {
       "badge": "一番人気",
@@ -105,7 +105,7 @@
       "f2": "多言語 UI",
       "f3": "リマインダー & スマートフィルター",
       "f4": "優先サポート",
-      "cta": "今すぐアップグレード"
+      "cta": "近日公開"
     },
     "faq": {
       "refunds": { "q": "返金は可能ですか？", "a": "ご満足いただけない場合は 14 日以内にご連絡ください。対応いたします。" },
