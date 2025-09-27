@@ -76,12 +76,12 @@
   "download": {
     "title": "Download",
     "lead": "Hole dir KeySearch für deine bevorzugte Plattform.",
-    "windows": { "title": "Windows", "version": "Version 1.0.1.0", "cta": "EXE herunterladen" },
-    "mac": { "title": "macOS", "version": "Version 1.0.1.0", "cta": "DMG herunterladen" },
-    "linux": { "title": "Linux", "version": "Version 1.0.1.0", "cta": "AppImage herunterladen" },
+    "windows": { "title": "Windows", "version": "Version 1.0.1.0", "cta": "Bald verfügbar" },
+    "mac": { "title": "macOS", "version": "Version 1.0.1.0", "cta": "Bald verfügbar" },
+    "linux": { "title": "Linux", "version": "Version 1.0.1.0", "cta": "Bald verfügbar" },
     "hash": { "label": "SHA256:" },
     "webpref": { "title": "Lieber die Web-App?", "lead": "KeySearch direkt im Browser ausführen – keine Installation nötig." },
-    "cta": { "text": "Download" },
+    "cta": { "text": "Bald verfügbar" },
     "web": "Web öffnen"
   },
 
@@ -95,7 +95,7 @@
       "f1": "Unbegrenzte Suchen",
       "f2": "Grundlegende Tags & Sammlungen",
       "f3": "CSV/JSON-Export",
-      "cta": "Loslegen"
+      "cta": "Bald verfügbar"
     },
     "pro": {
       "badge": "Am beliebtesten",
@@ -105,7 +105,7 @@
       "f2": "Mehrsprachige UI",
       "f3": "Erinnerungen & smarte Filter",
       "f4": "Priorisierter Support",
-      "cta": "Jetzt upgraden"
+      "cta": "Bald verfügbar"
     },
     "faq": {
       "refunds": { "q": "Bietet ihr Rückerstattungen an?", "a": "Wenn du unzufrieden bist, kontaktiere uns innerhalb von 14 Tagen. Wir helfen weiter." },
@@ -114,7 +114,7 @@
     "final": {
       "title": "Schlauer suchen",
       "lead": "KeySearch kostenlos testen. Upgrade, wenn du bereit bist.",
-      "cta": { "download": "Kostenlos herunterladen", "openweb": "Web öffnen" }
+      "cta": { "download": "Bald verfügbar", "openweb": "Web öffnen" }
     }
   },
 
