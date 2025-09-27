@@ -1,15 +1,25 @@
 {
   "_meta": { "lang": "Bahasa Indonesia", "dir": "ltr" },
-
   "meta": {
     "title": {
-      "home": "KeySearch — Temukan cepat.",
+      "home": "KeySearch — Temukan cepat, semua dalam jangkauan",
       "features": "Fitur — KeySearch",
       "download": "Unduh — KeySearch",
       "pricing": "Harga — KeySearch",
       "about": "Tentang — KeySearch",
       "support": "Dukungan — KeySearch",
-      "news": "Berita — KeySearch"
+      "news": "Berita — KeySearch",
+      "donate": "Dukung pengembangan — KeySearch"
+    },
+    "description": {
+      "home": "KeySearch adalah alat pencarian cepat dengan fokus pada privasi. Temukan catatan dan file secara instan dan tetap teratur tanpa kekacauan.",
+      "features": "Jelajahi fitur KeySearch: hasil instan, tag pintar, koleksi, pintasan global, antarmuka multibahasa, dan desain yang mengutamakan privasi.",
+      "download": "Unduh KeySearch untuk Windows, macOS, dan Linux — atau coba aplikasi web tanpa instalasi.",
+      "pricing": "Harga sederhana dan transparan. Mulai gratis dan tingkatkan ke Pro untuk antarmuka multibahasa, pengingat, filter, dan dukungan prioritas.",
+      "about": "KeySearch membantu Anda menemukan apa yang Anda butuhkan secara instan. Local-first, cepat dari desain, tanpa ketergantungan vendor.",
+      "support": "Dapatkan bantuan terkait instalasi, pergantian bahasa, penagihan, dan lainnya. Kirim masukan langsung ke tim KeySearch.",
+      "news": "Pembaruan KeySearch, peningkatan kinerja, opsi ekspor, dan lokaliasi.",
+      "donate": "Jika KeySearch menghemat waktu Anda, dukung pengembangan melalui Buy Me a Coffee, Ko-fi, PayPal, atau Stripe."
     }
   },
 
