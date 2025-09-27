@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title data-i18n="meta.title.blog">Blog — KeySearch</title>
+
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/responsive.css"/>
+
+  <!-- SEO：站點層 -->
+  <script src="js/seo.js" defer data-page="blog"></script>
+  <!-- I18N -->
+  <script src="js/lang.js"></script>
+</head>
+<body>
+  <!-- 共用 Header（省略，你現有的即可） -->
+
+  <main class="container">
+    <section class="page-hero">
+      <h1 data-i18n="blog.title">Blog</h1>
+      <p class="lead" data-i18n="blog.lead">Tutorials, deep dives, and product thinking.</p>
+    </section>
+
+    <!-- 篩選（可選） -->
+    <section class="news-filter">
+      <div class="chip-group" id="blogTagChips"></div>
+    </section>
+
+    <!-- 卡片清單自動生成 -->
+    <section class="news-grid" id="blogGrid" aria-live="polite"></section>
+
+    <!-- 分頁 -->
+    <nav class="pager" id="blogPager" aria-label="Pagination"></nav>
+  </main>
+
+  <!-- Footer（沿用你現有的） -->
+
+  <!-- 列表 JS -->
+  <script src="js/blog.js" defer></script>
+</body>
+</html>
