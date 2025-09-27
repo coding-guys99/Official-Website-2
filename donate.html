@@ -171,94 +171,107 @@
 <body>
 
   <!-- Mini header（無全站選單時） -->
-  <header class="mini-header" role="banner">
-    <a class="brand" href="index.html" aria-label="KeySearch home">
-      <img src="assets/logo.svg" alt="KeySearch logo" width="24" height="24"/>
-      <span>KeySearch</span>
-    </a>
-    <a class="back" href="support.html" aria-label="Back to Support">← Back</a>
-  </header>
+  <!-- Mini header -->
+<header class="mini-header" role="banner">
+  <a class="brand" href="index.html" aria-label="KeySearch home">
+    <img src="assets/logo.svg" alt="KeySearch logo" width="24" height="24"/>
+    <span>KeySearch</span>
+  </a>
+  <!-- ← Back 文字交給 i18n -->
+  <a class="back" href="support.html" data-i18n="donate.back" aria-label="Back to Support">← Back</a>
+</header>
 
-  <!-- Hero -->
-  <section class="donate-hero">
-    <div class="container">
-      <h1 data-i18n="donate.title">Support development</h1>
-      <p data-i18n="donate.subtitle">KeySearch is free. If it saves you time, consider supporting the project.</p>
+<!-- Hero -->
+<section class="donate-hero">
+  <div class="container">
+    <h1 data-i18n="donate.title">Support development</h1>
+    <p data-i18n="donate.subtitle">KeySearch is free. If it saves you time, consider supporting the project.</p>
+  </div>
+</section>
+
+<!-- Card -->
+<main class="donate-wrap">
+  <section class="donate-card" role="region" aria-labelledby="donateHeading">
+    <h2 id="donateHeading" data-i18n="donate.card.title">Donate</h2>
+    <p class="fine-print" data-i18n="donate.card.desc">Choose your currency and amount. Then pick PayPal or Stripe to complete payment.</p>
+
+    <!-- Controls -->
+    <div class="donate-controls">
+      <label>
+        <span data-i18n="donate.currency">Currency</span>
+        <select id="donate-currency" aria-label="Choose currency">
+          <option value="USD" selected>USD $</option>
+          <option value="EUR">EUR €</option>
+          <option value="GBP">GBP £</option>
+          <option value="TWD">TWD NT$</option>
+          <option value="MYR">MYR RM</option>
+          <option value="HKD">HKD HK$</option>
+          <option value="JPY">JPY ¥</option>
+          <option value="SGD">SGD S$</option>
+          <option value="CAD">CAD C$</option>
+          <option value="AUD">AUD A$</option>
+        </select>
+      </label>
+
+      <div class="chips" id="chips">
+        <button class="chip" data-base-usd="5">$5</button>
+        <button class="chip" data-base-usd="10">$10</button>
+        <button class="chip" data-base-usd="20">$20</button>
+        <button class="chip" data-base-usd="50">$50</button>
+        <!-- placeholder 用 i18n -->
+        <input id="donate-custom" class="donate-custom" type="number" min="1" step="1"
+               placeholder="Custom" aria-label="Custom amount"
+               data-i18n="donate.chips.custom" data-i18n-attr="placeholder">
+      </div>
     </div>
+
+    <!-- Actions -->
+    <div class="donate-actions">
+      <a id="btn-paypal" class="btn-primary btn-paypal"
+         href="https://paypal.me/AndyWongChernInn" target="_blank" rel="noopener"
+         data-i18n="donate.paypal">Pay with PayPal</a>
+
+      <a id="btn-stripe" class="btn-primary btn-stripe"
+         href="https://buy.stripe.com/your_usd_fallback" target="_blank" rel="noopener"
+         data-i18n="donate.stripe">Pay with Stripe</a>
+
+      <a id="btn-coffee" class="btn-ghost btn-primary"
+         href="https://www.buymeacoffee.com/yourid" target="_blank" rel="noopener"
+         data-i18n="donate.coffee">Buy me a coffee</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul class="list">
+      <li data-i18n="donate.uses.1">Funds cover hosting, storage, testing devices, and development time.</li>
+      <li data-i18n="donate.uses.2">Roadmap priorities: performance, multi-language, desktop packaging, and licensing.</li>
+    </ul>
+
+    <p class="fine-print" data-i18n="donate.thanks">Thanks for your support — it keeps KeySearch fast and focused.</p>
   </section>
 
-  <!-- Centered Card -->
-  <main class="donate-wrap">
-    <section class="donate-card" role="region" aria-labelledby="donateHeading">
-      <h2 id="donateHeading" data-i18n="donate.card.title">Donate</h2>
-      <p class="fine-print" data-i18n="donate.card.desc">Choose your currency and amount. Then pick PayPal or Stripe to complete payment.</p>
+  <!-- FAQ -->
+  <section class="faq" aria-label="Donate FAQ">
+    <h3 data-i18n="donate.faq.title">FAQ</h3>
 
-      <!-- Controls -->
-      <div class="donate-controls">
-        <label>
-          <span data-i18n="donate.currency">Currency</span>
-          <select id="donate-currency" aria-label="Choose currency">
-  <option value="USD" selected>USD $</option>
-  <option value="EUR">EUR €</option>
-  <option value="GBP">GBP £</option>
-  <option value="TWD">TWD NT$</option>
-  <option value="MYR">MYR RM</option>
-  <option value="HKD">HKD HK$</option>
-  <option value="JPY">JPY ¥</option>
-  <option value="SGD">SGD S$</option>
-  <option value="CAD">CAD C$</option>
-  <option value="AUD">AUD A$</option>
-</select>
-        </label>
-
-        <div class="chips" id="chips">
-          <button class="chip" data-base-usd="5">$5</button>
-          <button class="chip" data-base-usd="10">$10</button>
-          <button class="chip" data-base-usd="20">$20</button>
-          <button class="chip" data-base-usd="50">$50</button>
-          <input id="donate-custom" class="donate-custom" type="number" min="1" step="1" placeholder="Custom" aria-label="Custom amount">
-        </div>
-      </div>
-
-      <!-- Actions -->
-      <div class="donate-actions">
-        <a id="btn-paypal" class="btn-primary btn-paypal" href="https://paypal.me/AndyWongChernInn" target="_blank" rel="noopener" data-i18n="donate.paypal">Pay with PayPal</a>
-        <a id="btn-stripe" class="btn-primary btn-stripe" href="https://buy.stripe.com/your_usd_fallback" target="_blank" rel="noopener" data-i18n="donate.stripe">Pay with Stripe</a>
-        <a id="btn-coffee" class="btn-ghost btn-primary" href="https://www.buymeacoffee.com/yourid" target="_blank" rel="noopener" data-i18n="donate.coffee">Buy me a coffee</a>
-      </div>
-
-      <div class="divider"></div>
-
-      <ul class="list">
-        <li data-i18n="donate.uses.1">Funds cover hosting, storage, testing devices, and development time.</li>
-        <li data-i18n="donate.uses.2">Roadmap priorities: performance, multi-language, desktop packaging, and licensing.</li>
-      </ul>
-
-      <p class="fine-print" data-i18n="donate.thanks">Thanks for your support — it keeps KeySearch fast and focused.</p>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" aria-label="Donate FAQ">
-      <h3 data-i18n="donate.faq.title">FAQ</h3>
-      <details>
-        <summary data-i18n="donate.faq.q1">Can I get a receipt?</summary>
-        <div class="fine-print" data-i18n="donate.faq.a1">Yes. PayPal/Stripe emails a receipt automatically after payment.</div>
-      </details>
-      <details>
-        <summary data-i18n="donate.faq.q2">Which currency will I be charged in?</summary>
-        <div class="fine-print" data-i18n="donate.faq.a2">PayPal uses your account currency; Stripe uses the currency shown on the checkout page.</div>
-      </details>
-      <details>
-        <summary data-i18n="donate.faq.q3">Refunds?</summary>
-        <div class="fine-print" data-i18n="donate.faq.a3">Donations are voluntary and typically non-refundable. If there’s an issue, contact us.</div>
-      </details>
-      <details>
-        <summary data-i18n="donate.faq.q4">Is there a subscription?</summary>
-        <div class="fine-print" data-i18n="donate.faq.a4">For now donations are one-time. Subscriptions may be added later.</div>
-      </details>
-    </section>
-  </main>
-
+    <details>
+      <summary data-i18n="donate.faq.q1">Can I get a receipt?</summary>
+      <div class="fine-print" data-i18n="donate.faq.a1">Yes. PayPal/Stripe emails a receipt automatically after payment.</div>
+    </details>
+    <details>
+      <summary data-i18n="donate.faq.q2">Which currency will I be charged in?</summary>
+      <div class="fine-print" data-i18n="donate.faq.a2">PayPal uses your account currency; Stripe uses the currency shown on the checkout page.</div>
+    </details>
+    <details>
+      <summary data-i18n="donate.faq.q3">Refunds?</summary>
+      <div class="fine-print" data-i18n="donate.faq.a3">Donations are voluntary and typically non-refundable. If there’s an issue, contact us.</div>
+    </details>
+    <details>
+      <summary data-i18n="donate.faq.q4">Is there a subscription?</summary>
+      <div class="fine-print" data-i18n="donate.faq.a4">For now donations are one-time. Subscriptions may be added later.</div>
+    </details>
+  </section>
+</main>
   <script>
 (function(){
   // ====== PayPal.me ======
