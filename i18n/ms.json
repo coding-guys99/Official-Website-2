@@ -76,12 +76,12 @@
   "download": {
     "title": "Muat Turun",
     "lead": "Dapatkan KeySearch untuk platform pilihan anda.",
-    "windows": { "title": "Windows", "version": "Versi 1.0.1.0", "cta": "Muat Turun EXE" },
-    "mac": { "title": "macOS", "version": "Versi 1.0.1.0", "cta": "Muat Turun DMG" },
-    "linux": { "title": "Linux", "version": "Versi 1.0.1.0", "cta": "Muat Turun AppImage" },
+    "windows": { "title": "Windows", "version": "Versi 1.0.1.0", "cta": "Akan datang" },
+    "mac": { "title": "macOS", "version": "Versi 1.0.1.0", "cta": "Akan datang" },
+    "linux": { "title": "Linux", "version": "Versi 1.0.1.0", "cta": "Akan datang" },
     "hash": { "label": "SHA256:" },
     "webpref": { "title": "Lebih suka Apl Web?", "lead": "Jalankan dalam pelayar — tanpa pemasangan." },
-    "cta": { "text": "Muat Turun" },
+    "cta": { "text": "Akan datang" },
     "web": "Buka Web"
   },
 
@@ -95,7 +95,7 @@
       "f1": "Carian tanpa had",
       "f2": "Tag & koleksi asas",
       "f3": "Eksport CSV/JSON",
-      "cta": "Mula"
+      "cta": "Akan datang"
     },
     "pro": {
       "badge": "Paling Popular",
@@ -105,7 +105,7 @@
       "f2": "UI berbilang bahasa",
       "f3": "Peringatan & penapis pintar",
       "f4": "Sokongan keutamaan",
-      "cta": "Naik Taraf Sekarang"
+      "cta": "Akan datang"
     },
     "faq": {
       "refunds": { "q": "Ada bayaran balik?", "a": "Jika anda tidak berpuas hati, hubungi kami dalam 14 hari. Kami akan bantu." },
@@ -114,7 +114,7 @@
     "final": {
       "title": "Mula mencari dengan lebih bijak",
       "lead": "KeySearch boleh dicuba secara percuma. Naik taraf apabila anda bersedia.",
-      "cta": { "download": "Muat Turun Percuma", "openweb": "Buka Web" }
+      "cta": { "download": "Akan datang", "openweb": "Buka Web" }
     }
   },
 
