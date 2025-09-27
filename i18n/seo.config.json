@@ -1,0 +1,119 @@
+{
+  "home": {
+    "title": "KeySearch — Find it. Fast.",
+    "description": "Search across projects, notes, and resources instantly. Local-first, privacy-first.",
+    "keywords": "KeySearch, search app, local search, productivity",
+    "canonical": "https://keysearch-app.com/",
+    "alternates": {
+      "hreflang": {
+        "en": "https://keysearch-app.com/",
+        "zh-Hant": "https://keysearch-app.com/zh-tw/",
+        "zh-Hans": "https://keysearch-app.com/zh-cn/",
+        "ja": "https://keysearch-app.com/ja/",
+        "ko": "https://keysearch-app.com/ko/"
+      }
+    },
+    "og": {
+      "type": "website",
+      "url": "https://keysearch-app.com/",
+      "image": "https://keysearch-app.com/assets/og/og-home.png",
+      "images": [
+        "https://keysearch-app.com/assets/og/og-home.png",
+        "https://keysearch-app.com/assets/og/og-ui.png"
+      ],
+      "site_name": "KeySearch"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "site": "@keysearch",
+      "creator": "@keysearch",
+      "images": ["https://keysearch-app.com/assets/og/og-home.png"]
+    },
+    "links": [
+      { "rel": "icon", "href": "/favicon.ico" },
+      { "rel": "apple-touch-icon", "href": "/assets/icons/apple-touch-icon.png", "sizes": "180x180" },
+      { "rel": "manifest", "href": "/site.webmanifest" },
+      { "rel": "preconnect", "href": "https://cdn.keysearch-app.com" }
+    ],
+    "metaExtra": [
+      { "name": "google-site-verification", "content": "YOUR_GOOGLE_CODE" },
+      { "name": "msvalidate.01", "content": "YOUR_BING_CODE" },
+      { "name": "robots", "content": "index,follow,max-image-preview:large" }
+    ],
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "KeySearch",
+        "url": "https://keysearch-app.com/",
+        "logo": "https://keysearch-app.com/assets/logo-512.png",
+        "sameAs": [
+          "https://twitter.com/keysearch",
+          "https://www.youtube.com/@keysearch"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "KeySearch",
+        "url": "https://keysearch-app.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://keysearch-app.com/search?q={query}",
+          "query-input": "required name=query"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "KeySearch",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Windows, macOS, Linux, Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  },
+
+  "support": {
+    "title": "Support — KeySearch",
+    "description": "Find quick answers or send us feedback about KeySearch.",
+    "canonical": "https://keysearch-app.com/support.html",
+    "og": { "image": "https://keysearch-app.com/assets/og/og-support.png" },
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I install KeySearch?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Download from the Download page and follow the installer. On macOS, allow apps from identified developers." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the web app different from the desktop app?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Core features are the same. Desktop adds offline mode and local export." }
+        }
+      ]
+    }
+  },
+
+  "news": {
+    "title": "News — KeySearch",
+    "description": "Release notes and product highlights.",
+    "canonical": "https://keysearch-app.com/news.html",
+    "og": { "type": "website", "image": "https://keysearch-app.com/assets/og/og-news.png" },
+    "twitter": { "card": "summary_large_image" },
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://keysearch-app.com/" },
+        { "@type": "ListItem", "position": 2, "name": "News", "item": "https://keysearch-app.com/news.html" }
+      ]
+    }
+  }
+}
