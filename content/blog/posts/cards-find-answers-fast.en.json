@@ -1,0 +1,17 @@
+{
+  "title": "Turn information into cards, find answers fast",
+  "subtitle": "Search, scan, compare — at a glance",
+  "date": "2025-09-01",
+  "readingTime": "3 min",
+  "cover": "assets/blog/cards.jpg",
+  "body": [
+    { "type": "p", "text": "As information grows, lists becomes hard to scan. Cards reveal the essentials so you compare and decide faster." },
+    { "type": "h2", "text": "Why cards?" },
+    { "type": "ul", "items": [
+      "Title/summary/tags at a glance",
+      "Keyboard-friendly browsing",
+      "Works naturally with filters and sorting"
+    ]},
+    { "type": "p", "text": "In KeySearch, switch your results into cards and refine with tags or collections." }
+  ]
+}
