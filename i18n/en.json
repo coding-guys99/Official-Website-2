@@ -77,12 +77,12 @@
   "download": {
     "title": "Download",
     "lead": "Get KeySearch for your favorite platform.",
-    "windows": { "title": "Windows", "version": "Version 1.0.1.0", "cta": "Download EXE" },
-    "mac": { "title": "macOS", "version": "Version 1.0.1.0", "cta": "Download DMG" },
-    "linux": { "title": "Linux", "version": "Version 1.0.1.0", "cta": "Download AppImage" },
+    "windows": { "title": "Windows", "version": "Version 1.0.1.0", "cta": "Coming Soon" },
+    "mac": { "title": "macOS", "version": "Version 1.0.1.0", "cta": "Coming Soon" },
+    "linux": { "title": "Linux", "version": "Version 1.0.1.0", "cta": "Coming Soon" },
     "hash": { "label": "SHA256:" },
     "webpref": { "title": "Prefer the Web App?", "lead": "Run KeySearch in your browser — no installation needed." },
-    "cta": { "text": "Download" },
+    "cta": { "text": "Coming Soon" },
     "web": "Open Web"
   },
 
@@ -96,7 +96,7 @@
       "f1": "Unlimited searches",
       "f2": "Basic tags & collections",
       "f3": "Export CSV/JSON",
-      "cta": "Get Started"
+      "cta": "Coming Soon"
     },
     "pro": {
       "badge": "Most Popular",
@@ -106,7 +106,7 @@
       "f2": "Multi-language UI",
       "f3": "Reminders & smart filters",
       "f4": "Priority support",
-      "cta": "Upgrade Now"
+      "cta": "Coming Soon"
     },
     "faq": {
       "refunds": { "q": "Do you offer refunds?", "a": "If you’re not satisfied, contact us within 14 days. We’ll help." },
