@@ -1,110 +1,158 @@
-// js/seo.js — Global SEO injector from /seo/seo.json (v3)
+/* js/seo.js — SEO injector (i18n-aware) */
 (function () {
   const SCRIPT  = document.currentScript;
   const PAGE_ID = (SCRIPT?.dataset.page || 'home').trim();
-  const CANDIDATES = [
-    new URL('../seo/seo.json', SCRIPT.src).toString(),
-    new URL('./seo/seo.json',  location.href).toString(),
-    new URL('/seo/seo.json',   location.origin).toString()
-  ];
+  const SEO_URL = new URL('../seo/seo.json', SCRIPT.src).toString();
   const head = document.head;
 
-  function upsert(selector, create) {
+  function upsertTag(selector, create) {
     let el = head.querySelector(selector);
     if (!el) { el = create(); head.appendChild(el); }
     return el;
   }
-  function metaByName(name, content){
-    if (!content) return;
-    const el = upsert(`meta[name="${CSS.escape(name)}"]`, ()=>{ const m=document.createElement('meta'); m.setAttribute('name',name); return m; });
+  function addTag(el){ head.appendChild(el); return el; }
+
+  function setMetaName(name, content) {
+    if (content == null || content === '') return;
+    const el = upsertTag(`meta[name="${CSS.escape(name)}"]`, () => {
+      const m = document.createElement('meta'); m.setAttribute('name', name); return m;
+    });
     el.setAttribute('content', content);
   }
-  function metaByProp(prop, content){
-    if (!content) return;
-    const el = upsert(`meta[property="${CSS.escape(prop)}"]`, ()=>{ const m=document.createElement('meta'); m.setAttribute('property',prop); return m; });
+  function setMetaProp(prop, content) {
+    if (content == null || content === '') return;
+    const el = upsertTag(`meta[property="${CSS.escape(prop)}"]`, () => {
+      const m = document.createElement('meta'); m.setAttribute('property', prop); return m;
+    });
     el.setAttribute('content', content);
   }
-  function addMeta(m){
-    if (!m || (!m.name && !m.property) || !m.content) return;
-    const el = document.createElement('meta');
-    if (m.name) el.setAttribute('name', m.name);
-    if (m.property) el.setAttribute('property', m.property);
-    el.setAttribute('content', m.content);
-    head.appendChild(el);
+  function addMeta({name, property, content}) {
+    if (!content) return;
+    const m = document.createElement('meta');
+    if (name) m.setAttribute('name', name);
+    if (property) m.setAttribute('property', property);
+    m.setAttribute('content', content);
+    addTag(m);
   }
-  function linkRel(rel, href, extra={}){
+  function setLinkRel(rel, href, extra={}) {
     if (!href) return;
-    const selector = `link[rel="${CSS.escape(rel)}"]` + (extra.hreflang?`[hreflang="${CSS.escape(extra.hreflang)}"]`:'');
-    const el = upsert(selector, ()=>{ const l=document.createElement('link'); l.setAttribute('rel',rel); if(extra.hreflang) l.setAttribute('hreflang', extra.hreflang); return l; });
+    const selector =
+      `link[rel="${CSS.escape(rel)}"]` +
+      (extra.hreflang ? `[hreflang="${CSS.escape(extra.hreflang)}"]` : '');
+    const el = upsertTag(selector, () => {
+      const l = document.createElement('link'); l.setAttribute('rel', rel);
+      if (extra.hreflang) l.setAttribute('hreflang', extra.hreflang);
+      return l;
+    });
     el.setAttribute('href', href);
     if (extra.sizes) el.setAttribute('sizes', extra.sizes);
     if (extra.type)  el.setAttribute('type',  extra.type);
-    if (extra.as)    el.setAttribute('as',    extra.as);
-    if (extra.crossorigin) el.setAttribute('crossorigin', extra.crossorigin);
-  }
-  function addJsonLd(obj){
-    if (!obj || typeof obj !== 'object') return;
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.textContent = JSON.stringify(obj);
-    head.appendChild(s);
   }
 
-  async function loadCfg() {
-    for (const u of CANDIDATES) {
-      try { const r = await fetch(u, {cache:'no-cache'}); if (r.ok) return r.json(); } catch {}
-    }
-    throw new Error('seo.json not found');
+  async function loadSEO() {
+    const r = await fetch(SEO_URL, { cache: 'no-cache' });
+    if (!r.ok) throw new Error(`SEO JSON not found: ${SEO_URL}`);
+    return r.json();
   }
 
-  function apply(cfg){
+  // 從 i18n 取本頁面 title / description（若有）
+  function pickI18nTitleDesc() {
+    try {
+      const I18N = window.I18N;
+      if (!I18N || !I18N.t) return {};
+      const tKey = `meta.title.${PAGE_ID}`;
+      const dKey = `meta.description.${PAGE_ID}`;
+      const t = I18N.t(tKey);
+      const d = I18N.t(dKey);
+      return {
+        title: typeof t === 'string' ? t : undefined,
+        desc:  typeof d === 'string' ? d : undefined
+      };
+    } catch { return {}; }
+  }
+
+  function applySEO(cfg, langAware=true) {
     const site = cfg.site || {};
     const page = (cfg.pages && cfg.pages[PAGE_ID]) || {};
+    const base = (cfg.site && cfg.site.canonicalBase) || location.origin;
 
-    // ---- Canonical / alternates
-    const canonical = page.canonical || site.canonicalBase && (site.canonicalBase.replace(/\/+$/,'') + `/${PAGE_ID}.html`);
-    if (canonical) linkRel('canonical', canonical);
-
-    if (cfg.alternates && typeof cfg.alternates === 'object') {
-      Object.entries(cfg.alternates).forEach(([hl, url]) => linkRel('alternate', url, { hreflang: hl }));
+    // —— 全站 link：icons / manifest / preconnect…（只插一次）——
+    if (!head.querySelector('link[rel="icon"]')) {
+      (cfg.links || []).forEach(l => setLinkRel(l.rel, l.href, l));
     }
 
-    // ---- Icons / manifest / preconnect / dns-prefetch
-    (cfg.links || []).forEach(l => linkRel(l.rel, l.href, l));
+    // —— 基本 robots / theme-color / 驗證碼 —— 
+    if (cfg.robots)     setMetaName('robots', cfg.robots);
+    if (cfg.themeColor) setMetaName('theme-color', cfg.themeColor);
+    (cfg.verifications || []).forEach(v => addMeta({ name: v.name, content: v.content }));
 
-    // ---- robots / theme-color / site-verifications
-    if (cfg.robots)     metaByName('robots', cfg.robots);
-    if (cfg.themeColor) metaByName('theme-color', cfg.themeColor);
-    (cfg.verifications || []).forEach(v => addMeta(v)); // [{name:'google-site-verification',content:'...'}]
+    // —— alternates (hreflang) —— 
+    if (cfg.alternates && typeof cfg.alternates === 'object') {
+      Object.entries(cfg.alternates).forEach(([hl, url])=>{
+        setLinkRel('alternate', url, { hreflang: hl });
+      });
+    }
 
-    // ---- Open Graph (基本：由 meta.js 寫入 og:title / og:description，這裡補其餘)
-    const pageUrl = canonical || location.href;
-    metaByProp('og:type', page.og?.type || site.og?.type || 'website');
-    metaByProp('og:url',  page.og?.url  || pageUrl);
-    metaByProp('og:site_name', site.og?.site_name || site.siteName || 'KeySearch');
-    metaByProp('og:image', page.og?.image || site.og?.image);
-    (page.og?.images || site.og?.images || []).forEach(img => addMeta({property:'og:image', content: img}));
+    // —— JSON-LD（全站 + 頁面）——
+    function injectJSONLD(blocks){
+      if (!blocks) return;
+      const arr = Array.isArray(blocks) ? blocks : [blocks];
+      arr.forEach(obj=>{
+        if (!obj) return;
+        const s = document.createElement('script');
+        s.type = 'application/ld+json';
+        s.textContent = JSON.stringify(obj);
+        head.appendChild(s);
+      });
+    }
+    injectJSONLD(cfg.jsonld);
+    injectJSONLD(page.jsonld);
 
-    // ---- Twitter
-    const tw = { ...(site.twitter||{}), ...(page.twitter||{}) };
-    metaByName('twitter:card',   tw.card   || 'summary');
-    metaByName('twitter:site',   tw.site   || '@keysearch');
-    metaByName('twitter:creator',tw.creator|| '@keysearch');
-    if (page.og?.image || site.og?.image) metaByName('twitter:image', page.og?.image || site.og?.image);
-    (tw.images || []).forEach(img => addMeta({name:'twitter:image', content: img}));
+    // —— Canonical —— 
+    const canonical = page.canonical || (base + location.pathname.replace(/^\//,'/'));
+    setLinkRel('canonical', canonical);
 
-    // ---- JSON-LD：全站 + 每頁（可多段 / 陣列）
-    const blocks = []
-      .concat(cfg.jsonld || [])
-      .concat(page.jsonld || []);
-    blocks.forEach(addJsonLd);
+    // —— Title / Description（可與 i18n 合併）——
+    const i18nTD = langAware ? pickI18nTitleDesc() : {};
+    const title = i18nTD.title || document.title || site.og?.site_name || 'KeySearch';
+    const description = i18nTD.desc || ''; // 若 i18n 沒提供就留空或由 seo.json 補
+    if (title) document.title = title;
 
-    // ---- 其他額外 meta
-    (cfg.metaExtra || []).forEach(addMeta);
-    (page.metaExtra || []).forEach(addMeta);
+    // 若 seo.json 有對應描述，補上預設
+    const pageDescFromSeo = (cfg.descriptions && cfg.descriptions[PAGE_ID]) || cfg.defaultDescription;
+    const finalDesc = description || pageDescFromSeo || '';
+    if (finalDesc) {
+      setMetaName('description', finalDesc);
+      setMetaProp('og:description', finalDesc);
+      setMetaName('twitter:description', finalDesc);
+    }
 
-    console.info('[SEO] applied', PAGE_ID);
+    // —— Open Graph / Twitter —— 
+    const ogPage = page.og || {};
+    const ogSite = site.og || {};
+    setMetaProp('og:type',      ogPage.type || ogSite.type || 'website');
+    setMetaProp('og:url',       ogPage.url  || canonical);
+    setMetaProp('og:image',     ogPage.image || ogSite.image);
+    setMetaProp('og:site_name', ogPage.site_name || ogSite.site_name || 'KeySearch');
+    const htmlLang = document.documentElement.lang || 'en';
+    setMetaProp('og:locale',    (ogPage.locale || htmlLang).replace('-', '_'));
+    setMetaProp('og:title',     ogPage.title || title);
+
+    const twSite = site.twitter || {};
+    const twPage = page.twitter || {};
+    setMetaName('twitter:card',   twPage.card || twSite.card || 'summary');
+    setMetaName('twitter:site',   twPage.site || twSite.site || '@keysearch');
+    setMetaName('twitter:creator',twPage.creator || twSite.creator || '@keysearch');
+    if (ogPage.image || ogSite.image) setMetaName('twitter:image', ogPage.image || ogSite.image);
+
+    console.info('[SEO] applied+', PAGE_ID);
   }
 
-  loadCfg().then(apply).catch(e=>console.error('[SEO] failed', e));
+  // 初次套用
+  loadSEO().then(cfg => {
+    applySEO(cfg, true);
+
+    // 若語言切換，更新 og:locale / title / description
+    document.addEventListener('i18n:changed', () => applySEO(cfg, true));
+  }).catch(e => console.error('[SEO] failed', e));
 })();
