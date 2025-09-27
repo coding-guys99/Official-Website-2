@@ -76,12 +76,12 @@
   "download": {
     "title": "다운로드",
     "lead": "원하는 플랫폼용 KeySearch 받기.",
-    "windows": { "title": "Windows", "version": "버전 1.0.1.0", "cta": "EXE 다운로드" },
-    "mac": { "title": "macOS", "version": "버전 1.0.1.0", "cta": "DMG 다운로드" },
-    "linux": { "title": "Linux", "version": "버전 1.0.1.0", "cta": "AppImage 다운로드" },
+    "windows": { "title": "Windows", "version": "버전 1.0.1.0", "cta": "곧 출시" },
+    "mac": { "title": "macOS", "version": "버전 1.0.1.0", "cta": "곧 출시" },
+    "linux": { "title": "Linux", "version": "버전 1.0.1.0", "cta": "곧 출시" },
     "hash": { "label": "SHA256:" },
     "webpref": { "title": "웹 앱이 더 편하신가요?", "lead": "브라우저에서 실행—설치가 필요 없습니다." },
-    "cta": { "text": "다운로드" },
+    "cta": { "text": "곧 출시" },
     "web": "웹 열기"
   },
 
@@ -95,7 +95,7 @@
       "f1": "무제한 검색",
       "f2": "기본 태그 & 컬렉션",
       "f3": "CSV/JSON 내보내기",
-      "cta": "시작하기"
+      "cta": "곧 출시"
     },
     "pro": {
       "badge": "가장 인기",
@@ -105,7 +105,7 @@
       "f2": "다국어 UI",
       "f3": "리마인더 & 스마트 필터",
       "f4": "우선 지원",
-      "cta": "지금 업그레이드"
+      "cta": "곧 출시"
     },
     "faq": {
       "refunds": { "q": "환불이 가능한가요?", "a": "만족하지 못하셨다면 14일 이내에 연락 주세요. 도와드리겠습니다." },
@@ -114,7 +114,7 @@
     "final": {
       "title": "더 똑똑한 검색 시작",
       "lead": "KeySearch는 무료로 체험할 수 있습니다. 준비되면 업그레이드하세요.",
-      "cta": { "download": "무료 다운로드", "openweb": "웹 열기" }
+      "cta": { "download": "곧 출시", "openweb": "웹 열기" }
     }
   },
 
