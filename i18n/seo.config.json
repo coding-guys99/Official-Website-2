@@ -1,10 +1,10 @@
 {
   "site": {
     "siteName": "KeySearch",
-    "canonicalBase": "https://your-domain.com",
+    "canonicalBase": "https://keysearch-app.com",
     "og": {
       "type": "website",
-      "image": "https://your-domain.com/assets/og/og-default.png",
+      "image": "https://keysearch-app.com/assets/og/og-default.png",
       "site_name": "KeySearch"
     },
     "twitter": {
@@ -15,10 +15,10 @@
   },
 
   "links": [
-    { "rel": "icon", "href": "/assets/icons/favicon-32.png", "sizes": "32x32", "type": "image/png" },
-    { "rel": "icon", "href": "/assets/icons/favicon-16.png", "sizes": "16x16", "type": "image/png" },
-    { "rel": "apple-touch-icon", "href": "/assets/icons/apple-touch-icon.png", "sizes": "180x180" },
-    { "rel": "manifest", "href": "/site.webmanifest" },
+    { "rel": "icon", "href": "https://keysearch-app.com/assets/icons/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "rel": "icon", "href": "https://keysearch-app.com/assets/icons/favicon-16.png", "sizes": "16x16", "type": "image/png" },
+    { "rel": "apple-touch-icon", "href": "https://keysearch-app.com/assets/icons/apple-touch-icon.png", "sizes": "180x180" },
+    { "rel": "manifest", "href": "https://keysearch-app.com/site.webmanifest" },
 
     { "rel": "preconnect",   "href": "https://fonts.gstatic.com", "crossorigin": "" },
     { "rel": "preconnect",   "href": "https://fonts.googleapis.com" },
@@ -36,11 +36,22 @@
   ],
 
   "alternates": {
-    "en":    "https://your-domain.com/en/",
-    "zh-Hant": "https://your-domain.com/zh-tw/",
-    "zh-Hans": "https://your-domain.com/zh-cn/",
-    "ja":    "https://your-domain.com/ja/",
-    "ko":    "https://your-domain.com/ko/"
+    "en":       "https://keysearch-app.com/index.html?lang=en",
+    "zh-Hant":  "https://keysearch-app.com/index.html?lang=zh_tw",
+    "zh-Hans":  "https://keysearch-app.com/index.html?lang=zh_cn",
+    "ja":       "https://keysearch-app.com/index.html?lang=ja",
+    "ko":       "https://keysearch-app.com/index.html?lang=ko",
+    "ms":       "https://keysearch-app.com/index.html?lang=ms",
+    "th":       "https://keysearch-app.com/index.html?lang=th",
+    "fr":       "https://keysearch-app.com/index.html?lang=fr",
+    "de":       "https://keysearch-app.com/index.html?lang=de",
+    "es":       "https://keysearch-app.com/index.html?lang=es",
+    "it":       "https://keysearch-app.com/index.html?lang=it",
+    "pt":       "https://keysearch-app.com/index.html?lang=pt",
+    "ru":       "https://keysearch-app.com/index.html?lang=ru",
+    "ar":       "https://keysearch-app.com/index.html?lang=ar",
+    "hi":       "https://keysearch-app.com/index.html?lang=hi",
+    "id":       "https://keysearch-app.com/index.html?lang=id"
   },
 
   "jsonld": [
@@ -48,8 +59,8 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "KeySearch",
-      "url": "https://your-domain.com/",
-      "logo": "https://your-domain.com/assets/logo-512.png",
+      "url": "https://keysearch-app.com/",
+      "logo": "https://keysearch-app.com/assets/logo-512.png",
       "sameAs": [
         "https://twitter.com/keysearch",
         "https://www.youtube.com/@keysearch"
@@ -59,34 +70,34 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "KeySearch",
-      "url": "https://your-domain.com/",
+      "url": "https://keysearch-app.com/",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://your-domain.com/?q={search_term_string}",
+        "target": "https://keysearch-app.com/?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
   ],
 
   "pages": {
-    "home":    { "canonical": "https://your-domain.com/index.html" },
-    "features":{ "canonical": "https://your-domain.com/features.html" },
-    "download":{ "canonical": "https://your-domain.com/download.html" },
-    "pricing": { "canonical": "https://your-domain.com/pricing.html" },
-    "about":   { "canonical": "https://your-domain.com/about.html" },
-    "support": { "canonical": "https://your-domain.com/support.html" },
+    "home":     { "canonical": "https://keysearch-app.com/index.html" },
+    "features": { "canonical": "https://keysearch-app.com/features.html" },
+    "download": { "canonical": "https://keysearch-app.com/download.html" },
+    "pricing":  { "canonical": "https://keysearch-app.com/pricing.html" },
+    "about":    { "canonical": "https://keysearch-app.com/about.html" },
+    "support":  { "canonical": "https://keysearch-app.com/support.html" },
     "news": {
-      "canonical": "https://your-domain.com/news.html",
+      "canonical": "https://keysearch-app.com/news.html",
       "jsonld": [
         {
           "@context": "https://schema.org",
           "@type": "Blog",
           "name": "KeySearch – Product Updates",
-          "url": "https://your-domain.com/news.html"
+          "url": "https://keysearch-app.com/news.html"
         }
       ]
     },
-    "donate":  { "canonical": "https://your-domain.com/donate.html" }
+    "donate":   { "canonical": "https://keysearch-app.com/donate.html" }
   },
 
   "metaExtra": [
