@@ -1,25 +1,33 @@
 {
+  "_base": "https://coding-guys99.github.io/Official-Website-2",
+  "_brand": "KeySearch",
+  "_ogSiteName": "KeySearch",
+  "_twitter": "@keysearch",
+
   "home": {
     "title": "KeySearch — Find it. Fast.",
     "description": "Search across projects, notes, and resources instantly. Local-first, privacy-first.",
     "keywords": "KeySearch, search app, local search, productivity",
-    "canonical": "https://keysearch-app.com/",
+    "canonical": "https://coding-guys99.github.io/Official-Website-2/",
     "alternates": {
       "hreflang": {
-        "en": "https://keysearch-app.com/",
-        "zh-Hant": "https://keysearch-app.com/zh-tw/",
-        "zh-Hans": "https://keysearch-app.com/zh-cn/",
-        "ja": "https://keysearch-app.com/ja/",
-        "ko": "https://keysearch-app.com/ko/"
+        "en": "https://coding-guys99.github.io/Official-Website-2/",
+        "zh-Hant": "https://coding-guys99.github.io/Official-Website-2/?lang=zh_tw",
+        "zh-Hans": "https://coding-guys99.github.io/Official-Website-2/?lang=zh_cn",
+        "ja": "https://coding-guys99.github.io/Official-Website-2/?lang=ja",
+        "ko": "https://coding-guys99.github.io/Official-Website-2/?lang=ko",
+        "ms": "https://coding-guys99.github.io/Official-Website-2/?lang=ms",
+        "th": "https://coding-guys99.github.io/Official-Website-2/?lang=th",
+        "vi": "https://coding-guys99.github.io/Official-Website-2/?lang=vi"
       }
     },
     "og": {
       "type": "website",
-      "url": "https://keysearch-app.com/",
-      "image": "https://keysearch-app.com/assets/og/og-home.png",
+      "url": "https://coding-guys99.github.io/Official-Website-2/",
+      "image": "https://coding-guys99.github.io/Official-Website-2/assets/og/og-home.png",
       "images": [
-        "https://keysearch-app.com/assets/og/og-home.png",
-        "https://keysearch-app.com/assets/og/og-ui.png"
+        "https://coding-guys99.github.io/Official-Website-2/assets/og/og-home.png",
+        "https://coding-guys99.github.io/Official-Website-2/assets/og/og-ui.png"
       ],
       "site_name": "KeySearch"
     },
@@ -27,13 +35,13 @@
       "card": "summary_large_image",
       "site": "@keysearch",
       "creator": "@keysearch",
-      "images": ["https://keysearch-app.com/assets/og/og-home.png"]
+      "images": ["https://coding-guys99.github.io/Official-Website-2/assets/og/og-home.png"]
     },
     "links": [
-      { "rel": "icon", "href": "/favicon.ico" },
-      { "rel": "apple-touch-icon", "href": "/assets/icons/apple-touch-icon.png", "sizes": "180x180" },
-      { "rel": "manifest", "href": "/site.webmanifest" },
-      { "rel": "preconnect", "href": "https://cdn.keysearch-app.com" }
+      { "rel": "icon", "href": "/Official-Website-2/favicon.ico" },
+      { "rel": "apple-touch-icon", "href": "/Official-Website-2/assets/icons/apple-touch-icon.png", "sizes": "180x180" },
+      { "rel": "manifest", "href": "/Official-Website-2/site.webmanifest" },
+      { "rel": "preconnect", "href": "https://fonts.gstatic.com" }
     ],
     "metaExtra": [
       { "name": "google-site-verification", "content": "YOUR_GOOGLE_CODE" },
@@ -45,8 +53,8 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "KeySearch",
-        "url": "https://keysearch-app.com/",
-        "logo": "https://keysearch-app.com/assets/logo-512.png",
+        "url": "https://coding-guys99.github.io/Official-Website-2/",
+        "logo": "https://coding-guys99.github.io/Official-Website-2/assets/logo-512.png",
         "sameAs": [
           "https://twitter.com/keysearch",
           "https://www.youtube.com/@keysearch"
@@ -56,10 +64,10 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "KeySearch",
-        "url": "https://keysearch-app.com/",
+        "url": "https://coding-guys99.github.io/Official-Website-2/",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://keysearch-app.com/search?q={query}",
+          "target": "https://coding-guys99.github.io/Official-Website-2/search?q={query}",
           "query-input": "required name=query"
         }
       },
@@ -78,11 +86,90 @@
     ]
   },
 
+  "features": {
+    "title": "Features — KeySearch",
+    "description": "Explore the features that make KeySearch fast, powerful, and privacy-first.",
+    "canonical": "https://coding-guys99.github.io/Official-Website-2/features.html",
+    "og": {
+      "type": "website",
+      "url": "https://coding-guys99.github.io/Official-Website-2/features.html",
+      "image": "https://coding-guys99.github.io/Official-Website-2/assets/og/og-features.png",
+      "site_name": "KeySearch"
+    },
+    "twitter": { "card": "summary_large_image" },
+    "links": [
+      { "rel": "canonical", "href": "https://coding-guys99.github.io/Official-Website-2/features.html" }
+    ]
+  },
+
+  "download": {
+    "title": "Download — KeySearch",
+    "description": "Download KeySearch for Windows, macOS, Linux, or try the web app instantly.",
+    "canonical": "https://coding-guys99.github.io/Official-Website-2/download.html",
+    "og": {
+      "type": "website",
+      "url": "https://coding-guys99.github.io/Official-Website-2/download.html",
+      "image": "https://coding-guys99.github.io/Official-Website-2/assets/og/og-download.png",
+      "site_name": "KeySearch"
+    },
+    "twitter": { "card": "summary_large_image" }
+  },
+
+  "pricing": {
+    "title": "Pricing — KeySearch",
+    "description": "Simple, transparent plans that grow with you. Free forever, Pro for power users.",
+    "canonical": "https://coding-guys99.github.io/Official-Website-2/pricing.html",
+    "og": {
+      "type": "website",
+      "url": "https://coding-guys99.github.io/Official-Website-2/pricing.html",
+      "image": "https://coding-guys99.github.io/Official-Website-2/assets/og/og-pricing.png",
+      "site_name": "KeySearch"
+    },
+    "twitter": { "card": "summary_large_image" },
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "KeySearch Pro",
+      "brand": "KeySearch",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "9.99",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  },
+
+  "about": {
+    "title": "About — KeySearch",
+    "description": "Our mission: help people find exactly what they need—fast, locally, and without clutter.",
+    "canonical": "https://coding-guys99.github.io/Official-Website-2/about.html",
+    "og": {
+      "type": "website",
+      "url": "https://coding-guys99.github.io/Official-Website-2/about.html",
+      "image": "https://coding-guys99.github.io/Official-Website-2/assets/og/og-about.png",
+      "site_name": "KeySearch"
+    },
+    "twitter": { "card": "summary_large_image" },
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About KeySearch",
+      "url": "https://coding-guys99.github.io/Official-Website-2/about.html"
+    }
+  },
+
   "support": {
     "title": "Support — KeySearch",
     "description": "Find quick answers or send us feedback about KeySearch.",
-    "canonical": "https://keysearch-app.com/support.html",
-    "og": { "image": "https://keysearch-app.com/assets/og/og-support.png" },
+    "canonical": "https://coding-guys99.github.io/Official-Website-2/support.html",
+    "og": {
+      "type": "website",
+      "url": "https://coding-guys99.github.io/Official-Website-2/support.html",
+      "image": "https://coding-guys99.github.io/Official-Website-2/assets/og/og-support.png",
+      "site_name": "KeySearch"
+    },
+    "twitter": { "card": "summary_large_image" },
     "jsonld": {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -96,6 +183,11 @@
           "@type": "Question",
           "name": "Is the web app different from the desktop app?",
           "acceptedAnswer": { "@type": "Answer", "text": "Core features are the same. Desktop adds offline mode and local export." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I switch languages?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use the language switcher in the top-right corner." }
         }
       ]
     }
@@ -104,16 +196,40 @@
   "news": {
     "title": "News — KeySearch",
     "description": "Release notes and product highlights.",
-    "canonical": "https://keysearch-app.com/news.html",
-    "og": { "type": "website", "image": "https://keysearch-app.com/assets/og/og-news.png" },
+    "canonical": "https://coding-guys99.github.io/Official-Website-2/news.html",
+    "og": {
+      "type": "website",
+      "url": "https://coding-guys99.github.io/Official-Website-2/news.html",
+      "image": "https://coding-guys99.github.io/Official-Website-2/assets/og/og-news.png",
+      "site_name": "KeySearch"
+    },
     "twitter": { "card": "summary_large_image" },
     "jsonld": {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://keysearch-app.com/" },
-        { "@type": "ListItem", "position": 2, "name": "News", "item": "https://keysearch-app.com/news.html" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://coding-guys99.github.io/Official-Website-2/" },
+        { "@type": "ListItem", "position": 2, "name": "News", "item": "https://coding-guys99.github.io/Official-Website-2/news.html" }
       ]
+    }
+  },
+
+  "donate": {
+    "title": "Donate — KeySearch",
+    "description": "Support KeySearch development if it saves you time.",
+    "canonical": "https://coding-guys99.github.io/Official-Website-2/donate.html",
+    "og": {
+      "type": "website",
+      "url": "https://coding-guys99.github.io/Official-Website-2/donate.html",
+      "image": "https://coding-guys99.github.io/Official-Website-2/assets/og/og-donate.png",
+      "site_name": "KeySearch"
+    },
+    "twitter": { "card": "summary_large_image" },
+    "jsonld": {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Support development",
+      "url": "https://coding-guys99.github.io/Official-Website-2/donate.html"
     }
   }
 }
