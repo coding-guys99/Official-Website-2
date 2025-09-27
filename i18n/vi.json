@@ -76,12 +76,12 @@
   "download": {
     "title": "Tải xuống",
     "lead": "Lấy KeySearch cho nền tảng bạn thích.",
-    "windows": { "title": "Windows", "version": "Phiên bản 1.0.1.0", "cta": "Tải EXE" },
-    "mac": { "title": "macOS", "version": "Phiên bản 1.0.1.0", "cta": "Tải DMG" },
-    "linux": { "title": "Linux", "version": "Phiên bản 1.0.1.0", "cta": "Tải AppImage" },
+    "windows": { "title": "Windows", "version": "Phiên bản 1.0.1.0", "cta": "Sắp ra mắt" },
+    "mac": { "title": "macOS", "version": "Phiên bản 1.0.1.0", "cta": "Sắp ra mắt" },
+    "linux": { "title": "Linux", "version": "Phiên bản 1.0.1.0", "cta": "Sắp ra mắt" },
     "hash": { "label": "SHA256:" },
     "webpref": { "title": "Thích dùng Web hơn?", "lead": "Chạy KeySearch trong trình duyệt — không cần cài đặt." },
-    "cta": { "text": "Tải xuống" },
+    "cta": { "text": "Sắp ra mắt" },
     "web": "Mở bản Web"
   },
 
@@ -95,7 +95,7 @@
       "f1": "Tìm kiếm không giới hạn",
       "f2": "Thẻ & bộ sưu tập cơ bản",
       "f3": "Xuất CSV/JSON",
-      "cta": "Bắt đầu"
+      "cta": "Sắp ra mắt"
     },
     "pro": {
       "badge": "Phổ biến nhất",
@@ -105,7 +105,7 @@
       "f2": "Giao diện đa ngôn ngữ",
       "f3": "Nhắc nhở & bộ lọc thông minh",
       "f4": "Hỗ trợ ưu tiên",
-      "cta": "Nâng cấp ngay"
+      "cta": "Sắp ra mắt"
     },
     "faq": {
       "refunds": { "q": "Có hoàn tiền không?", "a": "Nếu không hài lòng, hãy liên hệ trong 14 ngày. Chúng tôi sẽ hỗ trợ." },
@@ -114,7 +114,7 @@
     "final": {
       "title": "Bắt đầu tìm thông minh hơn",
       "lead": "KeySearch miễn phí để thử. Nâng cấp khi bạn sẵn sàng.",
-      "cta": { "download": "Tải miễn phí", "openweb": "Mở bản Web" }
+      "cta": { "download": "Sắp ra mắt", "openweb": "Mở bản Web" }
     }
   },
 
