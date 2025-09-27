@@ -142,19 +142,46 @@
       <div id="toast" role="status" aria-live="polite" class="toast" hidden data-i18n="support.feedback.toast">Opening your email app…</div>
     </section>
 	
-	<!-- Donate / Support development -->
+	<!-- Donate / Support development (Multi-currency) -->
 <section class="donate container" id="donate">
   <div class="donate-card">
     <h2 data-i18n="donate.title">Support development</h2>
     <p class="muted" data-i18n="donate.desc">
       KeySearch is free to use. If it saves you time, consider supporting development.
     </p>
-    <div class="donate-actions">
-      <a class="btn primary" href="https://www.buymeacoffee.com/yourid" target="_blank" rel="noopener" data-i18n="donate.coffee">Buy me a coffee</a>
-      <a class="btn secondary" href="https://ko-fi.com/yourid" target="_blank" rel="noopener" data-i18n="donate.kofi">Ko-fi</a>
-      <a class="btn secondary" href="https://paypal.me/yourid" target="_blank" rel="noopener" data-i18n="donate.paypal">PayPal</a>
-      <a class="btn secondary" href="https://buy.stripe.com/yourlink" target="_blank" rel="noopener" data-i18n="donate.stripe">Stripe</a>
+
+    <!-- Currency + amount -->
+    <div class="donate-controls" style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+      <label>
+        <span class="muted" style="margin-right:6px;">Currency</span>
+        <select id="donate-currency" aria-label="Choose currency">
+          <option value="USD" selected>USD $</option>
+          <option value="TWD">TWD NT$</option>
+          <option value="MYR">MYR RM</option>
+        </select>
+      </label>
+
+      <div class="donate-amounts" aria-label="Quick amounts" style="display:flex; gap:8px;">
+        <button class="chip" data-amt="5">$5</button>
+        <button class="chip" data-amt="10">$10</button>
+        <button class="chip" data-amt="20">$20</button>
+        <button class="chip" data-amt="50">$50</button>
+        <input id="donate-custom" type="number" min="1" step="1" placeholder="Custom" style="width:100px;">
+      </div>
     </div>
+
+    <!-- Action buttons -->
+    <div class="donate-actions" style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+      <a id="btn-bmc" class="btn primary" href="https://www.buymeacoffee.com/yourid" target="_blank" rel="noopener" data-i18n="donate.coffee">Buy me a coffee</a>
+      <a id="btn-kofi" class="btn secondary" href="https://ko-fi.com/yourid" target="_blank" rel="noopener" data-i18n="donate.kofi">Ko-fi</a>
+
+      <!-- PayPal: 用 PayPal.me，前端帶入金額；幣別以使用者帳戶為準 -->
+      <a id="btn-paypal" class="btn secondary" href="https://paypal.me/AndyWongChernInn" target="_blank" rel="noopener" data-i18n="donate.paypal">PayPal</a>
+
+      <!-- Stripe: 每幣別放一個 Payment Link，前端依幣別切換 -->
+      <a id="btn-stripe" class="btn secondary" href="https://buy.stripe.com/your_usd_link" target="_blank" rel="noopener" data-i18n="donate.stripe">Stripe</a>
+    </div>
+
     <p class="fine-print" data-i18n="donate.thanks">Thanks for your support — it keeps KeySearch fast and focused.</p>
   </div>
 </section>
