@@ -76,12 +76,12 @@
   "download": {
     "title": "डाउनलोड",
     "lead": "अपनी पसंदीदा प्लेटफ़ॉर्म के लिए KeySearch पाएँ।",
-    "windows": { "title": "Windows", "version": "संस्करण 1.0.1.0", "cta": "EXE डाउनलोड करें" },
-    "mac": { "title": "macOS", "version": "संस्करण 1.0.1.0", "cta": "DMG डाउनलोड करें" },
-    "linux": { "title": "Linux", "version": "संस्करण 1.0.1.0", "cta": "AppImage डाउनलोड करें" },
+    "windows": { "title": "Windows", "version": "संस्करण 1.0.1.0", "cta": "जल्द आ रहा है" },
+    "mac": { "title": "macOS", "version": "संस्करण 1.0.1.0", "cta": "जल्द आ रहा है" },
+    "linux": { "title": "Linux", "version": "संस्करण 1.0.1.0", "cta": "जल्द आ रहा है" },
     "hash": { "label": "SHA256:" },
     "webpref": { "title": "वेब ऐप पसंद है?", "lead": "ब्राउज़र में KeySearch चलाएँ — इंस्टॉल की ज़रूरत नहीं।" },
-    "cta": { "text": "डाउनलोड" },
+    "cta": { "text": "जल्द आ रहा है" },
     "web": "वेब खोलें"
   },
 
