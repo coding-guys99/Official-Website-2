@@ -1,15 +1,25 @@
 {
   "_meta": { "lang": "Tiếng Việt", "dir": "ltr" },
-
   "meta": {
     "title": {
-      "home": "KeySearch — Tìm nhanh. Chính xác.",
+      "home": "KeySearch — Tìm nhanh, mọi thứ trong tầm tay",
       "features": "Tính năng — KeySearch",
       "download": "Tải xuống — KeySearch",
       "pricing": "Giá — KeySearch",
       "about": "Giới thiệu — KeySearch",
       "support": "Hỗ trợ — KeySearch",
-      "news": "Tin tức — KeySearch"
+      "news": "Tin tức — KeySearch",
+      "donate": "Hỗ trợ phát triển — KeySearch"
+    },
+    "description": {
+      "home": "KeySearch là công cụ tìm kiếm nhanh, ưu tiên quyền riêng tư. Tìm ghi chú và tệp ngay lập tức và giữ mọi thứ gọn gàng.",
+      "features": "Khám phá các tính năng của KeySearch: kết quả tức thì, thẻ thông minh, bộ sưu tập, phím tắt toàn cầu, giao diện đa ngôn ngữ và thiết kế ưu tiên quyền riêng tư.",
+      "download": "Tải xuống KeySearch cho Windows, macOS và Linux — hoặc dùng thử ứng dụng web mà không cần cài đặt.",
+      "pricing": "Giá minh bạch, đơn giản. Bắt đầu miễn phí và nâng cấp lên Pro để có giao diện đa ngôn ngữ, nhắc nhở, bộ lọc và hỗ trợ ưu tiên.",
+      "about": "KeySearch giúp bạn tìm thấy chính xác những gì bạn cần ngay lập tức. Local-first, nhanh theo thiết kế và không bị phụ thuộc nhà cung cấp.",
+      "support": "Nhận hỗ trợ về cài đặt, chuyển đổi ngôn ngữ, thanh toán và nhiều hơn nữa. Gửi phản hồi trực tiếp cho nhóm KeySearch.",
+      "news": "Cập nhật KeySearch, cải tiến hiệu suất, tùy chọn xuất và bản địa hóa.",
+      "donate": "Nếu KeySearch giúp bạn tiết kiệm thời gian, hãy hỗ trợ phát triển qua Buy Me a Coffee, Ko-fi, PayPal hoặc Stripe."
     }
   },
 
