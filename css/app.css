@@ -829,3 +829,23 @@ section.cta .actions {
   margin-top: 10px;
   flex-wrap: wrap;
 }
+
+
+/* --- Fix: reveal-on-scroll shouldn't block clicks --- */
+.reveal-on-scroll {               /* 初始只做淡入/位移，不要關 pointer-events */
+  opacity: 0;
+  transform: translateY(10px);
+  /* 不要再設 pointer-events:none; */
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;           /* 保證可互動 */
+}
+
+/* 保險：確保表單內的控件一定可點 */
+.feedback-form,
+.feedback-form * {
+  pointer-events: auto !important;
+}
