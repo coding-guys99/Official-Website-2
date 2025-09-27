@@ -1,41 +1,96 @@
-// js/blog-index.js
-(async function(){
-  const lang = document.documentElement.lang || "en"; // 取 <html lang="...">
-  const container = document.getElementById("blogGrid");
-  if (!container) return;
+// js/blog-index.js — Blog index renderer (i18n-aware)
+(function () {
+  const $grid  = document.getElementById('blogGrid');
+  const $chips = document.getElementById('blogTagChips');
+  const $pager = document.getElementById('blogPager');
 
-  // JSON 路徑
-  const url = `content/blog/index/index.${lang}.json`;
+  // 簡易分頁設定
+  const PAGE_SIZE = 8;
+  let state = { tag: 'all', page: 1 };
 
-  try {
-    const res = await fetch(url, { cache: "no-cache" });
-    if (!res.ok) throw new Error(`Failed to load ${url}`);
-    const data = await res.json();
-
-    // 設定標題與描述
-    document.querySelector("[data-i18n='blog.title']").textContent = data.title;
-    document.querySelector("[data-i18n='blog.lead']").textContent = data.lead;
-
-    // 清空 & 渲染文章卡片
-    container.innerHTML = "";
-    data.items.forEach(post => {
-      const card = document.createElement("article");
-      card.className = "blog-card";
-      card.innerHTML = `
-        <img src="${post.cover}" alt="${post.title}" class="blog-cover"/>
-        <div class="blog-content">
-          <h2 class="blog-title">${post.title}</h2>
-          <p class="blog-excerpt">${post.excerpt}</p>
-          <div class="blog-meta">
-            <span>${post.date}</span> · <span>${post.readingTime}</span>
-          </div>
-          <a class="btn-read" href="blog-post.html?slug=${post.slug}" data-i18n="blog.readMore">Read more</a>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  } catch (err) {
-    console.error("[Blog] Failed to load:", err);
-    container.innerHTML = `<p>⚠ Failed to load blog posts.</p>`;
+  function getDict() {
+    // 直接從 I18N 取目前語言字典
+    return I18N.t('blog') || {};
   }
+
+  function uniqueTags(items) {
+    const s = new Set();
+    items.forEach(it => (it.tags || []).forEach(t => s.add(t)));
+    return Array.from(s);
+  }
+
+  function buildChips(dict, items) {
+    if (!$chips) return;
+    const labels = dict.filters || { all: 'All' };
+    const tags = uniqueTags(items);
+    const allBtn = `<button class="chip ${state.tag === 'all' ? 'active' : ''}" data-tag="all" aria-pressed="${state.tag==='all'}">${labels.all || 'All'}</button>`;
+    const tagBtns = tags.map(t =>
+      `<button class="chip ${state.tag === t ? 'active' : ''}" data-tag="${t}" aria-pressed="${state.tag===t}">${labels[t] || t}</button>`
+    ).join('');
+    $chips.innerHTML = allBtn + tagBtns;
+
+    $chips.onclick = (e)=>{
+      const btn = e.target.closest('.chip'); if (!btn) return;
+      state.tag = btn.dataset.tag || 'all';
+      state.page = 1;
+      render();
+    };
+  }
+
+  function cardTemplate(dict, item) {
+    // 連到單篇：用 post.html?slug=...；你也可以改成 /blog/<slug>.html
+    const href = `post.html?slug=${encodeURIComponent(item.slug)}`;
+    const readmore = dict.readmore || 'Read more';
+    return `
+      <article class="news-card" data-tags="${(item.tags||[]).join(',')}">
+        <div class="news-meta">
+          ${item.version ? `<span class="badge">${item.version}</span>` : ''}
+          ${item.date ? `<time datetime="${item.date}">${item.date}</time>` : ''}
+        </div>
+        <h2>${item.title}</h2>
+        ${item.excerpt ? `<p>${item.excerpt}</p>` : ''}
+        <div class="actions"><a class="btn secondary" href="${href}">${readmore}</a></div>
+      </article>
+    `;
+  }
+
+  function buildPager(totalPages) {
+    if (!$pager) return;
+    if (totalPages <= 1) { $pager.innerHTML = ''; return; }
+    let html = '';
+    for (let p = 1; p <= totalPages; p++) {
+      html += `<button class="page-btn ${p===state.page?'active':''}" data-page="${p}" aria-current="${p===state.page?'page':'false'}">${p}</button>`;
+    }
+    $pager.innerHTML = html;
+    $pager.onclick = (e)=>{
+      const b = e.target.closest('.page-btn'); if (!b) return;
+      state.page = parseInt(b.dataset.page, 10) || 1;
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  }
+
+  function render() {
+    const dict = getDict();
+    const items = Array.isArray(dict.items) ? dict.items : [];
+    // 篩選
+    const list = (state.tag === 'all') ? items : items.filter(it => (it.tags||[]).includes(state.tag));
+    // 分頁
+    const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+    state.page = Math.min(state.page, totalPages);
+    const start = (state.page - 1) * PAGE_SIZE;
+    const pageItems = list.slice(start, start + PAGE_SIZE);
+
+    // 卡片
+    $grid.innerHTML = pageItems.map(it => cardTemplate(dict, it)).join('') || `<p style="opacity:.8">No posts yet.</p>`;
+
+    // 篩選籤
+    buildChips(dict, items);
+    // 分頁
+    buildPager(totalPages);
+  }
+
+  document.addEventListener('DOMContentLoaded', render);
+  // 語言切換時重繪
+  document.addEventListener('i18n:changed', render);
 })();
