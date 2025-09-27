@@ -1,15 +1,25 @@
 {
   "_meta": { "lang": "Bahasa Melayu", "dir": "ltr" },
-
   "meta": {
     "title": {
-      "home": "KeySearch — Cari dengan pantas.",
+      "home": "KeySearch — Cari dengan pantas, semuanya di hujung jari",
       "features": "Ciri — KeySearch",
-      "download": "Muat Turun — KeySearch",
+      "download": "Muat turun — KeySearch",
       "pricing": "Harga — KeySearch",
       "about": "Tentang — KeySearch",
       "support": "Sokongan — KeySearch",
-      "news": "Berita — KeySearch"
+      "news": "Berita — KeySearch",
+      "donate": "Sokong Pembangunan — KeySearch"
+    },
+    "description": {
+      "home": "KeySearch ialah alat carian pantas berasaskan privasi. Cari nota dan fail serta-merta, kekal teratur tanpa kekusutan.",
+      "features": "Terokai ciri KeySearch: hasil segera, tag pintar, koleksi, pintasan global, UI berbilang bahasa, dan reka bentuk privasi.",
+      "download": "Muat turun KeySearch untuk Windows, macOS, Linux — atau cuba versi web tanpa pemasangan.",
+      "pricing": "Harga yang ringkas dan telus. Mulakan secara percuma, naik taraf ke Pro untuk UI berbilang bahasa, peringatan, penapis dan sokongan keutamaan.",
+      "about": "KeySearch membantu anda mencari apa yang anda perlukan dengan segera. Tempatan, pantas, tanpa penguncian vendor.",
+      "support": "Dapatkan bantuan pemasangan, penukaran bahasa, pengebilan dan lain-lain. Hantar maklum balas terus kepada pasukan KeySearch.",
+      "news": "Kemas kini produk KeySearch, sorotan prestasi, pilihan eksport, dan penyetempatan.",
+      "donate": "Jika KeySearch menjimatkan masa anda, sokong pembangunan melalui Buy Me a Coffee, Ko-fi, PayPal atau Stripe."
     }
   },
 
