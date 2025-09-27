@@ -1,15 +1,25 @@
 {
   "_meta": { "lang": "العربية", "dir": "rtl" },
-
   "meta": {
     "title": {
-      "home": "KeySearch — ابحث بسرعة",
-      "features": "الميزات — KeySearch",
+      "home": "KeySearch — ابحث بسرعة، كل شيء في متناولك",
+      "features": "المميزات — KeySearch",
       "download": "تنزيل — KeySearch",
       "pricing": "الأسعار — KeySearch",
-      "about": "حولنا — KeySearch",
+      "about": "حول — KeySearch",
       "support": "الدعم — KeySearch",
-      "news": "الأخبار — KeySearch"
+      "news": "الأخبار — KeySearch",
+      "donate": "دعم التطوير — KeySearch"
+    },
+    "description": {
+      "home": "KeySearch أداة بحث سريعة تركز على الخصوصية. ابحث في الملاحظات والملفات فوراً وابق منظمًا بدون فوضى.",
+      "features": "استكشف مميزات KeySearch: نتائج فورية، وسوم ذكية، مجموعات، اختصارات عالمية، واجهة متعددة اللغات وتصميم يحمي الخصوصية.",
+      "download": "قم بتنزيل KeySearch لأنظمة Windows وmacOS وLinux — أو جرب التطبيق على الويب بدون تثبيت.",
+      "pricing": "خطط أسعار بسيطة وشفافة. ابدأ مجانًا وطور إلى Pro للواجهة متعددة اللغات والتذكيرات والفلاتر والدعم المميز.",
+      "about": "يساعدك KeySearch على العثور على ما تحتاجه فورًا. محلي أولاً، سريع بطبيعته، بدون قيود من مزود الخدمة.",
+      "support": "احصل على المساعدة في التثبيت، تبديل اللغة، الفوترة والمزيد. أرسل ملاحظاتك مباشرة إلى فريق KeySearch.",
+      "news": "تحديثات KeySearch، تحسين الأداء، خيارات التصدير والتعريب.",
+      "donate": "إذا كان KeySearch يوفر لك الوقت، ففكر في دعم التطوير عبر Buy Me a Coffee أو Ko-fi أو PayPal أو Stripe."
     }
   },
 
