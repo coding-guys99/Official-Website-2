@@ -110,6 +110,36 @@
     @media (max-width: 560px){
       .donate-custom{ width: 110px; }
     }
+    
+    #donate-currency {
+  appearance: none; /* 隱藏系統箭頭 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: 1px solid var(--ks-border);
+  border-radius: 999px;
+  padding: 8px 32px 8px 14px;
+  font-weight: 600;
+  color: var(--ks-text);
+  cursor: pointer;
+  position: relative;
+}
+#donate-currency:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(211,179,107,.12) inset;
+}
+#donate-currency:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+#donate-currency {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23d3b36b' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M5.25 7.5L10 12.25L14.75 7.5H5.25Z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+}
+    
   </style>
 </head>
 <body>
