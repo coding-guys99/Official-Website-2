@@ -250,7 +250,7 @@ html, body { overflow-x: hidden; }
 @media (min-width: 641px){
   .bm-foot-links-grid{
     display: grid !important;
-    grid-template-columns: repeat(4, minmax(0,1fr));
+    grid-template-columns: repeat(4, minmax(0,1fr))!important;
     gap: 24px;
   }
   .bm-footer .foot-links{
