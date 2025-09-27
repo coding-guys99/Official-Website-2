@@ -15,7 +15,54 @@
   <script src="js/lang.js"></script>
 </head>
 <body>
-  <!-- 共用 Header（省略，你現有的即可） -->
+  <!-- HEADER -->
+<header class="site-header bm-header" role="banner">
+  <div class="container nav">
+    <!-- Brand -->
+    <a class="brand" href="index.html" aria-label="KeySearch home">
+      <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
+      <span class="brand-text" data-i18n="header.brand">KeySearch</span>
+    </a>
+
+    <!-- Hamburger (only mobile) -->
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" 
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <!-- Main nav -->
+    <ul class="nav-links" id="primaryNav" role="menubar">
+      <li><a href="features.html" data-i18n="header.features">Features</a></li>
+      <li><a href="download.html" data-i18n="header.download">Download</a></li>
+      <li><a href="pricing.html" data-i18n="header.pricing">Pricing</a></li>
+      <li><a href="about.html" data-i18n="header.about">About</a></li>
+      <li><a href="support.html" data-i18n="header.support">Support</a></li>
+
+      <!-- 行動版專用語言選單 -->
+      <li class="mobile-only">
+        <button class="lang-btn" id="langBtnMobile" aria-haspopup="menu" aria-expanded="false">
+          🌐 <span id="langCurrentMobile" data-i18n="header.lang.current">English</span> ▾
+        </button>
+      </li>
+
+      <!-- 行動版 Try Web App -->
+      <li class="mobile-only">
+        <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">
+          🚀 Try Web App
+        </a>
+      </li>
+    </ul>
+
+    <!-- 桌機版右側動作 (只留 CTA) -->
+    <div class="nav-actions desktop-only">
+      <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">
+        🚀 Try Web App
+      </a>
+    </div>
+  </div>
+</header>
 
   <main class="container">
     <section class="page-hero">
