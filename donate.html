@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title data-i18n="donate.meta.title">Support KeySearch — Donate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Support KeySearch development. Choose your currency and amount, pay with PayPal or Stripe. Thank you for helping us stay fast and focused."/>
+  <!-- 樣式：沿用你現有的全局樣式 -->
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/responsive.css"/>
+  <style>
+    /* donate 頁的局部微調（不破壞全站） */
+    .donate-hero{padding:48px 0 16px}
+    .donate-hero h1{margin:0 0 8px}
+    .donate-hero p{margin:0;color:var(--muted)}
+    .donate-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:24px}
+    .donate-card,.faq-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+    .donate-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0}
+    .chip{border:1px solid var(--border);background:transparent;border-radius:999px;padding:8px 12px;cursor:pointer}
+    .chip.active{border-color:var(--accent)}
+    .fine-print{color:var(--muted);font-size:.9rem}
+    .donate-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .divider{height:1px;background:var(--border);margin:16px 0}
+    .list{margin:0;padding-left:18px}
+    @media (max-width:980px){.donate-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <!-- HEADER（可沿用你的共用 header 組件）-->
+  <header class="site-header bm-header" role="banner">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="KeySearch home">
+        <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
+        <span class="brand-text" data-i18n="header.brand">KeySearch</span>
+      </a>
+      <!-- 你現有的導覽／語言切換可放這裡 -->
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="donate-hero">
+      <h1 data-i18n="donate.title">Support development</h1>
+      <p data-i18n="donate.subtitle">KeySearch is free. If it saves you time, consider supporting the project.</p>
+    </section>
+
+    <section class="donate-grid">
+      <!-- 左：互動付款卡 -->
+      <div class="donate-card" role="region" aria-labelledby="donateHeading">
+        <h2 id="donateHeading" data-i18n="donate.card.title">Donate</h2>
+        <p class="fine-print" data-i18n="donate.card.desc">
+          Choose your currency and amount. Then pick PayPal or Stripe to complete payment.
+        </p>
+
+        <!-- 幣別＆金額 -->
+        <div class="donate-controls">
+          <label>
+            <span class="muted" data-i18n="donate.currency">Currency</span>
+            <select id="donate-currency" aria-label="Choose currency">
+              <option value="USD" selected>USD $</option>
+              <option value="TWD">TWD NT$</option>
+              <option value="MYR">MYR RM</option>
+            </select>
+          </label>
+
+          <div class="donate-amounts" aria-label="Quick amounts" style="display:flex;gap:8px;">
+            <button class="chip" data-amt="5">$5</button>
+            <button class="chip" data-amt="10">$10</button>
+            <button class="chip" data-amt="20">$20</button>
+            <button class="chip" data-amt="50">$50</button>
+            <input id="donate-custom" type="number" min="1" step="1" placeholder="Custom" aria-label="Custom amount" style="width:120px;">
+          </div>
+        </div>
+
+        <!-- 付款方式 -->
+        <div class="donate-actions">
+          <!-- BuyMeACoffee / Ko-fi（選配，保留） -->
+          <a id="btn-bmc" class="btn secondary" href="https://www.buymeacoffee.com/yourid" target="_blank" rel="noopener" data-i18n="donate.coffee">Buy me a coffee</a>
+          <a id="btn-kofi" class="btn secondary" href="https://ko-fi.com/yourid" target="_blank" rel="noopener" data-i18n="donate.kofi">Ko-fi</a>
+
+          <!-- PayPal（PayPal.me：透過 /金額 傳數字；幣別以付款人帳戶為準） -->
+          <a id="btn-paypal" class="btn primary" href="https://paypal.me/yourid" target="_blank" rel="noopener" data-i18n="donate.paypal">Pay with PayPal</a>
+
+          <!-- Stripe（每幣別×金額對應一個 Payment Link；沒對應時落到通用 Link） -->
+          <a id="btn-stripe" class="btn primary" href="https://buy.stripe.com/your_usd_fallback" target="_blank" rel="noopener" data-i18n="donate.stripe">Pay with Stripe</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 透明度／用途 -->
+        <ul class="list">
+          <li data-i18n="donate.uses.1">Funds cover hosting, storage, testing devices, and development time.</li>
+          <li data-i18n="donate.uses.2">Roadmap priorities: performance, multi-language, desktop packaging, and licensing.</li>
+        </ul>
+
+        <p class="fine-print" data-i18n="donate.thanks">Thanks for your support — it keeps KeySearch fast and focused.</p>
+      </div>
+
+      <!-- 右：說明＋FAQ -->
+      <aside class="faq-card" role="complementary" aria-labelledby="faqHeading">
+        <h3 id="faqHeading" data-i18n="donate.faq.title">FAQ</h3>
+        <details>
+          <summary data-i18n="donate.faq.q1">Can I get a receipt?</summary>
+          <div class="fine-print" data-i18n="donate.faq.a1">Yes. PayPal/Stripe emails a receipt automatically after payment.</div>
+        </details>
+        <details>
+          <summary data-i18n="donate.faq.q2">Which currency will I be charged in?</summary>
+          <div class="fine-print" data-i18n="donate.faq.a2">
+            PayPal uses your account currency; Stripe uses the currency shown on the checkout page.
+          </div>
+        </details>
+        <details>
+          <summary data-i18n="donate.faq.q3">Refunds?</summary>
+          <div class="fine-print" data-i18n="donate.faq.a3">Donations are voluntary and typically non-refundable. If there’s an issue, contact us.</div>
+        </details>
+        <details>
+          <summary data-i18n="donate.faq.q4">Is there a subscription?</summary>
+          <div class="fine-print" data-i18n="donate.faq.a4">For now donations are one-time. Subscriptions may be added later.</div>
+        </details>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="container" style="margin:36px auto;">
+    <p class="fine-print">© <span id="y"></span> KeySearch</p>
+  </footer>
+
+  <!-- donate 邏輯（Hybrid：幣別×金額 → Stripe Link；PayPal 帶金額） -->
+  <script>
+  (function(){
+    // ====== TODO：替換為你的 PayPal.me ID ======
+    const PAYPAL_ME_BASE = 'https://paypal.me/yourid';
+
+    // ====== TODO：替換為你的 Stripe Payment Links ======
+    // 結構：STRIPE_LINKS[幣別].byAmount[金額]；沒有精準金額時使用 fallback
+    const STRIPE_LINKS = {
+      USD: {
+        fallback: 'https://buy.stripe.com/your_usd_fallback',
+        byAmount: {
+          5:  'https://buy.stripe.com/usd_5_link',
+          10: 'https://buy.stripe.com/usd_10_link',
+          20: 'https://buy.stripe.com/usd_20_link',
+          50: 'https://buy.stripe.com/usd_50_link'
+        }
+      },
+      TWD: {
+        fallback: 'https://buy.stripe.com/your_twd_fallback',
+        byAmount: {
+          160: 'https://buy.stripe.com/twd_160_link',
+          320: 'https://buy.stripe.com/twd_320_link',
+          640: 'https://buy.stripe.com/twd_640_link',
+          1600:'https://buy.stripe.com/twd_1600_link'
+        }
+      },
+      MYR: {
+        fallback: 'https://buy.stripe.com/your_myr_fallback',
+        byAmount: {
+          24: 'https://buy.stripe.com/myr_24_link',
+          48: 'https://buy.stripe.com/myr_48_link',
+          96: 'https://buy.stripe.com/myr_96_link',
+          240:'https://buy.stripe.com/myr_240_link'
+        }
+      }
+    };
+
+    // 初始狀態
+    const curSel  = document.getElementById('donate-currency');
+    const chips   = Array.from(document.querySelectorAll('.donate-amounts .chip'));
+    const custom  = document.getElementById('donate-custom');
+    const btnPP   = document.getElementById('btn-paypal');
+    const btnStripe = document.getElementById('btn-stripe');
+    const yearEl = document.getElementById('y');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // 金額換算（顯示用途；你可自行調整匯率或改成固定字樣）
+    const RATE = { USD_TWD: 32, USD_MYR: 4.8 }; // 粗略換算，僅用於顯示
+    function toLocalAmount(cur, usdAmt){
+      if (cur === 'TWD') return Math.round(usdAmt * RATE.USD_TWD);
+      if (cur === 'MYR') return Math.round(usdAmt * RATE.USD_MYR);
+      return usdAmt;
+    }
+
+    let state = { currency: curSel.value, amount: 5 };
+
+    function fmt(cur, val){
+      const map = { USD: '$', TWD: 'NT$', MYR: 'RM' };
+      return (map[cur]||'$') + val;
+    }
+
+    function refreshChips(){
+      const base = [5,10,20,50];
+      chips.forEach((ch, i) => {
+        const usd = base[i] || 5;
+        const local = toLocalAmount(state.currency, usd);
+        ch.dataset.amt = String(local);
+        ch.textContent = fmt(state.currency, local);
+        ch.classList.toggle('active', Number(ch.dataset.amt) === Number(state.amount));
+      });
+      custom.placeholder = 'Custom';
+    }
+
+    function updateLinks(){
+      // PayPal：/金額（幣別由 PayPal 端決定）
+      const amt = Number(state.amount) || '';
+      btnPP.href = amt ? `${PAYPAL_ME_BASE}/${amt}` : PAYPAL_ME_BASE;
+
+      // Stripe：幣別×金額 → 精準 link，否則 fallback
+      const ccy = STRIPE_LINKS[state.currency] || STRIPE_LINKS.USD;
+      const exact = ccy.byAmount[String(amt)];
+      btnStripe.href = exact || ccy.fallback;
+    }
+
+    // init
+    refreshChips();
+    updateLinks();
+
+    curSel.addEventListener('change', () => {
+      state.currency = curSel.value;
+      // 重算顯示金額（基於 5/10/20/50 USD 的等值）
+      const base = [5,10,20,50];
+      const nearest = toLocalAmount(state.currency, 5);
+      state.amount = nearest; // 預設選第一個
+      refreshChips();
+      updateLinks();
+    });
+
+    chips.forEach(ch => {
+      ch.addEventListener('click', () => {
+        state.amount = Number(ch.dataset.amt);
+        chips.forEach(c=>c.classList.remove('active'));
+        ch.classList.add('active');
+        custom.value = '';
+        updateLinks();
+      });
+    });
+
+    custom.addEventListener('input', () => {
+      const v = Math.max(1, Math.floor(Number(custom.value) || 0));
+      state.amount = v;
+      chips.forEach(c=>c.classList.remove('active'));
+      updateLinks();
+    });
+
+    // 追蹤參數（可選）：加上 UTM，便於成效分析
+    function appendUTM(href, src){
+      try{
+        const u = new URL(href);
+        u.searchParams.set('utm_source','site');
+        u.searchParams.set('utm_campaign','donate');
+        u.searchParams.set('ccy', state.currency);
+        u.searchParams.set('amt', state.amount);
+        u.searchParams.set('method', src);
+        return u.toString();
+      }catch{ return href; }
+    }
+    btnPP.addEventListener('click', () => { btnPP.href = appendUTM(btnPP.href,'paypal'); });
+    btnStripe.addEventListener('click', () => { btnStripe.href = appendUTM(btnStripe.href,'stripe'); });
+  })();
+  </script>
+</body>
+</html>
