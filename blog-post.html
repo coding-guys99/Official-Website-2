@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Loading… | KeySearch</title>
+
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/responsive.css"/>
+
+  <!-- SEO：站點層 -->
+  <script src="js/seo.js" defer data-page="blog-post"></script>
+  <!-- I18N -->
+  <script src="js/lang.js"></script>
+</head>
+<body>
+  <!-- 迷你 Header -->
+  <header class="mini-header">
+    <a class="brand" href="index.html" aria-label="KeySearch home">
+      <img src="assets/logo.svg" alt="KeySearch logo" width="24" height="24"/>
+      <span>KeySearch</span>
+    </a>
+    <a class="back" href="blog.html" data-i18n="blog.back">← Back to Blog</a>
+  </header>
+
+  <main class="container blog-post" id="postRoot" aria-live="polite">
+    <article>
+      <header class="post-hero">
+        <p class="post-meta"><time id="postDate"></time> · <span id="postReading"></span></p>
+        <h1 id="postTitle">…</h1>
+        <p class="post-excerpt" id="postExcerpt"></p>
+        <img id="postCover" alt="" loading="lazy" style="display:none;"/>
+      </header>
+
+      <div id="postContent" class="post-content"></div>
+
+      <footer class="post-footer">
+        <p data-i18n="blog.share">Share</p>
+        <!-- 你可加 share 連結 -->
+      </footer>
+    </article>
+  </main>
+
+  <!-- 單篇 JS -->
+  <script src="js/blog-post.js" defer></script>
+</body>
+</html>
