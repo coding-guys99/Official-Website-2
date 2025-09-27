@@ -9,6 +9,21 @@
   <!-- 共用頁面樣式 -->
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/responsive.css"/>
+  <style>
+    /* Support page — Donate Capsule */
+    .donate-capsule { margin: 48px auto; }
+    .donate-capsule-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .donate-capsule-card h3 { margin: 0 0 8px; }
+    .donate-capsule-card p { margin: 0 0 16px; }
+  </style>
 </head>
 <body>
  <!-- HEADER -->
@@ -74,6 +89,7 @@
       <a class="qk" href="pricing.html" data-i18n="support.quick.billing">Billing & Plans</a>
       <a class="qk" href="#faq" data-i18n="support.quick.faq">FAQ</a>
       <a class="qk" href="#feedback" data-i18n="support.quick.contact">Contact</a>
+      <a class="qk" href="donate.html" data-i18n="support.quick.donate">Donate</a>
     </section>
 
     <!-- FAQ -->
@@ -107,140 +123,106 @@
     <section id="feedback" class="feedback container reveal-on-scroll" aria-label="Send feedback">
       <h2 data-i18n="support.feedback.title">Send us your feedback</h2>
       <form id="feedbackForm" class="feedback-form" novalidate>
-  <label> Your Name
-    <input type="text" name="name" placeholder="John Doe" required>
-  </label>
+        <label> Your Name
+          <input type="text" name="name" placeholder="John Doe" required>
+        </label>
 
-  <label> Your Email
-    <input type="email" name="email" placeholder="you@example.com" required>
-  </label>
+        <label> Your Email
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </label>
 
-  <label> Topic
-    <select name="topic">
-      <option value="general">General</option>
-      <option value="bug">Bug Report</option>
-      <option value="feature">Feature Request</option>
-      <option value="billing">Billing</option>
-    </select>
-  </label>
+        <label> Topic
+          <select name="topic">
+            <option value="general">General</option>
+            <option value="bug">Bug Report</option>
+            <option value="feature">Feature Request</option>
+            <option value="billing">Billing</option>
+          </select>
+        </label>
 
-  <label> Message
-    <textarea name="message" rows="6" placeholder="Tell us more..." required></textarea>
-  </label>
-  
-  <div class="actions">
+        <label> Message
+          <textarea name="message" rows="6" placeholder="Tell us more..." required></textarea>
+        </label>
+        
+        <div class="actions">
           <button type="submit" class="btn primary" data-i18n="support.feedback.send">Send</button>
           <a class="btn ghost" href="mailto:hello@keysearch-app.com" data-i18n="support.feedback.mailapp">Open mail app</a>
         </div>
         <p class="tiny muted" data-i18n="support.feedback.note">
           We’ll reply to <strong>hello@keysearch-app.com</strong>. Your system won’t upload files.
         </p>
-
-</form>
+      </form>
 
       <!-- 成功提示 -->
       <div id="toast" role="status" aria-live="polite" class="toast" hidden data-i18n="support.feedback.toast">Opening your email app…</div>
     </section>
 	
-	<!-- Donate / Support development (Multi-currency) -->
-<section class="donate container" id="donate">
-  <div class="donate-card">
-    <h2 data-i18n="donate.title">Support development</h2>
-    <p class="muted" data-i18n="donate.desc">
-      KeySearch is free to use. If it saves you time, consider supporting development.
-    </p>
-
-    <!-- Currency + amount -->
-    <div class="donate-controls" style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
-      <label>
-        <span class="muted" style="margin-right:6px;">Currency</span>
-        <select id="donate-currency" aria-label="Choose currency">
-          <option value="USD" selected>USD $</option>
-          <option value="TWD">TWD NT$</option>
-          <option value="MYR">MYR RM</option>
-        </select>
-      </label>
-
-      <div class="donate-amounts" aria-label="Quick amounts" style="display:flex; gap:8px;">
-        <button class="chip" data-amt="5">$5</button>
-        <button class="chip" data-amt="10">$10</button>
-        <button class="chip" data-amt="20">$20</button>
-        <button class="chip" data-amt="50">$50</button>
-        <input id="donate-custom" type="number" min="1" step="1" placeholder="Custom" style="width:100px;">
+    <!-- Donate Capsule -->
+    <section class="donate-capsule container" id="donate-capsule">
+      <div class="donate-capsule-card">
+        <h3 data-i18n="support.donate.title">Enjoying KeySearch?</h3>
+        <p class="muted" data-i18n="support.donate.desc">
+          KeySearch is free to use. If it helps you stay organized and fast, consider supporting development.
+        </p>
+        <a class="btn primary" href="donate.html" data-i18n="support.donate.button">Support us →</a>
       </div>
-    </div>
-
-    <!-- Action buttons -->
-    <div class="donate-actions" style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-      <a id="btn-bmc" class="btn primary" href="https://www.buymeacoffee.com/yourid" target="_blank" rel="noopener" data-i18n="donate.coffee">Buy me a coffee</a>
-      <a id="btn-kofi" class="btn secondary" href="https://ko-fi.com/yourid" target="_blank" rel="noopener" data-i18n="donate.kofi">Ko-fi</a>
-
-      <!-- PayPal: 用 PayPal.me，前端帶入金額；幣別以使用者帳戶為準 -->
-      <a id="btn-paypal" class="btn secondary" href="https://paypal.me/AndyWongChernInn" target="_blank" rel="noopener" data-i18n="donate.paypal">PayPal</a>
-
-      <!-- Stripe: 每幣別放一個 Payment Link，前端依幣別切換 -->
-      <a id="btn-stripe" class="btn secondary" href="https://buy.stripe.com/your_usd_link" target="_blank" rel="noopener" data-i18n="donate.stripe">Stripe</a>
-    </div>
-
-    <p class="fine-print" data-i18n="donate.thanks">Thanks for your support — it keeps KeySearch fast and focused.</p>
-  </div>
-</section>
-
+    </section>
 	
   </main>
 
-     <!-- ===== Footer ===== -->
-<footer class="site-footer bm-footer">
-  <div class="container bm-footer-top">
-    <div class="bm-foot-brand">
-      <a class="brand mini" href="index.html">
-        <span data-i18n="foot.brand">KeySearch</span>
-      </a>
-      <p class="tagline" data-i18n="foot.slogan" data-i18n-html>Find it. Fast.<br>No mess. Just answers.</p>
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer bm-footer">
+    <div class="container bm-footer-top">
+      <div class="bm-foot-brand">
+        <a class="brand mini" href="index.html">
+          <span data-i18n="foot.brand">KeySearch</span>
+        </a>
+        <p class="tagline" data-i18n="foot.slogan" data-i18n-html>Find it. Fast.<br>No mess. Just answers.</p>
+      </div>
+      <div class="bm-foot-links-grid">
+        <section class="foot-col">
+          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button></h4>
+          <ul class="foot-links">
+            <li><a href="features.html" data-i18n="foot.product.feat">Features</a></li>
+            <li><a href="pricing.html" data-i18n="foot.product.price">Pricing</a></li>
+            <li><a href="download.html" data-i18n="foot.product.download">Download</a></li>
+          </ul>
+        </section>
+        <section class="foot-col">
+          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button></h4>
+          <ul class="foot-links">
+            <li><a href="support.html" data-i18n="foot.support.help">Help Center</a></li>
+            <li><a href="donate.html" data-i18n="foot.support.donate">Donate</a></li>
+            <li><a href="#" data-i18n="foot.support.docs">Docs</a></li>
+          </ul>
+        </section>
+        <section class="foot-col">
+          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button></h4>
+          <ul class="foot-links">
+            <li><a href="about.html" data-i18n="foot.company.about">About</a></li>
+            <li><a href="mailto:hello@keysearch-app.com" data-i18n="foot.company.contact">Contact</a></li>
+          </ul>
+        </section>
+        <section class="foot-col">
+          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button></h4>
+          <ul class="foot-links">
+            <li><a href="#" rel="me" data-i18n="foot.follow.twitter">Twitter</a></li>
+            <li><a href="#" rel="me" data-i18n="foot.follow.youtube">YouTube</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-    <div class="bm-foot-links-grid">
-      <section class="foot-col">
-        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button></h4>
-        <ul class="foot-links">
-          <li><a href="features.html" data-i18n="foot.product.feat">Features</a></li>
-          <li><a href="pricing.html" data-i18n="foot.product.price">Pricing</a></li>
-          <li><a href="download.html" data-i18n="foot.product.download">Download</a></li>
-        </ul>
-      </section>
-      <section class="foot-col">
-        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button></h4>
-        <ul class="foot-links">
-          <li><a href="support.html" data-i18n="foot.support.help">Help Center</a></li>
-          <li><a href="#" data-i18n="foot.support.docs">Docs</a></li>
-        </ul>
-      </section>
-      <section class="foot-col">
-        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button></h4>
-        <ul class="foot-links">
-          <li><a href="about.html" data-i18n="foot.company.about">About</a></li>
-          <li><a href="mailto:hello@keysearch-app.com" data-i18n="foot.company.contact">Contact</a></li>
-        </ul>
-      </section>
-      <section class="foot-col">
-        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button></h4>
-        <ul class="foot-links">
-          <li><a href="#" rel="me" data-i18n="foot.follow.twitter">Twitter</a></li>
-          <li><a href="#" rel="me" data-i18n="foot.follow.youtube">YouTube</a></li>
-        </ul>
-      </section>
+    <div class="container bm-footer-bottom">
+      <div class="legal">
+        <a href="#" id="footLangLink" data-i18n="foot.b.lang">Language</a>
+        <a href="#" data-i18n="foot.b.privacy">Privacy</a>
+        <a href="#" data-i18n="foot.b.terms">Terms</a>
+      </div>
+      <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
     </div>
-  </div>
-  <div class="container bm-footer-bottom">
-    <div class="legal">
-      <a href="#" id="footLangLink" data-i18n="foot.b.lang">Language</a>
-      <a href="#" data-i18n="foot.b.privacy">Privacy</a>
-      <a href="#" data-i18n="foot.b.terms">Terms</a>
-    </div>
-    <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
-  </div>
-</footer>
+  </footer>
 
-	<div id="langPortal" class="lang-portal" role="menu" aria-hidden="true"></div>
+  <div id="langPortal" class="lang-portal" role="menu" aria-hidden="true"></div>
 
   <!-- JS -->
   <script src="js/lang.js" ></script>
