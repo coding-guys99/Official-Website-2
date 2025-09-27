@@ -830,4 +830,16 @@ section.cta .actions {
   flex-wrap: wrap;
 }
 
-
+/* Support page — Donate Capsule */
+.donate-capsule { margin: 48px auto; }
+.donate-capsule-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.donate-capsule-card h3{ margin: 0 0 8px; }
+.donate-capsule-card p{ margin: 0 0 16px; }
