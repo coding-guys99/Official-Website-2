@@ -5,5 +5,8 @@
   "dateText": "2025 年 9 月 20 日",
   "readingMinutes": 4,
   "tags": ["產品"],
-  "cover": { "src": "/assets/blog/cards-fast-answers/hero.jpg", "alt": "卡片式結果" }
+  "cover": {
+    "src": "content/blog/cards-fast-answers/hero.jpg",
+    "alt": "卡片式結果"
+  }
 }
