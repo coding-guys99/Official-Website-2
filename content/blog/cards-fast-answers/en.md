@@ -1,4 +1,3 @@
-# KeySearch vs Traditional Search Tools: More Than Speed, It’s About Organization
 
 We search for information every day: files, notes, links, even past research records.  
 Traditional search tools (like Everything, Listary) can help you *find files*, but often fail to *organize information*.  
