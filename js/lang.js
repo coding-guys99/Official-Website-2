@@ -286,3 +286,35 @@
   });
 
 })();
+
+// === Sync article language on post.html ===
+(function () {
+  function syncPostLangToURL(lang) {
+    try {
+      const url = new URL(location.href);
+      const normalized = (lang || 'en').toLowerCase().replace('-', '_');
+      // 若目前 URL 已是同語言就不動
+      const current = (url.searchParams.get('lang') || '').toLowerCase();
+      if (current === normalized || current === normalized.replace('_','-')) return;
+      url.searchParams.set('lang', normalized);
+      // 用 replace 避免回上一頁卡在不同語言循環
+      location.replace(url.toString());
+    } catch (_) {}
+  }
+
+  // 1) 每次切語言（I18N 會 dispatch 'i18n:changed'）就同步 post 頁
+  document.addEventListener('i18n:changed', (ev) => {
+    if (/\/post\.html$/i.test(location.pathname)) {
+      const lang = (ev.detail?.lang || window.I18N?.lang || 'en');
+      syncPostLangToURL(lang);
+    }
+  });
+
+  // 2) 直接進入 post.html 且已經有 I18N 設定，也先嘗試同步一次
+  document.addEventListener('DOMContentLoaded', () => {
+    if (/\/post\.html$/i.test(location.pathname)) {
+      const lang = (window.I18N?.lang || 'en');
+      syncPostLangToURL(lang);
+    }
+  });
+})();
