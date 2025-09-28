@@ -218,6 +218,35 @@
       "l3": "Teclado: Ctrl/Cmd + K búsqueda rápida"
     }
   },
+  
+  "blog": {
+  "title": "Blog",
+  "lead": "Tutoriales, análisis en profundidad y pensamiento de producto.",
+  "filters": {
+    "all": "Todo",
+    "guide": "Guía",
+    "product": "Producto",
+    "experience": "Experiencia de Usuario",
+    "stories": "Historias"
+  },
+  "readmore": "Leer más",
+  "items": [
+    {
+      "slug": "keysearch-born",
+      "title": "El nacimiento de KeySearch: del caos a la claridad",
+      "excerpt": "Del caos diario y los problemas de búsqueda al nacimiento de KeySearch: una herramienta de búsqueda de conocimiento basada en tarjetas que hace que la información sea organizada, visible y reutilizable.",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    },
+    {
+      "slug": "web-launch",
+      "title": "Lanzamiento de KeySearch Web: búsqueda basada en tarjetas para un mejor orden de la información",
+      "excerpt": "KeySearch Web se lanza oficialmente: 16 idiomas, búsqueda basada en tarjetas para múltiples escenarios, con soporte para Path, Link, Tag y exportación de datos, ayudándote a encontrar respuestas rápidamente y mantenerte organizado.",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    }
+  ]
+},
 
   "foot": {
     "brand": "KeySearch",
