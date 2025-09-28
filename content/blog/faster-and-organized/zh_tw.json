@@ -1,0 +1,17 @@
+{
+  "title": "不只是快，更是整理",
+  "description": "速度很重要，但長期有序更關鍵。看看我們如何在沒有資料夾下，仍維持結構化。",
+  "date": "2025-08-12",
+  "dateText": "2025 年 8 月 12 日",
+  "readingMinutes": 5,
+  "tags": ["教學","產品"],
+  "cover": { "src": "/assets/blog/faster-and-organized/hero.jpg", "alt": "有序的結果" },
+  "blocks": [
+    { "type": "p", "text": "速度讓你抵達結果；結構讓你反覆使用。兩者缺一不可。" },
+    { "type": "h2", "id": "structure", "text": "沒有資料夾，也能有結構" },
+    { "type": "p", "text": "用標籤、篩選與類型，組成輕量架構。" },
+    { "type": "ul", "items": ["單筆可多標籤", "篩選預設", "鍵盤優先導覽"] },
+    { "type": "h2", "id": "practice", "text": "實作起手式" },
+    { "type": "p", "text": "從你本來就會用的標籤開始；KeySearch 會即時幫你浮現。" }
+  ]
+}
