@@ -225,9 +225,8 @@
   "filters": {
     "all": "Tout",
     "guide": "Guide",
-    "product": "Produit",
-    "experience": "Expérience Utilisateur",
-    "stories": "Histoires"
+    "product": "Produit"
+    
   },
   "readmore": "Lire plus",
   "items": [
