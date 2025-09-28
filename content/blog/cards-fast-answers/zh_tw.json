@@ -8,7 +8,7 @@
   "cover": { "src": "/assets/blog/cards-fast-answers/hero.jpg", "alt": "卡片式結果" },
   "html":
    "<p>我們每天都在找資料：檔案、筆記、連結、甚至是過去的研究記錄。傳統搜尋工具（像 Everything、Listary）能幫你「找到檔案」，但往往無法幫你「整理資訊」。KeySearch 的誕生，就是為了解決這個差距。</p>\n
-    <h2 id=\\\"search-tools\\\">傳統搜尋工具的優勢與限制</h2>\n
+    <h2 id=\"search-tools\">傳統搜尋工具的優勢與限制</h2>\n
     <ul>\n  
         <li>Everything：超快的檔名搜尋，但只限檔名，缺少內容與脈絡。</li>\n  
         <li>Listary：快速啟動程式與切換目錄，但不適合做知識管理。</li>\n  
