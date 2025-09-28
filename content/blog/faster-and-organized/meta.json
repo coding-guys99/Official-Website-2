@@ -1,8 +1,8 @@
 {
-  "title": "KeySearch vs 傳統搜尋工具：不只是快，更是整理",
-  "description": "為什麼卡片式結果能更快掃描並採取行動，以及 KeySearch 如何結構化呈現。",
-  "date": "2025-09-20",
-  "dateText": "2025 年 9 月 20 日",
+  "title": "KeySearch：把資料變成卡片，快速找到答案",
+  "description": "找得到 ≠ 整理好。你可能記得「有一個 PDF」、「有一個連結」，但當下卻怎麼樣也找不回來。",
+  "date": "2025-09-28",
+  "dateText": "2025 年 9 月 28 日",
   "readingMinutes": 4,
   "tags": ["產品"],
   "cover": { "src": "/assets/blog/cards-fast-answers/hero.jpg", "alt": "卡片式結果" }
