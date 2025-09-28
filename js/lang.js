@@ -1,8 +1,7 @@
-// js/lang.js — i18n 核心 + 渲染 + 語言選單 + post.html 同步
+// js/lang.js — i18n 核心 + 快速渲染(含 data-i18n-html) + 語言選單 UI
 (function () {
-  // ====== 基本設定 ======
   const FALLBACK = 'en';
-  const BASE_URL = new URL('./i18n/', location.href).toString(); // 偵測 /i18n/ 目錄
+  const BASE_URL = new URL('./i18n/', location.href).toString();
   const STORE_KEY = 'i18n.lang';
 
   const SUPPORTED = [
@@ -24,16 +23,6 @@
     ['hi','हिन्दी']
   ];
 
-  // 舊 key 遷移（i18n-lang -> i18n.lang）
-  (function migrateLangKey(){
-    try {
-      const legacy = localStorage.getItem('i18n-lang');
-      const current = localStorage.getItem(STORE_KEY);
-      if (legacy && !current) localStorage.setItem(STORE_KEY, legacy);
-    } catch {}
-  })();
-
-  // ====== I18N 物件 ======
   const I18N = {
     lang: FALLBACK,
     dict: {},
@@ -53,12 +42,10 @@
       return this.cache.get(lang);
     },
 
-    // 取值（支援 a.b.c）
     t(key, dict = this.dict) {
       return key.split('.').reduce((o, k) => (o && k in o) ? o[k] : undefined, dict);
     },
 
-    // 將 fallback 內容補到 primary 缺漏處
     mergeFallback(primary, fallback) {
       for (const k in fallback) {
         const v = fallback[k];
@@ -72,7 +59,6 @@
       return primary;
     },
 
-    // 設定語言 + 渲染
     async setLang(input) {
       const lang = (input || FALLBACK).toLowerCase().replace('-', '_');
       try {
@@ -100,12 +86,6 @@
     },
 
     detect() {
-      // URL 參數優先
-      try {
-        const u = new URL(location.href);
-        const q = (u.searchParams.get('lang') || '').toLowerCase().replace('-', '_');
-        if (q) return q;
-      } catch {}
       const saved = localStorage.getItem(STORE_KEY);
       if (saved) return saved;
       const nav = (navigator.language || 'en').toLowerCase();
@@ -116,7 +96,6 @@
   };
   window.I18N = I18N;
 
-  // ====== 快速索引 ======
   const I18NIndex = { text: [], attrs: [] };
 
   function indexI18nNodes(root = document) {
@@ -134,7 +113,6 @@
     });
   }
 
-  // ====== 渲染 ======
   I18N.render = function renderFast() {
     for (let n of I18NIndex.text) {
       if (!n.el.isConnected) continue;
@@ -170,7 +148,6 @@
     }
   };
 
-  // ====== 啟動 ======
   document.addEventListener('DOMContentLoaded', () => {
     indexI18nNodes(document);
     I18N.setLang(I18N.detect());
@@ -208,7 +185,6 @@
     });
   });
 
-  // ====== 語言選單 UI ======
   const portal    = document.getElementById('langPortal');
   const btnMobile = document.getElementById('langBtnMobile');
   const footLink  = document.getElementById('footLangLink');
@@ -233,21 +209,6 @@
     if (!portal) return;
     portal.classList.add('open');
     portal.removeAttribute('aria-hidden');
-    const r = anchor.getBoundingClientRect();
-    const W = portal.offsetWidth, H = portal.offsetHeight, M = 12;
-    let top  = r.bottom + 8;
-    let left = r.left;
-    if (left + W + M > innerWidth)  left = Math.max(M, innerWidth - W - M);
-    if (top  + H + M > innerHeight) top  = Math.max(M, r.top - H - 8);
-    portal.style.position = 'fixed';
-    portal.style.top  = Math.min(Math.max(M, top),  innerHeight - H - M) + 'px';
-    portal.style.left = Math.min(Math.max(M, left), innerWidth  - W - M) + 'px';
-    const onDoc = (e)=>{ if (!portal.contains(e.target) && !anchor.contains(e.target)) closePortal(anchor); };
-    const onEsc = (e)=>{ if (e.key==='Escape') closePortal(anchor); };
-    setTimeout(()=>{
-      document.addEventListener('click', onDoc, { once:true });
-      document.addEventListener('keydown', onEsc, { once:true });
-    },0);
   }
 
   function closePortal(anchor) {
@@ -263,22 +224,26 @@
   document.addEventListener('DOMContentLoaded', () => {
     buildMenu();
     syncCurrentLabel(localStorage.getItem(STORE_KEY) || 'en');
+
     [btnMobile, footLink].forEach(btn=>{
       if (!btn) return;
       btn.setAttribute('aria-haspopup','menu');
       btn.setAttribute('aria-expanded','false');
       btn.addEventListener('click',(e)=>{
-        e.preventDefault(); e.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
         if (portal?.classList.contains('open')) closePortal(btn);
         else { openPortal(btn); btn.setAttribute('aria-expanded','true'); }
       });
     });
+
     portal?.addEventListener('click', async (e)=>{
       const item = e.target.closest('[data-lang]');
       if (!item) return;
       const code = item.dataset.lang.toLowerCase().replace('-', '_');
       await I18N.setLang(code);
       syncCurrentLabel(code);
+
       const opener = (btnMobile?.getAttribute('aria-expanded')==='true') ? btnMobile
                     : (footLink?.getAttribute('aria-expanded')==='true') ? footLink
                     : null;
@@ -286,32 +251,12 @@
     });
   });
 
-})();
-
-// === Post.html 語言同步 ===
-(function () {
-  function syncPostLangToURL(lang) {
-    try {
-      const url = new URL(location.href);
-      const normalized = (lang || 'en').toLowerCase().replace('-', '_');
-      const current = (url.searchParams.get('lang') || '').toLowerCase();
-      if (current === normalized || current === normalized.replace('_','-')) return;
-      url.searchParams.set('lang', normalized);
-      location.replace(url.toString());
-    } catch (_) {}
-  }
-
+  // 🔹方案 A: 切語言 → 如果在 post.html，自動 reload 帶 lang
   document.addEventListener('i18n:changed', (ev) => {
-    if (/\/post\.html$/i.test(location.pathname)) {
-      const lang = (ev.detail?.lang || window.I18N?.lang || 'en');
-      syncPostLangToURL(lang);
-    }
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    if (/\/post\.html$/i.test(location.pathname)) {
-      const lang = (window.I18N?.lang || 'en');
-      syncPostLangToURL(lang);
+    if (/post\.html$/i.test(location.pathname)) {
+      const url = new URL(location.href);
+      url.searchParams.set('lang', ev.detail.lang);
+      location.replace(url.toString());
     }
   });
 })();
