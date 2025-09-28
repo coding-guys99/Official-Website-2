@@ -273,6 +273,13 @@
         "excerpt": "速度很重要，但長期有序更關鍵。看看我們怎麼在沒有資料夾的前提下維持結構化。",
         "date": "2025-08-12",
         "tags": ["guide","product"]
+      },
+      {
+        "slug": "keysearch-born",
+        "title": "KeySearch 的誕生：從混亂到清晰的旅程",
+        "excerpt": "從日常的混亂與搜尋痛點，到 KeySearch 的誕生：一款卡片式知識搜尋工具，讓資訊真正被組織、被看見、被重用。",
+        "date": "2025-08-12",
+        "tags": ["guide","product"]
       }
     ]
   },
