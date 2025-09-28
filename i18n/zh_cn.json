@@ -39,7 +39,7 @@
       "title": "快速搜索，一步到位",
       "sub": "所有信息尽在掌握，干净利落，直达答案。"
     },
-    "cta": { "downloadNow": "立即下载" },
+    "cta": { "downloadNow": "即将推出" },
     "final": {
       "title": "准备开始了吗？",
       "lead": "下载 KeySearch 桌面版，或立即体验网页版。"
@@ -241,6 +241,35 @@
       "l3": "键盘：Ctrl/Cmd + K 快速搜索"
     }
   },
+  
+  "blog": {
+  "title": "博客",
+  "lead": "教学、深度解析与产品思维。",
+  "filters": {
+    "all": "全部",
+    "guide": "教学",
+    "product": "产品",
+    "experience": "用户体验",
+    "stories": "故事"
+  },
+  "readmore": "阅读更多",
+  "items": [
+    {
+      "slug": "keysearch-born",
+      "title": "KeySearch 的诞生：从混乱到清晰的旅程",
+      "excerpt": "从日常的混乱与搜索痛点，到 KeySearch 的诞生：一款卡片式知识搜索工具，让信息真正被组织、被看见、被重用。",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    },
+    {
+      "slug": "web-launch",
+      "title": "KeySearch Web 版上线：卡片式搜索，让你的信息更有秩序",
+      "excerpt": "KeySearch Web 版正式推出：16 种语言、多场景卡片式搜索，支持 Path、Link、Tag 与数据导出，帮助你快速找到答案并保持井然有序。",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    }
+  ]
+},
 
   "foot": {
     "brand": "KeySearch",
