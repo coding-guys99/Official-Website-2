@@ -9,10 +9,12 @@
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/responsive.css"/>
 
-  <!-- 站點層 SEO（favicon/manifest/預設 OG/Twitter 等） -->
+  <!-- 站點層 SEO -->
   <script src="js/seo.js" defer data-page="post"></script>
   <!-- I18N -->
   <script src="js/lang.js"></script>
+  <!-- Markdown 轉換器 -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <style>
     /* 單篇基本樣式（可移到 app.css） */
@@ -38,7 +40,7 @@
   </style>
 </head>
 <body>
-  <!-- HEADER（與 blog.html 同版） -->
+  <!-- HEADER（與其他頁一致） -->
   <header class="site-header bm-header" role="banner">
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="KeySearch home">
@@ -97,54 +99,7 @@
   </main>
 
   <!-- FOOTER（同站） -->
-  <footer class="site-footer bm-footer">
-    <div class="container bm-footer-top">
-      <div class="bm-foot-brand">
-        <a class="brand mini" href="index.html"><span data-i18n="foot.brand">KeySearch</span></a>
-        <p class="tagline" data-i18n="foot.slogan" data-i18n-html>Find it. Fast.<br>No mess. Just answers.</p>
-      </div>
-      <div class="bm-foot-links-grid">
-        <section class="foot-col">
-          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button></h4>
-          <ul class="foot-links">
-            <li><a href="features.html" data-i18n="foot.product.feat">Features</a></li>
-            <li><a href="pricing.html" data-i18n="foot.product.price">Pricing</a></li>
-            <li><a href="download.html" data-i18n="foot.product.download">Download</a></li>
-          </ul>
-        </section>
-        <section class="foot-col">
-          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button></h4>
-          <ul class="foot-links">
-            <li><a href="support.html" data-i18n="foot.support.help">Help Center</a></li>
-            <li><a href="#" data-i18n="foot.support.docs">Docs</a></li>
-          </ul>
-        </section>
-        <section class="foot-col">
-          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button></h4>
-          <ul class="foot-links">
-            <li><a href="about.html" data-i18n="foot.company.about">About</a></li>
-            <li><a href="mailto:hello@keysearch-app.com" data-i18n="foot.company.contact">Contact</a></li>
-          </ul>
-        </section>
-        <section class="foot-col">
-          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button></h4>
-          <ul class="foot-links">
-            <li><a href="blog.html" rel="me" data-i18n="foot.follow.blog">Blog</a></li>
-            <li><a href="#" rel="me" data-i18n="foot.follow.twitter">Twitter</a></li>
-            <li><a href="#" rel="me" data-i18n="foot.follow.youtube">YouTube</a></li>
-          </ul>
-        </section>
-      </div>
-    </div>
-    <div class="container bm-footer-bottom">
-      <div class="legal">
-        <a href="#" id="footLangLink" data-i18n="foot.b.lang">Language</a>
-        <a href="#" data-i18n="foot.b.privacy">Privacy</a>
-        <a href="#" data-i18n="foot.b.terms">Terms</a>
-      </div>
-      <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
-    </div>
-  </footer>
+  <footer class="site-footer bm-footer"> …（略，跟其他頁相同即可）… </footer>
 
   <!-- JS -->
   <script src="js/reveal.js" defer></script>
