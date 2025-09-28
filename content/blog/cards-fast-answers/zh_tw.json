@@ -1,0 +1,10 @@
+{
+  "title": "把資料變成卡片，快速找到答案",
+  "description": "為什麼卡片式結果能更快掃描並採取行動，以及 KeySearch 如何結構化呈現。",
+  "date": "2025-09-20",
+  "dateText": "2025 年 9 月 20 日",
+  "readingMinutes": 4,
+  "tags": ["產品"],
+  "cover": { "src": "/assets/blog/cards-fast-answers/hero.jpg", "alt": "卡片式結果" },
+  "html": "<p>卡片能讓你更快掃描：標題、摘要與重點中繼資料被視覺分組，毫秒間就能判斷。</p><h2 id=\"why-cards\">為什麼是卡片</h2><p>資訊密度高但可讀、鍵盤友善、行動裝置也好用。</p><h2 id=\"how-keysearch\">KeySearch 怎麼做</h2><ul><li>結構化欄位：標題、路徑、類型、標籤</li><li>一致的視覺節奏</li><li>滑過或快捷鍵就有動作</li></ul><p>試過之後，你再也不會找不到檔案。</p>"
+}
