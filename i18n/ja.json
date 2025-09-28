@@ -241,6 +241,35 @@
       "l3": "キーボード：Ctrl/Cmd + K でクイック検索"
     }
   },
+  
+  "blog": {
+  "title": "ブログ",
+  "lead": "チュートリアル、深い解析、そしてプロダクト思考。",
+  "filters": {
+    "all": "すべて",
+    "guide": "チュートリアル",
+    "product": "製品",
+    "experience": "ユーザー体験",
+    "stories": "ストーリー"
+  },
+  "readmore": "もっと読む",
+  "items": [
+    {
+      "slug": "keysearch-born",
+      "title": "KeySearch の誕生：混乱から明晰への旅",
+      "excerpt": "日常の混乱と検索の課題から KeySearch の誕生へ：情報を整理し、見える化し、再利用できるカード型ナレッジ検索ツール。",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    },
+    {
+      "slug": "web-launch",
+      "title": "KeySearch Web 版リリース：カード型検索で情報を秩序立てる",
+      "excerpt": "KeySearch Web 版が正式リリース：16 言語、複数シナリオに対応したカード型検索。Path、Link、Tag、データエクスポートに対応し、素早く答えを見つけ秩序を保てます。",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    }
+  ]
+},
 
   "foot": {
     "brand": "KeySearch",
