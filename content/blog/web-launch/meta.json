@@ -1,0 +1,12 @@
+{
+  "title": "KeySearch Web 版上線：卡片式搜尋，讓你的資訊更有秩序",
+  "description": "KeySearch Web 版正式推出：16 種語言、多場景卡片式搜尋，支援 Path、Link、Tag 與資料匯出，幫你快速找到答案並保持井然有序。",
+  "date": "2025-09-28",
+  "dateText": "2025 年 9 月 28 日",
+  "readingMinutes": 7,
+  "tags": ["產品", "發布"],
+  "cover": {
+    "src": "/assets/blog/web-launch/hero.jpg",
+    "alt": "KeySearch Web 版上線"
+  }
+}
