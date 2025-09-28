@@ -14,12 +14,13 @@
     return (code || 'en').toLowerCase().replace('-', '_');
   }
 
+  // 語言候選順序：I18N.lang -> URL ?lang -> en
   function langCandidates() {
-    const urlLang = normLang(getParam('lang'));
     const i18nLang = normLang(window.I18N?.lang || '');
+    const urlLang  = normLang(getParam('lang'));
     const tried = new Set();
     const arr = [];
-    [urlLang, i18nLang, 'en'].forEach(l => {
+    [i18nLang, urlLang, 'en'].forEach(l => {
       if (!l) return;
       if (tried.has(l)) return;
       tried.add(l);
@@ -69,7 +70,6 @@
     }
 
     // 文章目錄
-    // 相對於 post.html： ./content/blog/<slug>/
     const base = `content/blog/${slug}/`;
 
     // 讀取 meta.json（單語系 metadata）
@@ -97,6 +97,8 @@
       const img = document.createElement('img');
       img.src = meta.cover.src; img.alt = meta.cover.alt || '';
       wrap.replaceChildren(img);
+    } else {
+      const wrap = $('#postCover'); if (wrap) wrap.hidden = true;
     }
 
     // 讀取 Markdown（多語內容）
@@ -120,7 +122,7 @@
       return;
     }
 
-    // 轉為 HTML
+    // 轉為 HTML（需要引入 marked.js）
     const html = marked.parse(md, { mangle:false, headerIds:true });
     setHTML($('#postBody'), html);
 
@@ -130,10 +132,18 @@
     if (tocList) {
       $('#postTOCList').replaceChildren(tocList);
       tocWrap.hidden = false;
+    } else {
+      tocWrap.hidden = true;
     }
 
     console.info('[post] loaded', { slug, usedLang, meta });
   }
 
   document.addEventListener('DOMContentLoaded', boot);
+
+  // 語言切換時「不刷新頁面」，直接重載內容
+  document.addEventListener('i18n:changed', () => {
+    // 重新載入目前 slug 的內容（依新語言）
+    boot();
+  });
 })();
