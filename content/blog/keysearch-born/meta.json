@@ -8,5 +8,10 @@
   "cover": {
     "src": "/assets/blog/birth-of-keysearch/hero.jpg",
     "alt": "KeySearch 誕生"
+  },
+  "author": {
+    "name": "Andy Wong",
+    "role": "Founder of KeySearch",
+    "avatar": "/assets/authors/andy.jpg"
   }
 }
