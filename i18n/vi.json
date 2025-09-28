@@ -218,6 +218,35 @@
       "l3": "Bàn phím: Ctrl/Cmd + K tìm nhanh"
     }
   },
+  
+  "blog": {
+  "title": "Blog",
+  "lead": "Hướng dẫn, phân tích chuyên sâu và tư duy sản phẩm.",
+  "filters": {
+    "all": "Tất cả",
+    "guide": "Hướng dẫn",
+    "product": "Sản phẩm",
+    "experience": "Trải nghiệm người dùng",
+    "stories": "Câu chuyện"
+  },
+  "readmore": "Đọc thêm",
+  "items": [
+    {
+      "slug": "keysearch-born",
+      "title": "Sự ra đời của KeySearch: Từ hỗn loạn đến rõ ràng",
+      "excerpt": "Từ sự hỗn loạn hằng ngày và khó khăn trong tìm kiếm đến sự ra đời của KeySearch: công cụ tìm kiếm tri thức dạng thẻ giúp thông tin được tổ chức, hiển thị và tái sử dụng.",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    },
+    {
+      "slug": "web-launch",
+      "title": "Ra mắt KeySearch Web: Tìm kiếm dạng thẻ để sắp xếp thông tin tốt hơn",
+      "excerpt": "KeySearch Web chính thức ra mắt: 16 ngôn ngữ, tìm kiếm dạng thẻ cho nhiều bối cảnh, hỗ trợ Path, Link, Tag và xuất dữ liệu, giúp bạn tìm câu trả lời nhanh chóng và giữ mọi thứ ngăn nắp.",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    }
+  ]
+},
 
   "foot": {
     "brand": "KeySearch",
