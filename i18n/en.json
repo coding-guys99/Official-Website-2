@@ -256,6 +256,33 @@
       }
     ]
   },
+  
+  "blog": {
+    "title": "Blog",
+    "lead": "Tutorials, deep dives, and product thinking.",
+    "filters": {
+      "all": "All",
+      "guide": "Guides",
+      "product": "Product"
+    },
+    "readmore": "Read more",
+    "items": [
+      {
+        "slug": "cards-fast-answers",
+        "title": "Turn data into cards, find answers fast",
+        "excerpt": "Why card-based results help you scan, sort, and act faster — and how KeySearch structures them.",
+        "date": "2025-09-20",
+        "tags": ["product"]
+      },
+      {
+        "slug": "faster-and-organized",
+        "title": "Not just faster — always organized",
+        "excerpt": "Speed is great, but staying tidy matters more over time. How we keep results structured without folders.",
+        "date": "2025-08-12",
+        "tags": ["guide","product"]
+      }
+    ]
+  },
 
   "foot": {
     "brand": "KeySearch",
