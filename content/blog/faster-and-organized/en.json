@@ -1,0 +1,17 @@
+{
+  "title": "Not just faster — always organized",
+  "description": "Speed is great, but staying tidy matters more over time. How we keep results structured without folders.",
+  "date": "2025-08-12",
+  "dateText": "Aug 12, 2025",
+  "readingMinutes": 5,
+  "tags": ["guide","product"],
+  "cover": { "src": "/assets/blog/faster-and-organized/hero.jpg", "alt": "Organized results" },
+  "blocks": [
+    { "type": "p", "text": "Speed helps you reach results, structure helps you reuse them. You want both." },
+    { "type": "h2", "id": "structure", "text": "Structure without folders" },
+    { "type": "p", "text": "Tags, filters, and types become your lightweight schema." },
+    { "type": "ul", "items": ["Multi-tags per item", "Filter presets", "Keyboard-first navigation"] },
+    { "type": "h2", "id": "practice", "text": "In practice" },
+    { "type": "p", "text": "Start with tags you already think in. Let KeySearch surface them instantly." }
+  ]
+}
