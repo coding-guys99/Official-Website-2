@@ -5,33 +5,56 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title data-i18n="meta.title.blog">Blog — KeySearch</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css"/>
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/responsive.css"/>
 
-  <!-- 站點層 SEO -->
+  <!-- 站點層 SEO（favicon/manifest/預設 OG/Twitter 等） -->
   <script src="js/seo.js" defer data-page="post"></script>
-  
-  <!-- Markdown 轉換器 -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- I18N（必須先載） -->
+  <script src="js/lang.js"></script>
 
   <style>
-    /* 單篇基本樣式（可移到 app.css） */
+    /* ===== 單篇基本樣式（如要可搬到 app.css） ===== */
     .post-hero{ padding:64px 0 12px; }
     .post-hero h1{ font-size:2rem; margin:0 0 6px; }
-    .post-meta{ opacity:.85; font-size:.95rem; display:flex; gap:12px; flex-wrap:wrap; }
+    .post-meta{ opacity:.85; font-size:.95rem; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
     .post-meta .dot::before{ content:"• "; opacity:.7; }
     .post-cover{ margin:18px 0 0; border-radius:14px; overflow:hidden; }
     .post-cover img{ width:100%; display:block; }
-    .post-body{ padding: 14px 0 40px; }
+    .post-body{ padding: 14px 0 40px; line-height:1.7; }
     .post-body img{ max-width:100%; border-radius:12px; }
     .post-body h2{ margin:22px 0 10px; }
     .post-body pre{ background:#0f0f12; padding:12px; border-radius:12px; overflow:auto; }
-    .post-back{ margin-top: 6px; display:inline-block; opacity:.9; }
-    .tag{ display:inline-block; font-size:.85rem; padding:2px 8px; border:1px solid rgba(255,255,255,.15); border-radius:999px; margin-right:6px;}
+
+    /* 作者區塊 */
+    .post-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      opacity: 0.92;
+      font-size: 0.95rem;
+    }
+    .post-author img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .post-author .name { font-weight: 600; }
+    .post-author .role { font-size: 0.85rem; opacity: 0.7; }
+
+    /* TOC */
     .toc{ margin:16px 0; padding:12px 12px; border:1px solid rgba(255,255,255,.12); border-radius:12px; }
     .toc h3{ margin:0 0 6px; font-size:1rem; opacity:.9; }
-    .toc a{ display:block; padding:4px 0; }
+    .toc a{ display:block; padding:4px 0; text-decoration:none; }
+    .toc a:hover{ text-decoration:underline; }
+
+    /* 返回 */
+    .post-back{ margin-top: 6px; display:inline-block; opacity:.9; }
+
     @media (max-width: 640px){
       .post-hero{ padding:40px 0 8px;}
       .post-hero h1{ font-size:1.6rem; }
@@ -39,7 +62,7 @@
   </style>
 </head>
 <body>
-  <!-- HEADER（與其他頁一致） -->
+  <!-- HEADER（與 blog.html 同版） -->
   <header class="site-header bm-header" role="banner">
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="KeySearch home">
@@ -81,9 +104,10 @@
       <h1 id="postTitle">…</h1>
       <div class="post-meta">
         <time id="postDate" datetime=""></time>
-        <span id="postRead" class="dot"></span>
+        <span id="postRead" class="dot" aria-label="Estimated reading time"></span>
         <span id="postTags"></span>
       </div>
+      <div id="postAuthor" class="post-author" hidden></div>
       <div id="postCover" class="post-cover" hidden></div>
     </section>
 
@@ -99,61 +123,62 @@
 
   <!-- FOOTER（同站） -->
   <footer class="site-footer bm-footer">
-  <div class="container bm-footer-top">
-    <div class="bm-foot-brand">
-      <a class="brand mini" href="index.html">
-        <span data-i18n="foot.brand">KeySearch</span>
-      </a>
-      <p class="tagline" data-i18n="foot.slogan" data-i18n-html>Find it. Fast.<br>No mess. Just answers.</p>
+    <div class="container bm-footer-top">
+      <div class="bm-foot-brand">
+        <a class="brand mini" href="index.html"><span data-i18n="foot.brand">KeySearch</span></a>
+        <p class="tagline" data-i18n="foot.slogan" data-i18n-html>Find it. Fast.<br>No mess. Just answers.</p>
+      </div>
+      <div class="bm-foot-links-grid">
+        <section class="foot-col">
+          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button></h4>
+          <ul class="foot-links">
+            <li><a href="features.html" data-i18n="foot.product.feat">Features</a></li>
+            <li><a href="pricing.html" data-i18n="foot.product.price">Pricing</a></li>
+            <li><a href="download.html" data-i18n="foot.product.download">Download</a></li>
+          </ul>
+        </section>
+        <section class="foot-col">
+          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button></h4>
+          <ul class="foot-links">
+            <li><a href="support.html" data-i18n="foot.support.help">Help Center</a></li>
+            <li><a href="#" data-i18n="foot.support.docs">Docs</a></li>
+          </ul>
+        </section>
+        <section class="foot-col">
+          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button></h4>
+          <ul class="foot-links">
+            <li><a href="about.html" data-i18n="foot.company.about">About</a></li>
+            <li><a href="mailto:hello@keysearch-app.com" data-i18n="foot.company.contact">Contact</a></li>
+          </ul>
+        </section>
+        <section class="foot-col">
+          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button></h4>
+          <ul class="foot-links">
+            <li><a href="blog.html" rel="me" data-i18n="foot.follow.blog">Blog</a></li>
+            <li><a href="#" rel="me" data-i18n="foot.follow.twitter">Twitter</a></li>
+            <li><a href="#" rel="me" data-i18n="foot.follow.youtube">YouTube</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-    <div class="bm-foot-links-grid">
-      <section class="foot-col">
-        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button></h4>
-        <ul class="foot-links">
-          <li><a href="features.html" data-i18n="foot.product.feat">Features</a></li>
-          <li><a href="pricing.html" data-i18n="foot.product.price">Pricing</a></li>
-          <li><a href="download.html" data-i18n="foot.product.download">Download</a></li>
-        </ul>
-      </section>
-      <section class="foot-col">
-        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button></h4>
-        <ul class="foot-links">
-          <li><a href="support.html" data-i18n="foot.support.help">Help Center</a></li>
-          <li><a href="#" data-i18n="foot.support.docs">Docs</a></li>
-        </ul>
-      </section>
-      <section class="foot-col">
-        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button></h4>
-        <ul class="foot-links">
-          <li><a href="about.html" data-i18n="foot.company.about">About</a></li>
-          <li><a href="mailto:hello@keysearch-app.com" data-i18n="foot.company.contact">Contact</a></li>
-        </ul>
-      </section>
-      <section class="foot-col">
-        <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button></h4>
-        <ul class="foot-links">
-          <li><a href="blog.html" rel="me" data-i18n="foot.follow.blog">Blog</a></li>
-          <li><a href="#" rel="me" data-i18n="foot.follow.twitter">Twitter</a></li>
-          <li><a href="#" rel="me" data-i18n="foot.follow.youtube">YouTube</a></li>
-        </ul>
-      </section>
+    <div class="container bm-footer-bottom">
+      <div class="legal">
+        <a href="#" id="footLangLink" data-i18n="foot.b.lang">Language</a>
+        <a href="#" data-i18n="foot.b.privacy">Privacy</a>
+        <a href="#" data-i18n="foot.b.terms">Terms</a>
+      </div>
+      <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
     </div>
-  </div>
-  <div class="container bm-footer-bottom">
-    <div class="legal">
-      <a href="#" id="footLangLink" data-i18n="foot.b.lang">Language</a>
-      <a href="#" data-i18n="foot.b.privacy">Privacy</a>
-      <a href="#" data-i18n="foot.b.terms">Terms</a>
-    </div>
-    <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
-  </div>
-</footer>
+  </footer>
 
-  <!-- JS -->
-  <!-- I18N -->
-  <script src="js/lang.js"></script>
+  <!-- JS（站內通用） -->
   <script src="js/reveal.js" defer></script>
   <script src="js/app.js" defer></script>
+
+  <!-- Markdown 解析：CDN（你也可改本地檔） -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- 單篇文章腳本 -->
   <script src="js/post.js" defer></script>
 </body>
 </html>
