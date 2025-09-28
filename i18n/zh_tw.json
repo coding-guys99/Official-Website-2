@@ -256,7 +256,9 @@
     "filters": {
       "all": "全部",
       "guide": "教學",
-      "product": "產品"
+      "product": "產品",
+      "experience": "用戶體驗",
+      "stories": "故事"
     },
     "readmore": "閱讀更多",
     "items": [
@@ -266,14 +268,14 @@
         "title": "KeySearch 的誕生：從混亂到清晰的旅程",
         "excerpt": "從日常的混亂與搜尋痛點，到 KeySearch 的誕生：一款卡片式知識搜尋工具，讓資訊真正被組織、被看見、被重用。",
         "date": "2025-08-12",
-        "tags": ["guide","product"]
+        "tags": ["product"]
       },
       {
         "slug": "web-launch",
         "title": "KeySearch Web 版上線：卡片式搜尋，讓你的資訊更有秩序",
         "excerpt": "KeySearch Web 版正式推出：16 種語言、多場景卡片式搜尋，支援 Path、Link、Tag 與資料匯出，幫你快速找到答案並保持井然有序。",
         "date": "2025-08-12",
-        "tags": ["guide","product"]
+        "tags": ["product"]
       }
     ]
   },
