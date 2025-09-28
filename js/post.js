@@ -1,31 +1,57 @@
 // js/post.js — 單篇文章載入器（meta.json + Markdown 內容）
-// 檔案結構：/content/blog/<slug>/{meta.json, en.md, zh_tw.md, zh-cn.md, ...}
+// 結構：/content/blog/<slug>/{meta.json, en.md, zh_tw.md, zh-cn.md, ...}
 
 (function () {
   const $ = s => document.querySelector(s);
 
+  // ===== 工具 =====
   function getParam(name) {
     const u = new URL(location.href);
     return u.searchParams.get(name) || '';
   }
-
-  // 以 I18N 為主，不動 URL（避免刷新循環）
-  function currentLang() {
-    return (window.I18N?.lang || 'en').toLowerCase().replace('-', '_');
+  function normLang(code) {
+    // 統一為小寫：zh_tw / zh_cn / ja / ko / en
+    return (code || 'en').toLowerCase().replace('-', '_');
   }
+  function langCandidates() {
+    const urlLang  = normLang(getParam('lang'));
+    const i18nLang = normLang(window.I18N?.lang || '');
+    const tried = new Set(), arr = [];
+    const push = l => { if (l && !tried.has(l)) { tried.add(l); arr.push(l, l.replace('_','-')); } };
 
+    // 依序：URL 指定 → i18n 當前語言 → 英文 → 繁中 → 簡中
+    push(urlLang);
+    push(i18nLang);
+    push('en');
+    push('zh_tw');
+    push('zh_cn');
+    return arr.filter(Boolean);
+  }
+  // GitHub Pages 子路徑資源修正（/assets/... 自動補上 repo 路徑）
+  function fixAssetPath(src) {
+    if (!src) return src;
+    try { new URL(src); return src; } catch (_) {}
+    // 不是完整 URL
+    const isGH = location.hostname.endsWith('github.io');
+    let basePath = '';
+    if (isGH) {
+      // 取第一層 repo 子路徑，如 /Official-Website-2
+      const parts = location.pathname.split('/').filter(Boolean);
+      if (parts.length) basePath = '/' + parts[0];
+    }
+    if (src.startsWith('/')) return basePath + src;
+    return basePath + '/' + src.replace(/^\.?\//,'');
+  }
   async function loadText(url) {
     const r = await fetch(url, { cache: 'no-cache' });
     if (!r.ok) throw new Error(r.status + ' ' + url);
     return r.text();
   }
-
   async function loadJSON(url) {
     const r = await fetch(url, { cache: 'no-cache' });
     if (!r.ok) throw new Error(r.status + ' ' + url);
     return r.json();
   }
-
   function setText(el, txt) { if (el) el.textContent = txt || ''; }
   function setHTML(el, html) { if (el) el.innerHTML = html || ''; }
   function escapeHTML(s){ return (s||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
@@ -35,12 +61,7 @@
     if (!hs.length) return null;
     const list = document.createElement('div');
     hs.forEach(h => {
-      if (!h.id) {
-        h.id = h.textContent.trim()
-          .toLowerCase()
-          .replace(/\s+/g, '-')
-          .replace(/[^\w\-]/g, '');
-      }
+      if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]/g, '');
       const a = document.createElement('a');
       a.href = `#${h.id}`;
       a.textContent = h.textContent.trim();
@@ -49,26 +70,52 @@
     return list;
   }
 
-  async function renderPost() {
-    const slug = (getParam('slug') || '').trim();
-    if (!slug) {
-      setHTML($('#postBody'), '<p>Missing <code>?slug=</code> parameter.</p>');
-      return;
-    }
+  function formatReadMinutes(n){
+    const d = window.I18N?.t?.('blog') || {};
+    // 支援幾種常見鍵名；沒有就 fallback
+    const t = d.readMinutes || d.minRead || '{n} min read';
+    return String(t).replace('{n}', n || 1);
+  }
 
-    const base = `content/blog/${slug}/`;
+  // ===== 狀態 =====
+  const state = {
+    slug: '',
+    base: '',
+    meta: null,
+    mdCache: new Map(), // lang -> markdown string
+    currentLang: ''     // 真正被渲染的語言（候選找到的第一個）
+  };
 
-    // 讀取 meta.json
-    let meta = {};
+  async function loadMeta() {
     try {
-      meta = await loadJSON(`${base}meta.json`);
+      const meta = await loadJSON(`${state.base}meta.json`);
+      state.meta = meta;
+      return meta;
     } catch (e) {
       console.error('[post] meta.json missing', e);
-      setHTML($('#postBody'), '<p>Post not found.</p>');
-      return;
+      throw e;
     }
+  }
 
-    // ——套用 meta——
+  async function pickMarkdown() {
+    const langs = langCandidates();
+    for (const l of langs) {
+      if (state.mdCache.has(l)) {
+        return { md: state.mdCache.get(l), usedLang: l };
+      }
+      try {
+        const md = await loadText(`${state.base}${l}.md`);
+        state.mdCache.set(l, md);
+        return { md, usedLang: l };
+      } catch {
+        // try next
+      }
+    }
+    // 都沒有：回傳空
+    return { md: '', usedLang: '' };
+  }
+
+  function applyMetaToPage(meta) {
     setText($('#postTitle'), meta.title || 'Untitled');
 
     if (meta.date) {
@@ -76,101 +123,118 @@
       setText($('#postDate'), meta.dateText || meta.date);
     }
 
-    // 讀時：顯示「X min read」或「約 X 分鐘」
-    if (typeof meta.readingMinutes === 'number') {
-      const lang = currentLang();
-      const mins = Math.max(1, Math.round(meta.readingMinutes));
-      let label = `${mins} min read`;
-      if (lang.startsWith('zh')) label = `約 ${mins} 分鐘可讀`;
-      if (lang === 'ja') label = `読了目安 ${mins} 分`;
-      if (lang === 'ko') label = `읽는 시간 약 ${mins}분`;
-      setText($('#postRead'), label);
+    if (meta.readingMinutes) {
+      setText($('#postRead'), formatReadMinutes(meta.readingMinutes));
+      $('#postRead')?.classList.add('dot');
     } else {
-      setText($('#postRead'), ''); // 沒提供就不顯示文字
+      setText($('#postRead'), '');
+      $('#postRead')?.classList.remove('dot');
     }
 
-    if (Array.isArray(meta.tags) && meta.tags.length) {
+    if (Array.isArray(meta.tags)) {
       $('#postTags').innerHTML = meta.tags.map(t => `<span class="tag">${escapeHTML(t)}</span>`).join(' ');
     } else {
       $('#postTags').innerHTML = '';
     }
 
-    if (meta.author?.name) {
-      const wrap = $('#postAuthor');
-      wrap.hidden = false;
-      const img = meta.author.avatar ? `<img src="${meta.author.avatar}" alt="${escapeHTML(meta.author.name)}">` : '';
-      wrap.innerHTML = `
-        ${img}
-        <div>
-          <div class="name">${escapeHTML(meta.author.name)}</div>
-          ${meta.author.role ? `<div class="role">${escapeHTML(meta.author.role)}</div>` : ''}
-        </div>
-      `;
-    } else {
-      $('#postAuthor').hidden = true;
-      $('#postAuthor').innerHTML = '';
-    }
-
     if (meta.cover?.src) {
       const wrap = $('#postCover'); wrap.hidden = false;
       const img = document.createElement('img');
-      img.src = meta.cover.src; img.alt = meta.cover.alt || '';
+      img.src = fixAssetPath(meta.cover.src);
+      img.alt = meta.cover.alt || '';
       wrap.replaceChildren(img);
     } else {
       $('#postCover').hidden = true;
       $('#postCover').innerHTML = '';
     }
 
-    // ——讀取 Markdown（依目前語言）——
-    const lang = currentLang();
-    const candidates = [
-      `${base}${lang}.md`,                 // zh_tw.md / en.md / ...
-      `${base}${lang.replace('_','-')}.md`,// zh-tw.md
-      `${base}en.md`                       // fallback
-    ];
-
-    let md = '';
-    for (const url of candidates) {
-      try { md = await loadText(url); break; } catch {}
+    // 作者（可選）
+    const $author = $('#postAuthor');
+    if ($author && meta.author) {
+      const name  = meta.author.name || '';
+      const role  = meta.author.role || '';
+      const link  = meta.author.link || '';
+      const avatar= meta.author.avatar ? fixAssetPath(meta.author.avatar) : '';
+      const html = `
+        ${avatar ? `<img id="postAuthorAvatar" src="${avatar}" alt="${escapeHTML(name)}" width="40" height="40" style="border-radius:999px">` : ''}
+        <div class="meta">
+          ${name ? `<div class="name">${escapeHTML(name)}</div>` : ''}
+          ${role ? `<div class="role">${escapeHTML(role)}</div>` : ''}
+        </div>
+      `;
+      $author.innerHTML = link ? `<a href="${escapeHTML(link)}" target="_blank" rel="noopener">${html}</a>` : html;
+      $author.hidden = false;
+    } else if ($author) {
+      $author.hidden = true;
+      $author.innerHTML = '';
     }
+  }
+
+  async function renderPost() {
+    // 1) 載入/套用 meta
+    if (!state.meta) {
+      try {
+        await loadMeta();
+      } catch {
+        setHTML($('#postBody'), '<p>Post not found.</p>');
+        return;
+      }
+    }
+    applyMetaToPage(state.meta);
+
+    // 2) 取 Markdown（依語言候選），沒有就回退 meta.html
+    const { md, usedLang } = await pickMarkdown();
+    state.currentLang = usedLang;
 
     if (!md) {
-      // 備援：meta.html
-      if (meta.html) {
-        setHTML($('#postBody'), meta.html);
+      if (state.meta.html) {
+        setHTML($('#postBody'), state.meta.html);
       } else {
         setHTML($('#postBody'), '<p>Content not available in your language.</p>');
       }
-      $('#postTOC').hidden = true;
-      $('#postTOCList').innerHTML = '';
-      console.info('[post] loaded', { slug, usedLang: 'html(meta)', meta });
-      return;
+    } else {
+      // 轉為 HTML（需要 marked）
+      if (typeof marked !== 'undefined' && marked?.parse) {
+        const html = marked.parse(md, { mangle:false, headerIds:true });
+        setHTML($('#postBody'), html);
+      } else {
+        // 沒有 marked 就先當純文字
+        setHTML($('#postBody'), `<pre>${escapeHTML(md)}</pre>`);
+      }
     }
 
-    // 轉為 HTML（使用 marked）
-    const html = window.marked ? window.marked.parse(md, { mangle:false, headerIds:true }) : md;
-    setHTML($('#postBody'), html);
-
-    // 產生 TOC
+    // 3) 產生 TOC（依內容 h2/h3）
+    const tocWrap = $('#postTOC');
     const tocList = buildTOC($('#postBody'));
     if (tocList) {
       $('#postTOCList').replaceChildren(tocList);
-      $('#postTOC').hidden = false;
+      tocWrap.hidden = false;
     } else {
-      $('#postTOC').hidden = true;
+      tocWrap.hidden = true;
       $('#postTOCList').innerHTML = '';
     }
 
-    console.info('[post] loaded', { slug, usedLang: lang, meta });
+    console.info('[post] loaded', { slug: state.slug, usedLang: usedLang || 'html(meta)', meta: state.meta });
   }
 
-  // 首次載入
-  document.addEventListener('DOMContentLoaded', renderPost);
-
-  // 語言切換時重新載入內容（不改網址）
-  document.addEventListener('i18n:changed', () => {
-    if (/\/post\.html$/i.test(location.pathname)) {
-      renderPost();
+  // ===== 啟動 =====
+  async function boot() {
+    state.slug = (getParam('slug') || '').trim();
+    if (!state.slug) {
+      setHTML($('#postBody'), '<p>Missing <code>?slug=</code> parameter.</p>');
+      return;
     }
+    state.base = `content/blog/${state.slug}/`;
+
+    await renderPost();
+  }
+
+  document.addEventListener('DOMContentLoaded', boot);
+
+  // 語言切換時，只重載文章內容（不刷新頁面）
+  document.addEventListener('i18n:changed', async () => {
+    // 清空目前內容後重載（避免殘影）
+    $('#postBody') && setHTML($('#postBody'), '');
+    await renderPost();
   });
 })();
