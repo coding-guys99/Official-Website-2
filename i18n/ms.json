@@ -218,6 +218,35 @@
       "l3": "Papan kekunci: Ctrl/Cmd + K carian pantas"
     }
   },
+  
+  "blog": {
+  "title": "Blog",
+  "lead": "Panduan, analisis mendalam, dan pemikiran produk.",
+  "filters": {
+    "all": "Semua",
+    "guide": "Panduan",
+    "product": "Produk",
+    "experience": "Pengalaman Pengguna",
+    "stories": "Kisah"
+  },
+  "readmore": "Baca Lagi",
+  "items": [
+    {
+      "slug": "keysearch-born",
+      "title": "Kelahiran KeySearch: Dari Kekacauan ke Kejelasan",
+      "excerpt": "Daripada kekacauan harian dan masalah pencarian kepada kelahiran KeySearch: alat carian pengetahuan berasaskan kad yang menjadikan maklumat lebih teratur, dapat dilihat, dan boleh digunakan semula.",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    },
+    {
+      "slug": "web-launch",
+      "title": "Pelancaran KeySearch Web: Carian Berasaskan Kad untuk Maklumat Lebih Tersusun",
+      "excerpt": "KeySearch Web dilancarkan secara rasmi: 16 bahasa, carian berasaskan kad untuk pelbagai senario, menyokong Path, Link, Tag dan eksport data, membantu anda mencari jawapan dengan cepat dan kekal teratur.",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    }
+  ]
+},
 
   "foot": {
     "brand": "KeySearch",
