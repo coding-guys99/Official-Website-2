@@ -3,19 +3,59 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title data-i18n="meta.title.privacy">Privacy — KeySearch</title>
+  <title data-i18n="meta.title.terms">Terms — KeySearch</title>
 
   <link rel="stylesheet" href="css/styles.css"/>
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/responsive.css"/>
 
   <!-- 站點層 SEO（favicon/manifest/預設 OG/Twitter 等） -->
-  <script src="js/seo.js" defer data-page="post"></script>
-  <!-- I18N -->
+  <script src="js/seo.js" defer data-page="terms"></script>
+  <!-- I18N（務必要在任何語言同步腳本與 post.js 之前） -->
   <script src="js/lang.js"></script>
 
+  <!-- A) 把 slug 補進 URL：terms.html → ?slug=terms -->
+  <script>
+    (function () {
+      const file = (location.pathname.split('/').pop() || '').toLowerCase();
+      const map  = { 'privacy.html':'privacy', 'terms.html':'terms', 'disclaimer.html':'disclaimer' };
+      const slug = map[file] || 'terms';
+      const u = new URL(location.href);
+      if (u.searchParams.get('slug') !== slug) {
+        u.searchParams.set('slug', slug);
+        history.replaceState({}, '', u);
+      }
+    })();
+  </script>
+
+  <!-- B) 單篇頁語言同步：換語言就把 ?lang= 更新並重載 -->
+  <script>
+    (function () {
+      function syncLangParam(lang) {
+        try {
+          const u = new URL(location.href);
+          const norm = (lang || 'en').toLowerCase().replace('-', '_');
+          const cur  = (u.searchParams.get('lang') || '').toLowerCase();
+          if (cur === norm || cur === norm.replace('_', '-')) return;
+          u.searchParams.set('lang', norm);
+          location.replace(u.toString());   // 直接換 URL（避免 back/forward 亂序）
+        } catch {}
+      }
+      document.addEventListener('i18n:changed', (ev) => {
+        if (/(post|privacy|terms|disclaimer)\.html$/i.test(location.pathname)) {
+          syncLangParam(ev.detail?.lang || 'en');
+        }
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        if (/(post|privacy|terms|disclaimer)\.html$/i.test(location.pathname)) {
+          syncLangParam(window.I18N?.lang || 'en');
+        }
+      });
+    })();
+  </script>
+
   <style>
-    /* 單篇基本樣式（與 post.html 相同，可移到 app.css） */
+    /* 單篇基本樣式（可移到 app.css） */
     .post-hero{ padding:64px 0 12px; }
     .post-hero h1{ font-size:2rem; margin:0 0 6px; }
     .post-meta{ opacity:.85; font-size:.95rem; display:flex; gap:12px; flex-wrap:wrap; }
@@ -36,20 +76,9 @@
       .post-hero h1{ font-size:1.6rem; }
     }
   </style>
-
-  <!-- 固定此頁 slug=terms -->
-<script>
-  (function(){
-    const u = new URL(location.href);
-    if (!u.searchParams.get('slug')) {
-      u.searchParams.set('slug','terms');
-      history.replaceState({},'',u);
-    }
-  })();
-</script>
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- HEADER（沿用全站） -->
   <header class="site-header bm-header" role="banner">
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="KeySearch home">
@@ -84,7 +113,7 @@
   <div id="langPortal" class="lang-portal" role="menu" aria-hidden="true"></div>
 
   <main class="container">
-    <a class="post-back" href="index.html#legal" data-i18n="blog.back">← Back</a>
+    <a class="post-back" href="blog.html" data-i18n="blog.back">← Back</a>
 
     <!-- Hero -->
     <section class="post-hero">
@@ -107,7 +136,7 @@
     <article id="postBody" class="post-body"></article>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER（沿用全站） -->
   <footer class="site-footer bm-footer">
     <div class="container bm-footer-top">
       <div class="bm-foot-brand">
@@ -127,9 +156,7 @@
           <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button></h4>
           <ul class="foot-links">
             <li><a href="support.html" data-i18n="foot.support.help">Help Center</a></li>
-            <li><a href="privacy.html" data-i18n="foot.b.privacy">Privacy</a></li>
-            <li><a href="terms.html" data-i18n="foot.b.terms">Terms</a></li>
-            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="#" data-i18n="foot.support.docs">Docs</a></li>
           </ul>
         </section>
         <section class="foot-col">
@@ -151,10 +178,10 @@
     </div>
     <div class="container bm-footer-bottom">
       <div class="legal">
-        <a href="#" id="footLangLink" data-i18n="foot.b.lang">Language</a>
-        <a href="privacy.html" data-i18n="foot.b.privacy">Privacy</a>
-        <a href="terms.html" data-i18n="foot.b.terms">Terms</a>
-        <a href="disclaimer.html">Disclaimer</a>
+        <!-- 建議用硬導向（不讓任何 JS 攔截） -->
+        <a href="/legal.html?slug=privacy">Privacy</a>
+        <a href="/terms.html" data-hardnav>Terms</a>
+        <a href="/disclaimer.html" data-hardnav>Disclaimer</a>
       </div>
       <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
     </div>
@@ -163,8 +190,18 @@
   <!-- JS -->
   <script src="js/reveal.js" defer></script>
   <script src="js/app.js" defer></script>
-  <!-- marked.js（Markdown 轉 HTML）若你已全站載入可移除 -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- 單篇載入器（你現有的） -->
   <script src="js/post.js" defer></script>
+
+  <!-- C) 只要在任一共用 JS（例如 app.js 最後）放一次，就能保證硬導向 -->
+  <script>
+    // 讓帶 data-hardnav 的連結永遠走硬導向（避免被任何 SPA/平滑滾動攔截）
+    document.addEventListener('click', function(e){
+      const a = e.target.closest('a[data-hardnav]');
+      if (!a) return;
+      e.stopImmediatePropagation(); // 阻擋其他捕獲/冒泡監聽
+      // 不要 preventDefault：讓瀏覽器照常導航
+    }, true);
+  </script>
 </body>
 </html>
