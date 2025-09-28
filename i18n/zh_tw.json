@@ -260,20 +260,7 @@
     },
     "readmore": "閱讀更多",
     "items": [
-      {
-        "slug": "cards-fast-answers",
-        "title": "KeySearch vs 傳統搜尋工具：不只是快，更是整理",
-        "excerpt": "為什麼卡片式結果能更快掃描、分類與行動，以及 KeySearch 如何結構化呈現。",
-        "date": "2025-09-20",
-        "tags": ["product"]
-      },
-      {
-        "slug": "faster-and-organized",
-        "title": "不只是快，更是整理",
-        "excerpt": "速度很重要，但長期有序更關鍵。看看我們怎麼在沒有資料夾的前提下維持結構化。",
-        "date": "2025-08-12",
-        "tags": ["guide","product"]
-      },
+      
       {
         "slug": "keysearch-born",
         "title": "KeySearch 的誕生：從混亂到清晰的旅程",
