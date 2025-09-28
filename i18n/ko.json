@@ -242,6 +242,35 @@
       "l3": "키보드: Ctrl/Cmd + K 퀵 검색"
     }
   },
+  
+  "blog": {
+  "title": "블로그",
+  "lead": "튜토리얼, 심층 분석, 그리고 제품 사고.",
+  "filters": {
+    "all": "전체",
+    "guide": "가이드",
+    "product": "제품",
+    "experience": "사용자 경험",
+    "stories": "스토리"
+  },
+  "readmore": "더 보기",
+  "items": [
+    {
+      "slug": "keysearch-born",
+      "title": "KeySearch의 탄생: 혼란에서 명확함으로",
+      "excerpt": "일상의 혼란과 검색의 고통에서 시작해 KeySearch가 탄생했습니다: 정보를 정리하고, 보이게 하며, 재사용할 수 있는 카드 기반 지식 검색 도구.",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    },
+    {
+      "slug": "web-launch",
+      "title": "KeySearch Web 출시: 카드 기반 검색으로 정보를 더 질서 있게",
+      "excerpt": "KeySearch Web이 공식 출시되었습니다: 16개 언어, 다양한 시나리오의 카드 기반 검색. Path, Link, Tag, 데이터 내보내기를 지원하여 빠르게 답을 찾고 정리를 유지할 수 있습니다.",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    }
+  ]
+},
 
   "foot": {
     "brand": "KeySearch",
