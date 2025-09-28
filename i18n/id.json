@@ -218,6 +218,35 @@
       "l3": "Keyboard: Ctrl/Cmd + K pencarian cepat"
     }
   },
+  
+  "blog": {
+  "title": "Blog",
+  "lead": "Panduan, analisis mendalam, dan pemikiran produk.",
+  "filters": {
+    "all": "Semua",
+    "guide": "Panduan",
+    "product": "Produk",
+    "experience": "Pengalaman Pengguna",
+    "stories": "Cerita"
+  },
+  "readmore": "Baca Selengkapnya",
+  "items": [
+    {
+      "slug": "keysearch-born",
+      "title": "Lahirnya KeySearch: Dari Kekacauan ke Kejelasan",
+      "excerpt": "Dari kekacauan sehari-hari dan kesulitan pencarian hingga lahirnya KeySearch: alat pencarian pengetahuan berbasis kartu yang membuat informasi lebih teratur, terlihat, dan dapat digunakan kembali.",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    },
+    {
+      "slug": "web-launch",
+      "title": "Peluncuran KeySearch Web: Pencarian Berbasis Kartu untuk Informasi Lebih Teratur",
+      "excerpt": "KeySearch Web resmi diluncurkan: 16 bahasa, pencarian berbasis kartu untuk berbagai skenario, mendukung Path, Link, Tag, dan ekspor data untuk membantu Anda menemukan jawaban dengan cepat dan tetap terorganisir.",
+      "date": "2025-10-10",
+      "tags": ["product"]
+    }
+  ]
+}
 
   "foot": {
     "brand": "KeySearch",
