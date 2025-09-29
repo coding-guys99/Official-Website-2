@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title data-i18n="meta.title.docs">Docs — KeySearch</title>
+
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/responsive.css"/>
+
+  <!-- SEO -->
+  <script src="js/seo.js" defer data-page="docs"></script>
+  <!-- I18N -->
+  <script src="js/lang.js"></script>
+</head>
+<body>
+  <!-- HEADER 可直接複製 index.html 的 -->
+  <header class="site-header bm-header" role="banner">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
+        <span class="brand-text" data-i18n="header.brand">KeySearch</span>
+      </a>
+      <!-- 這裡省略，直接照你 blog.html 的 nav -->
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <h1 data-i18n="docs.title">Docs</h1>
+      <p class="lead" data-i18n="docs.lead">Guides, FAQs, and product documentation.</p>
+    </section>
+
+    <!-- 自動生成文件卡片 -->
+    <section class="news-grid" id="docsGrid"></section>
+  </main>
+
+  <!-- FOOTER 共用 -->
+  <footer class="site-footer bm-footer">
+    <!-- 直接用 blog.html 的 footer -->
+  </footer>
+
+  <script src="js/reveal.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/docs-index.js" defer></script>
+</body>
+</html>
