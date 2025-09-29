@@ -1,4 +1,3 @@
----
 
 Chaque jour, nous gérons différents types d’informations : fichiers, chemins, liens, notes, tâches.  
 Le problème, c’est que lorsque ces données sont éparpillées, les retrouver rapidement fait toujours perdre du temps.  
