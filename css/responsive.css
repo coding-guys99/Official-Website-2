@@ -1,11 +1,11 @@
 /* ===================================================================
-   KeySearch - responsive.css (FULL & CLEAN)
-   只放 RWD 覆寫（不更動桌機 styles.css），解耦與去重
+   KeySearch - responsive.css (CLEAN, with Apple-like ks-footer)
+   只放 RWD 覆寫（不更動桌機 styles.css）
    斷點：
      ≤1200px: 平板 / 大手機直
      ≤980px : 手機主斷點（Header 抽屜 / 格線收斂）
-     ≤900px : Footer / About 補充
      ≤768px : Mobile header polish
+     ≤640px : Footer 手風琴
      ≤560px : 小手機
    =================================================================== */
 
@@ -18,112 +18,146 @@ html, body { overflow-x: hidden; }
    ≤1200px：Hero/Features 單欄化
    ========================= */
 @media (max-width: 1200px){
-  .hero{ grid-template-columns: 1fr !important; gap: 28px !important; padding-top: 110px !important; padding-bottom: 60px !important; }
+  .hero{
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding-top: 110px !important;
+    padding-bottom: 60px !important;
+  }
   .hero > * { min-width: 0; }
   .hero-text{ text-align: center !important; justify-self: center !important; }
   .hero-text .actions{ justify-content: center !important; }
+
   .device-mock{ max-width: 92vw !important; margin-inline: auto !important; }
-  .feature{ grid-template-columns: 1fr !important; text-align: center !important; }
+  .feature{
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
   .feature.reverse{ direction: ltr !important; }
   .feature-img{ margin-bottom: 24px !important; }
   .feature-img img{ max-width: 92vw !important; }
+
   .feat-grid{ grid-template-columns: repeat(3, 1fr) !important; }
 }
 
 /* =========================
-   ≤980px：主斷點
+   ≤980px：主斷點（Header 抽屜 / 格線收斂）
    ========================= */
 @media (max-width: 980px){
+  /* Header */
   .nav-toggle{ display: block !important; }
   .nav-links{ display: none !important; }
   .nav-links.open{
-    display: flex !important; flex-direction: column !important; gap: 16px !important;
-    position: fixed !important; top: 72px !important; left: 0 !important; right: 0 !important;
-    background: #0d0d0d !important; border-top: 1px solid rgba(255,255,255,.06) !important;
-    padding: 18px 24px 22px !important; box-shadow: 0 18px 40px rgba(0,0,0,.5);
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    position: fixed !important;
+    top: 72px !important; left: 0 !important; right: 0 !important;
+    background: #0d0d0d !important;
+    border-top: 1px solid rgba(255,255,255,.06) !important;
+    padding: 18px 24px 22px !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.5);
     z-index: 9999 !important;
   }
-  .bm-header .nav-actions .bm-cta, .site-header .nav-actions .bm-cta{ display: none !important; }
+  .bm-header .nav-actions .bm-cta,
+  .site-header .nav-actions .bm-cta{ display: none !important; }
 
-  .hero{ grid-template-columns: 1fr !important; gap: 24px !important; padding-top: 104px !important; padding-bottom: 56px !important; }
+  /* Hero */
+  .hero{
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding-top: 104px !important;
+    padding-bottom: 56px !important;
+  }
   .hero-text{ text-align: center !important; justify-self: center !important; }
   .hero-text .actions{ justify-content: center !important; }
   .hero-title-wrap h1{ white-space: normal !important; }
 
+  /* Cards/Grids */
   .features-grid{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
-  .feat-grid{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  .feat-grid    { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
   .pricing-toggle{ text-align: center !important; }
-  .pricing-grid{ grid-template-columns: 1fr !important; }
-  .price-card{ max-width: 630px; margin-inline: auto; }
+  .pricing-grid  { grid-template-columns: 1fr !important; }
+  .price-card    { max-width: 630px; margin-inline: auto; }
+
   .feedback-form .row2{ grid-template-columns: 1fr !important; }
-  .feedback .actions{ justify-content: center !important; }
+  .feedback .actions  { justify-content: center !important; }
+
   .dl-grid{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
   .dl-card{ max-width: 560px; margin-inline: auto; }
+
   .news-grid{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
 
-  .device-mock{ transform: none !important; animation: fadeInOnly .6s ease both !important; box-shadow: 0 8px 22px rgba(0,0,0,.45) !important; }
-  @keyframes fadeInOnly{ from{ opacity:0; transform: translateY(10px); } to{ opacity:1; transform: translateY(0); } }
-  .feature-img:hover, .dl-card:hover, .price-card:hover, .feat-card:hover, .about-card:hover{ transform: translateY(-3px) !important; }
+  /* 行動裝置：動畫降低 */
+  .device-mock{
+    transform: none !important;
+    animation: fadeInOnly .6s ease both !important;
+    box-shadow: 0 8px 22px rgba(0,0,0,.45) !important;
+  }
+  @keyframes fadeInOnly{
+    from{ opacity:0; transform: translateY(10px); }
+    to  { opacity:1; transform: translateY(0); }
+  }
+  .feature-img:hover,
+  .dl-card:hover,
+  .price-card:hover,
+  .feat-card:hover,
+  .about-card:hover{
+    transform: translateY(-3px) !important;
+  }
 
+  /* Donate 小調整 */
   .donate-card{ margin-inline: 16px !important; }
   .donate-actions{ justify-content: center !important; }
-}
-
-/* =========================
-   ≤900px：About / Footer 補充
-   ========================= */
-@media (max-width: 900px){
-  .page-hero{ padding: 60px 0 12px !important; }
-  .about-block{ padding: 22px 0 !important; }
-  .about-grid{ grid-template-columns: 1fr !important; gap: 18px !important; }
-
-  .bm-footer{ padding: 24px 0 36px; grid-template-columns: 1fr !important;}
-  .bm-footer .bm-footer-top{ display: block; padding: 0 0 8px; }
-  .bm-foot-brand{ text-align: center; margin: 0 0 6px; }
-  .bm-foot-brand .tagline{ max-width: 28ch; margin: 6px auto 0; }
-  .bm-foot-links-grid{ display: block; }
-  .bm-footer .foot-col{ border-bottom: 1px solid rgba(255,255,255,.10); }
-  .bm-footer .foot-col:last-child{ border-bottom: none; }
-
-  .bm-footer .foot-head{
-    width: 100%; padding: 14px 12px; font-size: 1rem; font-weight: 600;
-    display: flex; align-items: center; justify-content: space-between;
-    cursor: pointer; background: transparent; border: 0; color: #e7ecf3;
-  }
-  .bm-footer .foot-head::after{ content: "▸"; transition: transform .25s ease; opacity: .9; }
-  .bm-footer .foot-col.open .foot-head::after{ transform: rotate(90deg); }
-
-  .bm-footer .foot-links{
-    max-height: 0; overflow: hidden;
-    transition: max-height .3s ease, padding .3s ease;
-    padding: 0 12px;
-  }
-  .bm-footer .foot-col.open .foot-links{ padding: 6px 12px 10px; }
-  .bm-footer .foot-links a{ display: block; padding: 8px 0; color: #b8c0cf; text-decoration: none; }
-  .bm-footer .foot-links a:hover{ color: var(--brand-gold); }
-
-  .bm-footer .bm-footer-bottom{ display: flex; flex-direction: column; gap: 8px; text-align: center; }
 }
 
 /* =========================
    ≤768px：Mobile Header Polish
    ========================= */
 @media (max-width: 768px){
-  .bm-header{ background: rgba(10,10,10,.92); backdrop-filter: saturate(120%) blur(8px); border-bottom: 1px solid rgba(255,255,255,.06); padding-top: max(0px, env(safe-area-inset-top)); box-shadow: 0 2px 14px rgba(0,0,0,.35); }
-  .bm-header .nav{ display: grid; grid-template-columns: auto 1fr auto; align-items: center; height: 56px; padding: 0 12px; }
-  .bm-header .brand{ display: inline-flex; align-items: center; gap: 6px; font-weight: 600; text-decoration: none; color: #fff; }
+  .bm-header{
+    background: rgba(10,10,10,.92);
+    backdrop-filter: saturate(120%) blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    padding-top: max(0px, env(safe-area-inset-top));
+    box-shadow: 0 2px 14px rgba(0,0,0,.35);
+  }
+  .bm-header .nav{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    height: 56px;
+    padding: 0 12px;
+  }
+  .bm-header .brand { display:inline-flex; align-items:center; gap:6px; font-weight:600; color:#fff; text-decoration:none; }
   .bm-header .brand img{ width:24px; height:24px; }
   .bm-header .brand-text{ font-size:2rem; letter-spacing:.2px; }
   @media (max-width: 420px){ .bm-header .brand-text{ display:none; } }
-  .bm-header .nav-toggle{ display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center; border-radius:10px; background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); }
+  .bm-header .nav-toggle{
+    display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center;
+    border-radius:10px; background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08);
+  }
   .bm-header .nav-toggle:active{ transform: translateY(1px); }
-  .bm-header .nav-links{ position: absolute; left: 12px; right: 12px; top: calc(56px + max(0px, env(safe-area-inset-top))); background: #0f0f0f; border:1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 10px 12px; display: none; box-shadow: 0 14px 28px rgba(0,0,0,.45); }
+
+  .bm-header .nav-links{
+    position: absolute; left: 12px; right: 12px;
+    top: calc(56px + max(0px, env(safe-area-inset-top)));
+    background: #0f0f0f; border:1px solid rgba(255,255,255,.08);
+    border-radius: 12px; padding: 10px 12px; display: none;
+    box-shadow: 0 14px 28px rgba(0,0,0,.45);
+  }
   .bm-header .nav-links.open{ display: flex; flex-direction: column; gap: 10px; }
   .bm-header .nav-links a{ padding: 10px 8px; border-radius: 8px; }
   .bm-header .nav-links a:hover{ background: rgba(255,255,255,.06); color:#fff; }
+
   .bm-header .nav-actions{ gap: 8px; }
   .bm-header .bm-cta{ display: none !important; }
-  .lang-btn{ height: 36px; padding: 6px 10px; border-radius: 10px; font-size: .9rem; border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.04); }
+
+  .lang-btn{
+    height: 36px; padding: 6px 10px; border-radius: 10px;
+    font-size: .9rem; border-color: rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04);
+  }
 }
 
 /* =========================
@@ -132,7 +166,12 @@ html, body { overflow-x: hidden; }
 @media (max-width: 560px){
   .hero-title-wrap h1{ font-size: 1.9rem !important; }
   .hero-text .actions{ flex-wrap: wrap !important; gap: 12px !important; }
-  .features-grid, .feat-grid, .news-grid, .dl-grid{ grid-template-columns: 1fr !important; }
+
+  .features-grid,
+  .feat-grid,
+  .news-grid,
+  .dl-grid{ grid-template-columns: 1fr !important; }
+
   .feedback-form{ padding-inline: 2px !important; }
 }
 
@@ -140,330 +179,184 @@ html, body { overflow-x: hidden; }
    語言選單（Portal 版）
    ========================= */
 .lang-portal{
-  position: fixed; background: #0d0d0d; border: 1px solid rgba(255,255,255,.12); border-radius: 10px;
-  box-shadow: 0 12px 28px rgba(0,0,0,.45); padding: 10px;
-  min-width: 220px; max-width: 90vw; max-height: 60vh; overflow: auto;
-  display: none; z-index: 12000;
-  display: grid; grid-template-columns: repeat(3, minmax(140px,1fr)); gap: 6px 16px;
+  position: fixed;
+  background: #0d0d0d;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.45);
+  padding: 10px;
+  min-width: 220px; max-width: 90vw; max-height: 60vh;
+  overflow: auto;
+  display: none;
+  z-index: 12000;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px,1fr));
+  gap: 6px 16px;
 }
 .lang-portal.open{ display: grid; }
 .lang-portal[aria-hidden="true"]{ display: none !important; }
-.lang-portal button{ appearance: none; border: 0; background: transparent; cursor: pointer; width: 100%; text-align: left; padding: 8px 10px; border-radius: 8px; color: #e7ecf3; font-size: .95rem; }
-.lang-portal button:hover{ background: rgba(255,255,255,.08); color: var(--brand-gold); }
-.lang-portal button[aria-current="true"]{ color: var(--brand-gold); font-weight: 600; }
-@media (max-width: 980px){ .lang-portal{ grid-template-columns: repeat(2, minmax(120px,1fr)); min-width: 200px; } }
-@media (max-width: 560px){ .lang-portal{ grid-template-columns: 1fr; min-width: 180px; } }
 
-/* === Footer: Mobile accordion === */
+.lang-portal button{
+  appearance: none; border: 0; background: transparent; cursor: pointer;
+  width: 100%; text-align: left; padding: 8px 10px;
+  border-radius: 8px; color: #e7ecf3; font-size: .95rem;
+}
+.lang-portal button:hover{
+  background: rgba(255,255,255,.08); color: var(--brand-gold);
+}
+.lang-portal button[aria-current="true"]{
+  color: var(--brand-gold); font-weight: 600;
+}
+@media (max-width: 980px){
+  .lang-portal{ grid-template-columns: repeat(2, minmax(120px,1fr)); min-width: 200px; }
+}
+@media (max-width: 560px){
+  .lang-portal{ grid-template-columns: 1fr; min-width: 180px; }
+}
+
+/* ===== News page Responsive ===== */
 @media (max-width: 640px) {
-  .bm-footer-top { padding-top: 24px; }
-  .bm-foot-brand { margin-bottom: 8px; }
-  .bm-foot-links-grid { display: block; gap: 0; }
-  .foot-col { border-top: 1px solid var(--c-border, rgba(255,255,255,.12)); padding: 0; }
-  .foot-col h4 { margin: 0; }
-  .foot-head { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 14px 0; font-size: 16px; font-weight: 600; background: transparent; border: 0; color: inherit; }
-  .foot-head::after { content: '▾'; font-size: 14px; line-height: 1; transform-origin: 50% 50%; transition: transform .2s ease; opacity: .8; }
-  .foot-head[aria-expanded="true"]::after { transform: rotate(180deg); }
-  .foot-links { margin: 0 0 8px 0; padding: 0 0 12px 0; list-style: none; max-height: 0; overflow: hidden; transition: max-height .28s ease; }
-  .foot-links li a { display: inline-block; padding: 6px 0; }
-  .bm-footer-bottom { padding-top: 12px; padding-bottom: 24px; }
-  .bm-footer-bottom .legal { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
-  .bm-footer-bottom small { display: block; margin-top: 8px; opacity: .8; }
+  .page-hero.container { padding-top: 32px; padding-bottom: 8px; text-align: center; }
+  .page-hero h1 { font-size: 24px; }
+  .page-hero .lead { font-size: 14px; }
+
+  .chip-group { justify-content: center; gap: 6px; }
+  .chip { font-size: 13px; padding: 5px 10px; }
+
+  .news-grid { grid-template-columns: 1fr; gap: 12px; }
+  .news-card { padding: 14px 14px 12px; }
+  .news-card h2 { font-size: 18px; }
+  .news-meta { font-size: 12px; }
+  .news-meta .badge { font-size: 11px; padding: 3px 7px; }
 }
-@media (min-width: 641px) {
-  .bm-foot-links-grid { display: grid; grid-template-columns: repeat(1, minmax(0,1fr)); gap: 24px; }
-  .foot-links { max-height: none !important; overflow: visible !important; }
-  .foot-head::after { content: none; }
+@media (min-width: 641px) and (max-width: 879px) {
+  .news-grid { grid-template-columns: 1fr; gap: 14px; }
+  .news-card { padding: 16px 16px 14px; }
+  .news-card h2 { font-size: 19px; }
 }
-
-/* ===== Footer Mobile hard reset (put at END of responsive.css) ===== */
-@media (max-width: 640px){
-
-  /* 1) 讓最外層容器自動長高、不裁切 */
-  .site-footer,
-  .bm-footer,
-  .bm-footer .bm-footer-top,
-  .bm-footer .bm-footer-bottom,
-  .bm-foot-links-grid{
-    height: auto !important;
-    overflow: visible !important;
+@media (min-width: 880px) {
+  .news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
-
-  /* 2) links 容器改成 block 流，確保四個區塊直向排列 */
-  .bm-foot-links-grid{
-    display: block !important;      /* 取代桌機的 grid/contents 等 */
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* 3) 每一組 foot-col 都是 block、可自然往下堆疊 */
-  .bm-footer .foot-col{
-    display: block !important;
-    position: relative !important;
-    border-top: 1px solid rgba(255,255,255,.12);
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .bm-footer .foot-col:first-child{ border-top: 0; }
-
-  /* 4) 標題按鈕佔滿寬，箭頭正常，字色可見 */
-  .bm-footer .foot-head{
-    display: flex !important;
-    width: 100% !important;
-    align-items: center; justify-content: space-between;
-    padding: 14px 0 !important;
-    font-size: 16px; font-weight: 600;
-    border: 0; background: transparent; color: #e7ecf3 !important;
-  }
-  .bm-footer .foot-head::after{
-    content: '▾';
-    font-size: 14px; opacity: .85; transition: transform .2s ease;
-  }
-  .bm-footer .foot-head[aria-expanded="true"]::after{ transform: rotate(180deg); }
-
-  /* 5) 只有「連結清單」用 max-height 動畫；其它區塊不受影響 */
-  .bm-footer .foot-links{
-    list-style: none; margin: 0 0 8px 0 !important; padding: 0 0 12px 0 !important;
-    max-height: 0; overflow: hidden;
-    transition: max-height .28s ease;
-  }
-  .bm-footer .foot-head[aria-expanded="true"] + .foot-links{
-    /* 用 scrollHeight 的 JS 會設具體數值；這裡留個保底最大值 */
-    max-height: 500px;
-  }
-  .bm-footer .foot-links a{
-    display: inline-block; padding: 6px 0; color: #b8c0cf;
-    text-decoration: none;
-  }
-  .bm-footer .foot-links a:hover{ color: var(--brand-gold); }
-
-  /* 6) 法務列避免擠出畫面 */
-  .bm-footer-bottom{
-    padding-top: 12px !important; padding-bottom: 24px !important;
-  }
-  .bm-footer-bottom .legal{
-    display: flex; flex-wrap: wrap; gap: 12px 20px; justify-content: center;
+  .news-card h2 { font-size: 20px; }
+}
+@media (min-width: 1280px) {
+  .news-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
   }
 }
 
-/* 桌機：恢復 grid、移除手風琴效果 */
-@media (min-width: 641px){
-  .bm-foot-links-grid{
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0,1fr))!important;
-    gap: 24px;
-  }
-  .bm-footer .foot-links{
-    max-height: none !important; overflow: visible !important;
-  }
-  .bm-footer .foot-head::after{ content: none !important; }
-}
+/* =========================================================
+   Apple-like Footer: ks-footer  (唯一 footer 版本)
+   ========================================================= */
 
-/* ===== Footer — Desktop restore (override mobile accordion) ===== */
-@media (min-width: 901px){
-  /* 還原版頭區塊與四欄連結區 */
-  .bm-footer-top{ display: block; } /* 或依你的原樣式：grid / flex */
-  .bm-foot-links-grid{
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0,1fr)) !important;
-    gap: 24px !important;
-  }
-
-  /* 每一欄不要邊框與收合動作 */
-  .bm-footer .foot-col{ border: 0 !important; }
-
-  .bm-footer .foot-head{
-    padding: 0 !important;
-    background: transparent !important;
-    border: 0 !important;
-    cursor: default !important;
-  }
-  /* 桌機隱藏箭頭 */
-  .bm-footer .foot-head::after{ content: none !important; }
-
-  /* 連結永遠展開，不用 max-height 限制 */
-  .bm-footer .foot-links{
-    max-height: none !important;
-    overflow: visible !important;
-    padding: 0 !important;
-  }
-
-  /* 品牌區回左對齊（避免被置中擠壓） */
-  .bm-foot-brand{ text-align: left !important; margin-bottom: 0 !important; }
-
-  /* 法務列保持單行排列 */
-  .bm-footer-bottom{
-    text-align: left !important;
-  }
-}
-
-/* 若你把手機樣式寫在 ≤900px，保險再限定： */
-@media (max-width: 900px){
-  /* 手機維持手風琴（無改動） */
-}
-
-/* 基本色（若已定義就略過） */
+/* 基本色（主色／邊界） */
 :root{
-  --accent: #d4af37;                /* 金色高亮 */
+  --accent: #f5d37a;                 /* 你的品牌金，可調 */
   --border: rgba(255,255,255,.12);
 }
 
-/* ===== Footer: base（桌機也沿用） ===== */
-.ks-footer {
-  background: #0f0f15;
-  color: #e7ecf3;
-  font-size: 0.85rem;
-  line-height: 1.6;
-  border-top: 1px solid var(--border);
-}
-.ks-footer a {
-  color: #e7ecf3;
-  opacity: .85;
-  text-decoration: none;
-}
-.ks-footer a:hover { opacity: 1; color: var(--accent); }
-
-.ks-footer .ks-foot-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
-  gap: 24px;
-  padding: 32px 0;
-}
-.ks-footer .ks-foot-grid h4 {
-  font-size: .95rem;
-  margin: 0 0 10px;
-  color: var(--accent);
-}
-.ks-footer .ks-foot-grid ul { list-style: none; padding: 0; margin: 0; }
-.ks-footer .ks-foot-grid li { margin: 4px 0; }
-
-.ks-footer .ks-footer-bottom{
-  border-top: 1px solid var(--border);
-  padding: 16px 0;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 10px; flex-wrap: wrap;
-}
-.ks-footer .footer-locale select{
-  background: #171a21; color: #e7ecf3;
-  border: 1px solid var(--border);
-  padding: 6px 12px; border-radius: 6px; font-size: .85rem;
-  appearance: none; cursor: pointer;
-}
-.ks-footer .footer-locale select:focus{ outline: 2px solid var(--accent); }
-
-/* ===== 行動版（≤640px）：單欄 + 手風琴 ===== */
-@media (max-width: 640px){
-  .ks-footer .ks-foot-grid{
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding: 8px 0 0;
-  }
-
-  /* 每個 section 變成手風琴 */
-  .ks-footer .ks-foot-grid section{
-    border-top: 1px solid var(--border);
-    padding: 0;
-  }
-  .ks-footer .ks-foot-grid section:last-child{
-    border-bottom: 1px solid var(--border);
-  }
-
-  /* h4 當按鈕用（加箭頭） */
-  .ks-footer .ks-foot-grid section h4{
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 2px;
-    margin: 0;
-    cursor: pointer;
-    color: #e7ecf3;
-  }
-  .ks-footer .ks-foot-grid section h4::after{
-    content: '▾';
-    font-size: 12px; opacity: .8;
-    transition: transform .2s ease;
-  }
-  .ks-footer .ks-foot-grid section.open h4::after{
-    transform: rotate(180deg);
-  }
-
-  /* 列表預設收起（用 max-height 過渡） */
-  .ks-footer .ks-foot-grid section ul{
-    max-height: 0; overflow: hidden;
-    transition: max-height .25s ease;
-    padding: 0 0 0 0;
-  }
-  .ks-footer .ks-foot-grid section.open ul{
-    max-height: 320px; /* 足夠 6~8 列 */
-    padding: 0 0 10px 0;
-  }
-
-  /* 底部列：直向排列、置中 */
-  .ks-footer .ks-footer-bottom{
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-  .ks-footer .footer-locale select{
-    width: 100%;
-  }
-  .ks-footer .footer-copy{
-    text-align: center;
-    opacity: .9;
-  }
-}
-
-/* 主色與背景（可依你的主色微調） */
+/* Base */
 .ks-footer{
-  background:#0b0b0d; color:#e7ecf3;
+  background:#0b0b0d;
+  color:#e7ecf3;
+  font-size:.9rem;
+  line-height:1.65;
   border-top:1px solid rgba(255,255,255,.08);
 }
-.ks-foot-links a{ color:#b8c0cf; text-decoration:none; }
-.ks-foot-links a:hover{ color:#f5d37a; } /* 你的品牌金 */
-.ks-foot-head{ color:#e7ecf3; }
+.ks-footer a{ color:#e7ecf3; opacity:.85; text-decoration:none; }
+.ks-footer a:hover{ opacity:1; color:var(--accent); }
 
-/* 桌機：四欄攤開 */
-@media (min-width: 641px){
-  .ks-foot-grid{
-    display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px;
-  }
-  .ks-foot-panel{ max-height:none !important; overflow:visible !important; padding:0 !important; }
-  .ks-foot-head{
-    all:unset; display:block; font-weight:600; margin:0 0 8px; /* 桌機是標題，不可按 */
-  }
+/* Grid (桌機/平板) */
+.ks-foot-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap:24px;
+  padding:32px 0;
 }
-
-/* 手機：手風琴 */
-@media (max-width: 640px){
-  .ks-foot-grid{ display:block; }
-  .ks-foot-col{ border-top:1px solid rgba(255,255,255,.12); }
-  .ks-foot-col:last-child{ border-bottom:1px solid rgba(255,255,255,.12); }
-
-  .ks-foot-head{
-    width:100%; appearance:none; border:0; background:transparent;
-    padding:14px 0; text-align:left; font-size:16px; font-weight:600;
-    display:flex; align-items:center; justify-content:space-between; cursor:pointer;
-  }
-  .ks-foot-head::after{
-    content:'▾'; font-size:14px; line-height:1; opacity:.85; transition:transform .2s ease;
-  }
-  .ks-foot-col.open .ks-foot-head::after{ transform:rotate(180deg); }
-
-  .ks-foot-panel{
-    max-height:0; overflow:hidden;
-    transition:max-height .28s ease, padding .28s ease;
-    padding:0;
-  }
-  .ks-foot-col.open .ks-foot-panel{ padding:0 0 8px; }
-
-  .ks-foot-links{ list-style:none; margin:0; padding:0 0 12px; }
-  .ks-foot-links li a{ display:inline-block; padding:6px 0; }
+.ks-foot-grid h4{
+  font-size:.95rem;
+  margin:0 0 10px;
+  color:var(--accent);
 }
+.ks-foot-links{ list-style:none; padding:0; margin:0; }
+.ks-foot-links li{ margin:4px 0; }
 
 /* 底部列 */
 .ks-foot-bottom{
-  display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center;
-  padding:14px 0 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:10px; flex-wrap:wrap;
+  border-top:1px solid var(--border);
+  padding:16px 0 24px;
 }
 #footLangLink{
-  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
-  color:#e7ecf3; padding:8px 12px; border-radius:10px; cursor:pointer;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
+  color:#e7ecf3;
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
 }
+
+/* 行動版（≤640px）：單欄 + 手風琴 */
+@media (max-width: 640px){
+  .ks-foot-grid{
+    grid-template-columns: 1fr;
+    gap:0;
+    padding:8px 0 0;
+  }
+  .ks-foot-grid section{
+    border-top:1px solid var(--border);
+    padding:0;
+  }
+  .ks-foot-grid section:last-child{
+    border-bottom:1px solid var(--border);
+  }
+
+  /* h4 當按鈕（加箭頭） */
+  .ks-foot-grid section h4{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 2px; margin:0;
+    cursor:pointer; color:#e7ecf3;
+  }
+  .ks-foot-grid section h4::after{
+    content:'▾';
+    font-size:12px; opacity:.8;
+    transition: transform .2s ease;
+  }
+  .ks-foot-grid section.open h4::after{
+    transform: rotate(180deg);
+  }
+
+  /* 折疊面板 */
+  .ks-foot-grid section ul{
+    max-height:0; overflow:hidden;
+    transition:max-height .25s ease;
+    padding:0;
+  }
+  .ks-foot-grid section.open ul{
+    max-height:320px; /* 足夠 6~8 列 */
+    padding:0 0 10px 0;
+  }
+
+  /* 底部列直向 */
+  .ks-foot-bottom{
+    flex-direction:column;
+    align-items:stretch;
+    gap:12px;
+  }
+}
+
+/* 桌機：四欄攤開（保險覆寫） */
+@media (min-width: 641px){
+  .ks-foot-grid{
+    display:grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap:24px;
+  }
+}
+
+/* ====== END ====== */
