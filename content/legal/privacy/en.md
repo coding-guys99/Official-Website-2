@@ -1,29 +1,13 @@
 # Privacy Policy
+Updated: 2025-10-10
 
-_Last updated: 2025-09-29_
+KeySearch respects your privacy.  
+We do not collect or access the cards and content you create in the software; these remain stored only on your device.  
 
-KeySearch is a **local-first tool**.  
-We do not collect your personal files, notes, or search history.
+We may process:
+- Anonymous data related to website browsing (e.g., traffic statistics)  
+- Contact information you voluntarily provide (e.g., email support or feedback)  
+- Donation/payment records (handled by third-party payment providers; we do not access your card details)  
 
----
-
-## What we collect
-- Minimal technical data (error logs, crash reports).  
-- Donation or payment receipts (via PayPal/Stripe).  
-
----
-
-## What we don’t collect
-- Your indexed files, notes, or tags.  
-- Your search history.  
-- Any personal documents.
-
----
-
-## Your control
-- You can export/delete your data anytime (CSV/JSON).  
-- Everything stays on your device unless you share it.
-
----
-
-For questions, email [hello@keysearch-app.com](mailto:hello@keysearch-app.com).
+We do not sell or rent your data.  
+For any questions, please contact: keysearchapp.official@gmail.com
