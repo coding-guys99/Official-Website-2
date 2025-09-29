@@ -1,18 +1,8 @@
 # Disclaimer
+Updated: 2025-10-10
 
-_Last updated: 2025-09-29_
+KeySearch is provided solely as an information organization and search tool, and does not offer legal, medical, financial, or other professional advice.  
+All risks from use are your own responsibility.  
 
-KeySearch is a productivity tool.  
-We provide no guarantees beyond basic functionality.
-
----
-
-## Not professional advice
-- Content in KeySearch (e.g. notes, tags) is user-generated.  
-- We do not provide legal, medical, or financial advice.
-
----
-
-## No warranty
-KeySearch is provided without warranty of any kind.  
-Use at your own risk.
+This website may contain external links, and we cannot guarantee their accuracy or security.  
+Multi-language translations are for reference only; in case of dispute, the English version shall prevail.
