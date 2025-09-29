@@ -301,3 +301,112 @@ html, body { overflow-x: hidden; }
 @media (max-width: 900px){
   /* 手機維持手風琴（無改動） */
 }
+
+/* 基本色（若已定義就略過） */
+:root{
+  --accent: #d4af37;                /* 金色高亮 */
+  --border: rgba(255,255,255,.12);
+}
+
+/* ===== Footer: base（桌機也沿用） ===== */
+.ks-footer {
+  background: #0f0f15;
+  color: #e7ecf3;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  border-top: 1px solid var(--border);
+}
+.ks-footer a {
+  color: #e7ecf3;
+  opacity: .85;
+  text-decoration: none;
+}
+.ks-footer a:hover { opacity: 1; color: var(--accent); }
+
+.ks-footer .ks-foot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+  gap: 24px;
+  padding: 32px 0;
+}
+.ks-footer .ks-foot-grid h4 {
+  font-size: .95rem;
+  margin: 0 0 10px;
+  color: var(--accent);
+}
+.ks-footer .ks-foot-grid ul { list-style: none; padding: 0; margin: 0; }
+.ks-footer .ks-foot-grid li { margin: 4px 0; }
+
+.ks-footer .ks-footer-bottom{
+  border-top: 1px solid var(--border);
+  padding: 16px 0;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; flex-wrap: wrap;
+}
+.ks-footer .footer-locale select{
+  background: #171a21; color: #e7ecf3;
+  border: 1px solid var(--border);
+  padding: 6px 12px; border-radius: 6px; font-size: .85rem;
+  appearance: none; cursor: pointer;
+}
+.ks-footer .footer-locale select:focus{ outline: 2px solid var(--accent); }
+
+/* ===== 行動版（≤640px）：單欄 + 手風琴 ===== */
+@media (max-width: 640px){
+  .ks-footer .ks-foot-grid{
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 8px 0 0;
+  }
+
+  /* 每個 section 變成手風琴 */
+  .ks-footer .ks-foot-grid section{
+    border-top: 1px solid var(--border);
+    padding: 0;
+  }
+  .ks-footer .ks-foot-grid section:last-child{
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* h4 當按鈕用（加箭頭） */
+  .ks-footer .ks-foot-grid section h4{
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 2px;
+    margin: 0;
+    cursor: pointer;
+    color: #e7ecf3;
+  }
+  .ks-footer .ks-foot-grid section h4::after{
+    content: '▾';
+    font-size: 12px; opacity: .8;
+    transition: transform .2s ease;
+  }
+  .ks-footer .ks-foot-grid section.open h4::after{
+    transform: rotate(180deg);
+  }
+
+  /* 列表預設收起（用 max-height 過渡） */
+  .ks-footer .ks-foot-grid section ul{
+    max-height: 0; overflow: hidden;
+    transition: max-height .25s ease;
+    padding: 0 0 0 0;
+  }
+  .ks-footer .ks-foot-grid section.open ul{
+    max-height: 320px; /* 足夠 6~8 列 */
+    padding: 0 0 10px 0;
+  }
+
+  /* 底部列：直向排列、置中 */
+  .ks-footer .ks-footer-bottom{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .ks-footer .footer-locale select{
+    width: 100%;
+  }
+  .ks-footer .footer-copy{
+    text-align: center;
+    opacity: .9;
+  }
+}
