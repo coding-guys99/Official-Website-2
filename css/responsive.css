@@ -410,3 +410,60 @@ html, body { overflow-x: hidden; }
     opacity: .9;
   }
 }
+
+/* 主色與背景（可依你的主色微調） */
+.ks-footer{
+  background:#0b0b0d; color:#e7ecf3;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.ks-foot-links a{ color:#b8c0cf; text-decoration:none; }
+.ks-foot-links a:hover{ color:#f5d37a; } /* 你的品牌金 */
+.ks-foot-head{ color:#e7ecf3; }
+
+/* 桌機：四欄攤開 */
+@media (min-width: 641px){
+  .ks-foot-grid{
+    display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px;
+  }
+  .ks-foot-panel{ max-height:none !important; overflow:visible !important; padding:0 !important; }
+  .ks-foot-head{
+    all:unset; display:block; font-weight:600; margin:0 0 8px; /* 桌機是標題，不可按 */
+  }
+}
+
+/* 手機：手風琴 */
+@media (max-width: 640px){
+  .ks-foot-grid{ display:block; }
+  .ks-foot-col{ border-top:1px solid rgba(255,255,255,.12); }
+  .ks-foot-col:last-child{ border-bottom:1px solid rgba(255,255,255,.12); }
+
+  .ks-foot-head{
+    width:100%; appearance:none; border:0; background:transparent;
+    padding:14px 0; text-align:left; font-size:16px; font-weight:600;
+    display:flex; align-items:center; justify-content:space-between; cursor:pointer;
+  }
+  .ks-foot-head::after{
+    content:'▾'; font-size:14px; line-height:1; opacity:.85; transition:transform .2s ease;
+  }
+  .ks-foot-col.open .ks-foot-head::after{ transform:rotate(180deg); }
+
+  .ks-foot-panel{
+    max-height:0; overflow:hidden;
+    transition:max-height .28s ease, padding .28s ease;
+    padding:0;
+  }
+  .ks-foot-col.open .ks-foot-panel{ padding:0 0 8px; }
+
+  .ks-foot-links{ list-style:none; margin:0; padding:0 0 12px; }
+  .ks-foot-links li a{ display:inline-block; padding:6px 0; }
+}
+
+/* 底部列 */
+.ks-foot-bottom{
+  display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center;
+  padding:14px 0 24px;
+}
+#footLangLink{
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+  color:#e7ecf3; padding:8px 12px; border-radius:10px; cursor:pointer;
+}
