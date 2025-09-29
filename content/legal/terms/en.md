@@ -1,28 +1,11 @@
-# Terms of Use
+# Terms of Service
+Updated: 2025-10-10
 
-_Last updated: 2025-09-29_
+By using KeySearch, you agree to the following terms:
 
-By using KeySearch, you agree to the following terms.
+- The software is provided “as is.” We do not guarantee it will be error-free or uninterrupted.  
+- Any losses or issues arising from use are your own responsibility.  
+- You may not use this service for illegal activities.  
+- Payments/donations are processed by third-party platforms, whose terms and privacy policies apply separately.  
 
----
-
-## License
-- Free to use the Web version.  
-- Desktop version may include free and paid tiers.  
-
----
-
-## Restrictions
-- Do not misuse KeySearch for illegal activity.  
-- Do not reverse-engineer or resell the software without permission.  
-
----
-
-## Liability
-KeySearch is provided **“as is”**.  
-We are not responsible for data loss, system errors, or indirect damages.
-
----
-
-## Changes
-We may update these Terms. Continued use means you accept the latest version.
+We reserve the right to update these terms at any time. Updates will be announced on this page.
