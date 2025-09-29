@@ -420,3 +420,67 @@ body.no-scroll { overflow: hidden; }
   outline: none;
   border-color: #000;
 }
+
+.ks-footer {
+  background: #0f0f15; /* 深黑背景 */
+  color: #e7ecf3;      /* 主文字色 */
+  font-size: 0.85rem;
+  line-height: 1.6;
+  border-top: 1px solid var(--border);
+}
+
+.ks-footer a {
+  color: #e7ecf3;
+  opacity: 0.85;
+  text-decoration: none;
+}
+.ks-footer a:hover {
+  opacity: 1;
+  color: var(--accent); /* 高亮用你的藍金 accent */
+}
+
+.ks-foot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+  gap: 24px;
+  padding: 32px 0;
+}
+
+.ks-foot-grid h4 {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: var(--accent); /* 小標題用金/亮色 */
+}
+
+.ks-foot-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ks-foot-grid li {
+  margin: 4px 0;
+}
+
+.ks-footer-bottom {
+  border-top: 1px solid var(--border);
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* 語言選單 Apple-style */
+.footer-locale select {
+  background: #171a21;
+  color: #e7ecf3;
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  appearance: none;
+  cursor: pointer;
+}
+.footer-locale select:focus {
+  outline: 2px solid var(--accent);
+}
