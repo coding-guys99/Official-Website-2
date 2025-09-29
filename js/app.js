@@ -1,3 +1,4 @@
+// js/app.js — unified (Apple-style footer only)
 (() => {
   /* ---------- tiny utils ---------- */
   const $  = (s, r=document) => r.querySelector(s);
@@ -17,7 +18,6 @@
       document.body.appendChild(el);
       return el;
     };
-
     const isMobile = () => window.innerWidth <= 980;
 
     return {
@@ -63,7 +63,7 @@
     feedbackMailto();
     featureCardPolish();
     newsFilter();
-    footerAccordion();
+    appleFooterAccordion();    // ← 只有這一套（Apple 風格）
     revealOnScroll();
   };
   if (document.readyState === 'loading'){
@@ -100,7 +100,7 @@
     window.addEventListener('resize', ()=>{ if (window.innerWidth > 980) Backdrop.force(), close(); }, { passive:true });
   }
 
-  /* ========== 3) Index: CTA smooth scroll ========== */
+  /* ========== 2) Index: CTA smooth scroll ========== */
   function heroCtaSmooth(){
     const btn = $('.hero .btn.primary');
     if (!btn) return;
@@ -110,7 +110,7 @@
     });
   }
 
-  /* ========== 4) Index: Typing headline ========== */
+  /* ========== 3) Index: Typing headline ========== */
   function heroTyping(){
     const titleEl = $('#heroTitle');
     const wrap    = $('#heroTitleWrap');
@@ -164,7 +164,7 @@
     }
   }
 
-  /* ========== 5) Feature images hover ========== */
+  /* ========== 4) Feature images hover ========== */
   function featureImgHover(){
     $$('.feature-img img').forEach(img=>{
       img.addEventListener('mouseenter', ()=>{
@@ -175,7 +175,7 @@
     });
   }
 
-  /* ========== 6) About: timeline highlight ========== */
+  /* ========== 5) About: timeline highlight ========== */
   function timelineHighlight(){
     const items = $$('.timeline-list li');
     if (!items.length) return;
@@ -185,7 +185,7 @@
     items.forEach(i => io.observe(i));
   }
 
-  /* ========== 7) Pricing: billing toggle ========== */
+  /* ========== 6) Pricing: billing toggle ========== */
   function pricingToggle(){
     const toggle = $('#billingToggle');
     if (!toggle) return;
@@ -218,7 +218,7 @@
     });
   }
 
-  /* ========== 8) Support: FAQ one-open ========== */
+  /* ========== 7) Support: FAQ one-open ========== */
   function faqSingleOpen(){
     const items = $$('.faq-item');
     if (!items.length) return;
@@ -229,7 +229,7 @@
     });
   }
 
-  /* ========== 9) Support: feedback -> mailto ========== */
+  /* ========== 8) Support: feedback -> mailto ========== */
   function feedbackMailto(){
     const form  = $('#feedbackForm');
     const toast = $('#toast');
@@ -259,7 +259,7 @@
     });
   }
 
-  /* ========== 10) Features: card shadow polish ========== */
+  /* ========== 9) Features: card shadow polish ========== */
   function featureCardPolish(){
     $$('.feature-card').forEach(card=>{
       card.addEventListener('mouseenter', ()=> card.style.boxShadow='0 8px 20px rgba(0,0,0,.4)');
@@ -267,7 +267,7 @@
     });
   }
 
-  /* ========== 11) News: year chips filter ========== */
+  /* ========== 10) News: year chips filter ========== */
   function newsFilter(){
     const group = $('#newsYearChips');
     if (!group) return;
@@ -281,56 +281,98 @@
     });
   }
 
-  /* ========== 12) Footer: accordion (mobile only) ========== */
-  function footerAccordion(){
-    const mq   = matchMedia('(max-width: 768px)');
-    const cols = $$('.foot-col');
-    if (!cols.length) return;
+  /* ========== 11) Footer: Apple-style accordion (mobile only) ========== */
+  function appleFooterAccordion(){
+    const grid = $('.ks-foot-grid');            // 你的 Apple 風格 footer 容器
+    if (!grid) return;
 
-    function bind(col){
-      const btn  = $('.foot-head', col);
-      const list = $('.foot-links', col);
-      if (!btn || !list || btn._bound) return;
-      btn._bound = true;
+    const SECTIONS = () => $$('.ks-foot-grid > section'); // 每個欄位
+    const mqMobile = matchMedia('(max-width: 768px)');
 
-      const setOpen = (v)=>{
-        col.classList.toggle('open', v);
-        btn.setAttribute('aria-expanded', String(v));
-        list.style.maxHeight = v ? (list.scrollHeight+'px') : '0px';
-      };
+    // 綁定單一 section
+    function bindSection(section){
+      if (section._bound) return;
+      section._bound = true;
 
-      if (!col.classList.contains('open')) setOpen(false);
+      const h4  = section.querySelector('h4');
+      const list= section.querySelector('ul, .links, .foot-links');
+      if (!h4 || !list) return;
 
-      btn.addEventListener('click', ()=>{
-        const next = !col.classList.contains('open');
-        cols.forEach(c=>{
-          if (c!==col && c.classList.contains('open')){
-            c.classList.remove('open');
-            const b = $('.foot-head', c), l = $('.foot-links', c);
-            b?.setAttribute('aria-expanded','false');
-            if (l) l.style.maxHeight='0px';
+      // 無障礙屬性
+      h4.setAttribute('role','button');
+      h4.setAttribute('tabindex','0');
+      h4.setAttribute('aria-expanded','false');
+
+      // 初始：行動裝置預設收起
+      if (mqMobile.matches){
+        section.classList.remove('open');
+        list.style.maxHeight = '0px';
+      } else {
+        section.classList.add('open');
+        list.style.maxHeight = '';
+        h4.removeAttribute('aria-expanded');
+      }
+
+      const toggle = ()=>{
+        // 僅在行動版才可展開/收起
+        if (!mqMobile.matches) return;
+        const willOpen = !section.classList.contains('open');
+        // 單開：關其他
+        SECTIONS().forEach(s=>{
+          if (s!==section && s.classList.contains('open')){
+            s.classList.remove('open');
+            const hh = s.querySelector('h4');
+            const ll = s.querySelector('ul, .links, .foot-links');
+            hh?.setAttribute('aria-expanded','false');
+            if (ll) ll.style.maxHeight = '0px';
           }
         });
-        setOpen(next);
+        // 切換目前
+        section.classList.toggle('open', willOpen);
+        h4.setAttribute('aria-expanded', String(willOpen));
+        list.style.maxHeight = willOpen ? (list.scrollHeight + 'px') : '0px';
+      };
+
+      h4.addEventListener('click', toggle);
+      h4.addEventListener('keydown', e=>{
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
       });
     }
 
-    const setup = ()=>{
-      if (mq.matches){
-        cols.forEach(bind);
-      } else {
-        cols.forEach(col=>{
-          col.classList.remove('open');
-          $('.foot-head', col)?.removeAttribute('aria-expanded');
-          const l = $('.foot-links', col); if (l) l.style.maxHeight='';
+    // 初始化 / 重算
+    function setup(){
+      const sections = SECTIONS();
+      sections.forEach(bindSection);
+
+      if (!mqMobile.matches){
+        // 桌機：全部展開且移除高度限制
+        sections.forEach(section=>{
+          section.classList.add('open');
+          const h4 = section.querySelector('h4');
+          const ul = section.querySelector('ul, .links, .foot-links');
+          h4?.removeAttribute('aria-expanded');
+          if (ul) ul.style.maxHeight = '';
+        });
+      }else{
+        // 手機：全部收起（保留使用者點開狀態）
+        sections.forEach(section=>{
+          if (!section.classList.contains('open')){
+            const ul = section.querySelector('ul, .links, .foot-links');
+            if (ul) ul.style.maxHeight = '0px';
+            const h4 = section.querySelector('h4');
+            h4?.setAttribute('aria-expanded','false');
+          }
         });
       }
-    };
+    }
+
     setup();
-    window.addEventListener('resize', ()=> requestAnimationFrame(setup));
+    // 視窗改變/語言切換（DOM 可能重建）後重新設定
+    window.addEventListener('resize', ()=> requestAnimationFrame(setup), { passive:true });
+    document.addEventListener('i18n:changed', ()=> requestAnimationFrame(setup));
   }
 
-  /* ========== 13) Reveal-on-scroll ========== */
+  /* ========== 12) Reveal-on-scroll ========== */
   function revealOnScroll(){
     const els = $$('.reveal-on-scroll');
     if (!els.length) return;
@@ -352,75 +394,4 @@
 
     els.forEach(e => io.observe(e));
   }
-})();
-
-
-// ===== News page: year filter + gentle animation =====
-(function () {
-  const chipWrap = document.getElementById('newsYearChips');
-  if (!chipWrap) return;
-
-  const chips = Array.from(chipWrap.querySelectorAll('.chip'));
-  const cards = Array.from(document.querySelectorAll('.news-card'));
-
-  function setActive(targetYear) {
-    // 切換 chip 樣式
-    chips.forEach(btn => {
-      const on = btn.dataset.year === targetYear || (targetYear === 'all' && btn.dataset.year === 'all');
-      btn.classList.toggle('active', on);
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
-
-    // 顯示 / 隱藏卡片（含動畫）
-    cards.forEach(card => {
-      const y = card.getAttribute('data-year');
-      const show = (targetYear === 'all') || (y === targetYear);
-      card.toggleAttribute('data-hide', !show);
-    });
-  }
-
-  // 点选切换
-  chipWrap.addEventListener('click', (e) => {
-    const btn = e.target.closest('.chip');
-    if (!btn) return;
-    const year = btn.dataset.year || 'all';
-    setActive(year);
-
-    // 可選：更新 URL hash，讓重新整理能記住年份
-    history.replaceState(null, '', year === 'all' ? location.pathname : `#y-${year}`);
-  });
-
-  // 初始：依 hash 或預設 all
-  const initHash = location.hash.match(/^#y-(\d{4})$/)?.[1];
-  setActive(initHash || 'all');
-})();
-
-
-(function(){
-  function initMobileFooterAccordion(){
-    if (!matchMedia('(max-width: 640px)').matches) return;
-
-    document.querySelectorAll('.ks-foot-grid section h4').forEach(h4=>{
-      const section = h4.closest('section');
-      if (!section) return;
-
-      // 無障礙屬性
-      h4.setAttribute('role','button');
-      h4.setAttribute('tabindex','0');
-      h4.setAttribute('aria-expanded','false');
-
-      const toggle = ()=>{
-        const open = section.classList.toggle('open');
-        h4.setAttribute('aria-expanded', open ? 'true' : 'false');
-      };
-      h4.addEventListener('click', toggle);
-      h4.addEventListener('keydown', e=>{
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-      });
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', initMobileFooterAccordion);
-  // 如果你的頁面有 SPA/動態注入，也可以在語言切換後重跑：
-  document.addEventListener('i18n:changed', initMobileFooterAccordion);
 })();
