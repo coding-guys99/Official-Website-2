@@ -1,4 +1,3 @@
----
 
 Every day we deal with various types of information: files, paths, links, notes, to-dos.  
 The problem is, when these pieces are scattered everywhere, finding them quickly always wastes time.  
