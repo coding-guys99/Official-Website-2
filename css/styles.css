@@ -393,4 +393,30 @@ body.no-scroll { overflow: hidden; }
   color: #000;
 }
 
+.apple-footer-locale {
+  border-top: 1px solid #d2d2d7;
+  padding: 14px 0;
+  font-size: 12px;
+  color: #6e6e73;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
+.apple-footer-locale .locale-icon {
+  font-size: 14px;
+}
+
+.apple-footer-locale select {
+  background: transparent;
+  border: 1px solid #d2d2d7;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #1d1d1f;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.apple-footer-locale select:focus {
+  outline: none;
+  border-color: #000;
+}
