@@ -3,168 +3,37 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title data-i18n="meta.title.privacy">Privacy — KeySearch</title>
+  <title data-i18n="meta.title.disclaimer">Disclaimer — KeySearch</title>
 
   <link rel="stylesheet" href="css/styles.css"/>
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/responsive.css"/>
 
-  <!-- 站點層 SEO（favicon/manifest/預設 OG/Twitter 等） -->
-  <script src="js/seo.js" defer data-page="post"></script>
-  <!-- I18N -->
+  <script src="js/seo.js" defer data-page="disclaimer"></script>
   <script src="js/lang.js"></script>
-
-  <style>
-    /* 單篇基本樣式（與 post.html 相同，可移到 app.css） */
-    .post-hero{ padding:64px 0 12px; }
-    .post-hero h1{ font-size:2rem; margin:0 0 6px; }
-    .post-meta{ opacity:.85; font-size:.95rem; display:flex; gap:12px; flex-wrap:wrap; }
-    .post-meta .dot::before{ content:"• "; opacity:.7; }
-    .post-cover{ margin:18px 0 0; border-radius:14px; overflow:hidden; }
-    .post-cover img{ width:100%; display:block; }
-    .post-body{ padding: 14px 0 40px; }
-    .post-body img{ max-width:100%; border-radius:12px; }
-    .post-body h2{ margin:22px 0 10px; }
-    .post-body pre{ background:#0f0f12; padding:12px; border-radius:12px; overflow:auto; }
-    .post-back{ margin-top: 6px; display:inline-block; opacity:.9; }
-    .tag{ display:inline-block; font-size:.85rem; padding:2px 8px; border:1px solid rgba(255,255,255,.15); border-radius:999px; margin-right:6px;}
-    .toc{ margin:16px 0; padding:12px 12px; border:1px solid rgba(255,255,255,.12); border-radius:12px; }
-    .toc h3{ margin:0 0 6px; font-size:1rem; opacity:.9; }
-    .toc a{ display:block; padding:4px 0; }
-    @media (max-width: 640px){
-      .post-hero{ padding:40px 0 8px;}
-      .post-hero h1{ font-size:1.6rem; }
-    }
-  </style>
-
-  <!-- 固定此頁 slug=disclaimer -->
-<script>
-  (function(){
-    const u = new URL(location.href);
-    if (!u.searchParams.get('slug')) {
-      u.searchParams.set('slug','disclaimer');
-      history.replaceState({},'',u);
-    }
-  })();
-</script>
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- HEADER 共用 -->
   <header class="site-header bm-header" role="banner">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="KeySearch home">
-        <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
-        <span class="brand-text" data-i18n="header.brand">KeySearch</span>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <ul class="nav-links" id="primaryNav" role="menubar">
-        <li><a href="features.html" data-i18n="header.features">Features</a></li>
-        <li><a href="download.html" data-i18n="header.download">Download</a></li>
-        <li><a href="pricing.html" data-i18n="header.pricing">Pricing</a></li>
-        <li><a href="about.html" data-i18n="header.about">About</a></li>
-        <li><a href="support.html" data-i18n="header.support">Support</a></li>
-        <li class="mobile-only">
-          <button class="lang-btn" id="langBtnMobile" aria-haspopup="menu" aria-expanded="false">
-            🌐 <span id="langCurrentMobile" data-i18n="header.lang.current">English</span> ▾
-          </button>
-        </li>
-        <li class="mobile-only">
-          <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">🚀 Try Web App</a>
-        </li>
-      </ul>
-      <div class="nav-actions desktop-only">
-        <a class="btn bm-cta" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="header.tryapp.cta">🚀 Try Web App</a>
-      </div>
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="KeySearch" width="28"/> <span>KeySearch</span></a>
     </div>
   </header>
-  <div id="langPortal" class="lang-portal" role="menu" aria-hidden="true"></div>
 
   <main class="container">
-    <a class="post-back" href="index.html#legal" data-i18n="blog.back">← Back</a>
-
-    <!-- Hero -->
-    <section class="post-hero">
-      <h1 id="postTitle">…</h1>
-      <div class="post-meta">
-        <time id="postDate" datetime=""></time>
-        <span id="postRead" class="dot"></span>
-        <span id="postTags"></span>
-      </div>
-      <div id="postCover" class="post-cover" hidden></div>
+    <section class="page-hero">
+      <h1 id="legalTitle">Disclaimer</h1>
     </section>
-
-    <!-- TOC（可選） -->
-    <nav id="postTOC" class="toc" hidden>
-      <h3 data-i18n="blog.toc">On this page</h3>
-      <div id="postTOCList"></div>
-    </nav>
-
-    <!-- 內容 -->
-    <article id="postBody" class="post-body"></article>
+    <article id="legalBody" class="legal-body"></article>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer bm-footer">
-    <div class="container bm-footer-top">
-      <div class="bm-foot-brand">
-        <a class="brand mini" href="index.html"><span data-i18n="foot.brand">KeySearch</span></a>
-        <p class="tagline" data-i18n="foot.slogan" data-i18n-html>Find it. Fast.<br>No mess. Just answers.</p>
-      </div>
-      <div class="bm-foot-links-grid">
-        <section class="foot-col">
-          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.product">Product</button></h4>
-          <ul class="foot-links">
-            <li><a href="features.html" data-i18n="foot.product.feat">Features</a></li>
-            <li><a href="pricing.html" data-i18n="foot.product.price">Pricing</a></li>
-            <li><a href="download.html" data-i18n="foot.product.download">Download</a></li>
-          </ul>
-        </section>
-        <section class="foot-col">
-          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.support">Support</button></h4>
-          <ul class="foot-links">
-            <li><a href="support.html" data-i18n="foot.support.help">Help Center</a></li>
-            <li><a href="privacy.html" data-i18n="foot.b.privacy">Privacy</a></li>
-            <li><a href="terms.html" data-i18n="foot.b.terms">Terms</a></li>
-            <li><a href="disclaimer.html">Disclaimer</a></li>
-          </ul>
-        </section>
-        <section class="foot-col">
-          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.company">Company</button></h4>
-          <ul class="foot-links">
-            <li><a href="about.html" data-i18n="foot.company.about">About</a></li>
-            <li><a href="mailto:hello@keysearch-app.com" data-i18n="foot.company.contact">Contact</a></li>
-          </ul>
-        </section>
-        <section class="foot-col">
-          <h4><button class="foot-head" type="button" aria-expanded="false" data-i18n="foot.follow">Follow</button></h4>
-          <ul class="foot-links">
-            <li><a href="blog.html" rel="me" data-i18n="foot.follow.blog">Blog</a></li>
-            <li><a href="#" rel="me" data-i18n="foot.follow.twitter">Twitter</a></li>
-            <li><a href="#" rel="me" data-i18n="foot.follow.youtube">YouTube</a></li>
-          </ul>
-        </section>
-      </div>
-    </div>
     <div class="container bm-footer-bottom">
-      <div class="legal">
-        <a href="#" id="footLangLink" data-i18n="foot.b.lang">Language</a>
-        <a href="privacy.html" data-i18n="foot.b.privacy">Privacy</a>
-        <a href="terms.html" data-i18n="foot.b.terms">Terms</a>
-        <a href="disclaimer.html">Disclaimer</a>
-      </div>
-      <small data-i18n="foot.b.copy">© 2025 KeySearch. All rights reserved.</small>
+      <small>© 2025 KeySearch. All rights reserved.</small>
     </div>
   </footer>
 
-  <!-- JS -->
-  <script src="js/reveal.js" defer></script>
-  <script src="js/app.js" defer></script>
-  <!-- marked.js（Markdown 轉 HTML）若你已全站載入可移除 -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="js/post.js" defer></script>
+  <script src="js/marked.min.js"></script>
+  <script src="js/legal.js"></script>
 </body>
 </html>
