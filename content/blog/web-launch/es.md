@@ -1,4 +1,3 @@
----
 
 Cada día gestionamos distintos tipos de información: archivos, rutas, enlaces, notas, tareas pendientes.  
 El problema es que, cuando estos datos están dispersos en diferentes lugares, recuperarlos rápidamente siempre toma demasiado tiempo.  
