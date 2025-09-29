@@ -1,4 +1,3 @@
----
 
 Setiap hari kita menangani berbagai informasi: file, path, tautan, catatan, daftar tugas.  
 Masalahnya, ketika semua data ini tersebar di banyak tempat, mencari kembali dengan cepat selalu menghabiskan waktu.  
