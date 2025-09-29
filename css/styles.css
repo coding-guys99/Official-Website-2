@@ -329,6 +329,68 @@ body.no-scroll { overflow: hidden; }
 }
 .nav-backdrop.show{ display:block; }
 
+/* Apple-style footer */
+.apple-footer {
+  background: #f5f5f7;
+  color: #1d1d1f;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 40px;
+  border-top: 1px solid #d2d2d7;
+}
 
+.apple-footer a {
+  color: #424245;
+  text-decoration: none;
+}
+.apple-footer a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+.apple-footer-top {
+  padding: 24px 0;
+}
+
+.apple-foot-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+  gap: 24px;
+}
+
+.apple-foot-links-grid h4 {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #6e6e73;
+}
+
+.apple-foot-links-grid ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.apple-foot-links-grid li {
+  margin-bottom: 4px;
+}
+
+.apple-footer-bottom {
+  border-top: 1px solid #d2d2d7;
+  padding: 12px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #6e6e73;
+}
+
+.apple-footer-bottom .legal-links a {
+  margin-left: 16px;
+  color: #6e6e73;
+}
+.apple-footer-bottom .legal-links a:hover {
+  color: #000;
+}
 
 
