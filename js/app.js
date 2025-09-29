@@ -394,3 +394,33 @@
   const initHash = location.hash.match(/^#y-(\d{4})$/)?.[1];
   setActive(initHash || 'all');
 })();
+
+
+(function(){
+  function initMobileFooterAccordion(){
+    if (!matchMedia('(max-width: 640px)').matches) return;
+
+    document.querySelectorAll('.ks-foot-grid section h4').forEach(h4=>{
+      const section = h4.closest('section');
+      if (!section) return;
+
+      // 無障礙屬性
+      h4.setAttribute('role','button');
+      h4.setAttribute('tabindex','0');
+      h4.setAttribute('aria-expanded','false');
+
+      const toggle = ()=>{
+        const open = section.classList.toggle('open');
+        h4.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+      h4.addEventListener('click', toggle);
+      h4.addEventListener('keydown', e=>{
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initMobileFooterAccordion);
+  // 如果你的頁面有 SPA/動態注入，也可以在語言切換後重跑：
+  document.addEventListener('i18n:changed', initMobileFooterAccordion);
+})();
