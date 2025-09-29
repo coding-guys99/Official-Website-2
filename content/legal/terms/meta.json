@@ -1,13 +1,3 @@
 {
-  "title": "Terms of Use",
-  "description": "The rules and conditions for using KeySearch.",
-  "date": "2025-09-29",
-  "dateText": "2025 年 9 月 29 日",
-  "readingMinutes": 4,
-  "tags": ["legal", "terms"],
-  "cover": {
-    "src": "/assets/blog/legal/terms.jpg",
-    "alt": "Terms of Use"
-  },
-  "author": "KeySearch Team"
+  "title": "服務條款"
 }
