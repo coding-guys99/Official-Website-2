@@ -1,4 +1,3 @@
----
 
 Setiap hari kita berurusan dengan pelbagai maklumat: fail, laluan (path), pautan, nota, tugasan.  
 Masalahnya, apabila semua ini bersepah di merata tempat, untuk mencarinya semula dengan cepat selalu membuang masa.  
