@@ -1,4 +1,3 @@
----
 
 Todos os dias lidamos com vários tipos de informação: arquivos, caminhos (path), links, anotações, tarefas.  
 O problema é que, quando esses dados estão espalhados por diferentes lugares, encontrá-los rapidamente sempre consome tempo.  
