@@ -3,32 +3,37 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title data-i18n="meta.title.privacy">Privacy — KeySearch</title>
+  <title data-i18n="meta.title.privacy">Privacy Policy — KeySearch</title>
+
   <link rel="stylesheet" href="css/styles.css"/>
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/responsive.css"/>
+
   <script src="js/seo.js" defer data-page="privacy"></script>
   <script src="js/lang.js"></script>
 </head>
 <body>
-  <!-- 可沿用你現有的 header/footer -->
+  <!-- HEADER 共用 -->
+  <header class="site-header bm-header" role="banner">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="KeySearch" width="28"/> <span>KeySearch</span></a>
+    </div>
+  </header>
+
   <main class="container">
-    <a class="post-back" href="support.html" data-i18n="blog.back">← Back</a>
-
-    <section class="post-hero">
-      <h1 id="docTitle">…</h1>
-      <div class="post-meta">
-        <time id="docDate" datetime=""></time>
-        <span id="docRead" class="dot"></span>
-      </div>
-      <div id="docCover" class="post-cover" hidden></div>
+    <section class="page-hero">
+      <h1 id="legalTitle">Privacy Policy</h1>
     </section>
-
-    <article id="docBody" class="post-body"></article>
+    <article id="legalBody" class="legal-body"></article>
   </main>
 
-  <script src="js/reveal.js" defer></script>
-  <script src="js/app.js" defer></script>
-  <script src="js/policy.js" defer data-type="privacy"></script>
+  <footer class="site-footer bm-footer">
+    <div class="container bm-footer-bottom">
+      <small>© 2025 KeySearch. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="js/marked.min.js"></script>
+  <script src="js/legal.js"></script>
 </body>
 </html>
