@@ -889,3 +889,19 @@ section.cta .actions {
   max-width: 30ch;
 }
 
+/* ===== Footer padding 調整 ===== */
+.ks-footer {
+  padding-top: 48px;   /* 原本可能是 24px ~ 32px，現在加大 */
+  padding-bottom: 48px;
+}
+
+.ks-footer-top {
+  margin-bottom: 40px; /* Logo/連結區與底部語言+版權區的間距 */
+}
+
+.ks-footer .ks-footer-bottom {
+  padding-top: 24px;
+  padding-bottom: 16px;
+}
+
+
