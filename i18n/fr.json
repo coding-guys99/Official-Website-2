@@ -248,12 +248,14 @@
 },
 
   "foot": {
-    "brand": "KeySearch",
-    "slogan-1": "Trouvez vite, en un geste.<br>Sans désordre, juste des réponses.",
-    "product": { "_": "Produit", "feat": "Fonctionnalités", "price": "Tarifs", "download": "Téléchargement" },
-    "support": { "_": "Assistance", "help": "Centre d’aide", "docs": "Docs" },
-    "company": { "_": "Société", "about": "À propos", "contact": "Contact" },
-    "follow":  { "_": "Suivre", "twitter": "Twitter", "youtube": "YouTube" },
-    "b": { "lang": "Langue", "privacy": "Confidentialité", "terms": "Conditions", "copy": "© 2025 KeySearch. Tous droits réservés." }
-  }
+  "brand": "KeySearch",
+  "slogan-1": "Recherche rapide, réponse immédiate.<br>Clair et direct à la solution.",
+  "product": { "_": "Produit", "feat": "Fonctionnalités", "price": "Tarifs", "download": "Télécharger" },
+  "support": { "_": "Support", "help": "Centre d’aide", "docs": "Documentation", "blog": "Blog" },
+  "company": { "_": "Entreprise", "about": "À propos de nous", "contact": "Contactez-nous" },
+  "follow":  { "_": "Suivez-nous", "twitter": "Twitter", "youtube": "YouTube" },
+  "legal":  { "_": "Légal", "privacy": "Confidentialité", "terms": "Conditions", "disclaimer": "Avertissement" },
+  "b": { "lang": "Langue", "copy": "© 2025 KeySearch. Tous droits réservés." }
+}
+
 }
