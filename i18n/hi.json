@@ -249,12 +249,14 @@
 },
 
   "foot": {
-    "brand": "KeySearch",
-    "slogan-1": "जल्दी खोजें।<br>बिना अव्यवस्था, सीधे उत्तर।",
-    "product": { "_": "उत्पाद", "feat": "विशेषताएँ", "price": "कीमत", "download": "डाउनलोड" },
-    "support": { "_": "सहायता", "help": "हेल्प सेंटर", "docs": "डॉक्स" },
-    "company": { "_": "कंपनी", "about": "हमारे बारे में", "contact": "संपर्क" },
-    "follow": { "_": "हमारा अनुसरण करें", "twitter": "Twitter", "youtube": "YouTube" },
-    "b": { "lang": "भाषा", "privacy": "गोपनीयता", "terms": "नियम", "copy": "© 2025 KeySearch. सर्वाधिकार सुरक्षित।" }
-  }
+  "brand": "KeySearch",
+  "slogan-1": "तेज़ खोज, तुरंत जवाब।<br>साफ़ और सीधे समाधान तक।",
+  "product": { "_": "उत्पाद", "feat": "विशेषताएँ", "price": "कीमत", "download": "डाउनलोड" },
+  "support": { "_": "सहायता", "help": "सहायता केंद्र", "docs": "दस्तावेज़", "blog": "ब्लॉग" },
+  "company": { "_": "कंपनी", "about": "हमारे बारे में", "contact": "संपर्क करें" },
+  "follow":  { "_": "हमें फ़ॉलो करें", "twitter": "Twitter", "youtube": "YouTube" },
+  "legal":  { "_": "कानूनी", "privacy": "गोपनीयता", "terms": "नियम", "disclaimer": "अस्वीकरण" },
+  "b": { "lang": "भाषा", "copy": "© 2025 KeySearch. सर्वाधिकार सुरक्षित।" }
+}
+
 }
