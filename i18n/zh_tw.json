@@ -287,7 +287,8 @@
   "support": { "_": "支援", "help": "幫助中心", "docs": "文件", "blog": "部落格"},
   "company": { "_": "公司", "about": "關於我們", "contact": "聯絡我們" },
   "follow":  { "_": "追蹤我們", "twitter": "Twitter", "youtube": "YouTube" },
-  "b": { "lang": "語言", "privacy": "隱私", "terms": "條款", "disclaimer": "免責聲明", "copy": "© 2025 KeySearch. 版權所有。" }
+  "legal":  { "_": "法律", "privacy": "隱私", "terms": "條款", "disclaimer": "免責聲明" },
+  "b": { "lang": "語言", "copy": "© 2025 KeySearch. 版權所有。" }
 }
 
 }
