@@ -249,12 +249,14 @@
 },
 
   "foot": {
-    "brand": "KeySearch",
-    "slogan-1": "Encontre rápido.<br>Sem bagunça. Apenas respostas.",
-    "product": { "_": "Produto", "feat": "Recursos", "price": "Planos", "download": "Download" },
-    "support": { "_": "Suporte", "help": "Central de ajuda", "docs": "Documentação" },
-    "company": { "_": "Empresa", "about": "Sobre", "contact": "Contato" },
-    "follow": { "_": "Siga", "twitter": "Twitter", "youtube": "YouTube" },
-    "b": { "lang": "Idioma", "privacy": "Privacidade", "terms": "Termos", "copy": "© 2025 KeySearch. Todos os direitos reservados." }
-  }
+  "brand": "KeySearch",
+  "slogan-1": "Busca rápida, resposta imediata.<br>Limpo e direto à solução.",
+  "product": { "_": "Produto", "feat": "Recursos", "price": "Preços", "download": "Baixar" },
+  "support": { "_": "Suporte", "help": "Central de Ajuda", "docs": "Documentação", "blog": "Blog" },
+  "company": { "_": "Empresa", "about": "Sobre Nós", "contact": "Contato" },
+  "follow":  { "_": "Siga-nos", "twitter": "Twitter", "youtube": "YouTube" },
+  "legal":  { "_": "Jurídico", "privacy": "Privacidade", "terms": "Termos", "disclaimer": "Aviso Legal" },
+  "b": { "lang": "Idioma", "copy": "© 2025 KeySearch. Todos os direitos reservados." }
+}
+
 }
