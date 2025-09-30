@@ -186,6 +186,7 @@
       "toast": "Opening your email app…"
   },
 
+  {
   "donate": {
     "back": "← Back",
     "title": "Support development",
@@ -195,9 +196,7 @@
       "desc": "Choose your currency and amount. Then pick PayPal or Stripe to complete payment."
     },
     "currency": "Currency",
-    "chips": {
-      "custom": "Custom"
-    },
+    "chips": { "custom": "Custom amount" },
     "paypal": "Pay with PayPal",
     "stripe": "Pay with Stripe",
     "coffee": "Buy me a coffee",
@@ -217,7 +216,8 @@
       "q4": "Is there a subscription?",
       "a4": "For now donations are one-time. Subscriptions may be added later."
     }
-  },
+  }
+},
 
   "news": {
     "title": "Product Updates",
