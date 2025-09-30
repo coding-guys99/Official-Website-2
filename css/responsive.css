@@ -416,4 +416,11 @@ html, body { overflow-x: hidden; }
   .feat-grid.container { grid-template-columns: 1fr; max-width: 520px; }
 }
 
+/* 桌機專用 */
+.desktop-only { display: none; }
+@media (min-width: 981px) {
+  .desktop-only { display: block; }
+  .mobile-only { display: none; }
+}
+
 /* ====== END ====== */
