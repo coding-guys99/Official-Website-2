@@ -272,12 +272,14 @@
 },
 
   "foot": {
-    "brand": "KeySearch",
-    "slogan-1": "すばやく見つける。<br>散らからず、すぐ答えへ。",
-    "product": { "_": "製品", "feat": "機能", "price": "価格", "download": "ダウンロード" },
-    "support": { "_": "サポート", "help": "ヘルプセンター", "docs": "ドキュメント" },
-    "company": { "_": "会社情報", "about": "概要", "contact": "お問い合わせ" },
-    "follow": { "_": "フォロー", "twitter": "Twitter", "youtube": "YouTube" },
-    "b": { "lang": "言語", "privacy": "プライバシー", "terms": "利用規約", "copy": "© 2025 KeySearch. 無断転載を禁ずる。" }
-  }
+  "brand": "KeySearch",
+  "slogan-1": "高速検索、すぐに到達。<br>シンプルに、答えへ直行。",
+  "product": { "_": "製品", "feat": "機能", "price": "価格", "download": "ダウンロード" },
+  "support": { "_": "サポート", "help": "ヘルプセンター", "docs": "ドキュメント", "blog": "ブログ" },
+  "company": { "_": "会社", "about": "私たちについて", "contact": "お問い合わせ" },
+  "follow":  { "_": "フォローする", "twitter": "Twitter", "youtube": "YouTube" },
+  "legal":  { "_": "法務", "privacy": "プライバシー", "terms": "利用規約", "disclaimer": "免責事項" },
+  "b": { "lang": "言語", "copy": "© 2025 KeySearch. 無断転載を禁じます。" }
+}
+
 }
