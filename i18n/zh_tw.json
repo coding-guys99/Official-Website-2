@@ -148,26 +148,27 @@
   "email": "hello@keysearch-app.com",
 
   "support": {
-    "title": "支援",
-    "lead": "快速找到答案，或把想法告訴我們。",
-    "quick": { "download": "下載", "billing": "帳單與方案", "faq": "常見問題", "contact": "聯絡我們" },
-    "faq": {
-      "title": "常見問題",
-      "q1": "KeySearch 和 Everything 有什麼不同？",
-      "a1": "Everything 是極速檔名搜尋工具，專注於「找檔名」。KeySearch 除了搜尋檔案名稱，還能把資料變成卡片，支援 內容、標籤、分類搜尋，並可匯出 CSV/JSON。簡單說：Everything 幫你找檔案，KeySearch 幫你整理資訊。",
-      "q2": "KeySearch 和 Listary 有什麼不同？",
-      "a2": "Listary 側重於「啟動器 + 檔案對話框整合」，方便快速開啟程式或跳轉目錄。KeySearch 則是「卡片式知識搜尋」：除了檔案，還能儲存筆記、連結、研究內容，並用標籤、排序管理。Listary 幫你加快啟動，KeySearch 幫你記錄與重找。",
-      "q3": "KeySearch 支援哪些平台？",
-      "a3": "目前提供 Web 版（Demo），可在瀏覽器立即體驗。Windows/macOS 桌面版正在開發中（Coming Soon）。",
-      "q4": "支援哪些語言？",
-      "a4": "KeySearch 內建 16 種語言架構。首發開放 英文、繁體中文、简体中文、日文、韓文、馬來文。其他語言會依需求逐步釋出。",
-      "q5": "資料會不會上傳？隱私如何保護？",
-      "a5": "Web 版資料儲存在本機瀏覽器（LocalStorage/IndexedDB），不會自動上傳伺服器。未來若推出雲同步，會以加密並讓你自行決定是否啟用。",
-      "q6": "能不能備份或帶走我的資料？",
-      "a6": "可以。KeySearch 提供 CSV/JSON 匯出，方便備份、轉移或跨裝置使用。",
-      "q7": "目前要付費嗎？",
-      "a7": "現在 Web 版完全免費，並開放 Donate 支持開發。未來將推出 Pro 版本，包含桌面應用、進階功能，屆時會提供清楚的定價方案。"
-    },
+  "title": "支援",
+  "lead": "快速找到答案，或與我們分享你的想法。",
+  "quick": { "download": "下載", "billing": "帳單與方案", "faq": "常見問題", "contact": "聯絡我們", "donate": "捐款" },
+  "faq": {
+    "title": "常見問題",
+    "q1": "KeySearch 和 Everything 有什麼不同？",
+    "a1": "Everything 是一款超高速的檔名搜尋工具，專注於尋找檔名。KeySearch 不僅能搜尋檔名，還能把資料轉換成卡片，支援內容、標籤與分類搜尋，並能匯出 CSV/JSON。簡單來說：Everything 找檔案，KeySearch 整理資訊。",
+    "q2": "KeySearch 和 Listary 有什麼不同？",
+    "a2": "Listary 專注於「啟動器 + 檔案對話框整合」，方便快速開啟程式或跳轉目錄。KeySearch 是「卡片式知識搜尋」：除了檔案，你還可以儲存筆記、連結、研究內容，並透過標籤與排序來管理。Listary 加快啟動，KeySearch 幫你記錄與找回。",
+    "q3": "KeySearch 支援哪些平台？",
+    "a3": "目前提供 Web Demo，可直接在瀏覽器使用。Windows/macOS 桌面版正在開發中（即將推出）。",
+    "q4": "支援哪些語言？",
+    "a4": "KeySearch 內建 16 種語言架構。初始版本支援英文、繁體中文、簡體中文、日文、韓文與馬來文。其他語言會依需求逐步新增。",
+    "q5": "我的資料會被上傳嗎？隱私如何保護？",
+    "a5": "在 Web 版中，資料儲存在瀏覽器本地（LocalStorage/IndexedDB），不會自動上傳。未來若引入雲端同步，將會加密處理，並由你決定是否啟用。",
+    "q6": "我能備份或帶走我的資料嗎？",
+    "a6": "可以。KeySearch 提供 CSV/JSON 匯出，方便備份、轉移或跨裝置使用。",
+    "q7": "現在需要付費嗎？",
+    "a7": "Web 版目前完全免費，並提供捐款支持。未來將推出桌面應用程式與進階功能的 Pro 版本，並附上明確的價格方案。"
+  }
+},
     "feedback": {
       "title": "傳送回饋",
       "name": "你的姓名",
