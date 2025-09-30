@@ -904,4 +904,39 @@ section.cta .actions {
   padding-bottom: 16px;
 }
 
+/* === Features 頁：標題與卡片對齊、置中 === */
+.feat-hero.container {
+  max-width: 1100px;      /* 標題區與卡片同寬 */
+  margin: 0 auto;         /* 置中 */
+  text-align: center;
+  padding: 64px 0 12px;
+}
+
+.feat-grid.container {
+  /* 用固定最大寬度 + repeat 把卡片排成 4/3/2/1 欄；整體置中 */
+  max-width: 1100px;
+  margin: 12px auto 40px; /* 置中 */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
+  gap: 22px;
+  align-items: stretch;   /* 卡片等高 */
+  justify-items: stretch; /* 卡片撐滿格線，避免看起來偏一側 */
+}
+
+/* 卡片本體撐滿高度，內容垂直分佈 */
+.feat-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* icon 區置中對齊，避免視覺偏移 */
+.feat-card .icon-wrap {
+  display: grid;
+  place-items: center;
+  height: 64px;
+  margin-bottom: 8px;
+}
+
 
