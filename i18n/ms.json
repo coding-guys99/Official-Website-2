@@ -261,7 +261,7 @@
   "slogan-1": "Cari pantas, terus ke jawapan.<br>Kemas dan tepat ke sasaran.",
   "product": { "_": "Produk", "feat": "Ciri", "price": "Harga", "download": "Muat turun" },
   "support": { "_": "Sokongan", "help": "Pusat Bantuan", "docs": "Dokumen", "blog": "Blog" },
-  "company": { "_": "Syarikat", "about": "Tentang Kami", "contact": "Hubungi Kami" },
+  "company": { "_": "Syarikat", "about": "Tentang Kami", "contact": "Hubungi Kami", "donate": "Derma" },
   "follow":  { "_": "Ikuti Kami", "twitter": "Twitter", "youtube": "YouTube" },
   "legal":  { "_": "Undang-undang", "privacy": "Privasi", "terms": "Terma", "disclaimer": "Penafian" },
   "b": { "lang": "Bahasa", "copy": "© 2025 KeySearch. Hak cipta terpelihara." }
