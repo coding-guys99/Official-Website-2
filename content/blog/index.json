@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "keysearch-born",
+    "title": {
+      "en": "The Birth of KeySearch: From Chaos to Clarity",
+      "zh_tw": "KeySearch 的誕生：從混亂到清晰的旅程",
+      "zh_cn": "KeySearch 的诞生：从混乱到清晰的旅程",
+      "ja": "KeySearchの誕生：混沌から明快へ",
+      "ko": "KeySearch의 탄생: 혼란에서 명료함으로"
+    },
+    "excerpt": {
+      "en": "From everyday chaos and search pain points to the birth of KeySearch — a card-based knowledge search tool.",
+      "zh_tw": "從日常的混亂與搜尋痛點，到 KeySearch 的誕生：一款卡片式知識搜尋工具。",
+      "zh_cn": "从日常的混乱与搜索痛点，到 KeySearch 的诞生：一款卡片式知识搜索工具。",
+      "ja": "日々の混乱と検索の課題から生まれた、カード型ナレッジ検索ツール。",
+      "ko": "일상의 혼란과 검색 문제에서 탄생한 카드형 지식 검색 도구."
+    },
+    "date": "2025-10-10",
+    "tags": ["product", "stories"],
+    "cover": "assets/blog/birth-of-keysearch/card.jpg"
+  },
+  {
+    "slug": "web-launch",
+    "title": {
+      "en": "KeySearch Web Launch: Card-based Search for Order",
+      "zh_tw": "KeySearch Web 版上線：卡片式搜尋，讓你的資訊更有秩序",
+      "zh_cn": "KeySearch Web 版上线：卡片式搜索，让你的信息更有秩序",
+      "ja": "KeySearch Web版リリース：カード型検索で情報を整える",
+      "ko": "KeySearch 웹 출시: 카드형 검색으로 정돈된 정보"
+    },
+    "excerpt": {
+      "en": "16 languages, card-based records, Path/Link/Tag support, export — try it instantly in your browser.",
+      "zh_tw": "16 種語言、卡片紀錄、支援 Path/Link/Tag 與匯出，打開瀏覽器即可體驗。",
+      "zh_cn": "16 种语言、卡片记录、支持 Path/Link/Tag 与导出，打开浏览器即可体验。",
+      "ja": "16言語対応、カード記録、Path/Link/Tag、エクスポート対応。ブラウザですぐ体験。",
+      "ko": "16개 언어, 카드 기록, Path/Link/Tag 지원, 내보내기 — 브라우저에서 바로 체험."
+    },
+    "date": "2025-10-10",
+    "tags": ["product"],
+    "cover": "assets/blog/web-launch/card.jpg"
+  }
+]
