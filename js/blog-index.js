@@ -107,16 +107,20 @@ function pickTags(v){
 function cardTemplate(dict, item){
   if (!item || !item.slug) return '';
 
-  const href      = `post.html?slug=${encodeURIComponent(item.slug)}&lang=${curLang()}`;
-  const readmore  = dict?.readmore || 'Read more';
+  const lang = curLang();
+  console.log('[blog] current lang =', lang);
+  console.log('[blog] raw title =', item.title);
 
-  const title     = pickLang(item.title);
-  const excerpt   = pickLang(item.description || item.excerpt);
-  const dateISO   = item.date || '';
-  const dateText  = pickLang(item.dateText) || item.date || '';
-  const tags      = pickTags(item.tags);
+  const title   = pickLang(item.title);
+  const excerpt = pickLang(item.description || item.excerpt);
+  console.log('[blog] resolved title =', title);
 
-  // 圖片路徑：建議一律用絕對路徑（以 / 開頭）
+  const href     = `post.html?slug=${encodeURIComponent(item.slug)}&lang=${lang}`;
+  const readmore = dict?.readmore || 'Read more';
+  const dateISO  = item.date || '';
+  const dateText = pickLang(item.dateText) || item.date || '';
+  const tags     = pickTags(item.tags);
+
   const coverSrc  = item.cover?.src || '';
   const coverAlt  = pickLang(item.cover?.alt) || '';
   const coverHTML = coverSrc ? `<img class="cover" src="${coverSrc}" alt="${coverAlt}" loading="lazy"/>` : '';
