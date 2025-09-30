@@ -186,7 +186,6 @@
       "toast": "Opening your email app…"
   },
 
-  {
   "donate": {
     "back": "← Back",
     "title": "Support development",
@@ -216,8 +215,7 @@
       "q4": "Is there a subscription?",
       "a4": "For now donations are one-time. Subscriptions may be added later."
     }
-  }
-},
+  },
 
   "news": {
     "title": "Product Updates",
