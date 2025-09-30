@@ -405,4 +405,15 @@ html, body { overflow-x: hidden; }
   .feature-modern .feature-media, .feature-modern .feature-text{ order: initial; text-align: center; }
 }
 
+/* 斷點：調整欄數，同步維持居中 */
+@media (max-width: 1200px) {
+  .feat-grid.container { grid-template-columns: repeat(3, minmax(220px, 1fr)); max-width: 860px; }
+}
+@media (max-width: 900px) {
+  .feat-grid.container { grid-template-columns: repeat(2, minmax(220px, 1fr)); max-width: 680px; }
+}
+@media (max-width: 560px) {
+  .feat-grid.container { grid-template-columns: 1fr; max-width: 520px; }
+}
+
 /* ====== END ====== */
