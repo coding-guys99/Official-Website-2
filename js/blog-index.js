@@ -77,21 +77,15 @@ function curLang(){
   return (window.I18N?.lang || 'en').toLowerCase().replace('-', '_');
 }
 function pickLang(v){
-  // 將任意型別（字串/數字/陣列/物件）轉成當前語言的字串
-  if (v == null) return '';
+  if (!v) return '';
+  const lang = curLang();
   if (typeof v === 'string') return v;
-  if (typeof v === 'number' || typeof v === 'boolean') return String(v);
-  if (Array.isArray(v)) return v.map(pickLang).filter(Boolean).join(', ');
   if (typeof v === 'object'){
-    const L = curLang();
-    // 常見多語鍵優先順序：當前語言 > en > _ > 物件中第一個字串值
-    return (
-      v[L] || v.en || v._ ||
-      Object.values(v).find(x => typeof x === 'string') ||
-      ''
-    );
+    if (v[lang]) return v[lang];
+    if (v.en) return v.en;
+    return Object.values(v)[0] || '';
   }
-  return '';
+  return String(v);
 }
 function pickTags(v){
   // v 可能是 ['a','b'] 或 {en:[...], zh_tw:[...]}
