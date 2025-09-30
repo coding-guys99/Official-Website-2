@@ -148,18 +148,27 @@
   "email": "hello@keysearch-app.com",
 
   "support": {
-    "title": "Assistance",
-    "lead": "Trouvez des réponses rapidement, ou envoyez-nous vos retours.",
-    "quick": { "download": "Téléchargement", "billing": "Facturation & offres", "faq": "FAQ", "contact": "Contact" },
-    "faq": {
-      "title": "FAQ",
-      "q1": "Comment installer KeySearch ?",
-      "a1": "Téléchargez depuis la page Téléchargement et suivez l’installateur. Sur macOS, autorisez les apps de développeurs identifiés.",
-      "q2": "La version Web est-elle différente de la version bureau ?",
-      "a2": "Les fonctions clés sont identiques. La version bureau ajoute le hors-ligne et l’export local.",
-      "q3": "Comment changer de langue ?",
-      "a3": "Utilisez le sélecteur de langue en haut à droite. D’autres langues arrivent."
-    },
+  "title": "Support",
+  "lead": "Trouvez rapidement des réponses ou partagez vos idées avec nous.",
+  "quick": { "download": "Télécharger", "billing": "Facturation & Offres", "faq": "FAQ", "contact": "Contactez-nous", "donate": "Donner" },
+  "faq": {
+    "title": "Foire Aux Questions",
+    "q1": "Quelle est la différence entre KeySearch et Everything ?",
+    "a1": "Everything est un outil de recherche de noms de fichiers ultra-rapide, axé sur la recherche de noms de fichiers. KeySearch ne recherche pas seulement les noms de fichiers, mais transforme également les données en cartes, prend en charge la recherche par contenu, tags et catégories, et permet l’exportation CSV/JSON. En bref : Everything trouve des fichiers, KeySearch organise l’information.",
+    "q2": "Quelle est la différence entre KeySearch et Listary ?",
+    "a2": "Listary se concentre sur être un 'lanceur + intégration avec les boîtes de dialogue de fichiers', ce qui facilite l’ouverture rapide de programmes ou le changement de répertoire. KeySearch est une 'recherche de connaissances basée sur des cartes' : en plus des fichiers, vous pouvez également enregistrer des notes, des liens, du contenu de recherche et les gérer avec des tags et des tris. Listary accélère le lancement, KeySearch aide à enregistrer et retrouver.",
+    "q3": "Quelles plateformes sont prises en charge par KeySearch ?",
+    "a3": "Actuellement, une démo Web est disponible et peut être utilisée directement dans le navigateur. Les versions de bureau pour Windows/macOS sont en cours de développement (Bientôt disponible).",
+    "q4": "Quelles langues sont prises en charge ?",
+    "a4": "KeySearch dispose d’un cadre intégré pour 16 langues. La première version prend en charge l’anglais, le chinois traditionnel, le chinois simplifié, le japonais, le coréen et le malais. D’autres langues seront ajoutées progressivement en fonction de la demande.",
+    "q5": "Mes données seront-elles téléchargées ? Comment la confidentialité est-elle protégée ?",
+    "a5": "Dans la version Web, les données sont stockées localement dans le navigateur (LocalStorage/IndexedDB) et ne seront pas téléchargées automatiquement. À l’avenir, si une synchronisation cloud est introduite, elle sera chiffrée et vous pourrez décider de l’activer ou non.",
+    "q6": "Puis-je sauvegarder ou emporter mes données ?",
+    "a6": "Oui. KeySearch propose une exportation CSV/JSON, ce qui facilite la sauvegarde, le transfert ou l’utilisation sur plusieurs appareils.",
+    "q7": "Est-ce payant pour le moment ?",
+    "a7": "La version Web est actuellement totalement gratuite, avec la possibilité de soutenir par des dons. À l’avenir, une version Pro sera publiée avec des applications de bureau et des fonctionnalités avancées, accompagnée d’un plan tarifaire clair."
+  }
+},
     "feedback": {
       "title": "Envoyez-nous vos retours",
       "name": "Votre nom",
