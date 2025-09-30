@@ -148,18 +148,27 @@
   "email": "hello@keysearch-app.com",
 
   "support": {
-    "title": "Hỗ trợ",
-    "lead": "Tìm câu trả lời nhanh hoặc gửi phản hồi cho chúng tôi.",
-    "quick": { "download": "Tải xuống", "billing": "Thanh toán & gói", "faq": "FAQ", "contact": "Liên hệ" },
-    "faq": {
-      "title": "FAQ",
-      "q1": "Cách cài đặt KeySearch?",
-      "a1": "Tải từ trang Tải xuống và chạy trình cài đặt. Trên macOS có thể cần cho phép ứng dụng từ nhà phát triển đã xác định.",
-      "q2": "Bản Web khác gì bản Desktop?",
-      "a2": "Tính năng cốt lõi giống nhau. Bản Desktop có thêm offline và xuất cục bộ.",
-      "q3": "Làm sao đổi ngôn ngữ?",
-      "a3": "Dùng bộ chuyển ngôn ngữ ở góc phải trên. Sẽ có thêm ngôn ngữ mới."
-    },
+  "title": "Hỗ trợ",
+  "lead": "Nhanh chóng tìm câu trả lời hoặc chia sẻ ý tưởng với chúng tôi.",
+  "quick": { "download": "Tải xuống", "billing": "Thanh toán & Gói", "faq": "FAQ", "contact": "Liên hệ", "donate": "Ủng hộ" },
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "q1": "KeySearch khác gì so với Everything?",
+    "a1": "Everything là công cụ tìm kiếm tên tệp siêu nhanh, tập trung vào việc tìm tên tệp. KeySearch không chỉ tìm tên tệp mà còn biến dữ liệu thành thẻ, hỗ trợ tìm kiếm nội dung, thẻ, danh mục và xuất CSV/JSON. Tóm lại: Everything tìm tệp, KeySearch tổ chức thông tin.",
+    "q2": "KeySearch khác gì so với Listary?",
+    "a2": "Listary tập trung vào 'trình khởi chạy + tích hợp hộp thoại tệp', giúp mở chương trình hoặc chuyển thư mục nhanh chóng. KeySearch là 'tìm kiếm tri thức dựa trên thẻ': ngoài tệp, bạn có thể lưu ghi chú, liên kết, nội dung nghiên cứu và quản lý chúng bằng thẻ và sắp xếp. Listary giúp khởi chạy nhanh, KeySearch giúp ghi lại và truy xuất.",
+    "q3": "KeySearch hỗ trợ nền tảng nào?",
+    "a3": "Hiện có Web Demo có thể sử dụng trực tiếp trên trình duyệt. Phiên bản Windows/macOS đang được phát triển (Sắp ra mắt).",
+    "q4": "Hỗ trợ những ngôn ngữ nào?",
+    "a4": "KeySearch có khung ngôn ngữ tích hợp cho 16 ngôn ngữ. Bản phát hành đầu tiên hỗ trợ tiếng Anh, Trung Phồn thể, Trung Giản thể, Nhật, Hàn và tiếng Mã Lai. Các ngôn ngữ khác sẽ được bổ sung dần theo nhu cầu.",
+    "q5": "Dữ liệu của tôi có được tải lên không? Quyền riêng tư được bảo vệ thế nào?",
+    "a5": "Trong phiên bản Web, dữ liệu được lưu trữ cục bộ trong trình duyệt (LocalStorage/IndexedDB) và sẽ không tự động tải lên. Trong tương lai, nếu có đồng bộ đám mây, dữ liệu sẽ được mã hóa và bạn có thể chọn bật hoặc không.",
+    "q6": "Tôi có thể sao lưu hoặc mang dữ liệu của mình theo không?",
+    "a6": "Có. KeySearch hỗ trợ xuất CSV/JSON, giúp sao lưu, chuyển dữ liệu hoặc dùng trên nhiều thiết bị dễ dàng.",
+    "q7": "Bây giờ có tốn phí không?",
+    "a7": "Phiên bản Web hiện hoàn toàn miễn phí, có hỗ trợ ủng hộ. Trong tương lai sẽ có phiên bản Pro với ứng dụng desktop và các tính năng nâng cao, kèm kế hoạch giá rõ ràng."
+  }
+},
     "feedback": {
       "title": "Gửi phản hồi",
       "name": "Tên của bạn",
