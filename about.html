@@ -13,6 +13,13 @@
   <!-- 共用頁面樣式 -->
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/responsive.css"/>
+
+<!-- Favicon / App icons (單圖示) -->
+<link rel="icon" type="image/svg+xml" href="assets/brand/logo-icon-gold.svg">
+<link rel="alternate icon" href="assets/brand/logo-icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/brand/logo-icon-180.png" sizes="180x180">
+<link rel="mask-icon" href="assets/brand/logo-icon-black.svg" color="#d4af37">
+  
 </head>
 <body>
 
@@ -21,9 +28,11 @@
   <div class="container nav">
     <!-- Brand -->
     <a class="brand" href="index.html" aria-label="KeySearch home">
-      <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
-      <span class="brand-text" data-i18n="header.brand">KeySearch</span>
-    </a>
+  <!-- 單圖示（深色底用白或金），小尺寸也清晰 -->
+  <img class="brand-icon" src="assets/brand/logo-icon-gold.svg" alt="KeySearch logo" width="28" height="28">
+  <!-- 桌機顯示文字；手機自動隱藏 -->
+  <span class="brand-text">KeySearch</span>
+</a>
 
     <!-- Hamburger (only mobile) -->
     <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
@@ -203,6 +212,7 @@
 
 </body>
 </html>
+
 
 
 
