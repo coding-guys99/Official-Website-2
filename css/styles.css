@@ -553,3 +553,27 @@ body.no-scroll { overflow: hidden; }
   padding: 10px;
 }
 .media-card img{ display:block; width:100%; height:auto; border-radius:12px; }
+
+/* --- Brand 基礎 --- */
+.brand { display:flex; align-items:center; gap:8px; text-decoration:none; color:inherit; }
+.brand-icon { display:block; width:auto; height:28px; }
+
+/* Header：手機只顯示圖示 */
+@media (max-width: 420px){
+  .bm-header .brand-text { display:none; }
+}
+
+/* Footer：品牌區放大、拉開呼吸感 */
+.ks-foot-brand .brand-icon { height:32px; }
+.ks-foot-brand .brand-text { font-size:1.1rem; font-weight:700; }
+
+/* About hero：單字 + 小圖示 */
+.about-hero-title {
+  display:flex; align-items:center; gap:10px; margin:0 0 6px;
+}
+.about-hero-icon {
+  width:28px; height:28px; opacity:.95;
+}
+
+/* 深色系頁腳的品牌金色互動（可選） */
+.ks-footer .brand:hover .brand-text { color:#d4af37; }
