@@ -150,7 +150,7 @@
   "support": {
   "title": "支持",
   "lead": "快速找到答案，或与我们分享你的想法。",
-  "quick": { "download": "下载", "billing": "账单与方案", "faq": "常见问题", "contact": "联系我们", "donate": "捐赠" },
+  "quick": { "download": "下载", "billing": "账单与方案", "faq": "常见问题", "contact": "联系我们", "donate": "赞助" },
   "faq": {
     "title": "常见问题",
     "q1": "KeySearch 和 Everything 有什么不同？",
@@ -285,7 +285,7 @@
   "slogan-1": "快速搜索，一步到位。<br>干净利落，直达答案。",
   "product": { "_": "产品", "feat": "功能", "price": "价格", "download": "下载" },
   "support": { "_": "支持", "help": "帮助中心", "docs": "文档", "blog": "博客" },
-  "company": { "_": "公司", "about": "关于我们", "contact": "联系我们" , "donate": "捐赠"},
+  "company": { "_": "公司", "about": "关于我们", "contact": "联系我们" , "donate": "赞助"},
   "follow":  { "_": "关注我们", "twitter": "Twitter", "youtube": "YouTube" },
   "legal":  { "_": "法律", "privacy": "隐私", "terms": "条款", "disclaimer": "免责声明" },
   "b": { "lang": "语言", "copy": "© 2025 KeySearch. 版权所有。" }
