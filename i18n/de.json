@@ -249,12 +249,14 @@
 },
 
   "foot": {
-    "brand": "KeySearch",
-    "slogan-1": "Schnell finden, auf den Punkt.<br>Kein Chaos. Nur Antworten.",
-    "product": { "_": "Produkt", "feat": "Funktionen", "price": "Preise", "download": "Download" },
-    "support": { "_": "Support", "help": "Hilfe-Center", "docs": "Dokumente" },
-    "company": { "_": "Unternehmen", "about": "Über uns", "contact": "Kontakt" },
-    "follow":  { "_": "Folgen", "twitter": "Twitter", "youtube": "YouTube" },
-    "b": { "lang": "Sprache", "privacy": "Datenschutz", "terms": "Bedingungen", "copy": "© 2025 KeySearch. Alle Rechte vorbehalten." }
-  }
+  "brand": "KeySearch",
+  "slogan-1": "Schnell suchen, sofort finden.<br>Sauber und direkt zur Antwort.",
+  "product": { "_": "Produkt", "feat": "Funktionen", "price": "Preise", "download": "Download" },
+  "support": { "_": "Support", "help": "Hilfe-Center", "docs": "Dokumentation", "blog": "Blog" },
+  "company": { "_": "Unternehmen", "about": "Über uns", "contact": "Kontakt" },
+  "follow":  { "_": "Folge uns", "twitter": "Twitter", "youtube": "YouTube" },
+  "legal":  { "_": "Rechtliches", "privacy": "Datenschutz", "terms": "Nutzungsbedingungen", "disclaimer": "Haftungsausschluss" },
+  "b": { "lang": "Sprache", "copy": "© 2025 KeySearch. Alle Rechte vorbehalten." }
+}
+
 }
