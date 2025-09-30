@@ -359,4 +359,27 @@ html, body { overflow-x: hidden; }
   }
 }
 
+/* 桌機：logo 左對齊 */
+@media (min-width: 641px){
+  .ks-foot-brand { text-align: left; }
+  .ks-footer-top {
+    display: grid;
+    grid-template-columns: 220px 1fr; /* 左 logo + 右四欄 */
+    gap: 40px;
+    align-items: start;
+  }
+}
+
+/* 手機：logo 置中 */
+@media (max-width: 640px){
+  .ks-foot-brand {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .ks-foot-brand .tagline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* ====== END ====== */
