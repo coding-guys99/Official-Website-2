@@ -71,23 +71,57 @@
       render();
     };
   }
-
-  function cardTemplate(dict, item){
-    if (!item || !item.slug) return '';
-    const href = `post.html?slug=${encodeURIComponent(item.slug)}&lang=${lang()}`;
-    const readmore = dict?.readmore || 'Read more';
-    const dateHTML = item.date ? `<time datetime="${item.date}">${item.date}</time>` : '';
-    const coverHTML = item.cover?.src ? `<img class="cover" src="${item.cover.src}" alt="${item.cover.alt||''}" loading="lazy"/>` : '';
-    return `
-      <article class="news-card" data-tags="${(item.tags||[]).join(',')}">
-        ${coverHTML}
-        <div class="news-meta">${dateHTML}</div>
-        <h2>${item.title}</h2>
-        ${item.excerpt ? `<p>${item.excerpt}</p>` : ''}
-        <div class="actions"><a class="btn secondary" href="${href}">${readmore}</a></div>
-      </article>
-    `;
+  
+  // ---- helpers: get current lang & normalize values to string ----
+function curLang() {
+  return (window.I18N?.lang || 'en').toLowerCase().replace('-', '_');
+}
+function toStr(v) {
+  if (v == null) return '';
+  if (typeof v === 'string') return v;
+  if (typeof v === 'number' || typeof v === 'boolean') return String(v);
+  if (Array.isArray(v)) return v.map(toStr).filter(Boolean).join(', ');
+  if (typeof v === 'object') {
+    const L = curLang();
+    // 常見多語鍵：當前語言 > en > _ > 物件中的第一個字串值
+    return (
+      v[L] || v.en || v._ ||
+      Object.values(v).find(x => typeof x === 'string') ||
+      ''
+    );
   }
+  return '';
+}
+function toTagList(arr) {
+  return (arr || []).map(t => (typeof t === 'string' ? t : toStr(t))).filter(Boolean);
+}
+
+function cardTemplate(dict, item){
+  if (!item || !item.slug) return '';
+  const href = `post.html?slug=${encodeURIComponent(item.slug)}&lang=${curLang()}`;
+  const readmore  = dict?.readmore || 'Read more';
+
+  const title    = toStr(item.title);
+  const excerpt  = toStr(item.excerpt);
+  const dateISO  = item.date || '';
+  const dateText = item.dateText || item.date || '';
+  const tags     = toTagList(item.tags);
+
+  const dateHTML  = dateISO ? `<time datetime="${dateISO}">${dateText}</time>` : '';
+  const coverHTML = item.cover?.src
+    ? `<img class="cover" src="${item.cover.src}" alt="${toStr(item.cover.alt)||''}" loading="lazy"/>`
+    : '';
+
+  return `
+    <article class="news-card" data-tags="${tags.join(',')}">
+      ${coverHTML}
+      <div class="news-meta">${dateHTML}</div>
+      <h2>${title}</h2>
+      ${excerpt ? `<p>${excerpt}</p>` : ''}
+      <div class="actions"><a class="btn secondary" href="${href}">${readmore}</a></div>
+    </article>
+  `;
+}
 
   function buildPager(totalPages){
     if (!$pager) return;
