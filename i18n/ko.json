@@ -285,7 +285,7 @@
   "slogan-1": "빠른 검색, 바로 도착.<br>깔끔하게, 정답으로 직행.",
   "product": { "_": "제품", "feat": "기능", "price": "가격", "download": "다운로드" },
   "support": { "_": "지원", "help": "도움말 센터", "docs": "문서", "blog": "블로그" },
-  "company": { "_": "회사", "about": "회사 소개", "contact": "문의하기" },
+  "company": { "_": "회사", "about": "회사 소개", "contact": "문의하기", "donate": "후원" },
   "follow":  { "_": "팔로우", "twitter": "Twitter", "youtube": "YouTube" },
   "legal":  { "_": "법적 고지", "privacy": "개인정보", "terms": "이용약관", "disclaimer": "면책 고지" },
   "b": { "lang": "언어", "copy": "© 2025 KeySearch. 판권 소유." }
