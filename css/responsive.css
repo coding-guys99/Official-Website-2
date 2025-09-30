@@ -382,4 +382,15 @@ html, body { overflow-x: hidden; }
   }
 }
 
+/* 手機再多一點呼吸感 */
+@media (max-width: 640px){
+  .ks-footer {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .ks-footer-top {
+    margin-bottom: 32px;
+  }
+}
+
 /* ====== END ====== */
