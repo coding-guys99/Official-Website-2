@@ -1,56 +1,120 @@
-[
-  {
-    "slug": "keysearch-born",
-    "title": {
-      "en": "The Birth of KeySearch: From Chaos to Clarity",
-      "zh_tw": "KeySearch 的誕生：從混亂到清晰的旅程",
-      "zh_cn": "KeySearch 的诞生：从混乱到清晰的旅程",
-      "ja": "KeySearchの誕生：混沌から明快へ",
-      "ko": "KeySearch의 탄생: 혼란에서 명료함으로"
-    },
-    "description": {
-      "en": "From everyday chaos and search pain points to the birth of KeySearch: a card-based knowledge search tool that helps information get organized, visible, and reusable.",
-      "zh_tw": "從日常的混亂與搜尋痛點，到 KeySearch 的誕生：一款卡片式知識搜尋工具，讓資訊真正被組織、被看見、被重用。",
-      "zh_cn": "从日常的混乱与搜索痛点，到 KeySearch 的诞生：一款卡片式知识搜索工具，让信息真正被组织、被看见、被重用。",
-      "ja": "日常の混乱や検索の課題から生まれたKeySearch：情報を整理し、見える化し、再利用できるカード型ナレッジ検索ツール。",
-      "ko": "일상의 혼란과 검색의 어려움에서 탄생한 KeySearch: 정보를 체계적으로 정리하고, 보이게 하며, 재활용할 수 있게 하는 카드형 지식 검색 도구."
-    },
-    "date": "2025-09-28",
-    "dateText": {
-      "en": "September 28, 2025",
-      "zh_tw": "2025 年 9 月 28 日",
-      "zh_cn": "2025年9月28日",
-      "ja": "2025年9月28日",
-      "ko": "2025년 9월 28일"
-    },
-    "readingMinutes": 6,
-    "tags": {
-      "en": ["Product", "Story"],
-      "zh_tw": ["產品", "故事"],
-      "zh_cn": ["产品", "故事"],
-      "ja": ["製品", "ストーリー"],
-      "ko": ["제품", "스토리"]
-    },
-    "cover": {
-      "src": "assets/blog/keysearch-born/keysearch-born.jpg",
-      "alt": {
-        "en": "Birth of KeySearch",
-        "zh_tw": "KeySearch 誕生",
-        "zh_cn": "KeySearch 诞生",
-        "ja": "KeySearch誕生",
-        "ko": "KeySearch 탄생"
-      }
-    },
-    "author": {
-      "name": "Andy Wong",
-      "role": {
-        "en": "Founder of KeySearch",
-        "zh_tw": "KeySearch 創辦人",
-        "zh_cn": "KeySearch 创办人",
-        "ja": "KeySearch 創設者",
-        "ko": "KeySearch 창립자"
-      },
-      "avatar": "assets/authors/andy.jpg"
+{
+  "slug": "keysearch-born",
+  "title": {
+    "en": "The Birth of KeySearch: From Chaos to Clarity",
+    "zh_tw": "KeySearch 的誕生：從混亂到清晰的旅程",
+    "zh_cn": "KeySearch 的诞生：从混乱到清晰的旅程",
+    "ja": "KeySearchの誕生：混沌から明快へ",
+    "ko": "KeySearch의 탄생: 혼란에서 명료함으로",
+    "th": "การกำเนิดของ KeySearch: จากความวุ่นวายสู่ความชัดเจน",
+    "vi": "Sự ra đời của KeySearch: Từ hỗn loạn đến rõ ràng",
+    "ms": "Kelahiran KeySearch: Dari Kekacauan ke Kejelasan",
+    "id": "Lahirnya KeySearch: Dari Kekacauan ke Kejelasan",
+    "es": "El nacimiento de KeySearch: del caos a la claridad",
+    "de": "Die Geburt von KeySearch: Von Chaos zu Klarheit",
+    "pt": "O Nascimento do KeySearch: Do Caos à Clareza",
+    "ru": "Рождение KeySearch: от хаоса к ясности",
+    "ar": "ولادة KeySearch: من الفوضى إلى الوضوح",
+    "hi": "KeySearch का जन्म: अराजकता से स्पष्टता तक",
+    "fr": "La naissance de KeySearch : du chaos à la clarté"
+  },
+  "description": {
+    "en": "From everyday chaos and search pain points to the birth of KeySearch: a card-based knowledge search tool that helps information get organized, visible, and reusable.",
+    "zh_tw": "從日常的混亂與搜尋痛點，到 KeySearch 的誕生：一款卡片式知識搜尋工具，讓資訊真正被組織、被看見、被重用。",
+    "zh_cn": "从日常的混乱与搜索痛点，到 KeySearch 的诞生：一款卡片式知识搜索工具，让信息真正被组织、被看见、被重用。",
+    "ja": "日常の混乱や検索の課題から生まれたKeySearch：情報を整理し、見える化し、再利用できるカード型ナレッジ検索ツール。",
+    "ko": "일상의 혼란과 검색의 어려움에서 탄생한 KeySearch: 정보를 체계적으로 정리하고, 보이게 하며, 재활용할 수 있게 하는 카드형 지식 검색 도구.",
+    "th": "จากความวุ่นวายและปัญหาการค้นหาในชีวิตประจำวัน สู่การกำเนิดของ KeySearch: เครื่องมือค้นหาความรู้แบบการ์ดที่ช่วยจัดระเบียบ เห็นได้ชัด และนำกลับมาใช้ใหม่ได้",
+    "vi": "Từ sự hỗn loạn hàng ngày và khó khăn trong việc tìm kiếm đến sự ra đời của KeySearch: một công cụ tìm kiếm tri thức dạng thẻ giúp thông tin được tổ chức, hiển thị và tái sử dụng.",
+    "ms": "Daripada kekacauan harian dan masalah pencarian kepada kelahiran KeySearch: alat carian pengetahuan berasaskan kad yang membantu maklumat diatur, kelihatan, dan boleh diguna semula.",
+    "id": "Dari kekacauan sehari-hari dan kesulitan pencarian hingga lahirnya KeySearch: alat pencarian pengetahuan berbasis kartu yang membantu informasi menjadi terorganisir, terlihat, dan dapat digunakan kembali.",
+    "es": "Del caos cotidiano y los problemas de búsqueda al nacimiento de KeySearch: una herramienta de búsqueda de conocimiento basada en tarjetas que ayuda a organizar, visibilizar y reutilizar la información.",
+    "de": "Von alltäglichem Chaos und Suchproblemen zur Geburt von KeySearch: ein kartenbasiertes Wissenssuch-Tool, das Informationen organisiert, sichtbar macht und wiederverwendbar macht.",
+    "pt": "Do caos diário e das dificuldades de busca ao nascimento do KeySearch: uma ferramenta de pesquisa de conhecimento baseada em cartões que ajuda a organizar, tornar visível e reutilizar as informações.",
+    "fr": "Du chaos quotidien et des difficultés de recherche à la naissance de KeySearch : un outil de recherche de connaissances basé sur des cartes qui aide à organiser, rendre visible et réutiliser l’information.",
+     "ru": "От повседневного хаоса и трудностей поиска к рождению KeySearch: инструмента карточного поиска знаний, который помогает организовать информацию, сделать её видимой и пригодной для повторного использования.",
+    "ar": "من الفوضى اليومية وصعوبات البحث إلى ولادة KeySearch: أداة بحث معرفي قائمة على البطاقات تساعد في تنظيم المعلومات وجعلها مرئية وقابلة لإعادة الاستخدام.",
+    "hi": "दैनिक अव्यवस्था और खोज की कठिनाइयों से KeySearch का जन्म: एक कार्ड-आधारित ज्ञान खोज उपकरण जो जानकारी को व्यवस्थित, दृश्यमान और पुन: उपयोग योग्य बनाता है।"
+  },
+  "date": "2025-09-28",
+  "dateText": {
+    "en": "September 28, 2025",
+    "zh_tw": "2025 年 9 月 28 日",
+    "zh_cn": "2025年9月28日",
+    "ja": "2025年9月28日",
+    "ko": "2025년 9월 28일",
+    "th": "28 กันยายน 2025",
+    "vi": "28 Tháng 9, 2025",
+    "ms": "28 September 2025",
+    "id": "28 September 2025",
+    "es": "28 de septiembre de 2025",
+    "de": "28. September 2025",
+    "pt": "28 de setembro de 2025",
+    "fr": "28 septembre 2025",
+    "ru": "28 сентября 2025 г.",
+    "ar": "28 سبتمبر 2025",
+    "hi": "28 सितम्बर 2025"
+  },
+  "readingMinutes": 6,
+  "tags": {
+    "en": ["Product", "Story"],
+    "zh_tw": ["產品", "故事"],
+    "zh_cn": ["产品", "故事"],
+    "ja": ["製品", "ストーリー"],
+    "ko": ["제품", "스토리"],
+    "th": ["ผลิตภัณฑ์", "เรื่องราว"],
+    "vi": ["Sản phẩm", "Câu chuyện"],
+    "ms": ["Produk", "Kisah"],
+    "id": ["Produk", "Kisah"],
+    "es": ["Producto", "Historia"],
+    "de": ["Produkt", "Geschichte"],
+    "pt": ["Produto", "História"],
+    "fr": ["Produit", "Histoire"],
+    "ru": ["Продукт", "История"],
+    "ar": ["المنتج", "القصة"],
+    "hi": ["उत्पाद", "कहानी"]
+  },
+  "cover": {
+    "src": "assets/blog/keysearch-born/keysearch-born.jpg",
+    "alt": {
+      "en": "Birth of KeySearch",
+      "zh_tw": "KeySearch 誕生",
+      "zh_cn": "KeySearch 诞生",
+      "ja": "KeySearch誕生",
+      "ko": "KeySearch 탄생",
+      "th": "การกำเนิด KeySearch",
+      "vi": "Sự ra đời của KeySearch",
+      "ms": "Kelahiran KeySearch",
+      "id": "Lahirnya KeySearch",
+      "es": "Nacimiento de KeySearch",
+      "de": "Die Geburt von KeySearch",
+      "pt": "O Nascimento do KeySearch",
+      "fr": "Naissance de KeySearch",
+      "ru": "Рождение KeySearch",
+      "ar": "ولادة KeySearch",
+      "hi": "KeySearch का जन्म"
     }
+  },
+  "author": {
+    "name": "Andy Wong",
+    "role": {
+      "en": "Founder of KeySearch",
+      "zh_tw": "KeySearch 創辦人",
+      "zh_cn": "KeySearch 创办人",
+      "ja": "KeySearch 創設者",
+      "ko": "KeySearch 창립자",
+      "th": "ผู้ก่อตั้ง KeySearch",
+      "vi": "Người sáng lập KeySearch",
+      "ms": "Pengasas KeySearch",
+      "id": "Pendiri KeySearch",
+      "es": "Fundador de KeySearch",
+      "de": "Gründer von KeySearch",
+      "pt": "Fundador do KeySearch",
+      "fr": "Fondateur de KeySearch"
+      "ru": "Основатель KeySearch",
+      "ar": "مؤسس KeySearch",
+      "hi": "KeySearch के संस्थापक"
+    },
+    "avatar": "assets/authors/andy.jpg"
   }
-]
+}
