@@ -177,18 +177,18 @@
 </head>
 <body>
 
-  <!-- Mini header（無全站選單時） -->
   <!-- Mini header -->
 <header class="mini-header" role="banner">
-  <!-- Brand -->
-<a class="brand" href="index.html" aria-label="KeySearch home">
-  <!-- 單圖示（深色底用白或金），小尺寸也清晰 -->
-  <img class="brand-icon" src="assets/brand/logo-icon-gold.svg" alt="KeySearch logo" width="28" height="28">
-  <!-- 桌機顯示文字；手機自動隱藏 -->
-  <span class="brand-text">KeySearch</span>
-</a>
-  <!-- ← Back 文字交給 i18n -->
-  <a class="back" href="support.html" data-i18n="donate.back" aria-label="Back to Support">← Back</a>
+  <a class="brand" href="index.html" aria-label="KeySearch home">
+    <img class="brand-icon" src="assets/brand/logo-icon-gold.svg" alt="KeySearch logo" width="28" height="28">
+    <span class="brand-text">KeySearch</span>
+  </a>
+
+  <!-- ✅ aria-label 也一起本地化 -->
+  <a class="back"
+     href="support.html"
+     data-i18n="donate.back"
+     data-i18n-attr="aria-label">← Back</a>
 </header>
 
 <!-- Hero -->
@@ -205,11 +205,14 @@
     <h2 id="donateHeading" data-i18n="donate.card.title">Donate</h2>
     <p class="fine-print" data-i18n="donate.card.desc">Choose your currency and amount. Then pick PayPal or Stripe to complete payment.</p>
 
-    <!-- Controls -->
     <div class="donate-controls">
       <label>
         <span data-i18n="donate.currency">Currency</span>
-        <select id="donate-currency" aria-label="Choose currency">
+        <!-- ✅ aria-label 本地化 -->
+        <select id="donate-currency"
+                aria-label="Choose currency"
+                data-i18n="donate.currency"
+                data-i18n-attr="aria-label">
           <option value="USD" selected>USD $</option>
           <option value="EUR">EUR €</option>
           <option value="GBP">GBP £</option>
@@ -228,14 +231,15 @@
         <button class="chip" data-base-usd="10">$10</button>
         <button class="chip" data-base-usd="20">$20</button>
         <button class="chip" data-base-usd="50">$50</button>
-        <!-- placeholder 用 i18n -->
+
+        <!-- ✅ placeholder + aria-label 本地化 -->
         <input id="donate-custom" class="donate-custom" type="number" min="1" step="1"
                placeholder="Custom" aria-label="Custom amount"
-               data-i18n="donate.chips.custom" data-i18n-attr="placeholder">
+               data-i18n="donate.chips.custom"
+               data-i18n-attr="placeholder,aria-label">
       </div>
     </div>
 
-    <!-- Actions -->
     <div class="donate-actions">
       <a id="btn-paypal" class="btn-primary btn-paypal"
          href="https://paypal.me/AndyWongChernInn" target="_blank" rel="noopener"
@@ -260,7 +264,6 @@
     <p class="fine-print" data-i18n="donate.thanks">Thanks for your support — it keeps KeySearch fast and focused.</p>
   </section>
 
-  <!-- FAQ -->
   <section class="faq" aria-label="Donate FAQ">
     <h3 data-i18n="donate.faq.title">FAQ</h3>
 
