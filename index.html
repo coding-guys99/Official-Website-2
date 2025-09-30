@@ -49,32 +49,61 @@
 </header>
 <div id="langPortal" class="lang-portal" role="menu" aria-hidden="true"></div>
 
-<section class="hero container reveal-on-scroll">
-  <div class="hero-text">
+<!-- HERO — modern split -->
+<section class="hero hero-modern container reveal-on-scroll">
+  <div class="hero-left">
+    <div class="eyebrow">🔎 <span data-i18n="header.brand">KeySearch</span></div>
     <h1 id="heroTitle" data-text="Find it. Fast." data-i18n="home.hero.title">Find it. Fast.</h1>
     <p class="sub" data-i18n="home.hero.sub">Everything, in reach. No mess. Just answers.</p>
+
+    <!-- badges / stats -->
+    <ul class="hero-stats" aria-label="highlights">
+      <li>⚡  Instant results</li>
+      <li>🔖  Tags & filters</li>
+      <li>🌍  16 languages</li>
+    </ul>
+
     <div class="cta-row">
       <a href="download.html" class="btn primary" data-i18n="home.cta.downloadNow">Download Now</a>
       <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary" data-i18n="header.tryapp.cta">Try Web App</a>
     </div>
+
+    <!-- trust bar（可選） -->
+    <!-- <div class="trust">
+      <span>Trusted by makers & teams</span>
+      <img src="assets/brands/brand1.svg" alt="brand1" />
+      <img src="assets/brands/brand2.svg" alt="brand2" />
+    </div> -->
   </div>
-  <div class="device-mock" aria-label="KeySearch interface preview">
-    <div class="browser-chrome" aria-hidden="true">
-      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-      <div class="url">keysearch-app.com</div>
-    </div>
-    <div class="screen ar-16x9 contain">
-      <img src="assets/img/hero-ui.png" alt="KeySearch interface" width="1280" height="720"
-           loading="eager" fetchpriority="high"
-           srcset="assets/img/hero-ui-800.png 800w, assets/img/hero-ui-1200.png 1200w, assets/img/hero-ui.png 1600w"
-           sizes="(max-width: 980px) 92vw, 40vw"/>
+
+  <div class="hero-right" aria-label="KeySearch interface preview">
+    <div class="mock-wrap">
+      <div class="mock-window">
+        <div class="mock-chrome">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <div class="url">keysearch-app.com</div>
+        </div>
+        <div class="mock-screen">
+          <img
+            src="assets/img/hero-ui.png"
+            alt="KeySearch interface"
+            width="1280" height="720"
+            loading="eager" fetchpriority="high"
+            srcset="assets/img/hero-ui-800.png 800w, assets/img/hero-ui-1200.png 1200w, assets/img/hero-ui.png 1600w"
+            sizes="(max-width: 980px) 90vw, 48vw" />
+        </div>
+      </div>
+      <div class="mock-glow" aria-hidden="true"></div>
     </div>
   </div>
 </section>
 
-<section class="feature container reveal-on-scroll">
-  <div class="feature-img">
-    <img src="assets/img/feature1-1200.png" alt="Search instantly"/>
+<!-- FEATURE 1 -->
+<section class="feature feature-modern container reveal-on-scroll">
+  <div class="feature-media">
+    <div class="media-card">
+      <img src="assets/img/feature1-1200.png" alt="Search instantly"/>
+    </div>
   </div>
   <div class="feature-text">
     <h2 data-i18n="home.feature1.title">Search anything instantly</h2>
@@ -82,9 +111,12 @@
   </div>
 </section>
 
-<section class="feature container reveal-on-scroll reverse">
-  <div class="feature-img">
-    <img src="assets/img/feature2-1200.png" alt="Stay organized without effort"/>
+<!-- FEATURE 2（左右交錯） -->
+<section class="feature feature-modern container reveal-on-scroll reverse">
+  <div class="feature-media">
+    <div class="media-card">
+      <img src="assets/img/feature2-1200.png" alt="Stay organized without effort"/>
+    </div>
   </div>
   <div class="feature-text">
     <h2 data-i18n="home.feature2.title">Stay organized without effort</h2>
@@ -92,6 +124,7 @@
   </div>
 </section>
 
+<!-- CTA 保留 -->
 <section class="cta container reveal-on-scroll">
   <h2 data-i18n="home.final.title">Ready to start?</h2>
   <p data-i18n="home.final.lead">Download KeySearch for your desktop, or try the web app instantly.</p>
@@ -100,6 +133,7 @@
     <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary" data-i18n="download.web">Open Web</a>
   </div>
 </section>
+
 <footer class="ks-footer">
   <div class="ks-footer-top container">
     <!-- 品牌區 -->
@@ -164,3 +198,4 @@
 <script src="js/reveal.js" defer></script>
 <script src="js/app.js" defer></script>
 </body></html>
+
