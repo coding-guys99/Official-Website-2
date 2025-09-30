@@ -6,7 +6,7 @@
   "readingMinutes": 6,
   "tags": ["產品", "故事"],
   "cover": {
-    "src": "/assets/blog/keysearch-born/keysearch-born.jpg",
+    "src": "assets/blog/keysearch-born/keysearch-born.jpg",
     "alt": "KeySearch 誕生"
   },
   "author": {
