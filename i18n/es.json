@@ -148,18 +148,27 @@
   "email": "hello@keysearch-app.com",
 
   "support": {
-    "title": "Soporte",
-    "lead": "Encuentra respuestas rápidas o envíanos tus comentarios.",
-    "quick": { "download": "Descargas", "billing": "Facturación y planes", "faq": "FAQ", "contact": "Contacto" },
-    "faq": {
-      "title": "FAQ",
-      "q1": "¿Cómo instalo KeySearch?",
-      "a1": "Descarga desde la página de Descargas y sigue el instalador. En macOS quizá debas permitir apps de desarrolladores identificados.",
-      "q2": "¿La app web es diferente a la de escritorio?",
-      "a2": "Las funciones principales son iguales. Escritorio añade modo offline y exportación local.",
-      "q3": "¿Cómo cambio el idioma?",
-      "a3": "Usa el selector de idioma arriba a la derecha. Más idiomas próximamente."
-    },
+  "title": "Soporte",
+  "lead": "Encuentra respuestas rápidamente o comparte tus ideas con nosotros.",
+  "quick": { "download": "Descargar", "billing": "Facturación y Planes", "faq": "FAQ", "contact": "Contáctanos", "donate": "Donar" },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "q1": "¿Cuál es la diferencia entre KeySearch y Everything?",
+    "a1": "Everything es una herramienta de búsqueda de nombres de archivos ultrarrápida, centrada en encontrar nombres de archivos. KeySearch no solo busca nombres de archivos, sino que también convierte los datos en tarjetas, admite búsquedas de contenido, etiquetas y categorías, y permite exportar a CSV/JSON. En resumen: Everything encuentra archivos, KeySearch organiza la información.",
+    "q2": "¿Cuál es la diferencia entre KeySearch y Listary?",
+    "a2": "Listary se centra en ser un 'lanzador + integración con diálogos de archivos', facilitando abrir programas o cambiar directorios rápidamente. KeySearch es una 'búsqueda de conocimiento basada en tarjetas': además de archivos, puedes guardar notas, enlaces, contenido de investigación y gestionarlos con etiquetas y ordenación. Listary acelera el inicio, KeySearch te ayuda a registrar y recuperar.",
+    "q3": "¿Qué plataformas admite KeySearch?",
+    "a3": "Actualmente hay una Demo Web disponible que se puede usar directamente en el navegador. Las versiones de escritorio para Windows/macOS están en desarrollo (Próximamente).",
+    "q4": "¿Qué idiomas son compatibles?",
+    "a4": "KeySearch tiene un marco integrado para 16 idiomas. El lanzamiento inicial admite inglés, chino tradicional, chino simplificado, japonés, coreano y malayo. Otros idiomas se añadirán paso a paso según la demanda.",
+    "q5": "¿Mis datos se subirán? ¿Cómo se protege la privacidad?",
+    "a5": "En la versión web, los datos se almacenan localmente en el navegador (LocalStorage/IndexedDB) y no se suben automáticamente. En el futuro, si se introduce la sincronización en la nube, se cifrará y podrás decidir si la activas.",
+    "q6": "¿Puedo hacer copias de seguridad o llevarme mis datos?",
+    "a6": "Sí. KeySearch ofrece exportación a CSV/JSON, lo que facilita hacer copias de seguridad, transferir o usar los datos en varios dispositivos.",
+    "q7": "¿Tiene costo ahora?",
+    "a7": "La versión web es completamente gratuita por ahora, con soporte de donaciones. En el futuro se lanzará una versión Pro con aplicaciones de escritorio y funciones avanzadas, junto con un plan de precios claro."
+  }
+},
     "feedback": {
       "title": "Envíanos tus comentarios",
       "name": "Tu nombre",
