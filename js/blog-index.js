@@ -3,13 +3,11 @@
   const $grid  = document.getElementById('blogGrid');
   const $chips = document.getElementById('blogTagChips');
   const $pager = document.getElementById('blogPager');
-
   if (!$grid) return;
 
   const PAGE_SIZE = 12;
-  let RAW = [];               // 原始資料（陣列）
+  let RAW = [];
   let state = { tag: 'all', page: 1 };
-
   const lang = () => (window.I18N?.lang || 'en').replace('-', '_');
 
   async function fetchJSON(url){
@@ -19,18 +17,38 @@
   }
 
   function normalize(raw){
-    // 允許 index.json 是陣列或 {items:[...]}
     const arr = Array.isArray(raw) ? raw : Array.isArray(raw?.items) ? raw.items : [];
-    return arr
-      .filter(it => it && it.slug) // 必須要有 slug
-      .map(it => ({
-        slug: String(it.slug),
-        title: it.title || '',
-        excerpt: it.excerpt || '',
-        date: it.date || '',
-        tags: Array.isArray(it.tags) ? it.tags : (it.tags ? [it.tags] : []),
-        cover: it.cover || null,
-      }));
+    const out = [];
+    const skipped = [];
+
+    for (const it of arr){
+      if (!it) continue;
+
+      const slug = (it.slug ?? '').toString().trim();
+      if (!slug){
+        skipped.push({ reason:'missing slug', item: it });
+        continue;
+      }
+
+      // tags: 允許字串/陣列，其它型別直接忽略
+      let tags = [];
+      if (Array.isArray(it.tags)) tags = it.tags.map(String);
+      else if (typeof it.tags === 'string') tags = [it.tags];
+
+      out.push({
+        slug,
+        title: (it.title ?? '').toString(),
+        excerpt: (it.excerpt ?? '').toString(),
+        date: (it.date ?? '').toString(),
+        tags,
+        cover: it.cover || null
+      });
+    }
+
+    if (skipped.length){
+      console.warn('[blog] skipped items (need valid slug):', skipped);
+    }
+    return out;
   }
 
   function uniqueTags(items){
@@ -91,19 +109,13 @@
     const dict = window.I18N?.t('blog') || {};
     const items = RAW;
 
-    // 篩選
     const list = (state.tag === 'all') ? items : items.filter(it => (it.tags||[]).includes(state.tag));
-
-    // 分頁
     const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
     state.page = Math.min(state.page, totalPages);
     const start = (state.page - 1) * PAGE_SIZE;
     const pageItems = list.slice(start, start + PAGE_SIZE);
 
-    // 卡片
     $grid.innerHTML = pageItems.map(it => cardTemplate(dict, it)).join('') || `<p style="opacity:.8">No posts yet.</p>`;
-
-    // 篩選籤與分頁
     buildChips(dict, items);
     buildPager(totalPages);
   }
@@ -112,6 +124,7 @@
     try {
       const raw = await fetchJSON('content/blog/index.json');
       RAW = normalize(raw);
+      console.table(RAW); // 方便你快速確認兩篇是否都被讀到
       render();
     } catch (e){
       console.error('[blog] failed to load index.json', e);
