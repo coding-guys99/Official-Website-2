@@ -121,6 +121,7 @@
 },
 
 {
+  "slug": "web-launch",
   "title": {
     "en": "KeySearch Web Launch: Card-Based Search for Organized Information",
     "zh_tw": "KeySearch Web 版上線：卡片式搜尋，讓你的資訊更有秩序",
