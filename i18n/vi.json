@@ -249,12 +249,14 @@
 },
 
   "foot": {
-    "brand": "KeySearch",
-    "slogan-1": "Tìm nhanh, gọn nhẹ.<br>Không rối. Chỉ có câu trả lời.",
-    "product": { "_": "Sản phẩm", "feat": "Tính năng", "price": "Giá", "download": "Tải xuống" },
-    "support": { "_": "Hỗ trợ", "help": "Trung tâm trợ giúp", "docs": "Tài liệu" },
-    "company": { "_": "Công ty", "about": "Giới thiệu", "contact": "Liên hệ" },
-    "follow":  { "_": "Theo dõi", "twitter": "Twitter", "youtube": "YouTube" },
-    "b": { "lang": "Ngôn ngữ", "privacy": "Quyền riêng tư", "terms": "Điều khoản", "copy": "© 2025 KeySearch. Bảo lưu mọi quyền." }
-  }
+  "brand": "KeySearch",
+  "slogan-1": "Tìm kiếm nhanh, đến ngay kết quả.<br>Gọn gàng, trực tiếp tới câu trả lời.",
+  "product": { "_": "Sản phẩm", "feat": "Tính năng", "price": "Giá", "download": "Tải xuống" },
+  "support": { "_": "Hỗ trợ", "help": "Trung tâm trợ giúp", "docs": "Tài liệu", "blog": "Blog" },
+  "company": { "_": "Công ty", "about": "Về chúng tôi", "contact": "Liên hệ" },
+  "follow":  { "_": "Theo dõi chúng tôi", "twitter": "Twitter", "youtube": "YouTube" },
+  "legal":  { "_": "Pháp lý", "privacy": "Quyền riêng tư", "terms": "Điều khoản", "disclaimer": "Miễn trừ trách nhiệm" },
+  "b": { "lang": "Ngôn ngữ", "copy": "© 2025 KeySearch. Bảo lưu mọi quyền." }
+}
+
 }
