@@ -261,7 +261,7 @@
   "slogan-1": "Pencarian cepat, langsung ke jawaban.<br>Bersih, ringkas, tepat sasaran.",
   "product": { "_": "Produk", "feat": "Fitur", "price": "Harga", "download": "Unduh" },
   "support": { "_": "Dukungan", "help": "Pusat Bantuan", "docs": "Dokumen", "blog": "Blog" },
-  "company": { "_": "Perusahaan", "about": "Tentang Kami", "contact": "Hubungi Kami" },
+  "company": { "_": "Perusahaan", "about": "Tentang Kami", "contact": "Hubungi Kami" , "donate": "Donasi" },
   "follow":  { "_": "Ikuti Kami", "twitter": "Twitter", "youtube": "YouTube" },
   "legal":  { "_": "Legal", "privacy": "Privasi", "terms": "Ketentuan", "disclaimer": "Penafian" },
   "b": { "lang": "Bahasa", "copy": "© 2025 KeySearch. Hak cipta dilindungi." }
