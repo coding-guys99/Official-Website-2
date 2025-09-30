@@ -261,7 +261,7 @@
   "slogan-1": "Busca rápida, resposta imediata.<br>Limpo e direto à solução.",
   "product": { "_": "Produto", "feat": "Recursos", "price": "Preços", "download": "Baixar" },
   "support": { "_": "Suporte", "help": "Central de Ajuda", "docs": "Documentação", "blog": "Blog" },
-  "company": { "_": "Empresa", "about": "Sobre Nós", "contact": "Contato" },
+  "company": { "_": "Empresa", "about": "Sobre Nós", "contact": "Contato" , "donate": "Doar"},
   "follow":  { "_": "Siga-nos", "twitter": "Twitter", "youtube": "YouTube" },
   "legal":  { "_": "Jurídico", "privacy": "Privacidade", "terms": "Termos", "disclaimer": "Aviso Legal" },
   "b": { "lang": "Idioma", "copy": "© 2025 KeySearch. Todos os direitos reservados." }
