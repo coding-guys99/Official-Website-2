@@ -11,16 +11,25 @@
 
   <!-- SEO：站點層 -->
   <script src="js/seo.js" defer data-page="blog"></script>
+
+<!-- Favicon / App icons (單圖示) -->
+<link rel="icon" type="image/svg+xml" href="assets/brand/logo-icon-gold.svg">
+<link rel="alternate icon" href="assets/brand/logo-icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/brand/logo-icon-180.png" sizes="180x180">
+<link rel="mask-icon" href="assets/brand/logo-icon-black.svg" color="#d4af37">
+  
 </head>
 <body>
   <!-- HEADER -->
 <header class="site-header bm-header" role="banner">
   <div class="container nav">
     <!-- Brand -->
-    <a class="brand" href="index.html" aria-label="KeySearch home">
-      <img src="assets/logo.svg" alt="KeySearch logo" width="28" height="28"/>
-      <span class="brand-text" data-i18n="header.brand">KeySearch</span>
-    </a>
+<a class="brand" href="index.html" aria-label="KeySearch home">
+  <!-- 單圖示（深色底用白或金），小尺寸也清晰 -->
+  <img class="brand-icon" src="assets/brand/logo-icon-gold.svg" alt="KeySearch logo" width="28" height="28">
+  <!-- 桌機顯示文字；手機自動隱藏 -->
+  <span class="brand-text">KeySearch</span>
+</a>
 
     <!-- Hamburger (only mobile) -->
     <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
@@ -85,12 +94,14 @@
   <div class="ks-footer-top container">
     <!-- 品牌區 -->
     <div class="ks-foot-brand">
-      <a href="index.html" class="brand">
-        <img src="assets/logo.svg" alt="KeySearch Logo" width="32" height="32"/>
-        <span class="brand-text">KeySearch</span>
-      </a>
-      <p class="tagline" data-i18n="foot.tagline">Find it. Fast. No mess. Just answers.</p>
-    </div>
+  <a href="index.html" class="brand">
+    <!-- 圖示：金色 -->
+    <img class="brand-icon" src="assets/brand/logo-icon-gold.svg" alt="KeySearch Logo" width="128" height="128">
+    <!-- 文字：品牌名 -->
+    <span class="brand-text">KeySearch</span>
+  </a>
+  <p class="tagline" data-i18n="foot.tagline">Find it. Fast. No mess. Just answers.</p>
+</div>
 
     <!-- 四欄連結 -->
     <div class="ks-foot-grid">
