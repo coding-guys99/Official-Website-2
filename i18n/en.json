@@ -287,12 +287,14 @@
 },
 
   "foot": {
-    "brand": "KeySearch",
-    "slogan": "Find it. Fast.<br>No mess. Just answers.",
-    "product": { "_": "Product", "feat": "Features", "price": "Pricing", "download": "Download" },
-    "support": { "_": "Support", "help": "Help Center", "docs": "Docs" },
-    "company": { "_": "Company", "about": "About", "contact": "Contact" },
-    "follow": { "_": "Follow", "twitter": "Twitter", "youtube": "YouTube" },
-    "b": { "lang": "Language", "privacy": "Privacy", "terms": "Terms", "copy": "© 2025 KeySearch. All rights reserved." }
-  }
+  "brand": "KeySearch",
+  "slogan-1": "Search fast, find instantly.<br>Clean and direct to the answer.",
+  "product": { "_": "Product", "feat": "Features", "price": "Pricing", "download": "Download" },
+  "support": { "_": "Support", "help": "Help Center", "docs": "Docs", "blog": "Blog" },
+  "company": { "_": "Company", "about": "About Us", "contact": "Contact Us" },
+  "follow":  { "_": "Follow Us", "twitter": "Twitter", "youtube": "YouTube" },
+  "legal":  { "_": "Legal", "privacy": "Privacy", "terms": "Terms", "disclaimer": "Disclaimer" },
+  "b": { "lang": "Language", "copy": "© 2025 KeySearch. All rights reserved." }
+}
+
 }
