@@ -72,18 +72,19 @@
     };
   }
   
-  // ---- helpers: get current lang & normalize values to string ----
-function curLang() {
+ /* ---- i18n helpers ---- */
+function curLang(){
   return (window.I18N?.lang || 'en').toLowerCase().replace('-', '_');
 }
-function toStr(v) {
+function pickLang(v){
+  // 將任意型別（字串/數字/陣列/物件）轉成當前語言的字串
   if (v == null) return '';
   if (typeof v === 'string') return v;
   if (typeof v === 'number' || typeof v === 'boolean') return String(v);
-  if (Array.isArray(v)) return v.map(toStr).filter(Boolean).join(', ');
-  if (typeof v === 'object') {
+  if (Array.isArray(v)) return v.map(pickLang).filter(Boolean).join(', ');
+  if (typeof v === 'object'){
     const L = curLang();
-    // 常見多語鍵：當前語言 > en > _ > 物件中的第一個字串值
+    // 常見多語鍵優先順序：當前語言 > en > _ > 物件中第一個字串值
     return (
       v[L] || v.en || v._ ||
       Object.values(v).find(x => typeof x === 'string') ||
@@ -92,25 +93,35 @@ function toStr(v) {
   }
   return '';
 }
-function toTagList(arr) {
-  return (arr || []).map(t => (typeof t === 'string' ? t : toStr(t))).filter(Boolean);
+function pickTags(v){
+  // v 可能是 ['a','b'] 或 {en:[...], zh_tw:[...]}
+  if (Array.isArray(v)) return v.map(pickLang).filter(Boolean);
+  if (typeof v === 'object' && v){
+    const L = curLang();
+    const arr = v[L] || v.en || v._ || Object.values(v).find(x => Array.isArray(x)) || [];
+    return (arr || []).map(pickLang).filter(Boolean);
+  }
+  return [];
 }
 
 function cardTemplate(dict, item){
   if (!item || !item.slug) return '';
-  const href = `post.html?slug=${encodeURIComponent(item.slug)}&lang=${curLang()}`;
+
+  const href      = `post.html?slug=${encodeURIComponent(item.slug)}&lang=${curLang()}`;
   const readmore  = dict?.readmore || 'Read more';
 
-  const title    = toStr(item.title);
-  const excerpt  = toStr(item.excerpt);
-  const dateISO  = item.date || '';
-  const dateText = item.dateText || item.date || '';
-  const tags     = toTagList(item.tags);
+  const title     = pickLang(item.title);
+  const excerpt   = pickLang(item.description || item.excerpt);
+  const dateISO   = item.date || '';
+  const dateText  = pickLang(item.dateText) || item.date || '';
+  const tags      = pickTags(item.tags);
+
+  // 圖片路徑：建議一律用絕對路徑（以 / 開頭）
+  const coverSrc  = item.cover?.src || '';
+  const coverAlt  = pickLang(item.cover?.alt) || '';
+  const coverHTML = coverSrc ? `<img class="cover" src="${coverSrc}" alt="${coverAlt}" loading="lazy"/>` : '';
 
   const dateHTML  = dateISO ? `<time datetime="${dateISO}">${dateText}</time>` : '';
-  const coverHTML = item.cover?.src
-    ? `<img class="cover" src="${item.cover.src}" alt="${toStr(item.cover.alt)||''}" loading="lazy"/>`
-    : '';
 
   return `
     <article class="news-card" data-tags="${tags.join(',')}">
