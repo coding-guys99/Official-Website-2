@@ -261,7 +261,7 @@
   "slogan-1": "Tìm kiếm nhanh, đến ngay kết quả.<br>Gọn gàng, trực tiếp tới câu trả lời.",
   "product": { "_": "Sản phẩm", "feat": "Tính năng", "price": "Giá", "download": "Tải xuống" },
   "support": { "_": "Hỗ trợ", "help": "Trung tâm trợ giúp", "docs": "Tài liệu", "blog": "Blog" },
-  "company": { "_": "Công ty", "about": "Về chúng tôi", "contact": "Liên hệ" },
+  "company": { "_": "Công ty", "about": "Về chúng tôi", "contact": "Liên hệ" , "donate": "Ủng hộ"},
   "follow":  { "_": "Theo dõi chúng tôi", "twitter": "Twitter", "youtube": "YouTube" },
   "legal":  { "_": "Pháp lý", "privacy": "Quyền riêng tư", "terms": "Điều khoản", "disclaimer": "Miễn trừ trách nhiệm" },
   "b": { "lang": "Ngôn ngữ", "copy": "© 2025 KeySearch. Bảo lưu mọi quyền." }
