@@ -249,12 +249,13 @@
 },
 
   "foot": {
-    "brand": "KeySearch",
-    "slogan-1": "Cari dengan pantas.<br>Kemas, terus ke jawapan.",
-    "product": { "_": "Produk", "feat": "Ciri", "price": "Harga", "download": "Muat Turun" },
-    "support": { "_": "Sokongan", "help": "Pusat Bantuan", "docs": "Dokumen" },
-    "company": { "_": "Syarikat", "about": "Tentang", "contact": "Hubungi" },
-    "follow": { "_": "Ikuti", "twitter": "Twitter", "youtube": "YouTube" },
-    "b": { "lang": "Bahasa", "privacy": "Privasi", "terms": "Terma", "copy": "© 2025 KeySearch. Hak cipta terpelihara." }
-  }
+  "brand": "KeySearch",
+  "slogan-1": "Cari pantas, terus ke jawapan.<br>Kemas dan tepat ke sasaran.",
+  "product": { "_": "Produk", "feat": "Ciri", "price": "Harga", "download": "Muat turun" },
+  "support": { "_": "Sokongan", "help": "Pusat Bantuan", "docs": "Dokumen", "blog": "Blog" },
+  "company": { "_": "Syarikat", "about": "Tentang Kami", "contact": "Hubungi Kami" },
+  "follow":  { "_": "Ikuti Kami", "twitter": "Twitter", "youtube": "YouTube" },
+  "legal":  { "_": "Undang-undang", "privacy": "Privasi", "terms": "Terma", "disclaimer": "Penafian" },
+  "b": { "lang": "Bahasa", "copy": "© 2025 KeySearch. Hak cipta terpelihara." }
+}
 }
