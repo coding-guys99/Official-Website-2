@@ -167,9 +167,9 @@
     "q6": "Can I back up or take my data with me?",
     "a6": "Yes. KeySearch provides CSV/JSON export, making it easy to back up, transfer, or use across devices.",
     "q7": "Does it cost money now?",
-    "a7": "The Web version is completely free for now, with Donate support available. A Pro version will be released in the future with desktop apps and advanced features, along with a clear pricing plan."
-  }
+    "a7": "The Web version is completely free for now, with Donate support available. A Pro version will be released in the future with desktop apps and advanced features, along with a clear pricing plan."}
 },
+  
     "feedback": {
       "title": "Send us your feedback",
       "name": "Your Name",
@@ -184,7 +184,6 @@
       "mailapp": "Open mail app",
       "note": "We’ll reply to hello@keysearch-app.com. Your system won’t upload files.",
       "toast": "Opening your email app…"
-    }
   },
 
   "donate": {
