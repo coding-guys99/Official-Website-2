@@ -148,18 +148,27 @@
   "email": "hello@keysearch-app.com",
 
   "support": {
-    "title": "Dukungan",
-    "lead": "Temukan jawaban cepat, atau kirim masukan Anda.",
-    "quick": { "download": "Unduh", "billing": "Tagihan & paket", "faq": "FAQ", "contact": "Kontak" },
-    "faq": {
-      "title": "FAQ",
-      "q1": "Bagaimana memasang KeySearch?",
-      "a1": "Unduh dari halaman Unduh dan jalankan installer. Di macOS, mungkin perlu mengizinkan aplikasi dari pengembang teridentifikasi.",
-      "q2": "Apa beda Web dan Desktop?",
-      "a2": "Fitur inti sama. Desktop menambah mode offline dan ekspor lokal.",
-      "q3": "Bagaimana mengganti bahasa?",
-      "a3": "Gunakan pengalih bahasa di kanan atas. Lebih banyak bahasa akan hadir."
-    },
+  "title": "Dukungan",
+  "lead": "Temukan jawaban dengan cepat, atau bagikan ide Anda dengan kami.",
+  "quick": { "download": "Unduh", "billing": "Tagihan & Paket", "faq": "FAQ", "contact": "Hubungi Kami", "donate": "Donasi" },
+  "faq": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "q1": "Apa perbedaan antara KeySearch dan Everything?",
+    "a1": "Everything adalah alat pencarian nama file yang sangat cepat, berfokus pada pencarian nama file. KeySearch tidak hanya mencari nama file, tetapi juga mengubah data menjadi kartu, mendukung pencarian konten, tag, kategori, serta ekspor CSV/JSON. Singkatnya: Everything menemukan file, KeySearch mengatur informasi.",
+    "q2": "Apa perbedaan antara KeySearch dan Listary?",
+    "a2": "Listary berfokus pada 'peluncur + integrasi dialog file', memudahkan untuk membuka program atau berpindah direktori dengan cepat. KeySearch adalah 'pencarian pengetahuan berbasis kartu': selain file, Anda juga dapat menyimpan catatan, tautan, konten riset, dan mengelolanya dengan tag serta pengurutan. Listary mempercepat peluncuran, KeySearch membantu mencatat dan menemukan kembali.",
+    "q3": "Platform apa yang didukung oleh KeySearch?",
+    "a3": "Saat ini tersedia Demo Web yang bisa digunakan langsung di browser. Versi desktop Windows/macOS sedang dikembangkan (Segera Hadir).",
+    "q4": "Bahasa apa saja yang didukung?",
+    "a4": "KeySearch memiliki kerangka bawaan untuk 16 bahasa. Rilis awal mendukung Inggris, Mandarin Tradisional, Mandarin Sederhana, Jepang, Korea, dan Melayu. Bahasa lain akan ditambahkan secara bertahap sesuai kebutuhan.",
+    "q5": "Apakah data saya akan diunggah? Bagaimana privasi dilindungi?",
+    "a5": "Dalam versi Web, data disimpan secara lokal di browser (LocalStorage/IndexedDB), dan tidak akan diunggah secara otomatis. Di masa depan, jika sinkronisasi cloud diperkenalkan, data akan dienkripsi dan Anda dapat memilih untuk mengaktifkannya atau tidak.",
+    "q6": "Bisakah saya mencadangkan atau membawa data saya?",
+    "a6": "Ya. KeySearch menyediakan ekspor CSV/JSON, memudahkan pencadangan, transfer, atau penggunaan lintas perangkat.",
+    "q7": "Apakah sekarang berbayar?",
+    "a7": "Versi Web saat ini sepenuhnya gratis, dengan dukungan donasi. Ke depannya akan ada versi Pro dengan aplikasi desktop dan fitur lanjutan, disertai rencana harga yang jelas."
+  }
+},
     "feedback": {
       "title": "Kirim masukan",
       "name": "Nama Anda",
