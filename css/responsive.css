@@ -421,6 +421,7 @@ html, body { overflow-x: hidden; }
 @media (min-width: 981px) {
   .desktop-only { display: block; }
   .mobile-only { display: none; }
+#langBtnMobile{display:block;}
 }
 
 /* ====== END ====== */
