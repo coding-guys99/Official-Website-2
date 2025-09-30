@@ -110,7 +110,7 @@
       "es": "Fundador de KeySearch",
       "de": "Gründer von KeySearch",
       "pt": "Fundador do KeySearch",
-      "fr": "Fondateur de KeySearch"
+      "fr": "Fondateur de KeySearch",
       "ru": "Основатель KeySearch",
       "ar": "مؤسس KeySearch",
       "hi": "KeySearch के संस्थापक"
@@ -118,3 +118,4 @@
     "avatar": "assets/authors/andy.jpg"
   }
 }
+
