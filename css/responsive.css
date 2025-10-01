@@ -473,6 +473,10 @@ html, body { overflow-x: hidden; }
   .page-pricing .plan{
     padding: 16px;
   }
+  .page-pricing .plan .subtitle{
+    font-size: .9rem;
+    text-align: center;
+  }
   .page-pricing .price{
     font-size: 1.8rem;
   }
@@ -495,10 +499,17 @@ html, body { overflow-x: hidden; }
     padding: 76px 0 36px;
   }
 
-  /* Plans grid：單欄（視需要也可 2 欄） */
+  /* Plans grid：單欄 */
   .page-pricing .plans{
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+
+  /* Plan subtitle */
+  .page-pricing .plan .subtitle{
+    font-size: .9rem;
+    margin-bottom: 6px;
+    text-align: left;
   }
 
   /* Most Popular 標章縮小些 */
@@ -548,7 +559,8 @@ html, body { overflow-x: hidden; }
   }
 
   /* Plan 卡片內容間距 */
-  .page-pricing .plan h3{ margin: 4px 0 4px; }
+  .page-pricing .plan h3{ margin: 4px 0 4px; font-size: 1.2rem; }
+  .page-pricing .plan .subtitle{ font-size: .85rem; }
   .page-pricing .price{ font-size: 1.6rem; }
   .page-pricing .ul li{ margin: 6px 0; }
 
