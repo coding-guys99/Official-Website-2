@@ -87,37 +87,70 @@
   },
 
   "pricing": {
-    "title": "Pricing",
-    "lead": "Simple, transparent plans that grow with you.",
-    "billing": { "monthly": "Monthly", "yearly": "Yearly", "save": "Save 20%" },
-    "free": {
-      "title": "Free",
-      "perma": "/ forever",
-      "f1": "Unlimited searches",
-      "f2": "Basic tags & collections",
-      "f3": "Export CSV/JSON",
-      "cta": "Coming Soon"
+    "hero": {
+      "title": "Choose the plan that fits you",
+      "lead": "From personal to pro — help your information get found faster."
     },
-    "pro": {
-      "badge": "Most Popular",
-      "title": "Pro",
-      "permonth": "/ month",
-      "f1": "Everything in Free",
-      "f2": "Multi-language UI",
-      "f3": "Reminders & smart filters",
-      "f4": "Priority support",
-      "cta": "Coming Soon"
+    "cta": { "coming": "Coming Soon", "notify": "Join notifications" },
+    "billing": {
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "save": "Save 20%"
+    },
+    "price": { "tail": "/ month", "freeTail": "/ forever" },
+    "plans": {
+      "free": {
+        "title": "Free",
+        "f1": "Basic search",
+        "f2": "Card-based management",
+        "f3": "3 languages (EN / 繁 / 简)",
+        "f4": "Export CSV",
+        "f5": "Single device"
+      },
+      "plus": {
+        "title": "Plus",
+        "f0": "Everything in Free",
+        "f1": "16 languages",
+        "f2": "Advanced search (Path / Tag / conditions)",
+        "f3": "Themes (Black/Gold, Deep Blue, High Contrast)",
+        "f4": "Export CSV / JSON"
+      },
+      "pro": {
+        "title": "Pro",
+        "badge": "Most Popular",
+        "f0": "Everything in Free + Plus",
+        "f1": "Multi-device sync (Web + Desktop)",
+        "f2": "Priority support",
+        "f3": "Early access to Beta features",
+        "f4": "Unlimited export"
+      }
+    },
+    "table": {
+      "feature": "Feature",
+      "speed": "Search speed",
+      "langs": "Languages",
+      "export": "Export formats",
+      "sync": "Multi-device sync",
+      "support": "Support level",
+      "support.free": "Community",
+      "support.plus": "Standard",
+      "support.pro": "Priority",
+      "beta": "Early Beta access"
     },
     "faq": {
-      "refunds": { "q": "Do you offer refunds?", "a": "If you’re not satisfied, contact us within 14 days. We’ll help." },
-      "switch": { "q": "Can I switch plans later?", "a": "Yes. You can upgrade or cancel anytime." }
+      "title": "FAQ",
+      "q1": "Is Free forever?",
+      "a1": "Yes. There will always be a Free plan.",
+      "q2": "What’s the difference between Plus and Pro?",
+      "a2": "Pro includes multi-device sync, priority support, unlimited export and early Beta access.",
+      "q3": "Is there a yearly discount?",
+      "a3": "Yes — Yearly saves about 20% compared to paying monthly.",
+      "q4": "When can I download?",
+      "a4": "Not yet. Click “Join notifications” to get an email when we open access."
     },
-    "final": {
-      "title": "Start searching smarter",
-      "lead": "KeySearch is free to try. Upgrade when you’re ready.",
-      "cta": { "download": "Download Free", "openweb": "Open Web" }
-    }
-  },
+    "final": { "title": "Find it. Fast. Everything, in reach." }
+  }
+},
 
   "about": {
     "title": "About KeySearch",
