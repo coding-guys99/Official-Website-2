@@ -83,190 +83,130 @@
 
   <!-- ===== Main ===== -->
   <main>
+    <!-- 1) HERO -->
+    <section class="pricing-hero">
+      <div class="container">
+        <h1 data-i18n="pricing.hero.title">Choose the plan that fits you</h1>
+        <p class="lead" data-i18n="pricing.hero.lead">From personal to pro — help your information get found faster.</p>
+        <div class="cta-row">
+          <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
+          <a class="btn btn-ghost" href="donate.html" data-i18n="pricing.cta.notify">Join notifications</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- ===== 1) Hero ===== -->
-  <section class="pricing-hero container">
-    <h1 data-i18n="pricing.hero.title">Choose the plan that fits you</h1>
-    <p class="lead" data-i18n="pricing.hero.lead">Desktop version coming soon. You can already use the Free plan directly in your browser.</p>
-    <div class="cta-row">
-      <!-- 主 CTA：Coming Soon（禁用） -->
-      <button class="btn primary" disabled title="Not available yet" data-i18n="pricing.cta.coming">Coming Soon</button>
-      <!-- 次 CTA：Web 版 -->
-      <a class="btn ghost" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="pricing.cta.web">Try Web version now</a>
+    <!-- 2) 月付/年付 切換 -->
+    <div class="billing-toggle-wrap container">
+      <div class="seg" role="tablist" aria-label="Billing period">
+        <button role="tab" id="bill-monthly" aria-selected="true" class="on" data-mode="m" data-i18n="pricing.billing.monthly">Monthly</button>
+        <button role="tab" id="bill-yearly" aria-selected="false" data-mode="y" data-i18n="pricing.billing.yearly">Yearly <span class="badge" data-i18n="pricing.billing.save">Save 20%</span></button>
+      </div>
     </div>
-  </section>
 
-  <!-- ===== 2) Billing toggle ===== -->
-  <section class="container pricing-toggle">
-    <div class="segmented" id="billingToggle" role="group" aria-label="Billing cycle">
-      <button type="button" class="seg-btn" data-mode="m" aria-pressed="true" data-i18n="pricing.billing.monthly">Monthly</button>
-      <button type="button" class="seg-btn" data-mode="y" aria-pressed="false">
-        <span data-i18n="pricing.billing.yearly">Yearly</span>
-        <em class="save" data-i18n="pricing.billing.save">Save 20%</em>
-      </button>
-    </div>
-  </section>
-
-  <!-- ===== 3) Plans ===== -->
-  <section class="plans container">
-    <!-- Free -->
-    <article class="plan-card free">
-      <div class="head">
+    <!-- 3) 三方案卡片 -->
+    <section class="container plans" id="plans">
+      <!-- Free -->
+      <article class="plan free">
         <h3 data-i18n="pricing.plans.free.title">Free</h3>
-        <div class="price" data-monthly="$0" data-yearly="$0">
-          $0 <span data-i18n="pricing.price.freeTail">/ forever</span>
-        </div>
-      </div>
-      <ul class="features">
-        <li data-i18n="pricing.plans.free.f1">Basic search</li>
-        <li data-i18n="pricing.plans.free.f2">Card-based management</li>
-        <li data-i18n="pricing.plans.free.f3">3 languages (EN / 繁中 / 简中)</li>
-        <li data-i18n="pricing.plans.free.f4">Export CSV</li>
-        <li data-i18n="pricing.plans.free.f5">Single device (browser local)</li>
-        <li data-i18n="pricing.plans.free.f6">Use Web version instantly (no install)</li>
-      </ul>
-      <div class="actions">
-        <a class="btn primary" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="pricing.plans.free.cta">Open Web version</a>
-      </div>
-    </article>
+        <div class="price"><span data-price data-monthly="0" data-yearly="0">0</span> <small data-i18n="pricing.price.freeTail">/ forever</small></div>
+        <ul class="ul">
+          <li data-i18n="pricing.plans.free.f1">Basic search</li>
+          <li data-i18n="pricing.plans.free.f2">Card-based management</li>
+          <li data-i18n="pricing.plans.free.f3">3 languages (EN / 繁 / 简)</li>
+          <li data-i18n="pricing.plans.free.f4">Export CSV</li>
+          <li data-i18n="pricing.plans.free.f5">Single device</li>
+        </ul>
+        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
+      </article>
 
-    <!-- Plus -->
-    <article class="plan-card plus">
-      <div class="head">
+      <!-- Plus -->
+      <article class="plan plus">
         <h3 data-i18n="pricing.plans.plus.title">Plus</h3>
-        <div class="price" data-monthly="$3.99" data-yearly="$39">
-          $3.99 <span data-i18n="pricing.price.tail">/ month</span>
+        <div class="price">
+          $<span data-price data-monthly="3.99" data-yearly="39">3.99</span> <small data-i18n="pricing.price.tail">/ month</small>
         </div>
-      </div>
-      <ul class="features">
-        <li data-i18n="pricing.plans.plus.f0">Everything in Free</li>
-        <li data-i18n="pricing.plans.plus.f1">16 languages</li>
-        <li data-i18n="pricing.plans.plus.f2">Advanced search (Path / Tag / conditions)</li>
-        <li data-i18n="pricing.plans.plus.f3">Themes (Black/Gold, Deep Blue, High Contrast)</li>
-        <li data-i18n="pricing.plans.plus.f4">Export CSV / JSON</li>
-      </ul>
-      <div class="actions">
-        <button class="btn primary" disabled title="Not available yet" data-i18n="pricing.cta.coming">Coming Soon</button>
-      </div>
-    </article>
+        <ul class="ul">
+          <li data-i18n="pricing.plans.plus.f0">Everything in Free</li>
+          <li data-i18n="pricing.plans.plus.f1">16 languages</li>
+          <li data-i18n="pricing.plans.plus.f2">Advanced search (Path / Tag / conditions)</li>
+          <li data-i18n="pricing.plans.plus.f3">Themes (Black/Gold, Deep Blue, High Contrast)</li>
+          <li data-i18n="pricing.plans.plus.f4">Export CSV / JSON</li>
+        </ul>
+        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
+      </article>
 
-    <!-- Pro -->
-    <article class="plan-card pro">
-      <div class="head">
-        <div class="badge" data-i18n="pricing.plans.pro.badge">Most Popular</div>
+      <!-- Pro -->
+      <article class="plan pro">
+        <span class="most-pop" data-i18n="pricing.plans.pro.badge">Most Popular</span>
         <h3 data-i18n="pricing.plans.pro.title">Pro</h3>
-        <div class="price" data-monthly="$6.99" data-yearly="$69">
-          $6.99 <span data-i18n="pricing.price.tail">/ month</span>
+        <div class="price">
+          $<span data-price data-monthly="6.99" data-yearly="69">6.99</span> <small data-i18n="pricing.price.tail">/ month</small>
         </div>
+        <ul class="ul">
+          <li data-i18n="pricing.plans.pro.f0">Everything in Free + Plus</li>
+          <li data-i18n="pricing.plans.pro.f1">Multi-device sync (Web + Desktop)</li>
+          <li data-i18n="pricing.plans.pro.f2">Priority support</li>
+          <li data-i18n="pricing.plans.pro.f3">Early access to Beta features</li>
+          <li data-i18n="pricing.plans.pro.f4">Unlimited export</li>
+        </ul>
+        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
+      </article>
+    </section>
+
+    <!-- 4) 方案比較表 -->
+    <section class="container">
+      <div class="table-wrap">
+        <table class="cmp" aria-label="Plan comparison">
+          <thead>
+            <tr>
+              <th class="col-feature" data-i18n="pricing.table.feature">Feature</th>
+              <th>Free</th>
+              <th>Plus</th>
+              <th>Pro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="col-feature" data-i18n="pricing.table.speed">Search speed</td><td>●</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+            <tr><td class="col-feature" data-i18n="pricing.table.langs">Languages</td><td>3</td><td>16</td><td>16</td></tr>
+            <tr><td class="col-feature" data-i18n="pricing.table.export">Export formats</td><td>CSV</td><td>CSV/JSON</td><td>CSV/JSON</td></tr>
+            <tr><td class="col-feature" data-i18n="pricing.table.sync">Multi-device sync</td><td>—</td><td>—</td><td class="tick">✓</td></tr>
+            <tr><td class="col-feature" data-i18n="pricing.table.support">Support level</td><td data-i18n="pricing.table.support.free">Community</td><td data-i18n="pricing.table.support.plus">Standard</td><td data-i18n="pricing.table.support.pro">Priority</td></tr>
+            <tr><td class="col-feature" data-i18n="pricing.table.beta">Early Beta access</td><td>—</td><td>—</td><td class="tick">✓</td></tr>
+          </tbody>
+        </table>
       </div>
-      <ul class="features">
-        <li data-i18n="pricing.plans.pro.f0">Everything in Free + Plus</li>
-        <li data-i18n="pricing.plans.pro.f1">Multi-device sync (Web + Desktop)</li>
-        <li data-i18n="pricing.plans.pro.f2">Priority support</li>
-        <li data-i18n="pricing.plans.pro.f3">Early access to Beta features</li>
-        <li data-i18n="pricing.plans.pro.f4">Unlimited export</li>
-      </ul>
-      <div class="actions">
-        <button class="btn primary glow" disabled title="Not available yet" data-i18n="pricing.cta.coming">Coming Soon</button>
+    </section>
+
+    <!-- 5) FAQ -->
+    <section class="container faq" aria-label="Pricing FAQ">
+      <h2 data-i18n="pricing.faq.title">FAQ</h2>
+      <details>
+        <summary data-i18n="pricing.faq.q1">Is Free forever?</summary>
+        <div class="fine" data-i18n="pricing.faq.a1">Yes. There will always be a Free plan.</div>
+      </details>
+      <details>
+        <summary data-i18n="pricing.faq.q2">What’s the difference between Plus and Pro?</summary>
+        <div class="fine" data-i18n="pricing.faq.a2">Pro includes multi-device sync, priority support, unlimited export and early Beta access.</div>
+      </details>
+      <details>
+        <summary data-i18n="pricing.faq.q3">Is there a yearly discount?</summary>
+        <div class="fine" data-i18n="pricing.faq.a3">Yes — Yearly saves about 20% compared to paying monthly.</div>
+      </details>
+      <details>
+        <summary data-i18n="pricing.faq.q4">When can I download?</summary>
+        <div class="fine" data-i18n="pricing.faq.a4">Not yet. Click “Join notifications” to get an email when we open access.</div>
+      </details>
+    </section>
+
+    <!-- 6) Final CTA -->
+    <section class="container final-cta">
+      <h3 data-i18n="pricing.final.title">Find it. Fast. Everything, in reach.</h3>
+      <div class="cta-row">
+        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
+        <a class="btn btn-ghost" href="donate.html" data-i18n="pricing.cta.notify">Join notifications</a>
       </div>
-    </article>
-  </section>
-
-  <!-- ===== 4) Comparison table ===== -->
-  <section class="compare container">
-    <div class="table-wrap">
-      <table class="compare-table" role="table">
-        <thead>
-          <tr>
-            <th data-i18n="pricing.table.feature">Feature</th>
-            <th>Free</th>
-            <th>Plus</th>
-            <th>Pro</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-i18n="pricing.table.speed">Search speed</td>
-            <td>●●</td><td>●●●</td><td>●●●</td>
-          </tr>
-          <tr>
-            <td data-i18n="pricing.table.langs">Languages</td>
-            <td>3</td><td>16</td><td>16</td>
-          </tr>
-          <tr>
-            <td data-i18n="pricing.table.export">Export formats</td>
-            <td>CSV</td><td>CSV / JSON</td><td>CSV / JSON / Advanced</td>
-          </tr>
-          <tr>
-            <td data-i18n="pricing.table.sync">Multi-device sync</td>
-            <td>—</td><td>Coming Soon</td><td>Coming Soon</td>
-          </tr>
-          <tr>
-            <td data-i18n="pricing.table.support">Support level</td>
-            <td data-i18n="pricing.table.support.free">Community</td>
-            <td data-i18n="pricing.table.support.plus">Standard</td>
-            <td data-i18n="pricing.table.support.pro">Priority</td>
-          </tr>
-          <tr>
-            <td data-i18n="pricing.table.beta">Early Beta access</td>
-            <td>—</td><td>—</td><td>✔</td>
-          </tr>
-          <tr>
-            <td data-i18n="pricing.table.storage">Storage</td>
-            <td data-i18n="pricing.table.storage.free">Browser local (CSV export)</td>
-            <td data-i18n="pricing.table.storage.plus">Coming Soon (CSV + JSON)</td>
-            <td data-i18n="pricing.table.storage.pro">Coming Soon (CSV + JSON + advanced formats + multi-device sync)</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ===== 5) FAQ ===== -->
-  <section class="faq container">
-    <h2 data-i18n="pricing.faq.title">FAQ</h2>
-
-    <details class="faq-item">
-      <summary data-i18n="pricing.faq.q1">Is Free forever?</summary>
-      <div class="a" data-i18n="pricing.faq.a1">Yes. There will always be a Free plan.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary data-i18n="pricing.faq.q2">What’s the difference between Plus and Pro?</summary>
-      <div class="a" data-i18n="pricing.faq.a2">Pro includes multi-device sync, priority support, unlimited export and early Beta access.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary data-i18n="pricing.faq.q3">Is there a yearly discount?</summary>
-      <div class="a" data-i18n="pricing.faq.a3">Yes — Yearly saves about 20% compared to paying monthly.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary data-i18n="pricing.faq.q4">When can I download?</summary>
-      <div class="a" data-i18n="pricing.faq.a4">Not yet. Click “Join notifications” to get an email when we open access.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary data-i18n="pricing.faq.q5">Can I use KeySearch now?</summary>
-      <div class="a" data-i18n="pricing.faq.a5">Yes. The Free plan is already available via the Web version — no install needed.</div>
-    </details>
-
-    <details class="faq-item">
-      <summary data-i18n="pricing.faq.q6">Will my data disappear?</summary>
-      <div class="a" data-i18n="pricing.faq.a6">Web version data is stored locally in your browser. Please export CSV regularly as backup.</div>
-    </details>
-  </section>
-
-  <!-- ===== 6) Final CTA ===== -->
-  <section class="pricing-final container">
-    <h3 data-i18n="pricing.final.title">Find it. Fast. Everything, in reach.</h3>
-    <div class="cta-row">
-      <button class="btn primary" disabled title="Not available yet" data-i18n="pricing.cta.coming">Coming Soon</button>
-      <a class="btn ghost" href="https://web.keysearch-app.com" target="_blank" rel="noopener" data-i18n="pricing.cta.web">Try Web version now</a>
-    </div>
-  </section>
-
-</main>
+    </section>
+  </main>
 
      <!-- ===== Footer ===== -->
 <footer class="ks-footer">
