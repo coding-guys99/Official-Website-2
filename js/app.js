@@ -396,68 +396,285 @@
   }
 })();
 
-// js/pricing.js
-(function(){
-  const $ = (s,r=document)=>r.querySelector(s);
-  const $$= (s,r=document)=>Array.from(r.querySelectorAll(s));
+// js/pricing.js — Plans toggle / i18n tails / launch switch / feature matrix
+(function () {
+  const $  = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
-  function animateNumber(el, to, dur=300){
+  /* ------------------------------
+   * 1) 可調整的上線/價格設定
+   * ------------------------------ */
+  const LAUNCH = {
+    // 是否已開放桌面下載（所有 Coming Soon 轉為可點 CTA）
+    desktopAvailable: false,
+
+    // Web 版是否可引導（Free/Plus/Pro 的 CTA 連到 web）
+    webAvailable: true,
+
+    // Web 連結（可依方案改不同路徑；現用同一個）
+    webURL: 'https://web.keysearch-app.com',
+
+    // 桌面下載連結（之後上線改為你的實際路徑）
+    desktopURL: 'download.html'
+  };
+
+  // 價格資料（也可以完全靠 HTML data-*；這裡做集中設定好維護）
+  const PRICES = {
+    free: { m: 0, y: 0, subtitleKey: 'pricing.plans.free.subtitle'    }, // 免安裝，立即體驗核心功能
+    plus: { m: 5, y: 48, subtitleKey: 'pricing.plans.plus.subtitle'   }, // 個人專屬強化功能
+    pro : { m: 12, y: 115, subtitleKey: 'pricing.plans.pro.subtitle'  }  // 團隊專屬協作工具
+  };
+
+  // 「卡片詳細內容」功能分配（你可依需求微調）
+  // 顯示在比較表 data-feature="cardDetails" 該列（或做 tooltip）
+  // 對應值：'none' | 'basic' | 'full'
+  const CARD_DETAIL_FEATURE = {
+    free: 'none',   // 無詳細檢視（可看縮圖）
+    plus: 'basic',  // 圖片/基礎預覽
+    pro : 'full'    // 圖片 + PDF（與更多格式）
+  };
+
+  /* ------------------------------
+   * 2) 小工具
+   * ------------------------------ */
+  function i18n(path, fallback) {
+    try {
+      return (window.I18N?.t(path)) ?? fallback;
+    } catch { return fallback; }
+  }
+
+  function animateNumber(el, to, dur = 280) {
     const from = parseFloat(el.textContent) || 0;
     const start = performance.now();
-    const isInt = Number.isInteger(parseFloat(el.getAttribute('data-monthly')||'0')) &&
-                  Number.isInteger(parseFloat(el.getAttribute('data-yearly')||'0'));
-    function step(t){
-      const k = Math.min(1, (t-start)/dur);
+    const wantsInt = Number.isInteger(to);
+
+    function step(t) {
+      const k = Math.min(1, (t - start) / dur);
       const v = from + (to - from) * k;
-      el.textContent = isInt ? Math.round(v) : v.toFixed(2);
-      if (k<1) requestAnimationFrame(step);
+      el.textContent = wantsInt ? Math.round(v) : v.toFixed(2);
+      if (k < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
   }
 
-  function billingToggle(){
+  function setTailSmall(el, mode) {
+    // / month 或 / year（可被 i18n 覆蓋）
+    const m = i18n('pricing.price.tail', '/ month');
+    const y = i18n('pricing.price.tailYear', '/ year');
+    el.textContent = (mode === 'y') ? y : m;
+  }
+
+  function calcSavePercent(mMonthly, yYearly) {
+    // 例如：$5 * 12 = 60 -> 年付 48 省 20%
+    if (!mMonthly || !yYearly) return 0;
+    const fullYear = mMonthly * 12;
+    if (!fullYear) return 0;
+    const save = Math.max(0, fullYear - yYearly);
+    return Math.round((save / fullYear) * 100);
+  }
+
+  /* ------------------------------
+   * 3) 月/年切換（含數字動畫）
+   * ------------------------------ */
+  function billingToggle() {
     const btnM = $('#bill-monthly');
     const btnY = $('#bill-yearly');
-    const prices = $$('[data-price]');
-    if (!btnM || !btnY || !prices.length) return;
+    if (!btnM || !btnY) return;
 
-    function setMode(mode){ // 'm' | 'y'
-      btnM.classList.toggle('on', mode==='m');
-      btnY.classList.toggle('on', mode==='y');
-      btnM.setAttribute('aria-selected', mode==='m' ? 'true':'false');
-      btnY.setAttribute('aria-selected', mode==='y' ? 'true':'false');
+    const priceSpans = $$('[data-price]');
+    // 如果 HTML 上已有 data-monthly / data-yearly，就用；否則 fall back 到 PRICES
+    // 同時把 Yearly 徽章的節省比例算好（由 Plus 卡那顆顯示）
+    const yearlyBadge = $('#bill-yearly .badge');
+    if (yearlyBadge) {
+      // 單純以 Plus 當範例計算節省（也可綁定所有方案算平均）
+      const pct = calcSavePercent(PRICES.plus.m, PRICES.plus.y);
+      yearlyBadge.textContent = i18n('pricing.billing.save', `Save ${pct}%`).replace(/\d+%/, `${pct}%`);
+    }
 
-      prices.forEach(el=>{
-        const m = parseFloat(el.getAttribute('data-monthly')||'0');
-        const y = parseFloat(el.getAttribute('data-yearly')||'0');
-        const target = (mode==='y') ? y : m;
-        animateNumber(el, target, 280);
-        const tail = el.parentElement.querySelector('small');
-        if (tail){
-          tail.textContent = (mode==='y') ? '/ year' : '/ month';
-          // i18n 補：若你的 i18n 有 pricing.price.tailYear 可在 lang.js 渲染後覆蓋
-        }
+    function applyMode(mode) {
+      // 標記 UI 狀態
+      btnM.classList.toggle('on', mode === 'm');
+      btnY.classList.toggle('on', mode === 'y');
+      btnM.setAttribute('aria-selected', mode === 'm' ? 'true' : 'false');
+      btnY.setAttribute('aria-selected', mode === 'y' ? 'true' : 'false');
+
+      // 更新每張卡片價格
+      priceSpans.forEach(el => {
+        // 判斷卡片類型（free/plus/pro）
+        const card = el.closest('.plan');
+        let key = 'free';
+        if (card?.classList.contains('plus')) key = 'plus';
+        if (card?.classList.contains('pro'))  key = 'pro';
+
+        const p = PRICES[key];
+        const to = (mode === 'y') ? p.y : p.m;
+        animateNumber(el, to, 280);
+
+        // 價格尾巴（/ month / year）
+        const small = el.parentElement?.querySelector('small');
+        if (small) setTailSmall(small, mode);
       });
     }
 
-    btnM.addEventListener('click', ()=> setMode('m'));
-    btnY.addEventListener('click', ()=> setMode('y'));
+    btnM.addEventListener('click', () => applyMode('m'));
+    btnY.addEventListener('click', () => applyMode('y'));
+
     // 預設月付
-    setMode('m');
+    applyMode('m');
+
+    // 語言切換後更新 /month /year 詞條
+    document.addEventListener('i18n:changed', () => {
+      const smalls = $$('.price small');
+      // 依目前 on 的按鈕推回 mode
+      const mode = btnY.classList.contains('on') ? 'y' : 'm';
+      smalls.forEach(s => setTailSmall(s, mode));
+    });
   }
 
-  function faqSingleOpen(){
+  /* ------------------------------
+   * 4) CTA 狀態（Coming Soon → 上線）
+   * ------------------------------ */
+  function applyLaunchState() {
+    // 英文口吻/文案可交給 i18n；這裡先用語意常數做 fallback
+    const TXT = {
+      coming : i18n('pricing.cta.coming', 'Coming Soon'),
+      openWeb: i18n('pricing.cta.openWeb', 'Open Web'),
+      download: i18n('pricing.cta.download', 'Download')
+    };
+
+    // 三張卡的 CTA
+    $$('.plan').forEach(card => {
+      const isFree = card.classList.contains('free');
+      const isPlus = card.classList.contains('plus');
+      const isPro  = card.classList.contains('pro');
+
+      // 卡片內第一顆主要 CTA（你的 HTML 是最後一個 button）
+      const ctaBtn = card.querySelector('.btn-coming, .btn'); // 兼容
+      if (!ctaBtn) return;
+
+      if (!LAUNCH.desktopAvailable && !LAUNCH.webAvailable) {
+        // 完全未上線 → 一律 Coming Soon（禁用）
+        ctaBtn.classList.add('btn-coming');
+        ctaBtn.setAttribute('aria-disabled', 'true');
+        ctaBtn.textContent = TXT.coming;
+        ctaBtn.removeAttribute('href');
+        return;
+      }
+
+      // 有 Web 就導 Web；否則導 Desktop
+      const useWeb = LAUNCH.webAvailable === true;
+      const url    = useWeb ? LAUNCH.webURL : LAUNCH.desktopURL;
+
+      // 按方案給不同行為（視你策略決定；這裡全部導向同一 webURL / download）
+      ctaBtn.classList.remove('btn-coming');
+      ctaBtn.removeAttribute('aria-disabled');
+      ctaBtn.textContent = useWeb ? TXT.openWeb : TXT.download;
+      ctaBtn.tagName === 'A'
+        ? ctaBtn.setAttribute('href', url)
+        : ctaBtn.replaceWith(Object.assign(document.createElement('a'), {
+            className: 'btn',
+            href: url,
+            textContent: useWeb ? TXT.openWeb : TXT.download,
+            target: '_blank', rel: 'noopener'
+          }));
+    });
+
+    // HERO 與 FINAL CTA 區域（Coming Soon / Join notifications）
+    $$('.btn-coming').forEach(b => {
+      if (LAUNCH.desktopAvailable || LAUNCH.webAvailable) {
+        // 變成可點 — 預設導 Web
+        b.classList.remove('btn-coming');
+        b.removeAttribute('aria-disabled');
+        b.textContent = LAUNCH.webAvailable
+          ? i18n('pricing.cta.openWeb', 'Open Web')
+          : i18n('pricing.cta.download', 'Download');
+        const a = document.createElement('a');
+        a.className = 'btn';
+        a.href = LAUNCH.webAvailable ? LAUNCH.webURL : LAUNCH.desktopURL;
+        a.textContent = b.textContent;
+        a.target = '_blank'; a.rel = 'noopener';
+        b.replaceWith(a);
+      }
+    });
+  }
+
+  /* ------------------------------
+   * 5) FAQ 單開
+   * ------------------------------ */
+  function faqSingleOpen() {
     const items = $$('section.faq details');
     if (!items.length) return;
-    items.forEach(d=>{
-      d.addEventListener('toggle', ()=>{
-        if (d.open) items.forEach(o=>{ if (o!==d) o.removeAttribute('open'); });
+    items.forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (d.open) items.forEach(o => { if (o !== d) o.removeAttribute('open'); });
       });
     });
   }
 
-  document.addEventListener('DOMContentLoaded', ()=>{
+  /* ------------------------------
+   * 6) 比較表：卡片詳細內容（依方案）
+   *   HTML：在對應那一列加 data-feature="cardDetails"
+   * ------------------------------ */
+  function applyFeatureMatrix() {
+    const row = document.querySelector('table.cmp [data-feature="cardDetails"]')?.closest('tr');
+    if (!row) return;
+
+    // 假設表頭後順序是：Free / Plus / Pro（你的表格就是）
+    const tds = Array.from(row.querySelectorAll('td')).slice(-3);
+    if (tds.length !== 3) return;
+
+    const MAP = {
+      none : i18n('pricing.cardDetails.none', '—'),
+      basic: i18n('pricing.cardDetails.basic', 'Images'),
+      full : i18n('pricing.cardDetails.full', 'Images + PDF')
+    };
+
+    tds[0].textContent = MAP[CARD_DETAIL_FEATURE.free] || '—';
+    tds[1].textContent = MAP[CARD_DETAIL_FEATURE.plus] || '—';
+    tds[2].textContent = MAP[CARD_DETAIL_FEATURE.pro ] || '—';
+  }
+
+  /* ------------------------------
+   * 7) 方案副標（subtitle）的 i18n（選擇性）
+   *   HTML 若需要顯示副標，請在每張卡 h3 後加：
+   *   <div class="subtitle" data-i18n="pricing.plans.free.subtitle">…</div>
+   * ------------------------------ */
+  function applySubtitles() {
+    // 如果你已經在 i18n json 裡寫好，就交給 lang.js 自動渲染
+    // 這裡只做兜底：如果沒有 data-i18n，就用固定字串
+    const fallback = {
+      free: 'No install. Try the core features now.',
+      plus: 'Personal power features.',
+      pro : 'Team collaboration ready.'
+    };
+    [['free','.plan.free'], ['plus','.plan.plus'], ['pro','.plan.pro']].forEach(([k, sel])=>{
+      const el = document.querySelector(`${sel} .subtitle`);
+      if (!el) return;
+      const txt = i18n(PRICES[k].subtitleKey, fallback[k]);
+      el.textContent = txt;
+    });
+  }
+
+  /* ------------------------------
+   * 8) 啟動
+   * ------------------------------ */
+  function boot() {
     billingToggle();
+    applyLaunchState();
     faqSingleOpen();
+    applyFeatureMatrix();
+    applySubtitles();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  } else {
+    boot();
+  }
+
+  // 語言切換後，重套副標 & feature 表列文案
+  document.addEventListener('i18n:changed', () => {
+    applyFeatureMatrix();
+    applySubtitles();
   });
 })();
