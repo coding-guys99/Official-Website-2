@@ -426,43 +426,141 @@ html, body { overflow-x: hidden; }
 
 
 
-/* ===== Responsive for Pricing Page ===== */
+/* =======================================================
+   KeySearch — Pricing page responsive overrides
+   Scope: .page-pricing …
+   ======================================================= */
 
-/* 平板 */
-@media (max-width: 980px) {
-  .plans {
-    grid-template-columns: repeat(2, 1fr);
+/* ---------------------------
+   ≤1200px
+--------------------------- */
+@media (max-width: 1200px){
+  .page-pricing .pricing-hero{
+    padding: 88px 0 50px;
   }
-  .pricing-hero h1 {
-    font-size: 2rem;
+  .page-pricing .pricing-hero h1{
+    font-size: 2.1rem;
   }
 }
 
-/* 手機 */
-@media (max-width: 640px) {
-  .plans {
+/* ---------------------------
+   ≤980px（主要斷點）
+--------------------------- */
+@media (max-width: 980px){
+  /* Hero */
+  .page-pricing .pricing-hero{
+    padding: 84px 0 44px;
+  }
+  .page-pricing .pricing-hero p.lead{
+    max-width: 60ch; margin-inline: auto; text-align: center;
+  }
+  .page-pricing .pricing-hero .cta-row{
+    justify-content: center;
+  }
+
+  /* Segmented billing toggle */
+  .page-pricing .billing-toggle-wrap{
+    padding: 16px 0 8px;
+  }
+
+  /* Plans grid：2 欄 */
+  .page-pricing .plans{
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 16px;
+  }
+
+  /* Plan card spacing */
+  .page-pricing .plan{
+    padding: 16px;
+  }
+  .page-pricing .price{
+    font-size: 1.8rem;
+  }
+
+  /* Comparison table：外框滑動 */
+  .page-pricing .table-wrap{
+    margin-top: 24px;
+  }
+  .page-pricing .cmp{
+    min-width: 720px;
+  }
+}
+
+/* ---------------------------
+   ≤768px（平板/小筆電）
+--------------------------- */
+@media (max-width: 768px){
+  /* Hero 更緊湊 */
+  .page-pricing .pricing-hero{
+    padding: 76px 0 36px;
+  }
+
+  /* Plans grid：單欄（視需要也可 2 欄） */
+  .page-pricing .plans{
     grid-template-columns: 1fr;
+    gap: 14px;
   }
-  .pricing-hero {
-    padding: 2.5rem 1rem;
+
+  /* Most Popular 標章縮小些 */
+  .page-pricing .most-pop{
+    top: 10px; right: 10px; font-size: .75rem; padding: 3px 7px;
   }
-  .pricing-hero h1 {
-    font-size: 1.75rem;
+
+  /* FAQ 間距 */
+  .page-pricing .faq{
+    margin-top: 28px;
   }
-  .pricing-hero .lead {
+  .page-pricing .faq details{
+    padding: 10px 12px;
+  }
+  .page-pricing .faq summary{
     font-size: 1rem;
   }
-  .segmented {
-    flex-direction: column;
-    border-radius: 8px;
+
+  /* Final CTA */
+  .page-pricing .final-cta{
+    margin: 28px 0 18px;
+    padding: 22px 16px;
   }
-  .seg-btn {
-    width: 100%;
-    padding: 0.75rem;
-  }
-  .pricing-final {
-    padding: 2rem 1rem;
+  .page-pricing .final-cta .cta-row{
+    justify-content: center;
   }
 }
+
+/* ---------------------------
+   ≤560px（小手機）
+--------------------------- */
+@media (max-width: 560px){
+  /* Hero 字體與 CTA 行為 */
+  .page-pricing .pricing-hero h1{
+    font-size: 1.8rem;
+  }
+  .page-pricing .pricing-hero .cta-row{
+    gap: 10px;
+  }
+
+  /* Segmented toggle：緊湊 */
+  .page-pricing .seg button{
+    padding: 7px 12px;
+  }
+  .page-pricing .seg .badge{
+    display: inline-block; transform: scale(.95);
+  }
+
+  /* Plan 卡片內容間距 */
+  .page-pricing .plan h3{ margin: 4px 0 4px; }
+  .page-pricing .price{ font-size: 1.6rem; }
+  .page-pricing .ul li{ margin: 6px 0; }
+
+  /* 表格：放大點擊區、方便橫滑 */
+  .page-pricing .table-wrap{
+    margin-top: 22px;
+  }
+  .page-pricing .cmp th, 
+  .page-pricing .cmp td{
+    padding: 10px 12px;
+  }
+}
+
 
 /* ====== END ====== */
