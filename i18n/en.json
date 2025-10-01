@@ -87,69 +87,65 @@
   },
 
   "pricing": {
-    "hero": {
-      "title": "Choose the plan that fits you",
-      "lead": "From personal to pro — help your information get found faster."
+  "hero": {
+    "title": "Choose the plan that fits you",
+    "lead": "From personal to pro — help your information get found faster."
+  },
+  "cta": { "coming": "Coming Soon", "notify": "Join notifications" },
+  "billing": {
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save 20%"
+  },
+  "price": { "tail": "/ month", "freeTail": "/ forever" },
+  "plans": {
+    "free": {
+      "title": "Free",
+      "f1": "Basic search",
+      "f2": "Card-based management",
+      "f3": "3 languages (EN / ZH-TW / ZH-CN)",
+      "f4": "Export CSV",
+      "f5": "Single device"
     },
-    "cta": { "coming": "Coming Soon", "notify": "Join notifications" },
-    "billing": {
-      "monthly": "Monthly",
-      "yearly": "Yearly",
-      "save": "Save 20%"
+    "plus": {
+      "title": "Plus",
+      "f0": "Everything in Free",
+      "f1": "16 languages",
+      "f2": "Advanced search (Path / Tag / conditions)",
+      "f3": "Themes (Black/Gold, Deep Blue, High Contrast)",
+      "f4": "Export CSV / JSON"
     },
-    "price": { "tail": "/ month", "freeTail": "/ forever" },
-    "plans": {
-      "free": {
-        "title": "Free",
-        "f1": "Basic search",
-        "f2": "Card-based management",
-        "f3": "3 languages (EN / 繁 / 简)",
-        "f4": "Export CSV",
-        "f5": "Single device"
-      },
-      "plus": {
-        "title": "Plus",
-        "f0": "Everything in Free",
-        "f1": "16 languages",
-        "f2": "Advanced search (Path / Tag / conditions)",
-        "f3": "Themes (Black/Gold, Deep Blue, High Contrast)",
-        "f4": "Export CSV / JSON"
-      },
-      "pro": {
-        "title": "Pro",
-        "badge": "Most Popular",
-        "f0": "Everything in Free + Plus",
-        "f1": "Multi-device sync (Web + Desktop)",
-        "f2": "Priority support",
-        "f3": "Early access to Beta features",
-        "f4": "Unlimited export"
-      }
-    },
-    "table": {
-      "feature": "Feature",
-      "speed": "Search speed",
-      "langs": "Languages",
-      "export": "Export formats",
-      "sync": "Multi-device sync",
-      "support": "Support level",
-      "support.free": "Community",
-      "support.plus": "Standard",
-      "support.pro": "Priority",
-      "beta": "Early Beta access"
-    },
-    "faq": {
-      "title": "FAQ",
-      "q1": "Is Free forever?",
-      "a1": "Yes. There will always be a Free plan.",
-      "q2": "What’s the difference between Plus and Pro?",
-      "a2": "Pro includes multi-device sync, priority support, unlimited export and early Beta access.",
-      "q3": "Is there a yearly discount?",
-      "a3": "Yes — Yearly saves about 20% compared to paying monthly.",
-      "q4": "When can I download?",
-      "a4": "Not yet. Click “Join notifications” to get an email when we open access."
-    },
-    "final": { "title": "Find it. Fast. Everything, in reach." }
-  }
+    "pro": {
+      "title": "Pro",
+      "badge": "Most Popular",
+      "f0": "Everything in Free + Plus",
+      "f1": "Multi-device sync (Web + Desktop)",
+      "f2": "Priority support",
+      "f3": "Early access to Beta features",
+      "f4": "Unlimited export"
+    }
+  },
+  "table": {
+    "feature": "Feature",
+    "speed": "Search speed",
+    "langs": "Languages",
+    "export": "Export formats",
+    "sync": "Multi-device sync",
+    "support": { "label": "Support level", "free": "Community", "plus": "Standard", "pro": "Priority" },
+    "beta": "Early Beta access"
+  },
+  "faq": {
+    "title": "FAQ",
+    "q1": "Is Free forever?",
+    "a1": "Yes. There will always be a Free plan.",
+    "q2": "What’s the difference between Plus and Pro?",
+    "a2": "Pro includes multi-device sync, priority support, unlimited export and early Beta access.",
+    "q3": "Is there a yearly discount?",
+    "a3": "Yes — Yearly saves about 20% compared to paying monthly.",
+    "q4": "When can I download?",
+    "a4": "Not yet. Click “Join notifications” to get an email when we open access."
+  },
+  "final": { "title": "Find it. Fast. Everything, in reach." }
 },
 
   "about": {
