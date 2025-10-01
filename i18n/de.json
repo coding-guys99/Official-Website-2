@@ -177,14 +177,32 @@
   },
 
   "donate": {
-    "title": "Entwicklung unterstützen",
-    "desc": "KeySearch ist kostenlos. Wenn es dir Zeit spart, freue ich mich über Unterstützung.",
-    "coffee": "Einen Kaffee ausgeben",
-    "kofi": "Ko-fi",
-    "paypal": "PayPal",
-    "stripe": "Stripe",
-    "thanks": "Danke für deine Unterstützung — sie hält KeySearch schnell und fokussiert."
+  "back": { "_": "← Zurück", "aria-label": "Zurück zur Unterstützung" },
+  "title": "Entwicklung unterstützen",
+  "subtitle": "KeySearch ist kostenlos. Wenn es dir Zeit spart, erwäge bitte, das Projekt zu unterstützen.",
+  "card": { "title": "Spenden", "desc": "Wähle deine Währung und den Betrag. Dann wähle PayPal oder Stripe, um die Zahlung abzuschließen." },
+  "currency": "Währung",
+  "chips": { "custom": "Benutzerdefiniert" },
+  "paypal": "Mit PayPal bezahlen",
+  "stripe": "Mit Stripe bezahlen",
+  "coffee": "Spendiere mir einen Kaffee",
+  "uses": {
+    "1": "Die Gelder decken Hosting, Speicher, Testgeräte und Entwicklungszeit ab.",
+    "2": "Prioritäten der Roadmap: Leistung, Mehrsprachigkeit, Desktop-Packaging und Lizenzierung."
   },
+  "thanks": "Danke für deine Unterstützung — sie hält KeySearch schnell und fokussiert.",
+  "faq": {
+    "title": "FAQ",
+    "q1": "Kann ich eine Quittung bekommen?",
+    "a1": "Ja. PayPal/Stripe sendet nach der Zahlung automatisch eine Quittung per E-Mail.",
+    "q2": "In welcher Währung werde ich belastet?",
+    "a2": "PayPal verwendet die Währung deines Kontos; Stripe die auf der Checkout-Seite angezeigte Währung.",
+    "q3": "Rückerstattungen?",
+    "a3": "Spenden sind freiwillig und in der Regel nicht erstattungsfähig. Bei Problemen kontaktiere uns bitte.",
+    "q4": "Gibt es ein Abonnement?",
+    "a4": "Derzeit sind Spenden einmalig. Abonnements können später hinzugefügt werden."
+  }
+},
 
   "news": {
     "title": "Neuigkeiten",
