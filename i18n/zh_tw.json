@@ -86,37 +86,70 @@
   },
 
   "pricing": {
-    "title": "價格方案",
-    "lead": "簡單透明，能隨你成長的方案。",
-    "billing": { "monthly": "月繳", "yearly": "年繳", "save": "省 20%" },
-    "free": {
-      "title": "免費",
-      "perma": "/ 永久",
-      "f1": "不限次數搜尋",
-      "f2": "基本標籤與集合",
-      "f3": "匯出 CSV/JSON",
-      "cta": "即將推出"
+    "hero": {
+      "title": "選擇最適合你的方案",
+      "lead": "從個人到專業，讓你的資訊更快被找到。"
     },
-    "pro": {
-      "badge": "最受歡迎",
-      "title": "專業版",
-      "permonth": "/ 月",
-      "f1": "包含免費版所有功能",
-      "f2": "多語介面",
-      "f3": "提醒與智慧篩選",
-      "f4": "優先支援",
-      "cta": "即將推出"
+    "cta": { "coming": "即將推出", "notify": "加入通知" },
+    "billing": {
+      "monthly": "月付",
+      "yearly": "年付",
+      "save": "省 20%"
+    },
+    "price": { "tail": "/ 月", "freeTail": "/ 永久" },
+    "plans": {
+      "free": {
+        "title": "Free",
+        "f1": "基本搜尋",
+        "f2": "卡片式管理",
+        "f3": "語言 3 種（EN / 繁 / 简）",
+        "f4": "匯出 CSV",
+        "f5": "單裝置使用"
+      },
+      "plus": {
+        "title": "Plus",
+        "f0": "含 Free 全部功能",
+        "f1": "語言 16 種",
+        "f2": "進階搜尋（Path / Tag / 條件組合）",
+        "f3": "多主題（黑金／深藍／高對比）",
+        "f4": "匯出 CSV / JSON"
+      },
+      "pro": {
+        "title": "Pro",
+        "badge": "Most Popular",
+        "f0": "含 Free + Plus 全部功能",
+        "f1": "多裝置同步（Web + Desktop）",
+        "f2": "優先支援",
+        "f3": "Beta 功能搶先用",
+        "f4": "無限制匯出"
+      }
+    },
+    "table": {
+      "feature": "功能",
+      "speed": "搜尋速度",
+      "langs": "語言數量",
+      "export": "匯出格式",
+      "sync": "多裝置同步",
+      "support": "支援等級",
+      "support.free": "社群",
+      "support.plus": "一般",
+      "support.pro": "優先",
+      "beta": "Beta 功能搶先"
     },
     "faq": {
-      "refunds": { "q": "可以退款嗎？", "a": "若不滿意，請於 14 天內與我們聯繫，我們會協助處理。" },
-      "switch": { "q": "之後可以更換方案嗎？", "a": "可以，你可隨時升級或取消。" }
+      "title": "常見問題",
+      "q1": "Free 是否能永久使用？",
+      "a1": "可以，Free 方案會長期提供。",
+      "q2": "Plus 與 Pro 差別？",
+      "a2": "Pro 含多裝置同步、優先支援、無限制匯出與 Beta 搶先用等功能。",
+      "q3": "是否有年付折扣？",
+      "a3": "有，年付約省 20%。",
+      "q4": "何時開放下載？",
+      "a4": "尚未開放。點「加入通知」即可在開放時收到 Email。"
     },
-    "final": {
-      "title": "開始更聰明的搜尋",
-      "lead": "KeySearch 可免費試用，準備好再升級。",
-      "cta": { "download": "即將推出", "openweb": "開啟網頁版" }
-    }
-  },
+    "final": { "title": "Find it. Fast. Everything, in reach." }
+  }
+},
 
   "about": {
     "title": "關於 KeySearch",
