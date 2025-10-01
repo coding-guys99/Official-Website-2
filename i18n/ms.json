@@ -186,14 +186,32 @@
   },
 
   "donate": {
-    "title": "Sokong pembangunan",
-    "desc": "KeySearch percuma digunakan. Jika ia menjimatkan masa anda, pertimbangkan untuk menyokong pembangunan.",
-    "coffee": "Belanja kopi",
-    "kofi": "Ko-fi",
-    "paypal": "PayPal",
-    "stripe": "Stripe",
-    "thanks": "Terima kasih atas sokongan anda — ia membantu KeySearch kekal pantas dan fokus."
+  "back": { "_": "← Kembali", "aria-label": "Kembali ke Sokongan" },
+  "title": "Sokong pembangunan",
+  "subtitle": "KeySearch adalah percuma. Jika ia menjimatkan masa anda, pertimbangkan untuk menyokong projek ini.",
+  "card": { "title": "Derma", "desc": "Pilih mata wang dan jumlah. Kemudian pilih PayPal atau Stripe untuk melengkapkan pembayaran." },
+  "currency": "Mata wang",
+  "chips": { "custom": "Tersuai" },
+  "paypal": "Bayar dengan PayPal",
+  "stripe": "Bayar dengan Stripe",
+  "coffee": "Belanja saya kopi",
+  "uses": {
+    "1": "Dana menampung hosting, storan, peranti ujian dan masa pembangunan.",
+    "2": "Keutamaan pelan hala tuju: prestasi, pelbagai bahasa, pakej desktop dan pelesenan."
   },
+  "thanks": "Terima kasih atas sokongan anda — ia memastikan KeySearch pantas dan fokus.",
+  "faq": {
+    "title": "Soalan Lazim",
+    "q1": "Bolehkah saya dapat resit?",
+    "a1": "Ya. PayPal/Stripe akan menghantar e-mel resit secara automatik selepas pembayaran.",
+    "q2": "Dalam mata wang apa saya akan dicaj?",
+    "a2": "PayPal menggunakan mata wang akaun anda; Stripe menggunakan mata wang yang ditunjukkan di halaman pembayaran.",
+    "q3": "Pemulangan wang?",
+    "a3": "Derma adalah sukarela dan biasanya tidak boleh dikembalikan. Jika ada masalah, hubungi kami.",
+    "q4": "Adakah terdapat langganan?",
+    "a4": "Buat masa ini derma adalah sekali sahaja. Langganan mungkin ditambah kemudian."
+  }
+},
 
   "news": {
     "title": "Berita",
