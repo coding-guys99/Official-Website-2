@@ -940,10 +940,10 @@ section.cta .actions {
 }
 
 /* =======================================================
-   KeySearch — Pricing page styles (split from inline)
+   KeySearch — Pricing page styles
    ======================================================= */
 
-/* brand variables (inherits OK even若已在 app.css 定義) */
+/* brand variables */
 :root{
   --brand-gold: #f5d37a;
   --brand-bg:   #0b0b0d;
@@ -1019,12 +1019,20 @@ section.cta .actions {
   box-shadow: 0 12px 36px rgba(245,211,122,.12);
   position:relative;
 }
+.plan.pro:hover{
+  box-shadow: 0 16px 40px rgba(245,211,122,.18);
+}
 .most-pop{
   position:absolute; top:12px; right:12px; font-size:.8rem; color:#111;
   background:var(--brand-gold); padding:4px 8px; border-radius:999px; font-weight:700;
 }
 
 .plan h3{ margin: 6px 0 6px; font-size: 1.3rem; }
+.plan .subtitle{
+  margin: 0 0 8px;
+  opacity: .85;
+  font-size: .95rem;
+}
 .price{ font-size:2rem; font-weight:800; letter-spacing:.2px; }
 .price small{ font-weight:500; font-size:.95rem; opacity:.85; }
 .ul{ margin: 12px 0 14px; padding:0; list-style:none; }
@@ -1043,6 +1051,11 @@ section.cta .actions {
 .cmp .col-feature{ text-align:left; width: 40%; }
 .cmp td, .cmp th{ text-align:center; }
 .cmp .tick{ color:var(--brand-gold); font-weight:700; }
+
+/* 可選：大螢幕時拉寬左欄 */
+@media (min-width: 721px){
+  .cmp .col-feature{ width: 46%; }
+}
 
 /* ===== 5) FAQ ===== */
 .faq{ margin-top: 34px; }
@@ -1066,3 +1079,14 @@ section.cta .actions {
 }
 .final-cta .cta-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
 
+/* ===== 上線後可用的主按鈕樣式 ===== */
+.btn-primary{
+  background: linear-gradient(180deg, #f7e3a3, #f5d37a);
+  color: #111;
+  border: 1px solid rgba(245,211,122,.6);
+  font-weight: 700;
+}
+.btn-primary:hover{
+  filter: brightness(1.02);
+  box-shadow: 0 6px 18px rgba(245,211,122,.22);
+}
