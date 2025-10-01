@@ -186,14 +186,32 @@
   },
 
   "donate": {
-    "title": "Ủng hộ phát triển",
-    "desc": "KeySearch miễn phí sử dụng. Nếu giúp bạn tiết kiệm thời gian, hãy cân nhắc ủng hộ nhé.",
-    "coffee": "Mua cho tôi ly cà phê",
-    "kofi": "Ko-fi",
-    "paypal": "PayPal",
-    "stripe": "Stripe",
-    "thanks": "Cảm ơn bạn — sự ủng hộ giúp KeySearch luôn nhanh và tập trung."
+  "back": { "_": "← Quay lại", "aria-label": "Quay lại Hỗ trợ" },
+  "title": "Hỗ trợ phát triển",
+  "subtitle": "KeySearch là miễn phí. Nếu nó giúp bạn tiết kiệm thời gian, hãy cân nhắc ủng hộ dự án.",
+  "card": { "title": "Ủng hộ", "desc": "Chọn loại tiền và số tiền. Sau đó chọn PayPal hoặc Stripe để hoàn tất thanh toán." },
+  "currency": "Tiền tệ",
+  "chips": { "custom": "Tùy chỉnh" },
+  "paypal": "Thanh toán bằng PayPal",
+  "stripe": "Thanh toán bằng Stripe",
+  "coffee": "Mời tôi một ly cà phê",
+  "uses": {
+    "1": "Quỹ sẽ dùng cho hosting, lưu trữ, thiết bị thử nghiệm và thời gian phát triển.",
+    "2": "Ưu tiên lộ trình: hiệu năng, đa ngôn ngữ, gói desktop và cấp phép."
   },
+  "thanks": "Cảm ơn bạn đã ủng hộ — nó giúp KeySearch luôn nhanh và tập trung.",
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "q1": "Tôi có thể nhận biên lai không?",
+    "a1": "Có. PayPal/Stripe sẽ gửi biên lai qua email tự động sau khi thanh toán.",
+    "q2": "Tôi sẽ bị tính phí bằng loại tiền nào?",
+    "a2": "PayPal dùng loại tiền trong tài khoản; Stripe dùng loại tiền hiển thị trên trang thanh toán.",
+    "q3": "Có hoàn tiền không?",
+    "a3": "Ủng hộ là tự nguyện và thường không hoàn lại. Nếu có vấn đề, hãy liên hệ với chúng tôi.",
+    "q4": "Có đăng ký theo tháng không?",
+    "a4": "Hiện tại ủng hộ là một lần. Sau này có thể thêm đăng ký."
+  }
+},
 
   "news": {
     "title": "Tin tức",
