@@ -186,14 +186,32 @@
   },
 
   "donate": {
-    "title": "Soutenir le développement",
-    "desc": "KeySearch est gratuit. S’il vous fait gagner du temps, pensez à nous soutenir.",
-    "coffee": "Offrir un café",
-    "kofi": "Ko-fi",
-    "paypal": "PayPal",
-    "stripe": "Stripe",
-    "thanks": "Merci pour votre soutien — il nous aide à rester rapides et concentrés."
+  "back": { "_": "← Retour", "aria-label": "Retour au support" },
+  "title": "Soutenir le développement",
+  "subtitle": "KeySearch est gratuit. S’il vous fait gagner du temps, pensez à soutenir le projet.",
+  "card": { "title": "Donner", "desc": "Choisissez votre devise et montant. Puis sélectionnez PayPal ou Stripe pour finaliser le paiement." },
+  "currency": "Devise",
+  "chips": { "custom": "Personnalisé" },
+  "paypal": "Payer avec PayPal",
+  "stripe": "Payer avec Stripe",
+  "coffee": "Offrez-moi un café",
+  "uses": {
+    "1": "Les fonds couvrent l’hébergement, le stockage, les appareils de test et le temps de développement.",
+    "2": "Priorités de la feuille de route : performance, multilingue, packaging desktop et licences."
   },
+  "thanks": "Merci pour votre soutien — il permet à KeySearch de rester rapide et concentré.",
+  "faq": {
+    "title": "FAQ",
+    "q1": "Puis-je obtenir un reçu ?",
+    "a1": "Oui. PayPal/Stripe envoie automatiquement un reçu par e-mail après le paiement.",
+    "q2": "Dans quelle devise serai-je facturé ?",
+    "a2": "PayPal utilise la devise de votre compte ; Stripe utilise celle affichée sur la page de paiement.",
+    "q3": "Remboursements ?",
+    "a3": "Les dons sont volontaires et généralement non remboursables. En cas de problème, contactez-nous.",
+    "q4": "Y a-t-il un abonnement ?",
+    "a4": "Pour l’instant, les dons sont uniques. Des abonnements pourront être ajoutés plus tard."
+  }
+},
 
   "news": {
     "title": "Actualités",
