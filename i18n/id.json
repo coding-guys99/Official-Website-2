@@ -186,14 +186,32 @@
   },
 
   "donate": {
-    "title": "Dukung pengembangan",
-    "desc": "KeySearch gratis digunakan. Jika menghemat waktu Anda, pertimbangkan untuk mendukung kami.",
-    "coffee": "Belikan kopi",
-    "kofi": "Ko-fi",
-    "paypal": "PayPal",
-    "stripe": "Stripe",
-    "thanks": "Terima kasih atas dukungan Anda — membantu KeySearch tetap cepat dan fokus."
+  "back": { "_": "← Kembali", "aria-label": "Kembali ke Dukungan" },
+  "title": "Dukung pengembangan",
+  "subtitle": "KeySearch gratis. Jika membantu Anda menghemat waktu, pertimbangkan untuk mendukung proyek ini.",
+  "card": { "title": "Donasi", "desc": "Pilih mata uang dan jumlah. Lalu pilih PayPal atau Stripe untuk menyelesaikan pembayaran." },
+  "currency": "Mata uang",
+  "chips": { "custom": "Kustom" },
+  "paypal": "Bayar dengan PayPal",
+  "stripe": "Bayar dengan Stripe",
+  "coffee": "Belikan saya kopi",
+  "uses": {
+    "1": "Dana digunakan untuk hosting, penyimpanan, perangkat pengujian, dan waktu pengembangan.",
+    "2": "Prioritas roadmap: performa, multi-bahasa, paket desktop, dan lisensi."
   },
+  "thanks": "Terima kasih atas dukungan Anda — ini menjaga KeySearch tetap cepat dan fokus.",
+  "faq": {
+    "title": "FAQ",
+    "q1": "Bisakah saya mendapatkan tanda terima?",
+    "a1": "Ya. PayPal/Stripe akan mengirim tanda terima otomatis melalui email setelah pembayaran.",
+    "q2": "Saya akan dikenakan biaya dengan mata uang apa?",
+    "a2": "PayPal menggunakan mata uang akun Anda; Stripe menggunakan mata uang yang ditampilkan di halaman pembayaran.",
+    "q3": "Apakah ada pengembalian dana?",
+    "a3": "Donasi bersifat sukarela dan biasanya tidak dapat dikembalikan. Jika ada masalah, hubungi kami.",
+    "q4": "Apakah ada langganan?",
+    "a4": "Saat ini donasi hanya sekali. Langganan mungkin ditambahkan nanti."
+  }
+},
 
   "news": {
     "title": "Berita",
