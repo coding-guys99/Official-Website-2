@@ -395,3 +395,69 @@
     els.forEach(e => io.observe(e));
   }
 })();
+
+// js/pricing.js
+(function(){
+  const $ = (s,r=document)=>r.querySelector(s);
+  const $$= (s,r=document)=>Array.from(r.querySelectorAll(s));
+
+  function animateNumber(el, to, dur=300){
+    const from = parseFloat(el.textContent) || 0;
+    const start = performance.now();
+    const isInt = Number.isInteger(parseFloat(el.getAttribute('data-monthly')||'0')) &&
+                  Number.isInteger(parseFloat(el.getAttribute('data-yearly')||'0'));
+    function step(t){
+      const k = Math.min(1, (t-start)/dur);
+      const v = from + (to - from) * k;
+      el.textContent = isInt ? Math.round(v) : v.toFixed(2);
+      if (k<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function billingToggle(){
+    const btnM = $('#bill-monthly');
+    const btnY = $('#bill-yearly');
+    const prices = $$('[data-price]');
+    if (!btnM || !btnY || !prices.length) return;
+
+    function setMode(mode){ // 'm' | 'y'
+      btnM.classList.toggle('on', mode==='m');
+      btnY.classList.toggle('on', mode==='y');
+      btnM.setAttribute('aria-selected', mode==='m' ? 'true':'false');
+      btnY.setAttribute('aria-selected', mode==='y' ? 'true':'false');
+
+      prices.forEach(el=>{
+        const m = parseFloat(el.getAttribute('data-monthly')||'0');
+        const y = parseFloat(el.getAttribute('data-yearly')||'0');
+        const target = (mode==='y') ? y : m;
+        animateNumber(el, target, 280);
+        const tail = el.parentElement.querySelector('small');
+        if (tail){
+          tail.textContent = (mode==='y') ? '/ year' : '/ month';
+          // i18n 補：若你的 i18n 有 pricing.price.tailYear 可在 lang.js 渲染後覆蓋
+        }
+      });
+    }
+
+    btnM.addEventListener('click', ()=> setMode('m'));
+    btnY.addEventListener('click', ()=> setMode('y'));
+    // 預設月付
+    setMode('m');
+  }
+
+  function faqSingleOpen(){
+    const items = $$('section.faq details');
+    if (!items.length) return;
+    items.forEach(d=>{
+      d.addEventListener('toggle', ()=>{
+        if (d.open) items.forEach(o=>{ if (o!==d) o.removeAttribute('open'); });
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    billingToggle();
+    faqSingleOpen();
+  });
+})();
