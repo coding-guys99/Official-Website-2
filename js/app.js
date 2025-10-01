@@ -406,7 +406,7 @@
    * ------------------------------ */
   const LAUNCH = {
     // 是否已開放桌面下載（所有 Coming Soon 轉為可點 CTA）
-    desktopAvailable: false,
+    desktopAvailable: true,
 
     // Web 版是否可引導（Free/Plus/Pro 的 CTA 連到 web）
     webAvailable: true,
