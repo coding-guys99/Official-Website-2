@@ -106,76 +106,123 @@
     <!-- 3) 三方案卡片 -->
     <section class="container plans" id="plans">
       <!-- Free -->
-      <article class="plan free">
-        <h3 data-i18n="pricing.plans.free.title">Free</h3>
-        <div class="price"><span data-price data-monthly="0" data-yearly="0">0</span> <small data-i18n="pricing.price.freeTail">/ forever</small></div>
-        <ul class="ul">
-          <li data-i18n="pricing.plans.free.f1">Basic search</li>
-          <li data-i18n="pricing.plans.free.f2">Card-based management</li>
-          <li data-i18n="pricing.plans.free.f3">3 languages (EN / 繁 / 简)</li>
-          <li data-i18n="pricing.plans.free.f4">Export CSV</li>
-          <li data-i18n="pricing.plans.free.f5">Single device</li>
-        </ul>
-        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
-      </article>
+<article class="plan free">
+  <h3 data-i18n="pricing.plans.free.title">Free</h3>
+  <p class="subtitle" data-i18n="pricing.plans.free.subtitle">免安裝，立即體驗核心功能</p>
+  <div class="price"><span data-price data-monthly="0" data-yearly="0">0</span> <small>/ 永久</small></div>
+  <ul class="ul">
+    <li>Basic search</li>
+    <li>Card-based management</li>
+    <li>3 languages (EN / 繁 / 简)</li>
+    <li>Export CSV</li>
+    <li>Single device</li>
+    <li>Web version access</li>
+  </ul>
+  <button class="btn btn-coming" aria-disabled="true">Coming Soon</button>
+</article>
 
-      <!-- Plus -->
-      <article class="plan plus">
-        <h3 data-i18n="pricing.plans.plus.title">Plus</h3>
-        <div class="price">
-          $<span data-price data-monthly="3.99" data-yearly="39">3.99</span> <small data-i18n="pricing.price.tail">/ month</small>
-        </div>
-        <ul class="ul">
-          <li data-i18n="pricing.plans.plus.f0">Everything in Free</li>
-          <li data-i18n="pricing.plans.plus.f1">16 languages</li>
-          <li data-i18n="pricing.plans.plus.f2">Advanced search (Path / Tag / conditions)</li>
-          <li data-i18n="pricing.plans.plus.f3">Themes (Black/Gold, Deep Blue, High Contrast)</li>
-          <li data-i18n="pricing.plans.plus.f4">Export CSV / JSON</li>
-        </ul>
-        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
-      </article>
+<!-- Plus -->
+<article class="plan plus">
+  <h3 data-i18n="pricing.plans.plus.title">Plus</h3>
+  <p class="subtitle" data-i18n="pricing.plans.plus.subtitle">個人專屬強化功能</p>
+  <div class="price">
+    $<span data-price data-monthly="5" data-yearly="48">5</span> <small>/ month</small>
+  </div>
+  <ul class="ul">
+    <li>Everything in Free</li>
+    <li>16 languages</li>
+    <li>Advanced search (Path / Tag / conditions)</li>
+    <li>Themes (Black/Gold, Deep Blue, High Contrast)</li>
+    <li>Export CSV / JSON</li>
+    <li>View card details (images, PDFs, etc.)</li> <!-- 補充2 -->
+  </ul>
+  <button class="btn btn-coming" aria-disabled="true">Coming Soon</button>
+</article>
 
-      <!-- Pro -->
-      <article class="plan pro">
-        <span class="most-pop" data-i18n="pricing.plans.pro.badge">Most Popular</span>
-        <h3 data-i18n="pricing.plans.pro.title">Pro</h3>
-        <div class="price">
-          $<span data-price data-monthly="6.99" data-yearly="69">6.99</span> <small data-i18n="pricing.price.tail">/ month</small>
-        </div>
-        <ul class="ul">
-          <li data-i18n="pricing.plans.pro.f0">Everything in Free + Plus</li>
-          <li data-i18n="pricing.plans.pro.f1">Multi-device sync (Web + Desktop)</li>
-          <li data-i18n="pricing.plans.pro.f2">Priority support</li>
-          <li data-i18n="pricing.plans.pro.f3">Early access to Beta features</li>
-          <li data-i18n="pricing.plans.pro.f4">Unlimited export</li>
-        </ul>
-        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
-      </article>
+<!-- Pro -->
+<article class="plan pro">
+  <span class="most-pop">Most Popular</span>
+  <h3 data-i18n="pricing.plans.pro.title">Pro</h3>
+  <p class="subtitle" data-i18n="pricing.plans.pro.subtitle">團隊專屬協作工具</p>
+  <div class="price">
+    $<span data-price data-monthly="12" data-yearly="115">12</span> <small>/ month</small>
+  </div>
+  <ul class="ul">
+    <li>Everything in Free + Plus</li>
+    <li>Multi-device sync (Web + Desktop)</li>
+    <li>Priority support</li>
+    <li>Early access to Beta features</li>
+    <li>Unlimited export</li>
+  </ul>
+  <button class="btn btn-coming" aria-disabled="true">Coming Soon</button>
+</article>
     </section>
 
     <!-- 4) 方案比較表 -->
-    <section class="container">
-      <div class="table-wrap">
-        <table class="cmp" aria-label="Plan comparison">
-          <thead>
-            <tr>
-              <th class="col-feature" data-i18n="pricing.table.feature">Feature</th>
-              <th>Free</th>
-              <th>Plus</th>
-              <th>Pro</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="col-feature" data-i18n="pricing.table.speed">Search speed</td><td>●</td><td class="tick">✓</td><td class="tick">✓</td></tr>
-            <tr><td class="col-feature" data-i18n="pricing.table.langs">Languages</td><td>3</td><td>16</td><td>16</td></tr>
-            <tr><td class="col-feature" data-i18n="pricing.table.export">Export formats</td><td>CSV</td><td>CSV/JSON</td><td>CSV/JSON</td></tr>
-            <tr><td class="col-feature" data-i18n="pricing.table.sync">Multi-device sync</td><td>—</td><td>—</td><td class="tick">✓</td></tr>
-            <tr><td class="col-feature" data-i18n="pricing.table.support">Support level</td><td data-i18n="pricing.table.support.free">Community</td><td data-i18n="pricing.table.support.plus">Standard</td><td data-i18n="pricing.table.support.pro">Priority</td></tr>
-            <tr><td class="col-feature" data-i18n="pricing.table.beta">Early Beta access</td><td>—</td><td>—</td><td class="tick">✓</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+<section class="container">
+  <div class="table-wrap">
+    <table class="cmp" aria-label="Plan comparison">
+      <thead>
+        <tr>
+          <th class="col-feature" data-i18n="pricing.table.feature">Feature</th>
+          <th>Free</th>
+          <th>Plus</th>
+          <th>Pro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-feature" data-i18n="pricing.table.speed">Search speed</td>
+          <td>●</td>
+          <td class="tick">✓</td>
+          <td class="tick">✓</td>
+        </tr>
+        <tr>
+          <td class="col-feature" data-i18n="pricing.table.langs">Languages</td>
+          <td>3</td>
+          <td>16</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <td class="col-feature" data-i18n="pricing.table.export">Export formats</td>
+          <td>CSV</td>
+          <td>CSV/JSON</td>
+          <td>CSV/JSON</td>
+        </tr>
+        <tr>
+          <td class="col-feature" data-i18n="pricing.table.sync">Multi-device sync</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="tick">✓</td>
+        </tr>
+        <tr>
+          <td class="col-feature" data-i18n="pricing.table.cardview">View card details (images, PDFs)</td>
+          <td>—</td>
+          <td class="tick">✓</td>
+          <td class="tick">✓</td>
+        </tr>
+        <tr>
+          <td class="col-feature" data-i18n="pricing.table.support">Support level</td>
+          <td data-i18n="pricing.table.support.free">Community</td>
+          <td data-i18n="pricing.table.support.plus">Standard</td>
+          <td data-i18n="pricing.table.support.pro">Priority</td>
+        </tr>
+        <tr>
+          <td class="col-feature" data-i18n="pricing.table.beta">Early Beta access</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="tick">✓</td>
+        </tr>
+        <tr>
+          <td class="col-feature" data-i18n="pricing.table.cardview">View card details (images, PDFs)</td>
+          <td>—</td>
+          <td class="tick">✓</td>
+          <td class="tick">✓</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
     <!-- 5) FAQ -->
     <section class="container faq" aria-label="Pricing FAQ">
