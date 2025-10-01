@@ -1066,4 +1066,199 @@ section.cta .actions {
 }
 .final-cta .cta-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
 
+/* ===== Pricing Page 基本樣式 ===== */
 
+/* Hero */
+.pricing-hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: #0f1115;
+  color: #e7ecf3;
+  border-bottom: 1px solid var(--border, #262b36);
+}
+.pricing-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(90deg, #ffd700, #ffb84d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.pricing-hero .lead {
+  font-size: 1.125rem;
+  color: var(--muted, #99a2b2);
+  margin-bottom: 2rem;
+}
+.pricing-hero .cta-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.pricing-hero .btn.primary[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Segmented billing toggle */
+.pricing-toggle {
+  margin: 2rem auto;
+  text-align: center;
+}
+.segmented {
+  display: inline-flex;
+  border: 1px solid #ffd700;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.seg-btn {
+  background: transparent;
+  color: #ffd700;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.seg-btn[aria-pressed="true"] {
+  background: #ffd700;
+  color: #0f1115;
+}
+.seg-btn .save {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  color: #ffd700;
+}
+
+/* Plan cards */
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem auto;
+}
+.plan-card {
+  background: #171a21;
+  border: 1px solid #ffd70033;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.plan-card:hover {
+  border-color: #ffd700;
+  box-shadow: 0 0 20px #ffd70033;
+}
+.plan-card .head {
+  margin-bottom: 1.5rem;
+}
+.plan-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.plan-card .price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+.plan-card ul.features {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  line-height: 1.6;
+}
+.plan-card ul.features li::before {
+  content: "✔ ";
+  color: #ffd700;
+}
+.plan-card .actions {
+  margin-top: auto;
+}
+.plan-card .btn.primary[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Pro card highlight */
+.plan-card.pro {
+  border: 1px solid #ffd700;
+  box-shadow: 0 0 25px #ffd70055;
+}
+.plan-card.pro .badge {
+  display: inline-block;
+  background: #ffd700;
+  color: #0f1115;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* Comparison table */
+.compare .table-wrap {
+  overflow-x: auto;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  color: #e7ecf3;
+}
+.compare-table th,
+.compare-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #262b36;
+  text-align: center;
+}
+.compare-table th {
+  background: #171a21;
+  color: #ffd700;
+}
+.compare-table tbody tr:hover {
+  background: #262b36;
+}
+
+/* FAQ */
+.faq {
+  margin: 3rem auto;
+}
+.faq h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.faq-item {
+  border: 1px solid #262b36;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  background: #171a21;
+}
+.faq-item summary {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+.faq-item .a {
+  padding: 0.75rem 1rem;
+  color: #e7ecf3;
+  font-size: 0.9rem;
+}
+
+/* Final CTA */
+.pricing-final {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #0f1115;
+  border-top: 1px solid #262b36;
+}
+.pricing-final h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+.pricing-final .cta-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
