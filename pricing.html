@@ -83,73 +83,127 @@
 
   <!-- ===== Main ===== -->
   <main>
-    <!-- Page Hero -->
-    <section class="page-hero container reveal-on-scroll">
-      <h1 data-i18n="pricing.title">Pricing</h1>
-      <p class="lead" data-i18n="pricing.lead">Simple, transparent plans that grow with you.</p>
-    </section>
-
-    <!-- Billing Toggle -->
-    <section class="pricing-toggle container reveal-on-scroll" aria-label="Billing period">
-      <div class="toggle-wrap">
-        <span data-i18n="pricing.billing.monthly">Monthly</span>
-        <button class="billing-toggle" id="billingToggle" aria-pressed="false" aria-label="Switch to yearly billing">
-          <span class="knob"></span>
-        </button>
-        <span data-i18n="pricing.billing.yearly">Yearly <em class="save" data-i18n="pricing.billing.save">Save 20%</em></span>
+    <!-- 1) HERO -->
+    <section class="pricing-hero">
+      <div class="container">
+        <h1 data-i18n="pricing.hero.title">Choose the plan that fits you</h1>
+        <p class="lead" data-i18n="pricing.hero.lead">From personal to pro — help your information get found faster.</p>
+        <div class="cta-row">
+          <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
+          <a class="btn btn-ghost" href="donate.html" data-i18n="pricing.cta.notify">Join notifications</a>
+        </div>
       </div>
     </section>
 
-    <!-- Pricing Cards -->
-    <section class="pricing-grid container reveal-on-scroll">
+    <!-- 2) 月付/年付 切換 -->
+    <div class="billing-toggle-wrap container">
+      <div class="seg" role="tablist" aria-label="Billing period">
+        <button role="tab" id="bill-monthly" aria-selected="true" class="on" data-mode="m" data-i18n="pricing.billing.monthly">Monthly</button>
+        <button role="tab" id="bill-yearly" aria-selected="false" data-mode="y" data-i18n="pricing.billing.yearly">Yearly <span class="badge" data-i18n="pricing.billing.save">Save 20%</span></button>
+      </div>
+    </div>
+
+    <!-- 3) 三方案卡片 -->
+    <section class="container plans" id="plans">
       <!-- Free -->
-      <article class="price-card" data-plan="free">
-        <h2 data-i18n="pricing.free.title">Free</h2>
-        <p class="price" data-monthly="$0" data-yearly="$0">$0 <span data-i18n="pricing.free.perma">/ forever</span></p>
-        <ul class="features">
-          <li data-i18n="pricing.free.f1">Unlimited searches</li>
-          <li data-i18n="pricing.free.f2">Basic tags & collections</li>
-          <li data-i18n="pricing.free.f3">Export CSV/JSON</li>
+      <article class="plan free">
+        <h3 data-i18n="pricing.plans.free.title">Free</h3>
+        <div class="price"><span data-price data-monthly="0" data-yearly="0">0</span> <small data-i18n="pricing.price.freeTail">/ forever</small></div>
+        <ul class="ul">
+          <li data-i18n="pricing.plans.free.f1">Basic search</li>
+          <li data-i18n="pricing.plans.free.f2">Card-based management</li>
+          <li data-i18n="pricing.plans.free.f3">3 languages (EN / 繁 / 简)</li>
+          <li data-i18n="pricing.plans.free.f4">Export CSV</li>
+          <li data-i18n="pricing.plans.free.f5">Single device</li>
         </ul>
-        <a href="download.html" class="btn secondary" data-i18n="pricing.free.cta">Get Started</a>
+        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
       </article>
 
-      <!-- Pro (highlight) -->
-      <article class="price-card highlight" data-plan="pro">
-        <div class="badge" data-i18n="pricing.pro.badge">Most Popular</div>
-        <h2 data-i18n="pricing.pro.title">Pro</h2>
-        <p class="price" data-monthly="$9.99" data-yearly="$7.99">
-          $9.99 <span data-i18n="pricing.pro.permonth">/ month</span>
-        </p>
-        <ul class="features">
-          <li data-i18n="pricing.pro.f1">Everything in Free</li>
-          <li data-i18n="pricing.pro.f2">Multi-language UI</li>
-          <li data-i18n="pricing.pro.f3">Reminders & smart filters</li>
-          <li data-i18n="pricing.pro.f4">Priority support</li>
+      <!-- Plus -->
+      <article class="plan plus">
+        <h3 data-i18n="pricing.plans.plus.title">Plus</h3>
+        <div class="price">
+          $<span data-price data-monthly="3.99" data-yearly="39">3.99</span> <small data-i18n="pricing.price.tail">/ month</small>
+        </div>
+        <ul class="ul">
+          <li data-i18n="pricing.plans.plus.f0">Everything in Free</li>
+          <li data-i18n="pricing.plans.plus.f1">16 languages</li>
+          <li data-i18n="pricing.plans.plus.f2">Advanced search (Path / Tag / conditions)</li>
+          <li data-i18n="pricing.plans.plus.f3">Themes (Black/Gold, Deep Blue, High Contrast)</li>
+          <li data-i18n="pricing.plans.plus.f4">Export CSV / JSON</li>
         </ul>
-        <a href="download.html" class="btn primary" data-i18n="pricing.pro.cta">Upgrade Now</a>
+        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
+      </article>
+
+      <!-- Pro -->
+      <article class="plan pro">
+        <span class="most-pop" data-i18n="pricing.plans.pro.badge">Most Popular</span>
+        <h3 data-i18n="pricing.plans.pro.title">Pro</h3>
+        <div class="price">
+          $<span data-price data-monthly="6.99" data-yearly="69">6.99</span> <small data-i18n="pricing.price.tail">/ month</small>
+        </div>
+        <ul class="ul">
+          <li data-i18n="pricing.plans.pro.f0">Everything in Free + Plus</li>
+          <li data-i18n="pricing.plans.pro.f1">Multi-device sync (Web + Desktop)</li>
+          <li data-i18n="pricing.plans.pro.f2">Priority support</li>
+          <li data-i18n="pricing.plans.pro.f3">Early access to Beta features</li>
+          <li data-i18n="pricing.plans.pro.f4">Unlimited export</li>
+        </ul>
+        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
       </article>
     </section>
 
-    <!-- FAQ (short) -->
-    <section class="mini-faq container reveal-on-scroll">
+    <!-- 4) 方案比較表 -->
+    <section class="container">
+      <div class="table-wrap">
+        <table class="cmp" aria-label="Plan comparison">
+          <thead>
+            <tr>
+              <th class="col-feature" data-i18n="pricing.table.feature">Feature</th>
+              <th>Free</th>
+              <th>Plus</th>
+              <th>Pro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="col-feature" data-i18n="pricing.table.speed">Search speed</td><td>●</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+            <tr><td class="col-feature" data-i18n="pricing.table.langs">Languages</td><td>3</td><td>16</td><td>16</td></tr>
+            <tr><td class="col-feature" data-i18n="pricing.table.export">Export formats</td><td>CSV</td><td>CSV/JSON</td><td>CSV/JSON</td></tr>
+            <tr><td class="col-feature" data-i18n="pricing.table.sync">Multi-device sync</td><td>—</td><td>—</td><td class="tick">✓</td></tr>
+            <tr><td class="col-feature" data-i18n="pricing.table.support">Support level</td><td data-i18n="pricing.table.support.free">Community</td><td data-i18n="pricing.table.support.plus">Standard</td><td data-i18n="pricing.table.support.pro">Priority</td></tr>
+            <tr><td class="col-feature" data-i18n="pricing.table.beta">Early Beta access</td><td>—</td><td>—</td><td class="tick">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5) FAQ -->
+    <section class="container faq" aria-label="Pricing FAQ">
+      <h2 data-i18n="pricing.faq.title">FAQ</h2>
       <details>
-        <summary data-i18n="pricing.faq.refunds.q">Do you offer refunds?</summary>
-        <p data-i18n="pricing.faq.refunds.a">If you’re not satisfied, contact us within 14 days. We’ll help.</p>
+        <summary data-i18n="pricing.faq.q1">Is Free forever?</summary>
+        <div class="fine" data-i18n="pricing.faq.a1">Yes. There will always be a Free plan.</div>
       </details>
       <details>
-        <summary data-i18n="pricing.faq.switch.q">Can I switch plans later?</summary>
-        <p data-i18n="pricing.faq.switch.a">Yes. You can upgrade or cancel anytime.</p>
+        <summary data-i18n="pricing.faq.q2">What’s the difference between Plus and Pro?</summary>
+        <div class="fine" data-i18n="pricing.faq.a2">Pro includes multi-device sync, priority support, unlimited export and early Beta access.</div>
+      </details>
+      <details>
+        <summary data-i18n="pricing.faq.q3">Is there a yearly discount?</summary>
+        <div class="fine" data-i18n="pricing.faq.a3">Yes — Yearly saves about 20% compared to paying monthly.</div>
+      </details>
+      <details>
+        <summary data-i18n="pricing.faq.q4">When can I download?</summary>
+        <div class="fine" data-i18n="pricing.faq.a4">Not yet. Click “Join notifications” to get an email when we open access.</div>
       </details>
     </section>
 
-    <!-- Final CTA -->
-    <section class="cta container reveal-on-scroll">
-      <h2 data-i18n="pricing.final.title">Start searching smarter</h2>
-      <p data-i18n="pricing.final.lead">KeySearch is free to try. Upgrade when you’re ready.</p>
+    <!-- 6) Final CTA -->
+    <section class="container final-cta">
+      <h3 data-i18n="pricing.final.title">Find it. Fast. Everything, in reach.</h3>
       <div class="cta-row">
-        <a href="download.html" class="btn primary" data-i18n="pricing.final.cta.download">Download Free</a>
-        <a href="https://web.keysearch-app.com" target="_blank" rel="noopener" class="btn secondary" data-i18n="pricing.final.cta.openweb">Open Web</a>
+        <button class="btn btn-coming" aria-disabled="true" data-tooltip="尚未開放下載" data-i18n="pricing.cta.coming">Coming Soon</button>
+        <a class="btn btn-ghost" href="donate.html" data-i18n="pricing.cta.notify">Join notifications</a>
       </div>
     </section>
   </main>
@@ -227,6 +281,7 @@
   <script src="js/app.js" defer></script>
 </body>
 </html>
+
 
 
 
