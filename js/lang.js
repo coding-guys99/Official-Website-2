@@ -1,11 +1,9 @@
-// js/lang.js — i18n 核心 + 快速渲染 + Apple-style Portal 語言選單（Header / Footer 共用）
+// js/lang.js — i18n 核心 + 文字/屬性渲染 + Header/Footer 語言選單
 (function () {
-  // ========= 基本設定 =========
-  const FALLBACK  = 'en';
-  const BASE_URL  = new URL('./i18n/', location.href).toString();
+  const FALLBACK = 'en';
+  const BASE_URL = new URL('./i18n/', location.href).toString();
   const STORE_KEY = 'i18n.lang';
 
-  // 你的 16 種語言（顯示名稱可依需要調整）
   const SUPPORTED = [
     ['en','English'],
     ['zh_tw','繁體中文'],
@@ -25,7 +23,6 @@
     ['hi','हिन्दी']
   ];
 
-  // ========= I18N 物件 =========
   const I18N = {
     lang: FALLBACK,
     dict: {},
@@ -34,20 +31,33 @@
     async load(lang) {
       const url = new URL(`${lang}.json`, BASE_URL).toString();
       if (!this.cache.has(lang)) {
-        this.cache.set(lang, fetch(url).then(r=>{
-          if (!r.ok) throw new Error(`HTTP ${r.status} ${url}`);
-          return r.json();
-        }));
+        this.cache.set(
+          lang,
+          fetch(url).then(r => {
+            if (!r.ok) throw new Error(`HTTP ${r.status} ${url}`);
+            return r.json();
+          })
+        );
       }
       return this.cache.get(lang);
     },
 
-    // 取值（支援 a.b.c）
-    t(key, dict = this.dict) {
-      return key.split('.').reduce((o,k)=> (o && k in o) ? o[k] : undefined, dict);
+    // 取值（a.b.c），若路上不是 object 就停止回傳 undefined（防呆）
+    t(path, dict = this.dict) {
+      if (!path) return undefined;
+      const parts = path.split('.');
+      let cur = dict;
+      for (const k of parts) {
+        if (cur && typeof cur === 'object' && (k in cur)) {
+          cur = cur[k];
+        } else {
+          return undefined;
+        }
+      }
+      return cur;
     },
 
-    // 把 fallback 的缺漏鍵補上（不覆蓋已存在）
+    // 用 fallback 補上缺失鍵（不覆蓋已存在）
     mergeFallback(primary, fallback) {
       for (const k in fallback) {
         const v = fallback[k];
@@ -61,11 +71,11 @@
       return primary;
     },
 
-    // 設定語言 + 觸發渲染與事件
     async setLang(input) {
       const lang = (input || FALLBACK).toLowerCase().replace('-', '_');
       try {
         const [cur, fb] = await Promise.all([this.load(lang), this.load(FALLBACK)]);
+        // 深拷貝 + 補 fallback
         this.dict = this.mergeFallback(JSON.parse(JSON.stringify(cur)), fb);
         this.lang = lang;
 
@@ -74,11 +84,11 @@
 
         this.render();
 
-        // 兜底：若 <title> 沒 data-i18n，更新成 meta.title.home
+        // 若 <title> 沒綁 data-i18n，就兜底用 meta.title.home
         const title = this.t('meta.title.home');
         if (typeof title === 'string' && title) document.title = title;
 
-        document.dispatchEvent(new CustomEvent('i18n:changed', { detail:{ lang } }));
+        document.dispatchEvent(new CustomEvent('i18n:changed', { detail: { lang } }));
         console.info('[i18n] switched to:', lang, 'base:', BASE_URL);
       } catch (err) {
         console.error('[i18n] failed to load:', lang, err);
@@ -89,7 +99,6 @@
       }
     },
 
-    // 偵測預設語言
     detect() {
       const saved = localStorage.getItem(STORE_KEY);
       if (saved) return saved;
@@ -101,213 +110,220 @@
   };
   window.I18N = I18N;
 
-  // ========= 快速渲染索引（文字 / 屬性）=========
+  // ====== 快速索引 ======
   const I18NIndex = { text: [], attrs: [] };
 
   function indexI18nNodes(root = document) {
-    // data-i18n (含 data-i18n-html)
+    // 文字/HTML 節點
     root.querySelectorAll('[data-i18n]').forEach(el => {
-      if (el.hasAttribute('data-i18n-attr')) return;  // 這類交給 attrs 流程
+      if (el.hasAttribute('data-i18n-attr')) return; // 屬性另外處理
       const key  = el.getAttribute('data-i18n');
-      const html = el.hasAttribute('data-i18n-html'); // 允許 innerHTML
+      const html = el.hasAttribute('data-i18n-html');
       I18NIndex.text.push({ el, key, html, last: undefined });
     });
-
-    // data-i18n-attr="title,aria-label"
+    // 屬性翻譯（data-i18n-attr="title,aria-label"）
     root.querySelectorAll('[data-i18n-attr]').forEach(el => {
       const baseKey = el.getAttribute('data-i18n');
       const attrs = (el.getAttribute('data-i18n-attr') || '')
-        .split(',').map(s=>s.trim()).filter(Boolean);
+        .split(',').map(s => s.trim()).filter(Boolean);
       I18NIndex.attrs.push({ el, baseKey, attrs, last: Object.create(null) });
     });
   }
 
+  // ====== 渲染：支援字串/物件；物件可含 _ / title / label 與多個屬性 ======
   I18N.render = function renderFast() {
-    // 文字 / HTML
+    // 1) 文字/內文
     for (let n of I18NIndex.text) {
       if (!n.el.isConnected) continue;
       let val = this.t(n.key);
-      if (val && typeof val === 'object') val = val.title || val.label || val._; // 物件回退
+      if (val && typeof val === 'object') {
+        // 若是物件，文字優先順序：_.title.label
+        val = val._ ?? val.title ?? val.label;
+      }
       if (typeof val === 'string' && val !== n.last) {
-        if (n.el.tagName === 'TITLE')      document.title = val;
-        else if (n.html)                    n.el.innerHTML = val;
-        else                                n.el.textContent = val;
+        if (n.el.tagName === 'TITLE') {
+          document.title = val;
+        } else if (n.html) {
+          n.el.innerHTML = val;
+        } else {
+          n.el.textContent = val;
+        }
         n.last = val;
       }
     }
-    // 屬性
+
+    // 2) 屬性（含 aria-label 等）
     for (let n of I18NIndex.attrs) {
       if (!n.el.isConnected) continue;
-      for (let attr of n.attrs) {
-        const key = `${n.baseKey}.${attr}`;
-        let val = this.t(key);
-        if (val === undefined) val = this.t(n.baseKey);
-        if (val && typeof val === 'object') val = val.title || val.label || val._;
-        if (typeof val === 'string' && val !== n.last[attr]) {
-          n.el.setAttribute(attr, val);
-          n.last[attr] = val;
+      const base = this.t(n.baseKey);
+      if (typeof base === 'string') {
+        // 基底是「字串」：把字串應用到每個列出的屬性
+        for (let attr of n.attrs) {
+          if (n.last[attr] !== base) {
+            n.el.setAttribute(attr, base);
+            n.last[attr] = base;
+          }
+        }
+      } else if (base && typeof base === 'object') {
+        // 基底是「物件」：優先使用物件中的同名屬性；若沒有，用 _.title.label 作為回退
+        for (let attr of n.attrs) {
+          let v = base[attr];
+          if (v === undefined) v = base._ ?? base.title ?? base.label;
+          if (typeof v === 'string' && n.last[attr] !== v) {
+            n.el.setAttribute(attr, v);
+            n.last[attr] = v;
+          }
         }
       }
     }
   };
 
-  // 初始與動態監聽
+  // ====== 啟動 & 監控 ======
   document.addEventListener('DOMContentLoaded', () => {
     indexI18nNodes(document);
     I18N.setLang(I18N.detect());
   });
 
   const mo = new MutationObserver(muts => {
-    let need = false;
+    let needRender = false;
     for (const m of muts) {
       if (m.type === 'childList') {
-        m.addedNodes.forEach(n=>{
+        m.addedNodes.forEach(n => {
           if (n.nodeType !== 1) return;
-          if (n.matches?.('[data-i18n],[data-i18n-attr]') ||
-              n.querySelector?.('[data-i18n],[data-i18n-attr]')) {
-            indexI18nNodes(n); need = true;
+          if (
+            n.matches?.('[data-i18n],[data-i18n-attr]') ||
+            n.querySelector?.('[data-i18n],[data-i18n-attr]')
+          ) {
+            indexI18nNodes(n);
+            needRender = true;
           }
         });
       }
       if (m.type === 'attributes' &&
           (m.attributeName === 'data-i18n' || m.attributeName === 'data-i18n-attr' || m.attributeName === 'data-i18n-html')) {
-        indexI18nNodes(m.target); need = true;
+        indexI18nNodes(m.target);
+        needRender = true;
       }
     }
-    if (need) requestAnimationFrame(()=> I18N.render());
+    if (needRender) requestAnimationFrame(() => I18N.render());
   });
   document.addEventListener('DOMContentLoaded', () => {
     mo.observe(document.documentElement, {
-      childList: true, subtree: true,
+      childList: true,
+      subtree: true,
       attributes: true,
-      attributeFilter: ['data-i18n','data-i18n-attr','data-i18n-html']
+      attributeFilter: ['data-i18n', 'data-i18n-attr', 'data-i18n-html']
     });
   });
 
-  // ========= Apple-style Portal 語言選單（Header + Footer 共用）=========
-  const portal    = document.getElementById('langPortal');
-  const btnMobile = document.getElementById('langBtnMobile'); // 行動版頭部按鈕
-  const footLink  = document.getElementById('footLangLink');  // Footer 連結
-  const curMobile = document.getElementById('langCurrentMobile');
-
-  function buildMenuOnce() {
-    if (!portal || portal.dataset.built) return;
-    portal.innerHTML = SUPPORTED
-      .map(([code,label]) => `<button type="button" role="menuitem" class="lang-item" data-lang="${code}">${label}</button>`)
-      .join('');
-    portal.dataset.built = '1';
-  }
-
-  function syncCurrentLabel(code) {
-    const label = SUPPORTED.find(([c]) => c === code)?.[1] || 'English';
-    if (curMobile) curMobile.textContent = label;
-    portal?.querySelectorAll('[aria-current="true"]').forEach(b => b.removeAttribute('aria-current'));
-    portal?.querySelector(`[data-lang="${code}"]`)?.setAttribute('aria-current','true');
-  }
-
-  function openPortal(anchor) {
-    if (!portal || !anchor) return;
-    buildMenuOnce();
-    portal.classList.add('open');
-    portal.removeAttribute('aria-hidden');
-    anchor.setAttribute('aria-expanded','true');
-
-    // 定位（避免溢出）
-    const r = anchor.getBoundingClientRect();
-    const W = portal.offsetWidth || 260;
-    const H = portal.offsetHeight || 240;
-    const M = 12;
-    let top  = r.bottom + 8;
-    let left = r.left;
-    if (left + W + M > innerWidth)  left = Math.max(M, innerWidth - W - M);
-    if (top  + H + M > innerHeight) top  = Math.max(M, r.top - H - 8);
-
-    portal.style.position = 'fixed';
-    portal.style.top  = Math.min(Math.max(M, top),  innerHeight - H - M) + 'px';
-    portal.style.left = Math.min(Math.max(M, left), innerWidth  - W - M) + 'px';
-
-    const onDoc = (e)=>{ if (!portal.contains(e.target) && !anchor.contains(e.target)) closePortal(anchor); };
-    const onEsc = (e)=>{ if (e.key==='Escape') closePortal(anchor); };
-    setTimeout(()=>{
-      document.addEventListener('click', onDoc, { once:true });
-      document.addEventListener('keydown', onEsc, { once:true });
-    },0);
-  }
-
-  function closePortal(anchor) {
-    if (!portal) return;
-    if (anchor && document.activeElement && portal.contains(document.activeElement)) {
-      anchor.focus();
-    }
-    portal.classList.remove('open');
-    portal.setAttribute('aria-hidden','true');
-    anchor?.setAttribute('aria-expanded','false');
-  }
-
-  // 綁定 UI
+  // ====== Header / Footer 語言選單（用同一個 #langPortal） ======
   document.addEventListener('DOMContentLoaded', () => {
-    // 行動版 Header 按鈕
-    if (btnMobile) {
-      btnMobile.setAttribute('aria-haspopup','menu');
-      btnMobile.setAttribute('aria-expanded','false');
-      btnMobile.addEventListener('click', (e)=>{
-        e.preventDefault(); e.stopPropagation();
-        if (portal?.classList.contains('open')) closePortal(btnMobile);
-        else openPortal(btnMobile);
-      });
+    const portal    = document.getElementById('langPortal');
+    const footBtn   = document.getElementById('footLangLink');   // Footer 按鈕
+    const mobBtn    = document.getElementById('langBtnMobile');  // 行動版 Header
+    const curMobile = document.getElementById('langCurrentMobile');
+
+    function buildMenu() {
+      if (!portal || portal.dataset.built) return;
+      portal.innerHTML = SUPPORTED
+        .map(([code,label]) => `<button type="button" role="menuitem" class="lang-item" data-lang="${code}">${label}</button>`)
+        .join('');
+      portal.dataset.built = '1';
     }
 
-    // Footer 連結
-    if (footLink) {
-      footLink.setAttribute('aria-haspopup','menu');
-      footLink.setAttribute('aria-expanded','false');
-      footLink.addEventListener('click', (e)=>{
-        e.preventDefault(); e.stopPropagation();
-        if (portal?.classList.contains('open')) closePortal(footLink);
-        else openPortal(footLink);
-      });
+    function syncCurrentLabel(code) {
+      const label = SUPPORTED.find(([c]) => c === code)?.[1] || 'English';
+      if (curMobile) curMobile.textContent = label;
+      portal?.querySelectorAll('[aria-current="true"]').forEach(b => b.removeAttribute('aria-current'));
+      portal?.querySelector(`[data-lang="${code}"]`)?.setAttribute('aria-current','true');
     }
 
-    // 點選語言
+    function openPortal(anchor) {
+      if (!portal) return;
+      portal.classList.add('open');
+      portal.removeAttribute('aria-hidden');
+
+      const r = anchor.getBoundingClientRect();
+      const W = portal.offsetWidth, H = portal.offsetHeight, M = 12;
+      let top  = r.bottom + 8;
+      let left = r.left;
+      if (left + W + M > innerWidth)  left = Math.max(M, innerWidth - W - M);
+      if (top  + H + M > innerHeight) top  = Math.max(M, r.top - H - 8);
+      portal.style.position = 'fixed';
+      portal.style.top  = Math.min(Math.max(M, top),  innerHeight - H - M) + 'px';
+      portal.style.left = Math.min(Math.max(M, left), innerWidth  - W - M) + 'px';
+
+      const onDoc = (e)=>{ if (!portal.contains(e.target) && !anchor.contains(e.target)) closePortal(anchor); };
+      const onEsc = (e)=>{ if (e.key==='Escape') closePortal(anchor); };
+      setTimeout(()=>{
+        document.addEventListener('click', onDoc, { once:true });
+        document.addEventListener('keydown', onEsc, { once:true });
+      },0);
+    }
+
+    function closePortal(anchor) {
+      if (!portal) return;
+      if (anchor && document.activeElement && portal.contains(document.activeElement)) {
+        anchor.focus();
+      }
+      portal.classList.remove('open');
+      portal.setAttribute('aria-hidden','true');
+      anchor?.setAttribute('aria-expanded','false');
+    }
+
+    // 初始化
+    buildMenu();
+    syncCurrentLabel(localStorage.getItem(STORE_KEY) || 'en');
+
+    [footBtn, mobBtn].forEach(btn=>{
+      if (!btn) return;
+      btn.setAttribute('aria-haspopup','menu');
+      btn.setAttribute('aria-expanded','false');
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        if (portal?.classList.contains('open')) closePortal(btn);
+        else { openPortal(btn); btn.setAttribute('aria-expanded','true'); }
+      });
+    });
+
     portal?.addEventListener('click', async (e)=>{
-      const item = e.target.closest('[data-lang]'); if (!item) return;
+      const item = e.target.closest('[data-lang]');
+      if (!item) return;
       const code = item.dataset.lang.toLowerCase().replace('-', '_');
       await I18N.setLang(code);
       syncCurrentLabel(code);
-      // 關閉（找出開啟者）
-      const opener =
-        (btnMobile?.getAttribute('aria-expanded')==='true') ? btnMobile
-      : (footLink?.getAttribute('aria-expanded')==='true')  ? footLink
-      : null;
+      const opener = (mobBtn?.getAttribute('aria-expanded')==='true') ? mobBtn
+                   : (footBtn?.getAttribute('aria-expanded')==='true') ? footBtn
+                   : null;
       closePortal(opener);
     });
-
-    // 初始同步目前語言
-    syncCurrentLabel(localStorage.getItem(STORE_KEY) || FALLBACK);
   });
 
-  // 語言切換時同步標籤
-  document.addEventListener('i18n:changed', (ev)=>{
-    syncCurrentLabel(ev.detail?.lang || I18N.lang || FALLBACK);
-  });
-
-  // =========（可選）Post 頁：切換語言時同步 URL ?lang=xx，讓內容跟著換 =========
-  (function syncPostLangParam(){
-    function apply(lang){
-      try{
-        if (!/\/post\.html$/i.test(location.pathname)) return;
+  // ======（可選）post.html 同步語言到 URL ?lang= ======
+  (function () {
+    function syncPostLangToURL(lang) {
+      try {
         const url = new URL(location.href);
-        const normalized = (lang||'en').toLowerCase().replace('-', '_');
-        const cur = (url.searchParams.get('lang')||'').toLowerCase();
-        if (cur === normalized || cur === normalized.replace('_','-')) return;
+        const normalized = (lang || 'en').toLowerCase().replace('-', '_');
+        const current = (url.searchParams.get('lang') || '').toLowerCase();
+        if (current === normalized || current === normalized.replace('_','-')) return;
         url.searchParams.set('lang', normalized);
-        history.replaceState(null, '', url.toString()); // 不重整，只改 URL
-        // 通知 post.js 自己重載內容（若 post.js 有監聽就會更新）
-        document.dispatchEvent(new CustomEvent('post:lang-param-updated', { detail:{ lang: normalized } }));
-      }catch{}
+        location.replace(url.toString());
+      } catch (_) {}
     }
-    document.addEventListener('DOMContentLoaded', ()=> apply(I18N.lang));
-    document.addEventListener('i18n:changed', (ev)=> apply(ev.detail?.lang));
+    document.addEventListener('i18n:changed', (ev) => {
+      if (/\/post\.html$/i.test(location.pathname)) {
+        const lang = (ev.detail?.lang || window.I18N?.lang || 'en');
+        syncPostLangToURL(lang);
+      }
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      if (/\/post\.html$/i.test(location.pathname)) {
+        const lang = (window.I18N?.lang || 'en');
+        syncPostLangToURL(lang);
+      }
+    });
   })();
 
 })();
