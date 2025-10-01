@@ -186,14 +186,32 @@
   },
 
   "donate": {
-    "title": "Apoiar o desenvolvimento",
-    "desc": "O KeySearch é gratuito. Se economizar seu tempo, considere apoiar o desenvolvimento.",
-    "coffee": "Me compre um café",
-    "kofi": "Ko-fi",
-    "paypal": "PayPal",
-    "stripe": "Stripe",
-    "thanks": "Obrigado pelo seu apoio — mantém o KeySearch rápido e focado."
+  "back": { "_": "← Voltar", "aria-label": "Voltar ao Suporte" },
+  "title": "Apoiar o desenvolvimento",
+  "subtitle": "KeySearch é gratuito. Se poupar o seu tempo, considere apoiar o projeto.",
+  "card": { "title": "Doar", "desc": "Escolha a moeda e o valor. Depois selecione PayPal ou Stripe para concluir o pagamento." },
+  "currency": "Moeda",
+  "chips": { "custom": "Personalizado" },
+  "paypal": "Pagar com PayPal",
+  "stripe": "Pagar com Stripe",
+  "coffee": "Me pague um café",
+  "uses": {
+    "1": "Os fundos cobrem hospedagem, armazenamento, dispositivos de teste e tempo de desenvolvimento.",
+    "2": "Prioridades do roadmap: desempenho, multi-idioma, empacotamento desktop e licenciamento."
   },
+  "thanks": "Obrigado pelo seu apoio — ele mantém o KeySearch rápido e focado.",
+  "faq": {
+    "title": "FAQ",
+    "q1": "Posso receber um recibo?",
+    "a1": "Sim. O PayPal/Stripe envia automaticamente um recibo por e-mail após o pagamento.",
+    "q2": "Em qual moeda serei cobrado?",
+    "a2": "O PayPal usa a moeda da sua conta; o Stripe usa a moeda exibida na página de checkout.",
+    "q3": "Reembolsos?",
+    "a3": "As doações são voluntárias e normalmente não reembolsáveis. Se houver algum problema, entre em contato conosco.",
+    "q4": "Existe assinatura?",
+    "a4": "Por enquanto, as doações são únicas. Assinaturas podem ser adicionadas mais tarde."
+  }
+},
 
   "news": {
     "title": "Notícias",
