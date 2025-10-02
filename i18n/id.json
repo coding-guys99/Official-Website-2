@@ -86,37 +86,86 @@
   },
 
   "pricing": {
-    "title": "Harga",
-    "lead": "Paket sederhana dan transparan yang tumbuh bersama kamu.",
-    "billing": { "monthly": "Bulanan", "yearly": "Tahunan", "save": "Hemat 20%" },
+  "hero": {
+    "title": "Pilih paket yang sesuai untuk Anda",
+    "lead": "Dari pribadi hingga profesional — bantu informasi Anda ditemukan lebih cepat."
+  },
+  "cta": {
+    "coming": "Segera Hadir",
+    "openWeb": "Buka Web",
+    "notify": "Ikuti notifikasi"
+  },
+  "billing": {
+    "monthly": "Bulanan",
+    "yearly": "Tahunan",
+    "save": "Hemat 20%"
+  },
+  "price": {
+    "freeTail": "/ gratis selamanya",
+    "tail": "/ bulan",
+    "tailYear": "/ tahun"
+  },
+  "plans": {
     "free": {
       "title": "Gratis",
-      "perma": "/ selamanya",
-      "f1": "Pencarian tanpa batas",
-      "f2": "Tag & koleksi dasar",
-      "f3": "Ekspor CSV/JSON",
-      "cta": "Segera hadir"
+      "subtitle": "Tanpa instalasi. Coba fitur inti sekarang.",
+      "f1": "Pencarian dasar",
+      "f2": "Manajemen berbasis kartu",
+      "f3": "3 bahasa (EN / 繁 / 简)",
+      "f4": "Ekspor CSV",
+      "f5": "Satu perangkat",
+      "f6": "Akses versi Web"
+    },
+    "plus": {
+      "title": "Plus",
+      "subtitle": "Fitur canggih untuk pribadi.",
+      "f0": "Semua dalam Gratis",
+      "f1": "16 bahasa",
+      "f2": "Pencarian lanjutan (Path / Tag / kondisi)",
+      "f3": "Tema (Hitam/Emas, Biru Tua, Kontras Tinggi)",
+      "f4": "Ekspor CSV / JSON",
+      "f5": "Lihat detail kartu (gambar, PDF, dll.)"
     },
     "pro": {
-      "badge": "Paling Populer",
       "title": "Pro",
-      "permonth": "/ bulan",
-      "f1": "Semua di Paket Gratis",
-      "f2": "UI multibahasa",
-      "f3": "Pengingat & filter pintar",
-      "f4": "Dukungan prioritas",
-      "cta": "Segera hadir"
-    },
-    "faq": {
-      "refunds": { "q": "Apakah ada pengembalian dana?", "a": "Jika tidak puas, hubungi kami dalam 14 hari. Kami akan membantu." },
-      "switch": { "q": "Bisa ganti paket nanti?", "a": "Bisa. Kamu dapat upgrade atau batalkan kapan saja." }
-    },
-    "final": {
-      "title": "Mulai mencari lebih cerdas",
-      "lead": "KeySearch gratis untuk dicoba. Upgrade saat siap.",
-      "cta": { "download": "Segera hadir", "openweb": "Buka Web" }
+      "badge": "Paling Populer",
+      "subtitle": "Siap untuk kolaborasi tim.",
+      "f0": "Semua dalam Gratis + Plus",
+      "f1": "Sinkronisasi multi-perangkat (Web + Desktop)",
+      "f2": "Dukungan prioritas",
+      "f3": "Akses awal Beta",
+      "f4": "Ekspor tanpa batas"
     }
   },
+  "table": {
+    "feature": "Fitur",
+    "speed": "Kecepatan pencarian",
+    "langs": "Bahasa",
+    "export": "Format ekspor",
+    "sync": "Sinkronisasi multi-perangkat",
+    "cardview": "Lihat detail kartu (gambar, PDF)",
+    "support": {
+      "free": "Komunitas",
+      "plus": "Standar",
+      "pro": "Prioritas"
+    },
+    "beta": "Akses awal Beta"
+  },
+  "faq": {
+    "title": "FAQ",
+    "q1": "Apakah Gratis selamanya?",
+    "a1": "Ya. Akan selalu ada paket Gratis.",
+    "q2": "Apa perbedaan antara Plus dan Pro?",
+    "a2": "Pro mencakup sinkronisasi multi-perangkat, dukungan prioritas, ekspor tanpa batas, dan akses awal Beta.",
+    "q3": "Apakah ada diskon tahunan?",
+    "a3": "Ya — Tahunan menghemat sekitar 20% dibandingkan pembayaran bulanan.",
+    "q4": "Kapan bisa diunduh?",
+    "a4": "Belum tersedia. Klik 'Ikuti notifikasi' untuk menerima email saat dibuka."
+  },
+  "final": {
+    "title": "Find it. Fast. Everything, in reach."
+  }
+},
 
   "about": {
     "title": "Tentang KeySearch",
