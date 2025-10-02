@@ -86,37 +86,86 @@
   },
 
   "pricing": {
-    "title": "Giá",
-    "lead": "Gói đơn giản, minh bạch và có thể mở rộng theo bạn.",
-    "billing": { "monthly": "Theo tháng", "yearly": "Theo năm", "save": "Tiết kiệm 20%" },
+  "hero": {
+    "title": "Chọn gói phù hợp với bạn",
+    "lead": "Từ cá nhân đến chuyên nghiệp — giúp thông tin của bạn được tìm thấy nhanh hơn."
+  },
+  "cta": {
+    "coming": "Sắp ra mắt",
+    "openWeb": "Mở Web",
+    "notify": "Tham gia thông báo"
+  },
+  "billing": {
+    "monthly": "Hàng tháng",
+    "yearly": "Hàng năm",
+    "save": "Tiết kiệm 20%"
+  },
+  "price": {
+    "freeTail": "/ miễn phí mãi mãi",
+    "tail": "/ tháng",
+    "tailYear": "/ năm"
+  },
+  "plans": {
     "free": {
       "title": "Miễn phí",
-      "perma": "/ trọn đời",
-      "f1": "Tìm kiếm không giới hạn",
-      "f2": "Thẻ & bộ sưu tập cơ bản",
-      "f3": "Xuất CSV/JSON",
-      "cta": "Sắp ra mắt"
+      "subtitle": "Không cần cài đặt. Trải nghiệm ngay các tính năng cốt lõi.",
+      "f1": "Tìm kiếm cơ bản",
+      "f2": "Quản lý dạng thẻ",
+      "f3": "3 ngôn ngữ (EN / 繁 / 简)",
+      "f4": "Xuất CSV",
+      "f5": "Một thiết bị",
+      "f6": "Truy cập phiên bản Web"
+    },
+    "plus": {
+      "title": "Plus",
+      "subtitle": "Các tính năng nâng cao cho cá nhân.",
+      "f0": "Bao gồm tất cả trong Miễn phí",
+      "f1": "16 ngôn ngữ",
+      "f2": "Tìm kiếm nâng cao (Path / Tag / điều kiện)",
+      "f3": "Chủ đề (Đen/Vàng, Xanh đậm, Tương phản cao)",
+      "f4": "Xuất CSV / JSON",
+      "f5": "Xem chi tiết thẻ (hình ảnh, PDF, v.v.)"
     },
     "pro": {
-      "badge": "Phổ biến nhất",
       "title": "Pro",
-      "permonth": "/ tháng",
-      "f1": "Tất cả trong gói Miễn phí",
-      "f2": "Giao diện đa ngôn ngữ",
-      "f3": "Nhắc nhở & bộ lọc thông minh",
-      "f4": "Hỗ trợ ưu tiên",
-      "cta": "Sắp ra mắt"
-    },
-    "faq": {
-      "refunds": { "q": "Có hoàn tiền không?", "a": "Nếu không hài lòng, hãy liên hệ trong 14 ngày. Chúng tôi sẽ hỗ trợ." },
-      "switch": { "q": "Tôi có thể đổi gói sau này không?", "a": "Có. Bạn có thể nâng cấp hoặc hủy bất cứ lúc nào." }
-    },
-    "final": {
-      "title": "Bắt đầu tìm thông minh hơn",
-      "lead": "KeySearch miễn phí để thử. Nâng cấp khi bạn sẵn sàng.",
-      "cta": { "download": "Sắp ra mắt", "openweb": "Mở bản Web" }
+      "badge": "Phổ biến nhất",
+      "subtitle": "Sẵn sàng cho hợp tác nhóm.",
+      "f0": "Bao gồm tất cả trong Miễn phí + Plus",
+      "f1": "Đồng bộ nhiều thiết bị (Web + Desktop)",
+      "f2": "Hỗ trợ ưu tiên",
+      "f3": "Truy cập Beta sớm",
+      "f4": "Xuất không giới hạn"
     }
   },
+  "table": {
+    "feature": "Tính năng",
+    "speed": "Tốc độ tìm kiếm",
+    "langs": "Ngôn ngữ",
+    "export": "Định dạng xuất",
+    "sync": "Đồng bộ nhiều thiết bị",
+    "cardview": "Xem chi tiết thẻ (hình ảnh, PDF)",
+    "support": {
+      "free": "Cộng đồng",
+      "plus": "Tiêu chuẩn",
+      "pro": "Ưu tiên"
+    },
+    "beta": "Truy cập Beta sớm"
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "q1": "Miễn phí có vĩnh viễn không?",
+    "a1": "Có. Luôn luôn có gói Miễn phí.",
+    "q2": "Plus và Pro khác nhau thế nào?",
+    "a2": "Pro bao gồm đồng bộ nhiều thiết bị, hỗ trợ ưu tiên, xuất không giới hạn và truy cập Beta sớm.",
+    "q3": "Có giảm giá hàng năm không?",
+    "a3": "Có. Trả hàng năm tiết kiệm khoảng 20% so với trả hàng tháng.",
+    "q4": "Khi nào có thể tải xuống?",
+    "a4": "Chưa sẵn sàng. Nhấn 'Tham gia thông báo' để nhận email khi mở."
+  },
+  "final": {
+    "title": "Find it. Fast. Everything, in reach."
+  }
+},
 
   "about": {
     "title": "Giới thiệu KeySearch",
