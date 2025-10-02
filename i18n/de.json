@@ -86,37 +86,86 @@
   },
 
   "pricing": {
-    "title": "Preise",
-    "lead": "Einfache, transparente Pläne, die mit dir wachsen.",
-    "billing": { "monthly": "Monatlich", "yearly": "Jährlich", "save": "20 % sparen" },
+  "hero": {
+    "title": "Wähle den Plan, der zu dir passt",
+    "lead": "Von persönlich bis professionell — damit deine Informationen schneller gefunden werden."
+  },
+  "cta": {
+    "coming": "Bald verfügbar",
+    "openWeb": "Web öffnen",
+    "notify": "Benachrichtigungen abonnieren"
+  },
+  "billing": {
+    "monthly": "Monatlich",
+    "yearly": "Jährlich",
+    "save": "20% sparen"
+  },
+  "price": {
+    "freeTail": "/ für immer kostenlos",
+    "tail": "/ Monat",
+    "tailYear": "/ Jahr"
+  },
+  "plans": {
     "free": {
       "title": "Kostenlos",
-      "perma": "/ für immer",
-      "f1": "Unbegrenzte Suchen",
-      "f2": "Grundlegende Tags & Sammlungen",
-      "f3": "CSV/JSON-Export",
-      "cta": "Bald verfügbar"
+      "subtitle": "Keine Installation. Teste die Kernfunktionen jetzt.",
+      "f1": "Einfache Suche",
+      "f2": "Kartenbasierte Verwaltung",
+      "f3": "3 Sprachen (EN / 繁 / 简)",
+      "f4": "CSV-Export",
+      "f5": "Einzelgerät",
+      "f6": "Web-Version Zugriff"
+    },
+    "plus": {
+      "title": "Plus",
+      "subtitle": "Leistungsfunktionen für Einzelpersonen.",
+      "f0": "Alles in Kostenlos",
+      "f1": "16 Sprachen",
+      "f2": "Erweiterte Suche (Path / Tag / Bedingungen)",
+      "f3": "Themen (Schwarz/Gold, Dunkelblau, Hoher Kontrast)",
+      "f4": "CSV / JSON Export",
+      "f5": "Kartendetails anzeigen (Bilder, PDFs, usw.)"
     },
     "pro": {
-      "badge": "Am beliebtesten",
       "title": "Pro",
-      "permonth": "/ Monat",
-      "f1": "Alles aus Kostenlos",
-      "f2": "Mehrsprachige UI",
-      "f3": "Erinnerungen & smarte Filter",
-      "f4": "Priorisierter Support",
-      "cta": "Bald verfügbar"
-    },
-    "faq": {
-      "refunds": { "q": "Bietet ihr Rückerstattungen an?", "a": "Wenn du unzufrieden bist, kontaktiere uns innerhalb von 14 Tagen. Wir helfen weiter." },
-      "switch": { "q": "Kann ich später den Tarif wechseln?", "a": "Ja. Du kannst jederzeit upgraden oder kündigen." }
-    },
-    "final": {
-      "title": "Schlauer suchen",
-      "lead": "KeySearch kostenlos testen. Upgrade, wenn du bereit bist.",
-      "cta": { "download": "Bald verfügbar", "openweb": "Web öffnen" }
+      "badge": "Am beliebtesten",
+      "subtitle": "Bereit für Teamzusammenarbeit.",
+      "f0": "Alles in Kostenlos + Plus",
+      "f1": "Multi-Gerät Synchronisation (Web + Desktop)",
+      "f2": "Priorisierter Support",
+      "f3": "Früher Zugriff auf Beta-Funktionen",
+      "f4": "Unbegrenzter Export"
     }
   },
+  "table": {
+    "feature": "Funktion",
+    "speed": "Suchgeschwindigkeit",
+    "langs": "Sprachen",
+    "export": "Exportformate",
+    "sync": "Multi-Gerät Synchronisation",
+    "cardview": "Kartendetails anzeigen (Bilder, PDFs)",
+    "support": {
+      "free": "Community",
+      "plus": "Standard",
+      "pro": "Priorisiert"
+    },
+    "beta": "Früher Beta-Zugang"
+  },
+  "faq": {
+    "title": "FAQ",
+    "q1": "Ist Kostenlos für immer?",
+    "a1": "Ja. Es wird immer einen kostenlosen Plan geben.",
+    "q2": "Was ist der Unterschied zwischen Plus und Pro?",
+    "a2": "Pro enthält Multi-Gerät Synchronisation, priorisierten Support, unbegrenzten Export und frühen Beta-Zugang.",
+    "q3": "Gibt es einen Jahresrabatt?",
+    "a3": "Ja — Jährlich spart ca. 20% im Vergleich zur monatlichen Zahlung.",
+    "q4": "Wann kann ich herunterladen?",
+    "a4": "Noch nicht. Klicke auf 'Benachrichtigungen abonnieren', um eine E-Mail zu erhalten, sobald der Zugang geöffnet wird."
+  },
+  "final": {
+    "title": "Find it. Fast. Everything, in reach."
+  }
+},
 
   "about": {
     "title": "Über KeySearch",
