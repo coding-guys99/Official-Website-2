@@ -86,37 +86,86 @@
   },
 
   "pricing": {
-    "title": "Harga",
-    "lead": "Pelan ringkas dan telus yang berkembang bersama anda.",
-    "billing": { "monthly": "Bulanan", "yearly": "Tahunan", "save": "Jimat 20%" },
+  "hero": {
+    "title": "Pilih pelan yang sesuai untuk anda",
+    "lead": "Daripada peribadi hingga profesional — bantu maklumat anda ditemui lebih pantas."
+  },
+  "cta": {
+    "coming": "Akan Datang",
+    "openWeb": "Buka Web",
+    "notify": "Sertai pemberitahuan"
+  },
+  "billing": {
+    "monthly": "Bulanan",
+    "yearly": "Tahunan",
+    "save": "Jimat 20%"
+  },
+  "price": {
+    "freeTail": "/ percuma selamanya",
+    "tail": "/ bulan",
+    "tailYear": "/ tahun"
+  },
+  "plans": {
     "free": {
       "title": "Percuma",
-      "perma": "/ selama-lamanya",
-      "f1": "Carian tanpa had",
-      "f2": "Tag & koleksi asas",
-      "f3": "Eksport CSV/JSON",
-      "cta": "Akan datang"
+      "subtitle": "Tiada pemasangan. Cuba fungsi teras sekarang.",
+      "f1": "Carian asas",
+      "f2": "Pengurusan berasaskan kad",
+      "f3": "3 bahasa (EN / 繁 / 简)",
+      "f4": "Eksport CSV",
+      "f5": "Peranti tunggal",
+      "f6": "Akses versi Web"
+    },
+    "plus": {
+      "title": "Plus",
+      "subtitle": "Ciri berkuasa untuk peribadi.",
+      "f0": "Segala dalam Percuma",
+      "f1": "16 bahasa",
+      "f2": "Carian lanjutan (Path / Tag / syarat)",
+      "f3": "Tema (Hitam/Emas, Biru Gelap, Kontras Tinggi)",
+      "f4": "Eksport CSV / JSON",
+      "f5": "Lihat butiran kad (imej, PDF, dsb.)"
     },
     "pro": {
-      "badge": "Paling Popular",
       "title": "Pro",
-      "permonth": "/ bulan",
-      "f1": "Semua dalam Percuma",
-      "f2": "UI berbilang bahasa",
-      "f3": "Peringatan & penapis pintar",
-      "f4": "Sokongan keutamaan",
-      "cta": "Akan datang"
-    },
-    "faq": {
-      "refunds": { "q": "Ada bayaran balik?", "a": "Jika anda tidak berpuas hati, hubungi kami dalam 14 hari. Kami akan bantu." },
-      "switch": { "q": "Boleh tukar pelan kemudian?", "a": "Boleh. Anda boleh naik taraf atau batal pada bila-bila masa." }
-    },
-    "final": {
-      "title": "Mula mencari dengan lebih bijak",
-      "lead": "KeySearch boleh dicuba secara percuma. Naik taraf apabila anda bersedia.",
-      "cta": { "download": "Akan datang", "openweb": "Buka Web" }
+      "badge": "Paling Popular",
+      "subtitle": "Sedia untuk kolaborasi pasukan.",
+      "f0": "Segala dalam Percuma + Plus",
+      "f1": "Penyegerakan pelbagai peranti (Web + Desktop)",
+      "f2": "Sokongan keutamaan",
+      "f3": "Akses awal Beta",
+      "f4": "Eksport tanpa had"
     }
   },
+  "table": {
+    "feature": "Ciri",
+    "speed": "Kelajuan carian",
+    "langs": "Bahasa",
+    "export": "Format eksport",
+    "sync": "Penyegerakan pelbagai peranti",
+    "cardview": "Lihat butiran kad (imej, PDF)",
+    "support": {
+      "free": "Komuniti",
+      "plus": "Standard",
+      "pro": "Keutamaan"
+    },
+    "beta": "Akses awal Beta"
+  },
+  "faq": {
+    "title": "Soalan Lazim",
+    "q1": "Adakah Percuma selamanya?",
+    "a1": "Ya. Pelan Percuma akan sentiasa ada.",
+    "q2": "Apakah perbezaan antara Plus dan Pro?",
+    "a2": "Pro termasuk penyegerakan pelbagai peranti, sokongan keutamaan, eksport tanpa had dan akses awal Beta.",
+    "q3": "Adakah terdapat diskaun tahunan?",
+    "a3": "Ya — Tahunan menjimatkan kira-kira 20% berbanding bayaran bulanan.",
+    "q4": "Bila boleh dimuat turun?",
+    "a4": "Belum lagi. Klik 'Sertai pemberitahuan' untuk menerima e-mel apabila dibuka."
+  },
+  "final": {
+    "title": "Find it. Fast. Everything, in reach."
+  }
+},
 
   "about": {
     "title": "Tentang KeySearch",
